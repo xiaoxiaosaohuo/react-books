@@ -1,0 +1,1 @@
+container._reactRootContainer._internalRoot可以访问到root节点的fiberRoot对象

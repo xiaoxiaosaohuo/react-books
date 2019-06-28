@@ -1,0 +1,19 @@
+调度任务从根节点（root）开始，按照深度优先遍历执行，根节点可以理解为ReactDOM.render(<App/>, document.getElementById('root'))所创建，正常来说一个项目应该只有一个
+一个调度任务可能会包含多个root，执行完高优先级root，才能执行下一个root，高优先级root也是可以插队的
+fiber.expirationTime属性代表该fiber的优先级，数值越大，优先级越高，通过当前时间减超时时间获得，同步任务优先级默认为最高
+react当前时间是倒着走的，当前时间初始为一个极大值，随着时间流逝，当前时间越来越小；任务（fiber）的优先级是根据当前时间减超时时间计算，如当前时间10000，任务超时时间500，当前任务优先级算法10000-500=9500；新任务来临，时间流逝，当前时间变为9500，超时时间不变，新任务优先级算法9500-500=9000；新任务优先级低于原任务；
+
+注意：当时间来到9500时，老任务超时，自动获得最高优先级，因为所有新任务除同步任务外优先级永远不会超过老任务，react以这套时间规则来防止低优先级任务一直被插队
+fiber.childExpirationTime属性代表该fiber的子节点优先级，该属性可以用来判断fiber的子节点还有没有任务或比较优先级，更新时若没有任务（fiber.childExpirationTime===0）或者本次渲染的优先级大于子节点优先级，那么不必再往下遍历
+当某组件（fiber）触发了任务时，会往上遍历，将fiber.return.expirationTime和fiber.return.childExpirationTime全部更新为该组件的expirationTime，一直到root，可以理解为在root上收集更新
+fiber有个alternate属性，实际上是fiber的复制体，同时也指向本体，用于react error boundary踩错误，随时回滚，执行完毕且无误后本体与复制体同步；在初始化时，react并不创建alternate，而在更新时创建
+
+
+
+animationTick 结合 idleTick 形成消息传递事件的发送方和接收方，同时也分别是 requestAnimationFrame 回调函数和触发函数。通过 messageKey 来识别是否是通知的自己。idleTick 里面的循环判断和 timeRemaining 相同，判断是否有空闲时间，有才进行 callUnsafely，执行 callbac
+
+
+
+首先判断currentDidTimeout，currentDidTimeout为false说明任务没有过期，大家要知道过期任务拥有最高优先级，那么即使有更高级的任务依然无法打断，直接return false；
+再判断firstCallbackNode.expirationTime < currentExpirationTime，这里实际上是照顾一种特殊的情况，那就是一个最高优先级的任务插入之后，低优先级的任务还在运行中，这种情况是仍然需要打断的；这里firstCallbackNode其实是那个插入的高优先级任务，而currentExpirationTime其实是上一个任务的expirationTime，只是还没结算；
+最后是一个shouldYieldToHost()，很简单，就是看任务在帧内是否过期，注意到这边任务帧内过期的话是return true，代表直接就能被打断；
