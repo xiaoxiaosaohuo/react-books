@@ -190,7 +190,77 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <p>&#x5728;react.js&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x51FA;&#x4E86;React&#x7684;&#x4E00;&#x4E9B;API</p>
+<pre><code>var React = {
+  Children: {
+    map: mapChildren,
+    forEach: forEachChildren,
+    count: countChildren,
+    toArray: toArray,
+    only: onlyChild
+  },
+
+  createRef: createRef,
+  Component: Component,
+  PureComponent: PureComponent,
+
+  createContext: createContext,
+  forwardRef: forwardRef,
+  lazy: lazy,
+  memo: memo,
+
+  useCallback: useCallback,
+  useContext: useContext,
+  useEffect: useEffect,
+  useImperativeHandle: useImperativeHandle,
+  useDebugValue: useDebugValue,
+  useLayoutEffect: useLayoutEffect,
+  useMemo: useMemo,
+  useReducer: useReducer,
+  useRef: useRef,
+  useState: useState,
+
+  Fragment: REACT_FRAGMENT_TYPE,
+  StrictMode: REACT_STRICT_MODE_TYPE,
+  Suspense: REACT_SUSPENSE_TYPE,
+
+  createElement: createElementWithValidation,
+  cloneElement: cloneElementWithValidation,
+  createFactory: createFactoryWithValidation,
+  isValidElement: isValidElement,
+
+  version: ReactVersion,
+
+  unstable_ConcurrentMode: REACT_CONCURRENT_MODE_TYPE,
+  unstable_Profiler: REACT_PROFILER_TYPE,
+
+  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals
+};
+</code></pre><h3 id="children">Children</h3>
+<p>&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x5904;&#x7406;props.children&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x5E38;&#x89C1;&#x7684;</p>
+<pre><code>this.props.children.map
+this.props.children.forEach
+this.props.only
+</code></pre><h3 id="createref">createRef</h3>
+<p>&#x65B0;&#x7684;ref&#x7528;&#x6CD5;&#xFF0C;React&#x5373;&#x5C06;&#x629B;&#x5F03;<div ref="myDiv">&#x8FD9;&#x79CD;string ref&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x5C06;&#x6765;&#x4F60;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x4F7F;&#x7528;ref</div></p>
+<pre><code>class App extends React.Component{
+
+  constructor() {
+    this.ref = React.createRef()
+  }
+
+  render() {
+    return &lt;div ref={this.ref} /&gt;
+    // or
+    return &lt;div ref={(node) =&gt; this.divRef = node} /&gt;
+  }
+
+}
+</code></pre><h3 id="component--purecomponent">Component &amp; PureComponent</h3>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x7EC4;&#x4EF6;&#x57FA;&#x672C;&#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x662F;PureComponent&#x7EC4;&#x4EF6;&#x7684;&#x539F;&#x578B;&#x4E0A;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x6807;&#x8BC6;</p>
+<pre><code>pureComponentPrototype.isPureReactComponent = true;
+</code></pre><p>&#x5982;&#x679C;&#x662F;PureComponent&#x7684;&#x8BDD;&#x5C31;shallowEqual&#x6BD4;&#x8F83;state&#x548C;props&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -229,7 +299,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ReactAPI","level":"1.2.2","depth":2,"previous":{"title":"项目结构","level":"1.2.1","depth":2,"path":"chapter1/project.md","ref":"chapter1/project.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactAPI.md","mtime":"2019-06-28T15:39:12.483Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-28T15:40:49.503Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ReactAPI","level":"1.2.2","depth":2,"previous":{"title":"项目结构","level":"1.2.1","depth":2,"path":"chapter1/project.md","ref":"chapter1/project.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactAPI.md","mtime":"2019-06-30T06:38:34.332Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-01T02:41:32.406Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
