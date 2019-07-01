@@ -81,7 +81,7 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
 ### 指定 React 元素类型
 JSX 标签的第一部分指定了 React 元素的类型。
 
-大写字母开头的 JSX 标签意味着它们是 React 组件。这些标签会被编译为对命名变量的直接引用，所以，当你使用 JSX <Foo /> 表达式时，Foo 必须包含在作用域内。
+大写字母开头的 JSX 标签意味着它们是 React 组件。这些标签会被编译为对命名变量的直接引用，所以，当你使用 JSX ```<Foo />``` 表达式时，Foo 必须包含在作用域内。
 
 ### React 必须在作用域内
 
@@ -97,6 +97,6 @@ function WarningButton() {
   return <CustomButton color="red" />;
 }
 ```
-如果你不使用 JavaScript 打包工具而是直接通过 <script> 标签加载 React，则必须将 React 挂载到全局变量中。
+如果你不使用 JavaScript 打包工具而是直接通过 ```<script>``` 标签加载 React，则必须将 React 挂载到全局变量中。
 
 
