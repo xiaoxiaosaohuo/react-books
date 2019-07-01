@@ -1,0 +1,363 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ReactElement · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="ReactAPI.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="project.html">
+            
+                <a href="project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ReactAPI.html">
+            
+                <a href="ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="ReactElement.html">
+            
+                <a href="ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ReactElement</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x5199;React &#x90FD;&#x662F;&#x7528;&#x7684;JSX</p>
+<p>JSX&#x4E3A;&#x521B;&#x5EFA;&#x5143;&#x7D20;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;babel&#x4F1A;&#x5E2E;&#x6211;&#x4EEC;&#x8C03;&#x7528; React.createElement&#x5BF9;JSX&#x8BED;&#x6CD5;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;</p>
+<pre><code>render(){
+  return(
+    &lt;div&gt;
+    &lt;input value=&quot;foo&quot; type=&quot;text/&gt;
+    &lt;span onClick=&quot;(e)=&gt;alert(&quot;Hello)&quot;&gt;click me&lt;/span&gt;
+    &lt;/div&gt;
+  )
+}
+--------&#x8C03;&#x7528;createElemet&#x65B9;&#x6CD5;--------
+ createElement(
+    &quot;div&quot;,
+    {id:&quot;container&quot;},
+    createElement(
+        &quot;input&quot;,
+        {value:&quot;foo&quot;,type:&quot;text&quot;}
+        ),
+    createElement(
+        &quot;span&quot;,
+        {onClick:e=&gt; alert(&quot;Hello React&quot;)},
+        children:&quot;click me&quot;
+    ) 
+)
+--------creteElement&#x5185;&#x90E8;&#x8C03;&#x7528;ReactElement&#x65B9;&#x6CD5;,&#x6700;&#x7EC8;&#x5904;&#x7406;&#x6210;&#x666E;&#x901A;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+
+{
+    type:&quot;div&quot;,
+    props:{
+        id:&quot;container&quot;,
+        children:[
+            {
+                type:&quot;input&quot;,
+                props:{value:&quot;foo&quot;,type:&quot;text&quot;}
+            },
+            {
+                type:&quot;span&quot;
+                props:{
+                    onClick:e=&gt; alert(&quot;Hello React&quot;),
+                    children:&quot;click me&quot;
+                }
+            }
+        ]
+    }
+}
+</code></pre><p>&#x4E0A;&#x9762;&#x53EA;&#x6709;type,props&#x8FD9;&#x51E0;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x5176;&#x5B9E;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>var ReactElement = function (type, key, ref, self, source, owner, props) {
+  var element = {
+    // This tag allows us to uniquely identify this as a React Element
+    $$typeof: REACT_ELEMENT_TYPE,
+
+    // Built-in properties that belong on the element
+    type: type,
+    key: key,
+    ref: ref,
+    props: props,
+
+    // Record the component responsible for creating this element.
+    _owner: owner
+  };
+</code></pre><ul>
+<li>type&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x4E8E;&#x5224;&#x65AD;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x8282;&#x70B9;</li>
+<li>props&#x65B0;&#x7684;&#x5C5E;&#x6027;&#x5185;&#x5BB9;</li>
+<li>key &#x552F;&#x4E00;&#x6807;&#x8BC6;</li>
+<li>ref refs &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x8BBF;&#x95EE; DOM &#x8282;&#x70B9;&#x6216;&#x5728; render &#x65B9;&#x6CD5;&#x4E2D;&#x521B;&#x5EFA;&#x7684; React &#x5143;&#x7D20;&#x3002;</li>
+<li>$$typeof&#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x5C5E;&#x4E8E;ReactElement</li>
+</ul>
+<p>&#x5176;&#x5B9E;&#x8FD9;&#x5C31;&#x662F;virtual Dom &#xFF0C;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x548C;&#x539F;&#x751F;dom&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#xFF0C;React&#x5728;reconcilation&#x8FC7;&#x7A0B;&#x4E2D;&#x4F1A;&#x5BF9;&#x6BD4;Virtual dom &#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x627E;&#x51FA;&#x5DEE;&#x5F02;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8FD0;&#x7528;&#x5230;&#x771F;&#x662F;&#x7684;dom&#x4E0A;&#xFF0C;&#x6BD4;&#x5982;&#x65B0;&#x5EFA;&#xFF0C;&#x66F4;&#x65B0;&#xFF0C;&#x5220;&#x9664;&#x7B49;&#x3002;</p>
+<h3 id="&#x6307;&#x5B9A;-react-&#x5143;&#x7D20;&#x7C7B;&#x578B;">&#x6307;&#x5B9A; React &#x5143;&#x7D20;&#x7C7B;&#x578B;</h3>
+<p>JSX &#x6807;&#x7B7E;&#x7684;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x6307;&#x5B9A;&#x4E86; React &#x5143;&#x7D20;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x5F00;&#x5934;&#x7684; JSX &#x6807;&#x7B7E;&#x610F;&#x5473;&#x7740;&#x5B83;&#x4EEC;&#x662F; React &#x7EC4;&#x4EF6;&#x3002;&#x8FD9;&#x4E9B;&#x6807;&#x7B7E;&#x4F1A;&#x88AB;&#x7F16;&#x8BD1;&#x4E3A;&#x5BF9;&#x547D;&#x540D;&#x53D8;&#x91CF;&#x7684;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5F53;&#x4F60;&#x4F7F;&#x7528; JSX <foo> &#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#xFF0C;Foo &#x5FC5;&#x987B;&#x5305;&#x542B;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x3002;</foo></p>
+<h3 id="react-&#x5FC5;&#x987B;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x5185;">React &#x5FC5;&#x987B;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x5185;</h3>
+<p>&#x7531;&#x4E8E; JSX &#x4F1A;&#x7F16;&#x8BD1;&#x4E3A; React.createElement &#x8C03;&#x7528;&#x5F62;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5; React &#x5E93;&#x4E5F;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x5728; JSX &#x4EE3;&#x7801;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x867D;&#x7136; React &#x548C; CustomButton &#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x5BFC;&#x5165;&#xFF1A;</p>
+<pre><code>import React from &apos;react&apos;;
+import CustomButton from &apos;./CustomButton&apos;;
+
+function WarningButton() {
+  // return React.createElement(CustomButton, {color: &apos;red&apos;}, null);
+  return &lt;CustomButton color=&quot;red&quot; /&gt;;
+}
+</code></pre><p>&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x4F7F;&#x7528; JavaScript &#x6253;&#x5305;&#x5DE5;&#x5177;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x901A;&#x8FC7; <script> 标签加载 React，则必须将 React 挂载到全局变量中。</p>
+</script></p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ReactAPI.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ReactAPI">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ReactElement","level":"1.2.3","depth":2,"previous":{"title":"ReactAPI","level":"1.2.2","depth":2,"path":"chapter1/ReactAPI.md","ref":"chapter1/ReactAPI.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactElement.md","mtime":"2019-07-01T02:41:40.333Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-01T02:46:06.831Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
