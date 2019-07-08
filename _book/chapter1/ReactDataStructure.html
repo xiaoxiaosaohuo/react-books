@@ -1,0 +1,465 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>React中的数据结构 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="ReactElement.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="project.html">
+            
+                <a href="project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ReactAPI.html">
+            
+                <a href="ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ReactElement.html">
+            
+                <a href="ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="ReactDataStructure.html">
+            
+                <a href="ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >React中的数据结构</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="fiber">Fiber</h2>
+<p>React&#x56E2;&#x961F;&#x91CD;&#x5199;&#x4E86;React &#x7684;&#x6838;&#x5FC3;&#x7B97;&#x6CD5;---reconciliation,&#x4E00;&#x822C;&#x5C06;&#x4E4B;&#x524D;&#x7684;&#x7B97;&#x6CD5;&#x53EB;stack reconciliation&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x53EB;fiber reconciliation&#x3002;</p>
+<h4 id="stack-reconciliation">Stack reconciliation</h4>
+<p>&#x7B97;&#x6CD5;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x548C;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#xFF0C;react&#x5728;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x65F6;&#xFF0C;&#x4ECE;setState&#x5F00;&#x59CB;&#x5230;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x6682;&#x505C;&#xFF0C;&#x77E5;&#x9053;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x5B8C;&#x6210;&#xFF0C;&#x5982;&#x679C;&#x7EC4;&#x4EF6;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;js&#x7684;&#x6267;&#x884C;&#x4F1A;&#x5360;&#x7528;&#x4E3B;&#x7EBF;&#x7A0B;&#x8FC7;&#x591A;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x4E22;&#x5E27;&#x3002;</p>
+<h4 id="fiber-reconciliation">Fiber reconciliation</h4>
+<p>Fiber&#x7684;&#x7279;&#x70B9;</p>
+<ul>
+<li>&#x6682;&#x505C;&#x5DE5;&#x4F5C;&#xFF0C;&#x5E76;&#x5728;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x518D;&#x6B21;&#x5F00;&#x59CB;&#xFF1B;</li>
+<li>&#x53EF;&#x4EE5;&#x4E3A;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x5DE5;&#x4F5C;&#x8BBE;&#x7F6E;&#x4F18;&#x5148;&#x7EA7;&#xFF1B;</li>
+<li>&#x590D;&#x7528;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;&#xFF1B;</li>
+<li>&#x4E2D;&#x6B62;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</li>
+</ul>
+<p>React&#x5C06;&#x4EFB;&#x52A1;&#x5206;&#x6210;&#x5C0F;&#x7247;&#xFF0C;&#x5728;&#x4E00;&#x5C0F;&#x7247;&#x6BB5;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#x5206;&#x7247;&#x4EFB;&#x52A1;&#xFF0C;&#x8BA9;&#x4E3B;&#x7EBF;&#x7A0B;&#x505A;&#x4F18;&#x5148;&#x7EA7;&#x66F4;&#x9AD8;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4EFB;&#x4F55;&#x5F85;&#x5904;&#x7406;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5C31;&#x56DE;&#x6765;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x7528;&#x4E00;&#x5F20;&#x7ECF;&#x5178;&#x7684;&#x56FE;&#x6765;&#x6982;&#x62EC;&#x5C31;&#x662F;&#x8FD9;&#x6837;</p>
+<p><img src="../images/fiber01.png" alt="&#x7ED3;&#x6784;"></p>
+<p>&#x4E00;&#x4E2A;Fiber&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#xFF0C; React &#x7684;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x6982;&#x5FF5;&#x662F; UI &#x662F;&#x6570;&#x636E;&#x7684;&#x6295;&#x5F71; &#xFF0C;&#x7EC4;&#x4EF6;&#x7684;&#x672C;&#x8D28;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x8F93;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x8F93;&#x51FA;UI&#x7684;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#xFF08;&#x865A;&#x62DF;DOM&#x6811;&#xFF09;&#xFF0C;&#x5373;&#xFF1A;</p>
+<pre><code>ui = f(data)
+</code></pre><p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6E32;&#x67D3;&#x4E00;&#x4E2A; React app&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x5728;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x4F1A;&#x8C03;&#x7528;&#x5176;&#x5B83;&#x51FD;&#x6570;&#xFF0C;&#x5F62;&#x6210;&#x8C03;&#x7528;&#x6808;&#xFF0C;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x5BFC;&#x81F4;&#x7684;&#x8C03;&#x7528;&#x6808;&#x6211;&#x4EEC;&#x672C;&#x8EAB;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#xFF0C; &#x53EA;&#x80FD;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x3002;&#x800C; Fiber &#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x75DB;&#x70B9;&#xFF0C;&#x53EF;&#x4EE5;&#x53BB;&#x6309;&#x9700;&#x8981;&#x6253;&#x65AD;&#x8C03;&#x7528;&#x6808;&#xFF0C;&#x624B;&#x52A8;&#x63A7;&#x5236; stack frame&#x2014;&#x2014;&#x5C31;&#x8FD9;&#x70B9;&#x6765;&#x8BF4;&#xFF0C;Fiber &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A; virtual stack frame&#x3002;</p>
+<h2 id="fiber&#x7684;&#x7ED3;&#x6784;">Fiber&#x7684;&#x7ED3;&#x6784;</h2>
+<p>&#x666E;&#x901A;&#x7684;js&#x5BF9;&#x8C61; ,&#x5B83;&#x5305;&#x542B;&#x6709;&#x5173;&#x7EC4;&#x4EF6;&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x4FE1;&#x606F;&#x3002;
+&#x4E0B;&#x9762;&#x662F;fiber&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>type</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tag</td>
+<td>Number</td>
+<td>FiberNode&#x7684;&#x7C7B;&#x578B;,&#x5982;HostRoot,HostComponent&#xFF0C;HostText&#x7B49;&#x6709;21&#x79CD;</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>ReactElement&#x91CC;&#x9762;&#x7684;key</td>
+</tr>
+<tr>
+<td>elementType</td>
+<td>ReactElement.type</td>
+<td>&#x6211;&#x4EEC;&#x8C03;&#x7528;<code>createElement</code>&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;</td>
+</tr>
+<tr>
+<td>type</td>
+<td>function/class</td>
+<td>&#x5F02;&#x6B65;&#x7EC4;&#x4EF6;resolved&#x4E4B;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x822C;&#x662F;<code>function</code>&#x6216;&#x8005;<code>class</code></td>
+</tr>
+<tr>
+<td>stateNode</td>
+<td>&#xFF08;FiberRoot&#xFF0C;DomElement&#xFF0C;ReactComponentInstance&#xFF09;</td>
+<td>FiberNode&#x4F1A;&#x901A;&#x8FC7;stateNode&#x7ED1;&#x5B9A;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;FiberNode&#x5BF9;&#x5E94;&#x7684;Dom&#x3001;FiberRoot&#x3001;ReactComponent&#x5B9E;&#x4F8B;</td>
+</tr>
+<tr>
+<td>return</td>
+<td>FiberNode&#x6216;null</td>
+<td>&#x8868;&#x793A;&#x7236;&#x7EA7; FiberNode</td>
+</tr>
+<tr>
+<td>child</td>
+<td>FiberNode&#x6216;null</td>
+<td>&#x8868;&#x793A;&#x7B2C;&#x4E00;&#x4E2A;&#x5B50; FiberNode</td>
+</tr>
+<tr>
+<td>sibling</td>
+<td>FiberNode&#x6216;null</td>
+<td>&#x8868;&#x793A;&#x7D27;&#x7D27;&#x76F8;&#x90BB;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5144;&#x5F1F; FiberNode</td>
+</tr>
+<tr>
+<td>alternate</td>
+<td>FiberNode&#x6216;null</td>
+<td>Fiber&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x91C7;&#x53D6;&#x4E86;&#x53CC;&#x7F13;&#x51B2;&#x6C60;&#x7B97;&#x6CD5;&#xFF0C;current&#x7684;alternate&#x6307;&#x5411;workInProgerss ,&#x800C;workInProgress&#x7684;alternate&#x6307;&#x5411;current&#xFF0C;&#x5728;&#x521B;&#x5EFA;workInProgerss&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5C3D;&#x91CF;&#x91CD;&#x7528;current.alternate</td>
+</tr>
+<tr>
+<td>pendingProps</td>
+<td>Object</td>
+<td>&#x8868;&#x793A;&#x65B0;&#x7684;props,&#x6765;&#x81EA;element&#x7684;props</td>
+</tr>
+<tr>
+<td>memoizedProps</td>
+<td>Object</td>
+<td>&#x8868;&#x793A;&#x4E0A;&#x4E00;&#x6B21;render&#x65F6;&#x7684;props</td>
+</tr>
+<tr>
+<td>memoizedState</td>
+<td>Object</td>
+<td>&#x8868;&#x793A;&#x5904;&#x7406;&#x540E;&#x7684;&#x65B0;state</td>
+</tr>
+<tr>
+<td>updateQueue</td>
+<td>UpdateQueue</td>
+<td>&#x66F4;&#x65B0;&#x961F;&#x5217;&#xFF0C;&#x961F;&#x5217;&#x5185;&#x653E;&#x7740;&#x5373;&#x5C06;&#x8981;&#x53D1;&#x751F;&#x7684;&#x53D8;&#x66F4;&#x72B6;&#x6001;</td>
+</tr>
+<tr>
+<td>effectTag</td>
+<td>Number</td>
+<td>16&#x8FDB;&#x5236;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x6807;&#x8BC6;n&#x4E2A;&#x52A8;&#x4F5C;&#xFF0C;&#x5982;Placement&#x3001;Update&#x3001;Deletion&#x3001;Callback&#x2026;&#x2026;&#x6240;&#x4EE5;&#x6E90;&#x7801;&#x4E2D;&#x770B;&#x5230;&#x5F88;&#x591A; &amp;=</td>
+</tr>
+<tr>
+<td>firstEffect</td>
+<td>FiberNode&#xFF0C;null</td>
+<td>&#x4E0E;&#x526F;&#x4F5C;&#x7528;&#x64CD;&#x4F5C;&#x904D;&#x5386;&#x6D41;&#x7A0B;&#x76F8;&#x5173; &#x5F53;&#x524D;&#x8282;&#x70B9;&#x4E0B;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;side effect</td>
+</tr>
+<tr>
+<td>nextEffect</td>
+<td>FiberNode&#xFF0C;null</td>
+<td>&#x8868;&#x793A;&#x4E0B;&#x4E00;&#x4E2A;&#x5C06;&#x8981;&#x5904;&#x7406;&#x7684;side effect</td>
+</tr>
+<tr>
+<td>lastEffect</td>
+<td>FiberNode&#xFF0C;null</td>
+<td>&#x8868;&#x793A;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5C06;&#x8981;&#x5904;&#x7406;&#x7684;side effect</td>
+</tr>
+<tr>
+<td>pendingWorkPriority</td>
+<td>number</td>
+<td>&#x5DE5;&#x4F5C;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x6570;&#x5B57;&#x8D8A;&#x5927;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x8D8A;&#x5927;</td>
+</tr>
+<tr>
+<td>expirationTime</td>
+<td>number</td>
+<td>&#x4EE3;&#x8868;&#x4EFB;&#x52A1;&#x5728;&#x672A;&#x6765;&#x7684;&#x54EA;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x5E94;&#x8BE5;&#x88AB;&#x5B8C;&#x6210;</td>
+</tr>
+<tr>
+<td>childExpirationTime</td>
+<td>number</td>
+<td>&#x5FEB;&#x901F;&#x786E;&#x5B9A;&#x5B50;&#x6811;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x4E0D;&#x5728;&#x7B49;&#x5F85;&#x7684;&#x53D8;&#x5316;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="effecttag">EffectTag</h2>
+<pre><code>export type SideEffectTag = number;
+
+// Don&apos;t change these two values. They&apos;re used by React Dev Tools.
+export const NoEffect = /*              */ 0b000000000000;
+export const PerformedWork = /*         */ 0b000000000001;
+
+// You can change the rest (and add more).
+export const Placement = /*             */ 0b000000000010;
+export const Update = /*                */ 0b000000000100;
+export const PlacementAndUpdate = /*    */ 0b000000000110;
+export const Deletion = /*              */ 0b000000001000;
+export const ContentReset = /*          */ 0b000000010000;
+export const Callback = /*              */ 0b000000100000;
+export const DidCapture = /*            */ 0b000001000000;
+export const Ref = /*                   */ 0b000010000000;
+export const Snapshot = /*              */ 0b000100000000;
+export const Passive = /*               */ 0b001000000000;
+
+// Passive &amp; Update &amp; Callback &amp; Ref &amp; Snapshot
+export const LifecycleEffectMask = /*   */ 0b001110100100;
+
+// Union of all host effects
+export const HostEffectMask = /*        */ 0b001111111111;
+
+export const Incomplete = /*            */ 0b010000000000;
+export const ShouldCapture = /*         */ 0b100000000000;
+</code></pre><p>Hooks&#x51FA;&#x6765;&#x4E4B;&#x540E;&#x65B0;&#x589E;&#x4E86;HookEffectTag&#xFF0C;&#x7528;&#x4E8E;&#x6807;&#x8BB0;ReactHook&#x7684;effect&#x7684;tag&#xFF0C;&#x540E;&#x9762;&#x518D;&#x4F5C;&#x4ECB;&#x7ECD;</p>
+<pre><code>
+export type HookEffectTag = number;
+
+export const NoEffect = /*             */ 0b00000000;
+export const UnmountSnapshot = /*      */ 0b00000010;
+export const UnmountMutation = /*      */ 0b00000100;
+export const MountMutation = /*        */ 0b00001000;
+export const UnmountLayout = /*        */ 0b00010000;
+export const MountLayout = /*          */ 0b00100000;
+export const MountPassive = /*         */ 0b01000000;
+export const UnmountPassive = /*       */ 0b10000000;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ReactElement.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ReactElement">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"React中的数据结构","level":"1.2.4","depth":2,"previous":{"title":"ReactElement","level":"1.2.3","depth":2,"path":"chapter1/ReactElement.md","ref":"chapter1/ReactElement.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactDataStructure.md","mtime":"2019-07-08T13:52:33.891Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-08T13:53:13.883Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

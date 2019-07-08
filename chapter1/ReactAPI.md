@@ -87,3 +87,6 @@ pureComponentPrototype.isPureReactComponent = true;
 ```
 如果是PureComponent的话就shallowEqual比较state和props。
 
+
+
+其他的API请在React官方文档里看
