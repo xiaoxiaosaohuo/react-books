@@ -108,3 +108,78 @@ export const MountPassive = /*         */ 0b01000000;
 export const UnmountPassive = /*       */ 0b10000000;
 
 ```
+
+
+## FiberRoot
+
+```
+type BaseFiberRootProperties = {|
+  // The type of root (legacy, batched, concurrent, etc.)
+  tag: RootTag,
+
+  //root节点，render方法接收的第二个参数
+  containerInfo: any,
+  // 只有在持久更新中会用到，也就是不支持增量更新的平台，react-dom不会用到
+  pendingChildren: any,
+  // 当前应用对应的Fiber对象，是Root Fiber
+  current: Fiber,
+
+  pingCache:
+    | WeakMap<Thenable, Set<ExpirationTime>>
+    | Map<Thenable, Set<ExpirationTime>>
+    | null,
+
+  finishedExpirationTime: ExpirationTime,
+  // 已经完成的并准备进行commit的 work-in-progress HostRoot .
+  finishedWork: Fiber | null,
+  // 通过setTimeout设置的返回内容，如果被新的任务代替，用来取消pending状态的timeout
+  timeoutHandle: TimeoutHandle | NoTimeout,
+  // 顶层context对象，只有主动调用`renderSubtreeIntoContainer`时才会有用
+  context: Object | null,
+  pendingContext: Object | null,
+  // 确定是否应该在初始挂载时进行hydrate
+  +hydrate: boolean,
+  // 批量更新列表，此列表指示是否应延迟提交，还包含完成回调。
+  firstBatch: Batch | null,
+  // Scheduler.scheduleCallback返回的节点
+  callbackNode: *,
+  // 和root相关的回调到期时间
+  callbackExpirationTime: ExpirationTime,
+  // 树中最早的挂起到期时间
+  firstPendingTime: ExpirationTime,
+  // 树中最新的挂起到期时间
+  lastPendingTime: ExpirationTime,
+  // The time at which a suspended component pinged the root to render again
+  pingTime: ExpirationTime,
+|};
+```
+
+## ReactWorkTag
+
+```
+export const FunctionComponent = 0;
+export const ClassComponent = 1;
+export const IndeterminateComponent = 2; // Before we know whether it is function or class
+export const HostRoot = 3; // Root of a host tree. Could be nested inside another node.
+export const HostPortal = 4; // A subtree. Could be an entry point to a different renderer.
+export const HostComponent = 5;
+export const HostText = 6;
+export const Fragment = 7;
+export const Mode = 8;
+export const ContextConsumer = 9;
+export const ContextProvider = 10;
+export const ForwardRef = 11;
+export const Profiler = 12;
+export const SuspenseComponent = 13;
+export const MemoComponent = 14;
+export const SimpleMemoComponent = 15;
+export const LazyComponent = 16;
+export const IncompleteClassComponent = 17;
+export const DehydratedSuspenseComponent = 18;
+export const EventComponent = 19;
+export const EventTarget = 20;
+export const SuspenseListComponent = 21;
+```
+
+## Update & UpdateQueue
+
