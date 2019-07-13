@@ -1,8 +1,11 @@
+
+
 ## Fiber
 React团队重写了React 的核心算法---reconciliation,一般将之前的算法叫stack reconciliation，现在的叫fiber reconciliation。
 
+
 #### Stack reconciliation
-算法的工作流程和函数的调用过程类似，react在进行组件渲染时，从setState开始到渲染完成整个过程是同步的，无法暂停，知道整个过程完成，如果组件比较大，js的执行会占用主线程过多的时间，会导致丢帧。
+算法的工作流程和函数的调用过程类似，react在进行组件渲染时，从setState开始到渲染完成整个过程是同步的，无法暂停，知道整个过程完成，如果组件比较大，js的执行会占用主线程过多的时间，会导致丢帧。打个比方， 假如我现在要更新1000个组件，每个组件平均花时间1ms，那么在1s内，浏览器的整个线程都被阻塞了，这时候用户在input上的任何操作都不会有反应，等到更新完毕，界面上突的一下就显示了原来用户的输入，这个体验是非常差的。
 
 #### Fiber reconciliation
 Fiber的特点
@@ -12,11 +15,12 @@ Fiber的特点
 - 复用之前已经完成的工作；
 - 中止已经不再需要的工作。
 
-React将任务分成小片，在一小片段的时间内运行这些分片任务，让主线程做优先级更高的事情，如果有任何待处理的事情，就回来完成工作。
+React将任务分成小片，在一小片段的时间内运行这些分片任务，让主线程做优先级更高的事情，如果有任何待处理的事情，就回来完成工作,**fiber即为一个分片任务**
 
 用一张经典的图来概括就是这样
 
 ![结构](../images/fiber01.png)
+
 
 一个Fiber就是一个工作单元， React 的一个核心概念是 UI 是数据的投影 ，组件的本质可以看作输入数据，输出UI的描述信息（虚拟DOM树），即：
 
@@ -30,6 +34,7 @@ ui = f(data)
 
 
 ## Fiber的结构
+
 普通的js对象 ,它包含有关组件的输入和输出的信息。
 下面是fiber一些重要的属性。
 
@@ -183,3 +188,62 @@ export const SuspenseListComponent = 21;
 
 ## Update & UpdateQueue
 
+```
+export type Update<State> = {
+    //更新的过期时间
+  expirationTime: ExpirationTime,
+  suspenseConfig: null | SuspenseConfig,
+    // export const UpdateState = 0;
+    // export const ReplaceState = 1;
+    // export const ForceUpdate = 2;
+    // export const CaptureUpdate = 3;
+  tag: 0 | 1 | 2 | 3,
+    //更新内容，比如`setState`接收的第一个参数
+  payload: any,
+    // 对应的回调，`setState`，`render`都有
+  callback: (() => mixed) | null,
+    // 指向下一个更新
+  next: Update<State> | null,
+  // 指向下一个`side effect`
+  nextEffect: Update<State> | null,
+};
+
+export type UpdateQueue<State> = {
+    // 每次操作完更新之后的`state`
+  baseState: State,
+    // 队列中的第一个`Update`
+  firstUpdate: Update<State> | null,
+    // 队列中的最后一个`Update`
+  lastUpdate: Update<State> | null,
+    // 第一个捕获类型的`Update`
+  firstCapturedUpdate: Update<State> | null,
+    // 最后一个捕获类型的`Update`
+  lastCapturedUpdate: Update<State> | null,
+    // 第一个`side effect`
+  firstEffect: Update<State> | null,
+    // 最后一个`side effect`
+  lastEffect: Update<State> | null,
+    // 第一个和最后一个捕获产生的`side effect`
+  firstCapturedEffect: Update<State> | null,
+  lastCapturedEffect: Update<State> | null,
+};
+```
+在React中有很多单链表的数据结构，包括上面提到的effect和UpdateQueue。
+
+## workInProgress 双缓冲池技术
+
+workInProgress tree是reconcile过程中从fiber tree建立的当前进度快照，所有的工作都是在这颗树上进行，用于计算更新，完成reconciliation过程。
+
+```
+workInProgress.alternate = current;
+current.alternate = workInProgress;
+```
+
+他和当前的fiber通过alternate进行关联，在构建workInProgress 时，会取current.alternate，存在则复用，不存在则创建。这样做能够复用内部对象（fiber），节省内存分配、GC的时间开销。
+
+
+workInProgress tree构造完毕，得到的就是新的fiber tree，当进入commit阶段就把current指向了workInProgress
+
+```
+root.current = finishedWork;
+```

@@ -1,0 +1,472 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>React生命周期和反模式 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ReactDataStructure.html" />
+    
+    
+    <link rel="prev" href="ReactBaseClass.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="project.html">
+            
+                <a href="project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ReactAPI.html">
+            
+                <a href="ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ReactElement.html">
+            
+                <a href="ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="ReactBaseClass.html">
+            
+                <a href="ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="ReactLifeCycle.html">
+            
+                <a href="ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="ReactDataStructure.html">
+            
+                <a href="ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >React生命周期和反模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="react&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x53CD;&#x6A21;&#x5F0F;">React&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x53CD;&#x6A21;&#x5F0F;</h2>
+<p><img src="../images/lifecycle.png" alt="&#x7ED3;&#x6784;"></p>
+<p>&#x5728;React 16.4&#x4E4B;&#x540E; &#x5F15;&#x5165;fiber&#x67B6;&#x6784;&#x6709;&#x4E9B;&#x751F;&#x547D;&#x5468;&#x671F;&#x4F1A;&#x6162;&#x6162;&#x6DD8;&#x6C70;&#x6389;</p>
+<h4 id="&#x9884;&#x5E9F;&#x5F03;">&#x9884;&#x5E9F;&#x5F03;</h4>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillUpdate</li>
+<li>componentWillReceiveProps</li>
+</ul>
+<h4 id="&#x5DF2;&#x65B0;&#x589E;">&#x5DF2;&#x65B0;&#x589E;</h4>
+<ul>
+<li>getDerivedStateFromProps</li>
+<li>getSnapshotBeforeUpdate</li>
+<li>UNSAFE_componentWillMount </li>
+<li>UNSAFE_componentWillReceiveProps </li>
+<li>UNSAFE_componentWillUpdate</li>
+</ul>
+<p>&#x76EE;&#x524D;&#x65B0;&#x589E;&#x4E86;&#x4E09;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x9884;&#x5E9F;&#x5F03;&#x7684;&#x5468;&#x671F;&#x51FD;&#x6570;&#x524D;&#x52A0;&#x4E00;&#x4E2A;USAFE_&#x524D;&#x7F00;&#x3002;</p>
+<p>&#x5728;React 16.4&#x4E4B;&#x524D;&#xFF0C;React&#x7684;&#x6E32;&#x67D3;&#x673A;&#x5236;&#x9075;&#x5FAA;&#x540C;&#x6B65;&#x6E32;&#x67D3;: </p>
+<ul>
+<li>&#x9996;&#x6B21;&#x6E32;&#x67D3;: willMount &gt; render &gt; didMount&#xFF0C; </li>
+<li>props&#x66F4;&#x65B0;&#x65F6;: receiveProps &gt; shouldUpdate &gt; willUpdate &gt; render &gt; didUpdate </li>
+<li>state&#x66F4;&#x65B0;&#x65F6;: shouldUpdate &gt; willUpdate &gt; render &gt; didUpdate </li>
+<li>&#x5378;&#x8F7D;&#x65F6;: willUnmount
+&#x4ECE;React 17 &#x5F00;&#x59CB;&#xFF0C;&#x6E32;&#x67D3;&#x673A;&#x5236;&#x5C06;&#x4F1A;&#x53D1;&#x751F;&#x98A0;&#x8986;&#x6027;&#x6539;&#x53D8;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B0;&#x65B9;&#x5F0F;&#x5C31;&#x662F; <strong>Async Render</strong>&#x3002;</li>
+</ul>
+<p>&#x9996;&#x5148;&#xFF0C;async render&#x4E0D;&#x662F;&#x90A3;&#x79CD;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#xFF0C;&#x6BD4;&#x5982;&#x53D1;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x5230;&#x540E;&#x53F0;&#x8FD4;&#x56DE;newState&#x751A;&#x81F3;&#x65B0;&#x7684;html&#xFF0C;&#x8FD9;&#x91CC;&#x7684;async render&#x8FD8;&#x662F;&#x9650;&#x5236;&#x5728;React&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;View&#x6846;&#x67B6;&#x7684;View&#x5C42;&#x672C;&#x8EAB;&#x3002;</p>
+<p>&#x9884;&#x5E9F;&#x5F03;&#x7684;&#x4E09;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x90FD;&#x53D1;&#x751F;&#x5728;&#x865A;&#x62DF;dom&#x7684;&#x6784;&#x5EFA;&#x671F;&#x95F4;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x771F;&#x6B63;&#x7684;commit&#x66F4;&#x65B0;&#x4E14;&#x8FDB;&#x884C;&#x7ED8;&#x5236;&#x4E4B;&#x524D;&#xFF0C;&#x5728;&#x5C06;&#x6765;&#x7684;React 17&#x4E2D;&#xFF0C;&#x5728;dom&#x771F;&#x6B63;render&#x4E4B;&#x524D;&#xFF0C;React&#x4E2D;&#x7684;&#x8C03;&#x5EA6;&#x673A;&#x5236;&#x53EF;&#x80FD;&#x4F1A;&#x4E0D;&#x5B9A;&#x671F;&#x7684;&#x53BB;&#x67E5;&#x770B;&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x5C31;&#x6253;&#x65AD;&#x5F53;&#x524D;&#x7684;&#x5468;&#x671F;&#x6267;&#x884C;&#x51FD;&#x6570;(&#x54EA;&#x6015;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x4E86;&#x4E00;&#x534A;)&#xFF0C;&#x7B49;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x518D;&#x56DE;&#x6765;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x88AB;&#x6253;&#x65AD;&#x7684;&#x5468;&#x671F;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x79CD;&#x65B0;&#x673A;&#x5236;&#x5BF9;&#x73B0;&#x5B58;&#x5468;&#x671F;&#x51FD;&#x6570;&#x7684;&#x5F71;&#x54CD;&#x5C31;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x8C03;&#x7528;&#x65F6;&#x673A;&#x53D8;&#x7684;&#x590D;&#x6742;&#x800C;&#x4E0D;&#x53EF;&#x9884;&#x6D4B;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x201D;UNSAFE&#x201D;&#x3002;</p>
+<h2 id="static-getderivedstatefrompropsprops-state">static getDerivedStateFromProps(props, state)</h2>
+<p>&#x5B83;&#x662F;&#x4F5C;&#x4E3A;componentWillReceiveProps&#x7684;&#x4EE3;&#x66FF;&#x54C1;&#x51FA;&#x73B0;&#xFF0C;&#x800C;&#x5728;React 16 &#x4E4B;&#x524D;componentWillReceiveProps&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x5BB9;&#x6613;&#x88AB;&#x6EE5;&#x7528;(misuse)&#x7684;&#x5468;&#x671F;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E00;&#x822C;&#x88AB;&#x7528;&#x6765;&#x66F4;&#x65B0;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#x505A;&#x4E00;&#x4E9B;&#x5904;&#x7406;&#x903B;&#x8F91;,&#x4ECE;&#x800C;&#x907F;&#x514D;&#x6389;&#x4E00;&#x6B21;&#x989D;&#x5916;&#x7684;render&#x3002;</p>
+<pre><code>static getDerivedStateFromProps(props, state)
+</code></pre><p>getDerivedStateFromProps&#x5728;&#x8C03;&#x7528;render&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#xFF0C;&#x5305;&#x62EC;&#x521D;&#x59CB;mount&#x548C;&#x540E;&#x7EED;&#x66F4;&#x65B0;&#x3002;&#x5B83;&#x5E94;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6765;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#xFF0C;&#x6216;&#x8005;&#x8FD4;&#x56DE;null&#x4EE5;&#x4E0D;&#x66F4;&#x65B0;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;.</p>
+<h4 id="&#x8C03;&#x7528;&#x65F6;&#x673A;&#x5DEE;&#x5F02;">&#x8C03;&#x7528;&#x65F6;&#x673A;&#x5DEE;&#x5F02;</h4>
+<p>getDerivedStateFromProps&#x66F4;&#x5168;&#x80FD;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;mounting&#x8FD8;&#x662F;updating&#x90FD;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;componentWillReceiveProps&#x53EA;&#x4F1A;updating&#x9636;&#x6BB5;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x7236;&#x7EC4;&#x4EF6;&#x89E6;&#x53D1;&#x7684;render&#x624D;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<h4 id="derived-state">derived state</h4>
+<p>&#x7531;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;props&#x6539;&#x53D8;&#x800C;&#x5F15;&#x53D1;&#x4E86;state&#x6539;&#x53D8;&#xFF0C;&#x8FD9;&#x4E2A;state&#x5C31;&#x662F;derived state. derived from props.  </p>
+<h4 id="static">static</h4>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x9759;&#x6001;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5230;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x65E0;&#x6CD5;&#x5728;&#x65B9;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;this&#x3002;</p>
+<h2 id="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F7F;&#x7528;derived-state">&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F7F;&#x7528;Derived State</h2>
+<p><code>getDerivedStateFromProps</code> &#x8FD9;&#x4E2A;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x4F7F;&#x7EC4;&#x4EF6;&#x80FD;&#x591F;&#x6839;&#x636E;props&#x7684;&#x66F4;&#x6539;&#x6765;&#x66F4;&#x65B0;&#x5176;&#x5185;&#x90E8;&#x72B6;&#x6001;&#x3002;&#x4F46;&#x662F;&#x7ECF;&#x5E38;&#x4F1A;&#x4E0D;&#x6070;&#x5F53;&#x7684;&#x4F7F;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x7EC4;&#x4EF6;&#x9891;&#x7E41;&#x7684;&#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#x8D77;&#x6765;&#x6709;&#x4E24;&#x70B9;</p>
+<ul>
+<li>&#x65E0;&#x6761;&#x4EF6;&#x7684;&#x6839;&#x636E;props&#x6765;&#x66F4;&#x65B0;state</li>
+<li>&#x5728;props&#x548C;state&#x4E0D;&#x5339;&#x914D;&#x7684;&#x65F6;&#x5019;&#x66F4;&#x65B0;state</li>
+</ul>
+<p><img src="../images/drivedstate.png" alt="&#x7ED3;&#x6784;"></p>
+<h2 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h2>
+<p>&#x4E0B;&#x9762;&#x7684;&#x7EC4;&#x4EF6;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;prop---&#x4E00;&#x7CFB;&#x5217;&#x7684;items&#xFF0C;&#x6839;&#x636E;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x6E32;&#x67D3;items&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;derived state&#x6765;&#x5B58;&#x50A8;&#x8FC7;&#x6EE4;&#x51FA;&#x7684;list.</p>
+<pre><code>class Example extends Component {
+  state = {
+    filterText: &quot;&quot;,
+  };
+
+  // *******************************************************
+  // NOTE: this example is NOT the recommended approach.
+  // See the examples below for our recommendations instead.
+  // *******************************************************
+
+  static getDerivedStateFromProps(props, state) {
+    // Re-run the filter whenever the list array or filter text change.
+    // Note we need to store prevPropsList and prevFilterText to detect changes.
+    if (
+      props.list !== state.prevPropsList ||
+      state.prevFilterText !== state.filterText
+    ) {
+      return {
+        prevPropsList: props.list,
+        prevFilterText: state.filterText,
+        filteredList: props.list.filter(item =&gt; item.text.includes(state.filterText))
+      };
+    }
+    return null;
+  }
+
+  handleChange = event =&gt; {
+    this.setState({ filterText: event.target.value });
+  };
+
+  render() {
+    return (
+      &lt;Fragment&gt;
+        &lt;input onChange={this.handleChange} value={this.state.filterText} /&gt;
+        &lt;ul&gt;{this.state.filteredList.map(item =&gt; &lt;li key={item.id}&gt;{item.text}&lt;/li&gt;)}&lt;/ul&gt;
+      &lt;/Fragment&gt;
+    );
+  }
+}
+</code></pre><p>&#x8FD9;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x907F;&#x514D;&#x4E86;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x91CD;&#x590D;&#x8BA1;&#x7B97;&#xFF0C;&#x4F46;&#x662F;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x5FC5;&#x987B;&#x5206;&#x5F00;&#x8DDF;&#x8E2A;props&#x548C;state&#x53D8;&#x5316;&#x6765;&#x4FDD;&#x8BC1;&#x5F97;&#x5230;&#x6B63;&#x786E;&#x7684;filteredList.</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;PureComponent&#xFF0C;&#x5C06;&#x8FC7;&#x6EE4;&#x903B;&#x8F91;&#x653E;&#x5728;render&#x65B9;&#x6CD5;&#x4E2D;</p>
+<pre><code>class Example extends PureComponent {
+  // State only needs to hold the current filter text value:
+  state = {
+    filterText: &quot;&quot;
+  };
+
+  handleChange = event =&gt; {
+    this.setState({ filterText: event.target.value });
+  };
+
+  render() {
+    // The render method on this PureComponent is called only if
+    // props.list or state.filterText has changed.
+    const filteredList = this.props.list.filter(
+      item =&gt; item.text.includes(this.state.filterText)
+    )
+
+    return (
+      &lt;Fragment&gt;
+        &lt;input onChange={this.handleChange} value={this.state.filterText} /&gt;
+        &lt;ul&gt;{filteredList.map(item =&gt; &lt;li key={item.id}&gt;{item.text}&lt;/li&gt;)}&lt;/ul&gt;
+      &lt;/Fragment&gt;
+    );
+  }
+}
+</code></pre><p>&#x770B;&#x8D77;&#x6765;&#x6E05;&#x6670;&#x7B80;&#x5355;&#x4E86;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x4E0D;&#x591F;&#x597D;&#xFF0C;&#x5982;&#x679C;&#x5217;&#x8868;&#x9879;&#x5F88;&#x5927;&#x7684;&#x8BDD;&#x53EF;&#x80FD;&#x4F1A;&#x6BD4;&#x8F83;&#x8017;&#x65F6;&#xFF0C;&#x800C;&#x4E14;&#x5982;&#x679C;&#x5176;&#x4ED6;props&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;PureComponent&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x963B;&#x6B62;rerender&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;memoization</p>
+<pre><code>import memoize from &quot;memoize-one&quot;;
+
+class Example extends Component {
+  // State only needs to hold the current filter text value:
+  state = { filterText: &quot;&quot; };
+
+  // Re-run the filter whenever the list array or filter text changes:
+  filter = memoize(
+    (list, filterText) =&gt; list.filter(item =&gt; item.text.includes(filterText))
+  );
+
+  handleChange = event =&gt; {
+    this.setState({ filterText: event.target.value });
+  };
+
+  render() {
+    // Calculate the latest filtered list. If these arguments haven&apos;t changed
+    // since the last render, `memoize-one` will reuse the last return value.
+    const filteredList = this.filter(this.props.list, this.state.filterText);
+
+    return (
+      &lt;Fragment&gt;
+        &lt;input onChange={this.handleChange} value={this.state.filterText} /&gt;
+        &lt;ul&gt;{filteredList.map(item =&gt; &lt;li key={item.id}&gt;{item.text}&lt;/li&gt;)}&lt;/ul&gt;
+      &lt;/Fragment&gt;
+    );
+  }
+}
+</code></pre><h2 id="&#x4F7F;&#x7528;derived-state&#x662F;&#x5E38;&#x89C1;&#x7684;&#x9519;&#x8BEF;">&#x4F7F;&#x7528;Derived State&#x662F;&#x5E38;&#x89C1;&#x7684;&#x9519;&#x8BEF;</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ReactBaseClass.html" class="navigation navigation-prev " aria-label="Previous page: React中基础类">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ReactDataStructure.html" class="navigation navigation-next " aria-label="Next page: React中的数据结构">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"React生命周期和反模式","level":"1.2.5","depth":2,"next":{"title":"React中的数据结构","level":"1.2.6","depth":2,"path":"chapter1/ReactDataStructure.md","ref":"chapter1/ReactDataStructure.md","articles":[]},"previous":{"title":"React中基础类","level":"1.2.4","depth":2,"path":"chapter1/ReactBaseClass.md","ref":"chapter1/ReactBaseClass.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactLifeCycle.md","mtime":"2019-07-13T03:40:14.849Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-13T03:41:09.648Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

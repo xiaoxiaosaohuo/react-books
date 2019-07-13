@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="ReactElement.html" />
+    <link rel="prev" href="ReactLifeCycle.html" />
     
 
     </head>
@@ -153,7 +153,33 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4" data-path="ReactDataStructure.html">
+        <li class="chapter " data-level="1.2.4" data-path="ReactBaseClass.html">
+            
+                <a href="ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="ReactLifeCycle.html">
+            
+                <a href="ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6" data-path="ReactDataStructure.html">
             
                 <a href="ReactDataStructure.html">
             
@@ -219,7 +245,7 @@
                                 <h2 id="fiber">Fiber</h2>
 <p>React&#x56E2;&#x961F;&#x91CD;&#x5199;&#x4E86;React &#x7684;&#x6838;&#x5FC3;&#x7B97;&#x6CD5;---reconciliation,&#x4E00;&#x822C;&#x5C06;&#x4E4B;&#x524D;&#x7684;&#x7B97;&#x6CD5;&#x53EB;stack reconciliation&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x53EB;fiber reconciliation&#x3002;</p>
 <h4 id="stack-reconciliation">Stack reconciliation</h4>
-<p>&#x7B97;&#x6CD5;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x548C;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#xFF0C;react&#x5728;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x65F6;&#xFF0C;&#x4ECE;setState&#x5F00;&#x59CB;&#x5230;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x6682;&#x505C;&#xFF0C;&#x77E5;&#x9053;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x5B8C;&#x6210;&#xFF0C;&#x5982;&#x679C;&#x7EC4;&#x4EF6;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;js&#x7684;&#x6267;&#x884C;&#x4F1A;&#x5360;&#x7528;&#x4E3B;&#x7EBF;&#x7A0B;&#x8FC7;&#x591A;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x4E22;&#x5E27;&#x3002;</p>
+<p>&#x7B97;&#x6CD5;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x548C;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#xFF0C;react&#x5728;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x65F6;&#xFF0C;&#x4ECE;setState&#x5F00;&#x59CB;&#x5230;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x6682;&#x505C;&#xFF0C;&#x77E5;&#x9053;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x5B8C;&#x6210;&#xFF0C;&#x5982;&#x679C;&#x7EC4;&#x4EF6;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;js&#x7684;&#x6267;&#x884C;&#x4F1A;&#x5360;&#x7528;&#x4E3B;&#x7EBF;&#x7A0B;&#x8FC7;&#x591A;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x4E22;&#x5E27;&#x3002;&#x6253;&#x4E2A;&#x6BD4;&#x65B9;&#xFF0C; &#x5047;&#x5982;&#x6211;&#x73B0;&#x5728;&#x8981;&#x66F4;&#x65B0;1000&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x5E73;&#x5747;&#x82B1;&#x65F6;&#x95F4;1ms&#xFF0C;&#x90A3;&#x4E48;&#x5728;1s&#x5185;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6574;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x88AB;&#x963B;&#x585E;&#x4E86;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x7528;&#x6237;&#x5728;input&#x4E0A;&#x7684;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x90FD;&#x4E0D;&#x4F1A;&#x6709;&#x53CD;&#x5E94;&#xFF0C;&#x7B49;&#x5230;&#x66F4;&#x65B0;&#x5B8C;&#x6BD5;&#xFF0C;&#x754C;&#x9762;&#x4E0A;&#x7A81;&#x7684;&#x4E00;&#x4E0B;&#x5C31;&#x663E;&#x793A;&#x4E86;&#x539F;&#x6765;&#x7528;&#x6237;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F53;&#x9A8C;&#x662F;&#x975E;&#x5E38;&#x5DEE;&#x7684;&#x3002;</p>
 <h4 id="fiber-reconciliation">Fiber reconciliation</h4>
 <p>Fiber&#x7684;&#x7279;&#x70B9;</p>
 <ul>
@@ -228,7 +254,7 @@
 <li>&#x590D;&#x7528;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;&#xFF1B;</li>
 <li>&#x4E2D;&#x6B62;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</li>
 </ul>
-<p>React&#x5C06;&#x4EFB;&#x52A1;&#x5206;&#x6210;&#x5C0F;&#x7247;&#xFF0C;&#x5728;&#x4E00;&#x5C0F;&#x7247;&#x6BB5;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#x5206;&#x7247;&#x4EFB;&#x52A1;&#xFF0C;&#x8BA9;&#x4E3B;&#x7EBF;&#x7A0B;&#x505A;&#x4F18;&#x5148;&#x7EA7;&#x66F4;&#x9AD8;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4EFB;&#x4F55;&#x5F85;&#x5904;&#x7406;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5C31;&#x56DE;&#x6765;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>React&#x5C06;&#x4EFB;&#x52A1;&#x5206;&#x6210;&#x5C0F;&#x7247;&#xFF0C;&#x5728;&#x4E00;&#x5C0F;&#x7247;&#x6BB5;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#x5206;&#x7247;&#x4EFB;&#x52A1;&#xFF0C;&#x8BA9;&#x4E3B;&#x7EBF;&#x7A0B;&#x505A;&#x4F18;&#x5148;&#x7EA7;&#x66F4;&#x9AD8;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4EFB;&#x4F55;&#x5F85;&#x5904;&#x7406;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5C31;&#x56DE;&#x6765;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;,<strong>fiber&#x5373;&#x4E3A;&#x4E00;&#x4E2A;&#x5206;&#x7247;&#x4EFB;&#x52A1;</strong></p>
 <p>&#x7528;&#x4E00;&#x5F20;&#x7ECF;&#x5178;&#x7684;&#x56FE;&#x6765;&#x6982;&#x62EC;&#x5C31;&#x662F;&#x8FD9;&#x6837;</p>
 <p><img src="../images/fiber01.png" alt="&#x7ED3;&#x6784;"></p>
 <p>&#x4E00;&#x4E2A;Fiber&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#xFF0C; React &#x7684;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x6982;&#x5FF5;&#x662F; UI &#x662F;&#x6570;&#x636E;&#x7684;&#x6295;&#x5F71; &#xFF0C;&#x7EC4;&#x4EF6;&#x7684;&#x672C;&#x8D28;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x8F93;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x8F93;&#x51FA;UI&#x7684;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#xFF08;&#x865A;&#x62DF;DOM&#x6811;&#xFF09;&#xFF0C;&#x5373;&#xFF1A;</p>
@@ -387,6 +413,116 @@ export const UnmountLayout = /*        */ 0b00010000;
 export const MountLayout = /*          */ 0b00100000;
 export const MountPassive = /*         */ 0b01000000;
 export const UnmountPassive = /*       */ 0b10000000;
+</code></pre><h2 id="fiberroot">FiberRoot</h2>
+<pre><code>type BaseFiberRootProperties = {|
+  // The type of root (legacy, batched, concurrent, etc.)
+  tag: RootTag,
+
+  //root&#x8282;&#x70B9;&#xFF0C;render&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;
+  containerInfo: any,
+  // &#x53EA;&#x6709;&#x5728;&#x6301;&#x4E45;&#x66F4;&#x65B0;&#x4E2D;&#x4F1A;&#x7528;&#x5230;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0D;&#x652F;&#x6301;&#x589E;&#x91CF;&#x66F4;&#x65B0;&#x7684;&#x5E73;&#x53F0;&#xFF0C;react-dom&#x4E0D;&#x4F1A;&#x7528;&#x5230;
+  pendingChildren: any,
+  // &#x5F53;&#x524D;&#x5E94;&#x7528;&#x5BF9;&#x5E94;&#x7684;Fiber&#x5BF9;&#x8C61;&#xFF0C;&#x662F;Root Fiber
+  current: Fiber,
+
+  pingCache:
+    | WeakMap&lt;Thenable, Set&lt;ExpirationTime&gt;&gt;
+    | Map&lt;Thenable, Set&lt;ExpirationTime&gt;&gt;
+    | null,
+
+  finishedExpirationTime: ExpirationTime,
+  // &#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x7684;&#x5E76;&#x51C6;&#x5907;&#x8FDB;&#x884C;commit&#x7684; work-in-progress HostRoot .
+  finishedWork: Fiber | null,
+  // &#x901A;&#x8FC7;setTimeout&#x8BBE;&#x7F6E;&#x7684;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x88AB;&#x65B0;&#x7684;&#x4EFB;&#x52A1;&#x4EE3;&#x66FF;&#xFF0C;&#x7528;&#x6765;&#x53D6;&#x6D88;pending&#x72B6;&#x6001;&#x7684;timeout
+  timeoutHandle: TimeoutHandle | NoTimeout,
+  // &#x9876;&#x5C42;context&#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x6709;&#x4E3B;&#x52A8;&#x8C03;&#x7528;`renderSubtreeIntoContainer`&#x65F6;&#x624D;&#x4F1A;&#x6709;&#x7528;
+  context: Object | null,
+  pendingContext: Object | null,
+  // &#x786E;&#x5B9A;&#x662F;&#x5426;&#x5E94;&#x8BE5;&#x5728;&#x521D;&#x59CB;&#x6302;&#x8F7D;&#x65F6;&#x8FDB;&#x884C;hydrate
+  +hydrate: boolean,
+  // &#x6279;&#x91CF;&#x66F4;&#x65B0;&#x5217;&#x8868;&#xFF0C;&#x6B64;&#x5217;&#x8868;&#x6307;&#x793A;&#x662F;&#x5426;&#x5E94;&#x5EF6;&#x8FDF;&#x63D0;&#x4EA4;&#xFF0C;&#x8FD8;&#x5305;&#x542B;&#x5B8C;&#x6210;&#x56DE;&#x8C03;&#x3002;
+  firstBatch: Batch | null,
+  // Scheduler.scheduleCallback&#x8FD4;&#x56DE;&#x7684;&#x8282;&#x70B9;
+  callbackNode: *,
+  // &#x548C;root&#x76F8;&#x5173;&#x7684;&#x56DE;&#x8C03;&#x5230;&#x671F;&#x65F6;&#x95F4;
+  callbackExpirationTime: ExpirationTime,
+  // &#x6811;&#x4E2D;&#x6700;&#x65E9;&#x7684;&#x6302;&#x8D77;&#x5230;&#x671F;&#x65F6;&#x95F4;
+  firstPendingTime: ExpirationTime,
+  // &#x6811;&#x4E2D;&#x6700;&#x65B0;&#x7684;&#x6302;&#x8D77;&#x5230;&#x671F;&#x65F6;&#x95F4;
+  lastPendingTime: ExpirationTime,
+  // The time at which a suspended component pinged the root to render again
+  pingTime: ExpirationTime,
+|};
+</code></pre><h2 id="reactworktag">ReactWorkTag</h2>
+<pre><code>export const FunctionComponent = 0;
+export const ClassComponent = 1;
+export const IndeterminateComponent = 2; // Before we know whether it is function or class
+export const HostRoot = 3; // Root of a host tree. Could be nested inside another node.
+export const HostPortal = 4; // A subtree. Could be an entry point to a different renderer.
+export const HostComponent = 5;
+export const HostText = 6;
+export const Fragment = 7;
+export const Mode = 8;
+export const ContextConsumer = 9;
+export const ContextProvider = 10;
+export const ForwardRef = 11;
+export const Profiler = 12;
+export const SuspenseComponent = 13;
+export const MemoComponent = 14;
+export const SimpleMemoComponent = 15;
+export const LazyComponent = 16;
+export const IncompleteClassComponent = 17;
+export const DehydratedSuspenseComponent = 18;
+export const EventComponent = 19;
+export const EventTarget = 20;
+export const SuspenseListComponent = 21;
+</code></pre><h2 id="update--updatequeue">Update &amp; UpdateQueue</h2>
+<pre><code>export type Update&lt;State&gt; = {
+    //&#x66F4;&#x65B0;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;
+  expirationTime: ExpirationTime,
+  suspenseConfig: null | SuspenseConfig,
+    // export const UpdateState = 0;
+    // export const ReplaceState = 1;
+    // export const ForceUpdate = 2;
+    // export const CaptureUpdate = 3;
+  tag: 0 | 1 | 2 | 3,
+    //&#x66F4;&#x65B0;&#x5185;&#x5BB9;&#xFF0C;&#x6BD4;&#x5982;`setState`&#x63A5;&#x6536;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;
+  payload: any,
+    // &#x5BF9;&#x5E94;&#x7684;&#x56DE;&#x8C03;&#xFF0C;`setState`&#xFF0C;`render`&#x90FD;&#x6709;
+  callback: (() =&gt; mixed) | null,
+    // &#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x66F4;&#x65B0;
+  next: Update&lt;State&gt; | null,
+  // &#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;`side effect`
+  nextEffect: Update&lt;State&gt; | null,
+};
+
+export type UpdateQueue&lt;State&gt; = {
+    // &#x6BCF;&#x6B21;&#x64CD;&#x4F5C;&#x5B8C;&#x66F4;&#x65B0;&#x4E4B;&#x540E;&#x7684;`state`
+  baseState: State,
+    // &#x961F;&#x5217;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;`Update`
+  firstUpdate: Update&lt;State&gt; | null,
+    // &#x961F;&#x5217;&#x4E2D;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;`Update`
+  lastUpdate: Update&lt;State&gt; | null,
+    // &#x7B2C;&#x4E00;&#x4E2A;&#x6355;&#x83B7;&#x7C7B;&#x578B;&#x7684;`Update`
+  firstCapturedUpdate: Update&lt;State&gt; | null,
+    // &#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6355;&#x83B7;&#x7C7B;&#x578B;&#x7684;`Update`
+  lastCapturedUpdate: Update&lt;State&gt; | null,
+    // &#x7B2C;&#x4E00;&#x4E2A;`side effect`
+  firstEffect: Update&lt;State&gt; | null,
+    // &#x6700;&#x540E;&#x4E00;&#x4E2A;`side effect`
+  lastEffect: Update&lt;State&gt; | null,
+    // &#x7B2C;&#x4E00;&#x4E2A;&#x548C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6355;&#x83B7;&#x4EA7;&#x751F;&#x7684;`side effect`
+  firstCapturedEffect: Update&lt;State&gt; | null,
+  lastCapturedEffect: Update&lt;State&gt; | null,
+};
+</code></pre><p>&#x5728;React&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x5355;&#x94FE;&#x8868;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5305;&#x62EC;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;effect&#x548C;UpdateQueue&#x3002;</p>
+<h2 id="workinprogress-&#x53CC;&#x7F13;&#x51B2;&#x6C60;&#x6280;&#x672F;">workInProgress &#x53CC;&#x7F13;&#x51B2;&#x6C60;&#x6280;&#x672F;</h2>
+<p>workInProgress tree&#x662F;reconcile&#x8FC7;&#x7A0B;&#x4E2D;&#x4ECE;fiber tree&#x5EFA;&#x7ACB;&#x7684;&#x5F53;&#x524D;&#x8FDB;&#x5EA6;&#x5FEB;&#x7167;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x90FD;&#x662F;&#x5728;&#x8FD9;&#x9897;&#x6811;&#x4E0A;&#x8FDB;&#x884C;&#xFF0C;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x66F4;&#x65B0;&#xFF0C;&#x5B8C;&#x6210;reconciliation&#x8FC7;&#x7A0B;&#x3002;</p>
+<pre><code>workInProgress.alternate = current;
+current.alternate = workInProgress;
+</code></pre><p>&#x4ED6;&#x548C;&#x5F53;&#x524D;&#x7684;fiber&#x901A;&#x8FC7;alternate&#x8FDB;&#x884C;&#x5173;&#x8054;&#xFF0C;&#x5728;&#x6784;&#x5EFA;workInProgress &#x65F6;&#xFF0C;&#x4F1A;&#x53D6;current.alternate&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x590D;&#x7528;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x80FD;&#x591F;&#x590D;&#x7528;&#x5185;&#x90E8;&#x5BF9;&#x8C61;&#xFF08;fiber&#xFF09;&#xFF0C;&#x8282;&#x7701;&#x5185;&#x5B58;&#x5206;&#x914D;&#x3001;GC&#x7684;&#x65F6;&#x95F4;&#x5F00;&#x9500;&#x3002;</p>
+<p>workInProgress tree&#x6784;&#x9020;&#x5B8C;&#x6BD5;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x5C31;&#x662F;&#x65B0;&#x7684;fiber tree&#xFF0C;&#x5F53;&#x8FDB;&#x5165;commit&#x9636;&#x6BB5;&#x5C31;&#x628A;current&#x6307;&#x5411;&#x4E86;workInProgress</p>
+<pre><code>root.current = finishedWork;
 </code></pre>
                                 
                                 </section>
@@ -414,7 +550,7 @@ export const UnmountPassive = /*       */ 0b10000000;
 
             
                 
-                <a href="ReactElement.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ReactElement">
+                <a href="ReactLifeCycle.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: React生命周期和反模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -426,7 +562,7 @@ export const UnmountPassive = /*       */ 0b10000000;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"React中的数据结构","level":"1.2.4","depth":2,"previous":{"title":"ReactElement","level":"1.2.3","depth":2,"path":"chapter1/ReactElement.md","ref":"chapter1/ReactElement.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactDataStructure.md","mtime":"2019-07-08T13:52:33.891Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-08T13:53:13.883Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React中的数据结构","level":"1.2.6","depth":2,"previous":{"title":"React生命周期和反模式","level":"1.2.5","depth":2,"path":"chapter1/ReactLifeCycle.md","ref":"chapter1/ReactLifeCycle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactDataStructure.md","mtime":"2019-07-13T02:27:29.417Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-13T03:41:09.648Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

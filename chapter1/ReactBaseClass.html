@@ -1,0 +1,391 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>React中基础类 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ReactLifeCycle.html" />
+    
+    
+    <link rel="prev" href="ReactElement.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="project.html">
+            
+                <a href="project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ReactAPI.html">
+            
+                <a href="ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ReactElement.html">
+            
+                <a href="ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="ReactBaseClass.html">
+            
+                <a href="ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="ReactLifeCycle.html">
+            
+                <a href="ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="ReactDataStructure.html">
+            
+                <a href="ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >React中基础类</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="reactbaseclasses">ReactBaseClasses</h2>
+<p>&#x5728;React&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x5C31;&#x4E24;&#x4E2A;</p>
+<ul>
+<li>Component</li>
+<li>PureComponent</li>
+</ul>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x7C7B;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x66F4;&#x65B0;&#x7EC4;&#x4EF6;&#x7684;state. &#x6BD4;&#x5982;setState&#x65B9;&#x6CD5;&#x7B49;</p>
+<pre><code>function Component(props, context, updater) {
+  this.props = props;
+  this.context = context;
+  // If a component has string refs, we will assign a different object later.
+  this.refs = emptyObject;
+  // We initialize the default updater but the real one gets injected by the
+  // renderer.
+  this.updater = updater || ReactNoopUpdateQueue;
+}
+Component.prototype.isReactComponent = {};
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;updater&#x662F;&#x901A;&#x8FC7;Component&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;&#x5668;&#x4F20;&#x5165;&#x7684;&#xFF0C;
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8FD9;&#x4E2A;updater&#x4F1A;&#x5728;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x65F6;&#x5019;&#x4F20;&#x5165;&#xFF0C;<code>React.js</code>&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5E76;&#x4E0D;&#x8D1F;&#x8D23;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x5177;&#x4F53;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5DE5;&#x4F5C;&#x4E0D;&#x540C;&#x6E32;&#x67D3;&#x5668;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2 id="setstate">setState</h2>
+<pre><code>Component.prototype.setState = function(partialState, callback) {
+  invariant(
+    typeof partialState === &apos;object&apos; ||
+      typeof partialState === &apos;function&apos; ||
+      partialState == null,
+    &apos;setState(...): takes an object of state variables to update or a &apos; +
+      &apos;function which returns an object of state variables.&apos;,
+  );
+  this.updater.enqueueSetState(this, partialState, callback, &apos;setState&apos;);
+};
+</code></pre><p>&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5176;&#x4E2D;partialState &#x65E2;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4E8C;&#x8005;&#x8FD4;&#x56DE;&#x7684;state&#x540E;&#x7EED;&#x90FD;&#x5C06;&#x548C;&#x5F53;&#x524D;state&#x8FDB;&#x884C;&#x5408;&#x5E76;&#xFF0C;callback&#x662F;setState&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x7684;&#x56DE;&#x8C03;
+setState&#x8C03;&#x7528;&#x65F6;&#xFF0C;this.state&#x5E76;&#x4E0D;&#x80FD;&#x7ACB;&#x5373;&#x66F4;&#x65B0;&#xFF0C;setState&#x4E0D;&#x80FD;&#x88AB;&#x4FDD;&#x8BC1;&#x540C;&#x6B65;&#x8C03;&#x7528;&#xFF0C;&#x5176;&#x6700;&#x7EC8;&#x53EF;&#x80FD;&#x8FDB;&#x884C;&#x6279;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x4EE5;this.state&#x8BBF;&#x95EE;&#x7684;&#x5C5E;&#x6027;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x4E2A;&#x65E7;&#x503C;&#x3002;</p>
+<p>&#x540E;&#x9762;&#x4F1A;&#x4E13;&#x95E8;&#x4ECB;&#x7ECD;setState&#x673A;&#x5236;</p>
+<h2 id="forceupdate">forceUpdate</h2>
+<pre><code>Component.prototype.forceUpdate = function(callback) {
+  this.updater.enqueueForceUpdate(this, callback, &apos;forceUpdate&apos;);
+};
+</code></pre><p>&#x5F3A;&#x5236;&#x66F4;&#x65B0;&#xFF0C;&#x4F1A;&#x89E6;&#x53D1;componentWillUpdate&#x548C;componentDidUpdate`.&#x4E24;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;&#x4E00;&#x822C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;</p>
+<h2 id="purecomponent">PureComponent</h2>
+<pre><code>function ComponentDummy() {}
+ComponentDummy.prototype = Component.prototype;
+
+/**
+ * Convenience component with default shallow equality check for sCU.
+ */
+function PureComponent(props, context, updater) {
+  this.props = props;
+  this.context = context;
+  // If a component has string refs, we will assign a different object later.
+  this.refs = emptyObject;
+  this.updater = updater || ReactNoopUpdateQueue;
+}
+
+const pureComponentPrototype = (PureComponent.prototype = new ComponentDummy());
+pureComponentPrototype.constructor = PureComponent;
+// Avoid an extra prototype jump for these methods.
+Object.assign(pureComponentPrototype, Component.prototype);
+pureComponentPrototype.isPureReactComponent = true;
+</code></pre><p>&#x5728;&#x5B9E;&#x73B0;&#x4E0A;PureComponent&#x7EE7;&#x627F;&#x81EA;Component&#xFF0C;&#x4E8C;&#x8005;&#x539F;&#x578B;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x53EA;&#x662F;PureComponent&#x7684;&#x539F;&#x578B;&#x4E0A;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;isPureReactComponent=true&#x3002;</p>
+<p>&#x5728;&#x5224;&#x65AD;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x5E94;&#x8BE5;&#x66F4;&#x65B0;&#x65F6;&#x4F1A;&#x8C03;&#x7528;checkShouldComponentUpdate&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x5224;&#x65AD;&#x3002;</p>
+<pre><code>if (ctor.prototype &amp;&amp; ctor.prototype.isPureReactComponent) {
+    return !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState);
+  }
+</code></pre><p>ctor&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x7684;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x901A;&#x8FC7;&#x5224;&#x65AD;&#x539F;&#x578B;&#x4E0A;&#x662F;&#x5426;&#x6709;isPureReactComponent&#x5C5E;&#x6027;&#x6765;&#x65AD;&#x5B9A;&#x662F;&#x4E0D;&#x662F;PureComponent&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x5728;checkShouldComponentUpdate&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x666E;&#x901A;Component&#x4F1A;&#x8C03;&#x7528;shouldComponentUpdate&#xFF0C;&#x5982;&#x679C;&#x662F;PureComponent&#x5219;&#x4F1A;&#x9ED8;&#x8BA4;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x6D45;&#x6BD4;&#x8F83;&#xFF0C;&#x6240;&#x4EE5;PureComponent&#x5177;&#x6709;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ReactElement.html" class="navigation navigation-prev " aria-label="Previous page: ReactElement">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ReactLifeCycle.html" class="navigation navigation-next " aria-label="Next page: React生命周期和反模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"React中基础类","level":"1.2.4","depth":2,"next":{"title":"React生命周期和反模式","level":"1.2.5","depth":2,"path":"chapter1/ReactLifeCycle.md","ref":"chapter1/ReactLifeCycle.md","articles":[]},"previous":{"title":"ReactElement","level":"1.2.3","depth":2,"path":"chapter1/ReactElement.md","ref":"chapter1/ReactElement.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactBaseClass.md","mtime":"2019-07-13T01:55:16.843Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-13T03:41:09.648Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
