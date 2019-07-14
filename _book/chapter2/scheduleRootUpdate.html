@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ReactAPI · GitBook</title>
+        <title>scheduleRootUpdate · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ReactElement.html" />
+    <link rel="next" href="expirationTime.html" />
     
     
-    <link rel="prev" href="project.html" />
+    <link rel="prev" href="updateContainer.html" />
     
 
     </head>
@@ -116,9 +116,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="project.html">
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
             
-                <a href="project.html">
+                <a href="../chapter1/project.html">
             
                     
                     项目结构
@@ -129,9 +129,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="ReactAPI.html">
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
             
-                <a href="ReactAPI.html">
+                <a href="../chapter1/ReactAPI.html">
             
                     
                     ReactAPI
@@ -142,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="ReactElement.html">
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
             
-                <a href="ReactElement.html">
+                <a href="../chapter1/ReactElement.html">
             
                     
                     ReactElement
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="ReactBaseClass.html">
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
             
-                <a href="ReactBaseClass.html">
+                <a href="../chapter1/ReactBaseClass.html">
             
                     
                     React中基础类
@@ -168,9 +168,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="ReactLifeCycle.html">
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
             
-                <a href="ReactLifeCycle.html">
+                <a href="../chapter1/ReactLifeCycle.html">
             
                     
                     React生命周期和反模式
@@ -181,9 +181,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="ReactDataStructure.html">
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/ReactDataStructure.html">
             
-                <a href="ReactDataStructure.html">
+                <a href="../chapter1/ReactDataStructure.html">
             
                     
                     React中的数据结构
@@ -213,9 +213,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactDOMrender.html">
+        <li class="chapter " data-level="1.3.1" data-path="ReactDOMrender.html">
             
-                <a href="../chapter2/ReactDOMrender.html">
+                <a href="ReactDOMrender.html">
             
                     
                     ReactDOM.render
@@ -226,9 +226,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactRoot.html">
+        <li class="chapter " data-level="1.3.2" data-path="ReactRoot.html">
             
-                <a href="../chapter2/ReactRoot.html">
+                <a href="ReactRoot.html">
             
                     
                     ReactRoot
@@ -239,9 +239,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../chapter2/updateContainer.html">
+        <li class="chapter " data-level="1.3.3" data-path="updateContainer.html">
             
-                <a href="../chapter2/updateContainer.html">
+                <a href="updateContainer.html">
             
                     
                     updateContainer
@@ -252,9 +252,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../chapter2/scheduleRootUpdate.html">
+        <li class="chapter active" data-level="1.3.4" data-path="scheduleRootUpdate.html">
             
-                <a href="../chapter2/scheduleRootUpdate.html">
+                <a href="scheduleRootUpdate.html">
             
                     
                     scheduleRootUpdate
@@ -265,9 +265,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../chapter2/expirationTime.html">
+        <li class="chapter " data-level="1.3.5" data-path="expirationTime.html">
             
-                <a href="../chapter2/expirationTime.html">
+                <a href="expirationTime.html">
             
                     
                     expirationTime
@@ -278,9 +278,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../chapter2/ReactGlobal.html">
+        <li class="chapter " data-level="1.3.6" data-path="ReactGlobal.html">
             
-                <a href="../chapter2/ReactGlobal.html">
+                <a href="ReactGlobal.html">
             
                     
                     部分全局变量
@@ -326,7 +326,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ReactAPI</a>
+        <a href=".." >scheduleRootUpdate</a>
     </h1>
 </div>
 
@@ -341,77 +341,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x5728;react.js&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x51FA;&#x4E86;React&#x7684;&#x4E00;&#x4E9B;API</p>
-<pre><code>var React = {
-  Children: {
-    map: mapChildren,
-    forEach: forEachChildren,
-    count: countChildren,
-    toArray: toArray,
-    only: onlyChild
-  },
+                                <h2 id="schedulerootupdate">scheduleRootUpdate</h2>
+<p>scheduleRootUpdate  &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x6267;&#x884C;&#x4E86;&#x4E24;&#x4E2A;&#x64CD;&#x4F5C;  1&#x4E2A;&#x662F;&#x521B;&#x5EFA;&#x66F4;&#x65B0;createUpdate&#x5E76;&#x653E;&#x5230;&#x66F4;&#x65B0;&#x961F;&#x5217;enqueueUpdate&#xFF0C; 1&#x4E2A;&#x662F;&#x6267;&#x884C;sheculeWork&#x51FD;&#x6570;</p>
+<pre><code>function scheduleRootUpdate(
+  current: Fiber,
+  element: ReactNodeList,
+  expirationTime: ExpirationTime,
+  callback: ?Function,
+) {
 
-  createRef: createRef,
-  Component: Component,
-  PureComponent: PureComponent,
+  const update = createUpdate(expirationTime);
+  // Caution: React DevTools currently depends on this property
+  // being called &quot;element&quot;.
+  update.payload = {element};
 
-  createContext: createContext,
-  forwardRef: forwardRef,
-  lazy: lazy,
-  memo: memo,
-
-  useCallback: useCallback,
-  useContext: useContext,
-  useEffect: useEffect,
-  useImperativeHandle: useImperativeHandle,
-  useDebugValue: useDebugValue,
-  useLayoutEffect: useLayoutEffect,
-  useMemo: useMemo,
-  useReducer: useReducer,
-  useRef: useRef,
-  useState: useState,
-
-  Fragment: REACT_FRAGMENT_TYPE,
-  StrictMode: REACT_STRICT_MODE_TYPE,
-  Suspense: REACT_SUSPENSE_TYPE,
-
-  createElement: createElementWithValidation,
-  cloneElement: cloneElementWithValidation,
-  createFactory: createFactoryWithValidation,
-  isValidElement: isValidElement,
-
-  version: ReactVersion,
-
-  unstable_ConcurrentMode: REACT_CONCURRENT_MODE_TYPE,
-  unstable_Profiler: REACT_PROFILER_TYPE,
-
-  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals
-};
-</code></pre><h3 id="children">Children</h3>
-<p>&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x5904;&#x7406;props.children&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x5E38;&#x89C1;&#x7684;</p>
-<pre><code>this.props.children.map
-this.props.children.forEach
-this.props.only
-</code></pre><h3 id="createref">createRef</h3>
-<p>&#x65B0;&#x7684;ref&#x7528;&#x6CD5;&#xFF0C;React&#x5373;&#x5C06;&#x629B;&#x5F03;<div ref="myDiv">&#x8FD9;&#x79CD;string ref&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x5C06;&#x6765;&#x4F60;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x4F7F;&#x7528;ref</div></p>
-<pre><code>class App extends React.Component{
-
-  constructor() {
-    this.ref = React.createRef()
+  callback = callback === undefined ? null : callback;
+  if (callback !== null) {
+    update.callback = callback;
   }
 
-  render() {
-    return &lt;div ref={this.ref} /&gt;
-    // or
-    return &lt;div ref={(node) =&gt; this.divRef = node} /&gt;
-  }
+  flushPassiveEffects();
+  enqueueUpdate(current, update);
+  scheduleWork(current, expirationTime);
 
+  return expirationTime;
 }
-</code></pre><h3 id="component--purecomponent">Component &amp; PureComponent</h3>
-<p>&#x8FD9;&#x4E24;&#x4E2A;&#x7EC4;&#x4EF6;&#x57FA;&#x672C;&#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x662F;PureComponent&#x7EC4;&#x4EF6;&#x7684;&#x539F;&#x578B;&#x4E0A;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x6807;&#x8BC6;</p>
-<pre><code>pureComponentPrototype.isPureReactComponent = true;
-</code></pre><p>&#x5982;&#x679C;&#x662F;PureComponent&#x7684;&#x8BDD;&#x5C31;shallowEqual&#x6BD4;&#x8F83;state&#x548C;props&#x3002;</p>
-<p>&#x5176;&#x4ED6;&#x7684;API&#x8BF7;&#x5728;React&#x5B98;&#x65B9;&#x6587;&#x6863;&#x91CC;&#x770B;</p>
+</code></pre><p>&#x5148;&#x770B;createUpdate&#x51FD;&#x6570;&#x5206;&#x6790;&#xFF0C; &#x5B83;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;&#x66F4;&#x65B0;&#x4FE1;&#x606F;&#x7684;&#x5BF9;&#x8C61;</p>
+<pre><code>function createUpdate(expirationTime) {
+  return {
+    // &#x4F18;&#x5148;&#x7EA7;
+    expirationTime: expirationTime,
+    // &#x66F4;&#x65B0;&#x7C7B;&#x578B;
+    tag: UpdateState,
+    // &#x66F4;&#x65B0;&#x7684;&#x5BF9;&#x8C61;
+    payload: null,
+    callback: null,
+    // &#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x66F4;&#x65B0;
+    next: null,
+    // &#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x66F4;&#x65B0;effect
+    nextEffect: null
+  };
+}
+</code></pre><p><img src="../images/update01.png" alt="&#x66F4;&#x65B0;&#x5BF9;&#x8C61;"></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;payload&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5E94;&#x7528;&#x5BF9;&#x5E94;&#x7684;ReactElement&#x3002;type&#x5C31;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;</p>
+<h2 id="enqueueupdate">enqueueUpdate</h2>
+<p>&#x8C03;&#x7528;enqueueUpdate&#x628A;&#x4E0A;&#x8FF0;&#x7684;Update&#x52A0;&#x5165;&#x5230;HostRoot&#x7684;updateQueue &#xFF0C; &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5728;setState&#x4E2D;&#x518D;&#x4F5C;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;scheduleWork&#x4E86;&#xFF0C;&#x5B83;&#x662F;render&#x9636;&#x6BB5;&#x771F;&#x6B63;&#x7684;&#x5F00;&#x59CB;&#x3002;&#x5728;&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#x6709;&#x5FC5;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x77E5;&#x8BC6;&#xFF0C;&#x6BD4;&#x5982;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;expirationTime&#x7B49;</p>
 
                                 
                                 </section>
@@ -439,12 +414,12 @@ this.props.only
 
             
                 
-                <a href="project.html" class="navigation navigation-prev " aria-label="Previous page: 项目结构">
+                <a href="updateContainer.html" class="navigation navigation-prev " aria-label="Previous page: updateContainer">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ReactElement.html" class="navigation navigation-next " aria-label="Next page: ReactElement">
+                <a href="expirationTime.html" class="navigation navigation-next " aria-label="Next page: expirationTime">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -455,7 +430,7 @@ this.props.only
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ReactAPI","level":"1.2.2","depth":2,"next":{"title":"ReactElement","level":"1.2.3","depth":2,"path":"chapter1/ReactElement.md","ref":"chapter1/ReactElement.md","articles":[]},"previous":{"title":"项目结构","level":"1.2.1","depth":2,"path":"chapter1/project.md","ref":"chapter1/project.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactAPI.md","mtime":"2019-07-01T02:54:25.024Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-14T11:19:56.135Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"scheduleRootUpdate","level":"1.3.4","depth":2,"next":{"title":"expirationTime","level":"1.3.5","depth":2,"path":"chapter2/expirationTime.md","ref":"chapter2/expirationTime.md","articles":[]},"previous":{"title":"updateContainer","level":"1.3.3","depth":2,"path":"chapter2/updateContainer.md","ref":"chapter2/updateContainer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/scheduleRootUpdate.md","mtime":"2019-07-14T06:39:35.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-14T11:19:56.135Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -190,4 +190,82 @@ class Example extends Component {
 
 ## 使用Derived State是常见的错误
 
+名词“受控”和“非受控”通常用来指代表单的 inputs，但是也可以用来描述数据频繁更新的组件。用 props 传入数据的话，组件可以被认为是受控（因为组件被父级传入的 props 控制）。数据只保存在组件内部的 state 的话，是非受控组件（因为外部没办法直接控制 state）。
 
+
+1. 直接复制 prop 到 state
+
+最常见的误解就是 getDerivedStateFromProps 和 componentWillReceiveProps 只会在 props “改变”时才会调用。实际上只要父级重新渲染时，这两个生命周期函数就会重新调用，不管 props 有没有“变化”。所以，在这两个方法内直接复制（unconditionally）props 到 state 是不安全的。这样做会导致状态更新丢失。
+
+这个 EmailInput 组件复制 props 到 state：
+
+```
+class EmailInput extends Component {
+  state = { email: this.props.email };
+
+  render() {
+    return <input onChange={this.handleChange} value={this.state.email} />;
+  }
+
+  handleChange = event => {
+    this.setState({ email: event.target.value });
+  };
+
+  componentWillReceiveProps(nextProps) {
+    // 这会覆盖所有组件内的 state 更新！
+    // 不要这样做。
+    this.setState({ email: nextProps.email });
+  }
+}
+```
+
+state 的初始值是 props 传来的，当在 <input> 里输入时，修改 state。但是如果父组件重新渲染，我们输入的所有东西都会丢失！
+
+使用 shouldComponentUpdate ，比较 props 的 email 是不是修改再决定要不要重新渲染。但是在实践中，一个组件会接收多个 prop，任何一个 prop 的改变都会导致重新渲染和不正确的状态重置。加上行内函数和对象 prop，创建一个完全可靠的 shouldComponentUpdate 会变得越来越难。而且 shouldComponentUpdate 的最佳实践是用于性能提升，而不是改正不合适的派生 state。
+
+2. 在 props 变化后修改 state
+
+```
+componentWillReceiveProps(nextProps) {
+    // 只要 props.email 改变，就改变 state
+    if (nextProps.email !== this.props.email) {
+      this.setState({
+        email: nextProps.email
+      });
+    }
+  }
+```
+
+但是仍然有个问题。想象一下，如果这是一个密码输入组件，拥有同样 email 的两个账户进行切换时，这个输入框不会重置（用来让用户重新登录）。因为父组件传来的 prop 值没有变化！这会让用户非常惊讶，因为这看起来像是帮助一个用户分享了另外一个用户的密码，([查看这个示例](https://codesandbox.io/s/mz2lnkjkrx))。
+
+
+
+> **这两者的关键在于，任何数据，都要保证只有一个数据来源，而且避免直接复制它**。
+
+## 建议的模式
+
+1. 完全可控的组件
+
+从组件里删除 state。如果 prop 里包含了 email，我们就没必要担心它和 state 冲突。我们甚至可以把 EmailInput 转换成一个轻量的函数组件：
+
+```
+function EmailInput(props) {
+  return <input onChange={props.onChange} value={props.email} />;
+}
+```
+但是如果我们仍然想要保存临时的值，则需要父组件手动执行保存这个动作
+
+2. 有 key 的非可控组件
+
+我们可以使用 key 这个特殊的 React 属性。当 key 变化时， React 会创建一个新的而不是更新一个既有的组件。 Keys 一般用来渲染动态列表，但是这里也可以使用。在这个示例里，当用户输入时，我们使用 user ID 当作 key 重新创建一个新的 email input 组件：
+
+```
+<EmailInput
+  defaultEmail={this.props.user.email}
+  key={this.props.user.id}
+/>
+```
+
+大部分情况下，这是处理重置 state 的最好的办法。
+
+> 这听起来很慢，但是这点的性能是可以忽略的。如果在组件树的更新上有很重的逻辑，这样反而会更快，因为省略了子组件 diff。
