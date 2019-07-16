@@ -67,7 +67,7 @@ childExpirationTime | number | 快速确定子树中是否有不在等待的变�
 
 ## EffectTag
 
-
+当state和props变化时，会引起视图的重新渲染，这个过程叫做side effect，而side effect分为很多种情况，具体要执行哪种effect，在react中是通过effectTag属性记录的，在源码中以二进制的形式保存，因此可以记录多种操作。
 ```
 export type SideEffectTag = number;
 
@@ -96,6 +96,21 @@ export const HostEffectMask = /*        */ 0b001111111111;
 export const Incomplete = /*            */ 0b010000000000;
 export const ShouldCapture = /*         */ 0b100000000000;
 ```
+
+- NoEffect：一般作为effectTag的初始值，或者用于effectTag的比较判断，表示NoWork
+- PerformedWork：由react devtools读取，NoEffect和PerformedWork都不会被committed，当创建effcet list（后面会介绍）时，会跳过NoEffect和PerformedWork
+- Placement：向树中插入新的子节点，对应的状态为MOUNTING，当执行commitPlacement函数完成插入后，清除该标志位
+- Update：当props、state、context发生变化，或者forceUpdate时，会标记为Update，检查到标记后，执行commitUpdate函数进行属性更新，与其相关的生命周期函数为componentDidMount和componentDidUpdate
+- Deletion：标记将要卸载的节点，检查到标记后，执行commitDeletion函数对组件进行卸载，在节点树中删除对应对节点，与其相关的生命周期函数为componentWillUnmount
+- ContentReset 当从文本域节点切换到非文本域或空节点时，打上此标记，将文本内容进行重置，文本域节点包括textarea、option、noscript、string、number和直接在标签中写入的__html。当检测到标记后，执行commitResetTextContent函数将对应节点的text清空
+- Callback：当setState、forceUpdate有callback函数，或者在Commit阶段捕获到错误时，会更新update.callback，并标记Callback，随后检测到标记后会触发commitLifeCycles函数，根据不同到组件类型进行不同的commit
+- DidCapture：针对于懒加载的React.Suspense（SuspenseComponent）组件提供的标志位，DidCapture位置位表示要渲染的组件被挂起，进而先渲染fallback的内容
+- ShouldCapture：标记是否需要将节点挂起，一般捕获边界错误或者超时会置位，随后用于判断是否进行DidCapture
+- Ref：当节点中存在属性ref时，会进行markRef当标记，随后会在commitAllLifeCycles阶段执行commitAttachRef触发相应当ref回调函数
+- Snapshot：在渲染更新之前，当前后当props或state发生变化时，触发getSnapshotBeforeUpdate生命周期钩子
+
+
+
 
 Hooks出来之后新增了HookEffectTag，用于标记ReactHook的effect的tag，后面再作介绍
 
@@ -230,6 +245,8 @@ export type UpdateQueue<State> = {
 ```
 在React中有很多单链表的数据结构，包括上面提到的effect和UpdateQueue。
 
+updateQueue是更新队列，他是一个单向链表，用于更新state，并重绘组件，firstUpdate和lastUpdate分别指向链表的头部和尾部，存储这update对象。以HostRoot为例，从beginWork开始，直到遍历完整个UpdateQueue链表，获取新的状态，当新旧状态不一样时，将effectTag的Update置位，进入更新阶段。
+
 ## workInProgress 双缓冲池技术
 
 workInProgress tree是reconcile过程中从fiber tree建立的当前进度快照，所有的工作都是在这颗树上进行，用于计算更新，完成reconciliation过程。
@@ -246,4 +263,39 @@ workInProgress tree构造完毕，得到的就是新的fiber tree，当进入com
 
 ```
 root.current = finishedWork;
+```
+
+## tag
+用于标记组件类型，具体分类取值如下：
+
+```
+var FunctionComponent = 0;
+var ClassComponent = 1;
+var IndeterminateComponent = 2; // Before we know whether it is function or class
+var HostRoot = 3; // Root of a host tree. Could be nested inside another node.
+var HostPortal = 4; // A subtree. Could be an entry point to a different renderer.
+var HostComponent = 5;
+var HostText = 6;
+var Fragment = 7;
+var Mode = 8;
+var ContextConsumer = 9;
+var ContextProvider = 10;
+var ForwardRef = 11;
+var Profiler = 12;
+var SuspenseComponent = 13;
+var MemoComponent = 14;
+var SimpleMemoComponent = 15;
+var LazyComponent = 16;
+var IncompleteClassComponent = 17;
+var DehydratedSuspenseComponent = 18;
+```
+
+## mode
+
+mode在创建时进行设置，在创建之后，mode在Fiber的整个生命周期内保持不变，可能的取值：
+```
+var NoContext = 0; // 同步模式
+var ConcurrentMode = 1; // 异步模式
+var StrictMode = 2; //严格模式，一般用于开发中，
+var ProfileMode = 4; // 分析模式，一般用于开发中
 ```
