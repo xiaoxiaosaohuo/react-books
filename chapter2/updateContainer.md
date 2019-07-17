@@ -29,7 +29,7 @@ export function updateContainer(
 
 在该方法中，React首先会调用requestCurrentTime获取当前expirationTime， 然后调用computeExpirationForFiber来确定优先级，computeExpirationForFiber会根据当前工作类型，比如isWorking、 isCommitting等等来返回对应的优先级，首次渲染默认是Sync.
 
-> expirationTime会专门介绍
+> expirationTime前面有介绍
 
 根据上面得到的expirationTime（优先级），经过updateContainerAtExpirationTime -> scheduleRootUpdate
 

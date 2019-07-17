@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>scheduleRootUpdate · GitBook</title>
+        <title>renderRoot · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="scheduleWork.html" />
     
-    
-    <link rel="prev" href="updateContainer.html" />
+    <link rel="prev" href="performWork.html" />
     
 
     </head>
@@ -278,7 +276,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.4" data-path="scheduleRootUpdate.html">
+        <li class="chapter " data-level="1.3.4" data-path="scheduleRootUpdate.html">
             
                 <a href="scheduleRootUpdate.html">
             
@@ -317,7 +315,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="renderRoot.html">
+        <li class="chapter active" data-level="1.3.7" data-path="renderRoot.html">
             
                 <a href="renderRoot.html">
             
@@ -365,7 +363,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >scheduleRootUpdate</a>
+        <a href=".." >renderRoot</a>
     </h1>
 </div>
 
@@ -380,52 +378,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="schedulerootupdate">scheduleRootUpdate</h2>
-<p>scheduleRootUpdate  &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x6267;&#x884C;&#x4E86;&#x4E24;&#x4E2A;&#x64CD;&#x4F5C;  1&#x4E2A;&#x662F;&#x521B;&#x5EFA;&#x66F4;&#x65B0;createUpdate&#x5E76;&#x653E;&#x5230;&#x66F4;&#x65B0;&#x961F;&#x5217;enqueueUpdate&#xFF0C; 1&#x4E2A;&#x662F;&#x6267;&#x884C;sheculeWork&#x51FD;&#x6570;</p>
-<pre><code>function scheduleRootUpdate(
-  current: Fiber,
-  element: ReactNodeList,
-  expirationTime: ExpirationTime,
-  callback: ?Function,
-) {
+                                <h2 id="renderroot">renderRoot</h2>
+<p>renderRoot&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x4E00;&#x4E2A;&#x4ECE;&#x65B0;&#x5F00;&#x59CB;&#x7684;root&#xFF0C; &#x662F;&#x7684;&#x8BDD;&#x4F1A;&#x91CD;&#x7F6E;&#x5404;&#x4E2A;&#x5C5E;&#x6027;</p>
+<p>&#x9996;&#x5148;&#x662F;resetStack()&#x51FD;&#x6570;&#xFF0C; &#x5BF9;&#x539F;&#x6709;&#x7684;&#x8FDB;&#x884C;&#x4E2D;&#x7684;root&#x4EFB;&#x52A1;&#x4E2D;&#x65AD;&#xFF0C; &#x8FDB;&#x884C;&#x5B58;&#x50A8;
+&#x7D27;&#x63A5;&#x7740;&#x5C06;nextRoot&#x548C;nextRendeExpirationTime&#x91CD;&#x7F6E;&#xFF0C; &#x540C;&#x65F6;&#x521B;&#x5EFA;&#x7B2C;&#x4E00;&#x4E2A;nextUnitOfWork, &#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;
+&#x8FD9;&#x4E2A;nextUnitOfWork&#x4E5F;&#x662F;&#x4E00;&#x4E2A;workProgress, &#x4E5F;&#x662F;root.current&#x7684;alternater&#x5C5E;&#x6027;&#xFF0C; &#x800C;&#x5B83;&#x7684;alternate&#x5C5E;&#x6027;&#x5219;&#x6307;&#x5411;&#x4E86;root.current&#xFF0C; &#x5F62;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x53CC;&#x7F13;&#x51B2;&#x6C60;&#x3002;</p>
+<pre><code>if (expirationTime !== nextRenderExpirationTime || root !== nextRoot || nextUnitOfWork === null) {
+    // Reset the stack and start working from the root.
+    resetStack();
+    nextRoot = root;
+    nextRenderExpirationTime = expirationTime;
+    nextUnitOfWork = createWorkInProgress(nextRoot.current, null, nextRenderExpirationTime);
+    root.pendingCommitExpirationTime = NoWork;
+}
+</code></pre><p>&#x63A5;&#x7740;&#x6267;&#x884C;wookLoop&#xFF08;isYield&#xFF09;&#x51FD;&#x6570;&#xFF0C; &#x8BE5;&#x51FD;&#x6570;&#x901A;&#x8FC7;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#xFF0C; &#x904D;&#x5386;&#x6BCF;&#x4E00;&#x4E2A;nextUniOfWork</p>
+<pre><code>function workLoop(isYieldy) {
+  if (!isYieldy) {
+    // Flush work without yielding
+    while (nextUnitOfWork !== null) {
+      nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+    }
+  } else {
+    // Flush asynchronous work until there&apos;s a higher priority event
+    while (nextUnitOfWork !== null &amp;&amp; !shouldYieldToRenderer()) {
+      nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+    }
+  }
+}
+</code></pre><h2 id="performunitofwork">performUnitOfWork</h2>
+<pre><code>function performUnitOfWork(workInProgress) {
+  var current$$1 = workInProgress.alternate;
+  var next = void 0;
+  next = beginWork(current$$1, workInProgress, nextRenderExpirationTime);
+  workInProgress.memoizedProps = workInProgress.pendingProps;
 
-  const update = createUpdate(expirationTime);
-  // Caution: React DevTools currently depends on this property
-  // being called &quot;element&quot;.
-  update.payload = {element};
-
-  callback = callback === undefined ? null : callback;
-  if (callback !== null) {
-    update.callback = callback;
+  if (next === null) {
+    // If this doesn&apos;t spawn new work, complete the current work.
+    next = completeUnitOfWork(workInProgress);
   }
 
-  flushPassiveEffects();
-  enqueueUpdate(current, update);
-  scheduleWork(current, expirationTime);
+  ReactCurrentOwner$2.current = null;
 
-  return expirationTime;
+  return next;
 }
-</code></pre><p>&#x5148;&#x770B;createUpdate&#x51FD;&#x6570;&#x5206;&#x6790;&#xFF0C; &#x5B83;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;&#x66F4;&#x65B0;&#x4FE1;&#x606F;&#x7684;&#x5BF9;&#x8C61;</p>
-<pre><code>function createUpdate(expirationTime) {
-  return {
-    // &#x4F18;&#x5148;&#x7EA7;
-    expirationTime: expirationTime,
-    // &#x66F4;&#x65B0;&#x7C7B;&#x578B;
-    tag: UpdateState,
-    // &#x66F4;&#x65B0;&#x7684;&#x5BF9;&#x8C61;
-    payload: null,
-    callback: null,
-    // &#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x66F4;&#x65B0;
-    next: null,
-    // &#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x66F4;&#x65B0;effect
-    nextEffect: null
-  };
+</code></pre><p>performUnitOfWork &#x5148; &#x83B7;&#x53D6; &#x53C2;&#x6570;&#x7684;alaernate&#x5C5E;&#x6027;&#xFF0C; &#x8D4B;&#x503C;&#x7ED9;current</p>
+<p>beginWork&#x4E3B;&#x8981;&#x6839;&#x636E;workInprogress&#x7684;tag&#x6765;&#x505A;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;,&#x8FDB;&#x884C;&#x8282;&#x70B9;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE5;&#x53CA;&#x521B;&#x5EFA;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x5B50;&#x8282;&#x70B9;&#x4F1A;&#x8FD4;&#x56DE;&#x6210;&#x4E3A;next&#xFF0C;&#x5982;&#x679C;&#x6709;next&#x5C31;&#x8FD4;&#x56DE;&#x5230;workLoop&#xFF0C;nextUnitOfWork&#x4E0D;&#x4E3A;null&#x65F6;&#x4F1A;&#x518D;&#x6B21;&#x8C03;&#x7528;performUnitOfWork&#x3002;</p>
+<p>&#x5982;&#x679C;next&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8BF4;&#x660E;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x5411;&#x4E0B;&#x904D;&#x5386;&#x5B50;&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x5230;&#x5E95;&#x4E86;&#xFF0C;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x5B50;&#x6811;&#x4FA7;&#x679D;&#x5DF2;&#x7ECF;&#x904D;&#x5386;&#x5B8C;&#xFF0C;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x8FD9;&#x90E8;&#x5206;&#x5DE5;&#x4F5C;&#x4E86;&#xFF0C;&#x5C31;&#x6267;&#x884C;completeUnitOfWork&#x65B9;&#x6CD5;</p>
+<p>completeUnitOfWork &#x4E3B;&#x8981;&#x662F;&#x5904;&#x7406;effect,&#x5305;&#x62EC;&#x6807;&#x8BB0;effect tag,&#x5411;&#x4E0A;&#x6536;&#x655B;effect list&#x3002;&#x5B83;&#x4F1A;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x662F;&#x5426;&#x6709;sibiling, &#x6709;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x8D4B;&#x503C;&#x7ED9;next, &#x5426;&#x5219;&#x5224;&#x65AD;&#x7236;fiber&#x662F;&#x5426;&#x6709;sibiling, &#x4E00;&#x76F4;&#x5FAA;&#x73AF;&#x5230;&#x6700;&#x4E0A;&#x5C42; &#x7236;fiber&#x4E3A;null&#xFF0C; &#x6267;&#x884C;&#x7684;&#x540C;&#x65F6;&#x4F1A;&#x628A;effect&#x9010;&#x7EA7;&#x4F20;&#x7ED9;&#x7236;fiber&#x3002;&#x5230;&#x4E86;root&#x8282;&#x70B9;&#xFF0C;&#x8868;&#x660E;&#x6574;&#x68F5;&#x6811;&#x7684;&#x904D;&#x5386;&#x5DF2;&#x7ECF;&#x7ED3;&#x675F;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;commit&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#xFF0C;&#x8FD4;&#x56DE;&#x5230;renderRoot&#x3002;</p>
+<p> &#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x8C03;&#x7528;onComplete</p>
+<pre><code> function onComplete(root, finishedWork, expirationTime) {
+  root.pendingCommitExpirationTime = expirationTime;
+  root.finishedWork = finishedWork;
 }
-</code></pre><p><img src="../images/update01.png" alt="&#x66F4;&#x65B0;&#x5BF9;&#x8C61;"></p>
-<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;payload&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5E94;&#x7528;&#x5BF9;&#x5E94;&#x7684;ReactElement&#x3002;type&#x5C31;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;</p>
-<h2 id="enqueueupdate">enqueueUpdate</h2>
-<p>&#x8C03;&#x7528;enqueueUpdate&#x628A;&#x4E0A;&#x8FF0;&#x7684;Update&#x52A0;&#x5165;&#x5230;HostRoot&#x7684;updateQueue &#xFF0C; &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5728;setState&#x4E2D;&#x518D;&#x4F5C;&#x4ECB;&#x7ECD;&#x3002;</p>
-<p>&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;scheduleWork&#x4E86;&#xFF0C;&#x5B83;&#x662F;render&#x9636;&#x6BB5;&#x771F;&#x6B63;&#x7684;&#x5F00;&#x59CB;&#x3002;&#x5728;&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#x6709;&#x5FC5;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x77E5;&#x8BC6;&#xFF0C;&#x6BD4;&#x5982;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;expirationTime&#x7B49;</p>
+</code></pre><p>&#x8FD4;&#x56DE;&#x5230;performWorkOnRoot&#x51FD;&#x6570;&#xFF0C; &#x8FDB;&#x5165;commit&#x9636;&#x6BB5;&#xFF0C; &#x5C06;isRendering&#x72B6;&#x6001;&#x8BBE;&#x4E3A;false,&#x8FD4;&#x56DE;&#x5230;performWork&#x51FD;&#x6570;&#xFF0C; &#x7EE7;&#x7EED;&#x8FDB;&#x5165;&#x5FAA;&#x73AF;&#x6267;&#x884C;root&#xFF0C; &#x76F4;&#x5230;&#x6240;&#x6709;root&#x5B8C;&#x6210;</p>
 
                                 
                                 </section>
@@ -453,14 +458,10 @@
 
             
                 
-                <a href="updateContainer.html" class="navigation navigation-prev " aria-label="Previous page: updateContainer">
+                <a href="performWork.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: performWork">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="scheduleWork.html" class="navigation navigation-next " aria-label="Next page: scheduleWork">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -469,7 +470,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"scheduleRootUpdate","level":"1.3.4","depth":2,"next":{"title":"scheduleWork","level":"1.3.5","depth":2,"path":"chapter2/scheduleWork.md","ref":"chapter2/scheduleWork.md","articles":[]},"previous":{"title":"updateContainer","level":"1.3.3","depth":2,"path":"chapter2/updateContainer.md","ref":"chapter2/updateContainer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/scheduleRootUpdate.md","mtime":"2019-07-14T06:39:35.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T14:13:23.919Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"renderRoot","level":"1.3.7","depth":2,"previous":{"title":"performWork","level":"1.3.6","depth":2,"path":"chapter2/performWork.md","ref":"chapter2/performWork.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/renderRoot.md","mtime":"2019-07-17T14:13:01.767Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T14:13:23.919Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,0 +1,651 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>scheduleWork · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="performWork.html" />
+    
+    
+    <link rel="prev" href="scheduleRootUpdate.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
+            
+                <a href="../chapter1/project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
+            
+                <a href="../chapter1/ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
+            
+                <a href="../chapter1/ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
+            
+                <a href="../chapter1/ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
+            
+                <a href="../chapter1/ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/ReactDataStructure.html">
+            
+                <a href="../chapter1/ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../chapter1/expirationTime.html">
+            
+                <a href="../chapter1/expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../chapter1/ReactGlobal.html">
+            
+                <a href="../chapter1/ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="ReactDOMrender.html">
+            
+                <a href="ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ReactRoot.html">
+            
+                <a href="ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="updateContainer.html">
+            
+                <a href="updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="scheduleRootUpdate.html">
+            
+                <a href="scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.5" data-path="scheduleWork.html">
+            
+                <a href="scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="performWork.html">
+            
+                <a href="performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="renderRoot.html">
+            
+                <a href="renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >scheduleWork</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="schedulework">scheduleWork</h2>
+<p>scheduleWork&#x5148;&#x6267;&#x884C;&#x4E00;&#x4E2A;scheduleWorkToRoot&#x51FD;&#x6570;&#xFF0C; &#x8BE5;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x66F4;&#x65B0;&#x5176;expirationTime&#x4EE5;&#x53CA;&#x4E0A;&#x5C42;fiber&#x7684;childrenExpirationTime</p>
+<pre><code>function scheduleWork(fiber, expirationTime) {
+  var root = scheduleWorkToRoot(fiber, expirationTime);
+  if (root === null) {
+    {
+      switch (fiber.tag) {
+        case ClassComponent:
+          warnAboutUpdateOnUnmounted(fiber, true);
+          break;
+        case FunctionComponent:
+        case ForwardRef:
+        case MemoComponent:
+        case SimpleMemoComponent:
+          warnAboutUpdateOnUnmounted(fiber, false);
+          break;
+      }
+    }
+    return;
+  }
+
+  if (!isWorking &amp;&amp; nextRenderExpirationTime !== NoWork &amp;&amp; expirationTime &gt; nextRenderExpirationTime) {
+    // This is an interruption. (Used for performance tracking.)
+    interruptedBy = fiber;
+    resetStack();
+  }
+  markPendingPriorityLevel(root, expirationTime);
+  if (
+  // If we&apos;re in the render phase, we don&apos;t need to schedule this root
+  // for an update, because we&apos;ll do it before we exit...
+  !isWorking || isCommitting$1 ||
+  // ...unless this is a different root than the one we&apos;re rendering.
+  nextRoot !== root) {
+    var rootExpirationTime = root.expirationTime;
+    requestWork(root, rootExpirationTime);
+  }
+  if (nestedUpdateCount &gt; NESTED_UPDATE_LIMIT) {
+    // Reset this back to zero so subsequent updates don&apos;t throw.
+    nestedUpdateCount = 0;
+    invariant(false, &apos;Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.&apos;);
+  }
+}
+</code></pre><h2 id="scheduleworktoroot">scheduleWorkToRoot</h2>
+<ul>
+<li>&#x66F4;&#x65B0;&#x5F53;&#x524D;fiber&#x7684;expirationTime&#x548C;&#x5176;alternate&#x7684;expirationTime</li>
+<li>&#x5411;&#x4E0A;&#x904D;&#x5386;&#x4E00;&#x76F4;&#x5230;root,&#x66F4;&#x65B0;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;childExpirationTime</li>
+<li>&#x8FD4;&#x56DE; root &#x8282;&#x70B9;&#x7684;Fiber&#x5BF9;&#x8C61;</li>
+</ul>
+<pre><code>function scheduleWorkToRoot(fiber, expirationTime) {
+  recordScheduleUpdate();
+
+  {
+    if (fiber.tag === ClassComponent) {
+      var instance = fiber.stateNode;
+      warnAboutInvalidUpdates(instance);
+    }
+  }
+
+  // Update the source fiber&apos;s expiration time
+  if (fiber.expirationTime &lt; expirationTime) {
+    fiber.expirationTime = expirationTime;
+  }
+  var alternate = fiber.alternate;
+  if (alternate !== null &amp;&amp; alternate.expirationTime &lt; expirationTime) {
+    alternate.expirationTime = expirationTime;
+  }
+  // Walk the parent path to the root and update the child expiration time.
+  var node = fiber.return;
+  var root = null;
+  if (node === null &amp;&amp; fiber.tag === HostRoot) {
+    root = fiber.stateNode;
+  } else {
+    // &#x5FAA;&#x73AF;&#x67E5;&#x627E; FiberRoot
+    while (node !== null) {
+      alternate = node.alternate;
+      if (node.childExpirationTime &lt; expirationTime) {
+        node.childExpirationTime = expirationTime;
+        if (alternate !== null &amp;&amp; alternate.childExpirationTime &lt; expirationTime) {
+          alternate.childExpirationTime = expirationTime;
+        }
+      } else if (alternate !== null &amp;&amp; alternate.childExpirationTime &lt; expirationTime) {
+        alternate.childExpirationTime = expirationTime;
+      }
+      // &#x627E;&#x5230; FiberRoot &#x7ED3;&#x675F;&#x5FAA;&#x73AF;
+      if (node.return === null &amp;&amp; node.tag === HostRoot) {
+        root = node.stateNode;
+        break;
+      }
+      // &#x7EE7;&#x7EED;&#x5411;&#x7236;&#x8282;&#x70B9;&#x67E5;&#x627E;
+      node = node.return;
+    }
+  }
+  return root;
+}
+</code></pre><p>&#x7136;&#x540E;&#x8981;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x5224;&#x65AD;&#xFF1A;</p>
+<pre><code>if (!isWorking &amp;&amp; nextRenderExpirationTime !== NoWork &amp;&amp; expirationTime &gt; nextRenderExpirationTime) {
+    // This is an interruption. (Used for performance tracking.)
+    interruptedBy = fiber;
+    resetStack();
+  }
+</code></pre><ul>
+<li>isWorking&#x4EE3;&#x8868;&#x662F;&#x5426;&#x6B63;&#x5728;&#x5DE5;&#x4F5C;&#xFF0C;&#x5728;&#x5F00;&#x59CB;renderRoot&#x548C;commitRoot&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E3A; true</li>
+<li>nextRenderExpirationTime&#x5728;&#x662F;&#x65B0;&#x7684;renderRoot&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x7684;expirationTime</li>
+</ul>
+<p>&#x6574;&#x4E2A;&#x5224;&#x65AD;&#x7684;&#x610F;&#x601D;&#x5C31;&#x662F;&#xFF1A;<strong><em> &#x76EE;&#x524D;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4EFB;&#x52A1;&#x5728;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x4E4B;&#x524D;&#x6709;&#x6267;&#x884C;&#x8FC7;&#x4EFB;&#x52A1;&#xFF0C;&#x540C;&#x65F6;&#x5F53;&#x524D;&#x7684;&#x4EFB;&#x52A1;&#x6BD4;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x5927;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x4F18;&#x5148;&#x7EA7;&#x8981;&#x9AD8;&#xFF09; </em></strong></p>
+<p>&#x90A3;&#x4E48;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4F1A;&#x51FA;&#x73B0;&#x5728;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5462;&#xFF1F;</p>
+<p>&#x7B54;&#x6848;&#x5C31;&#x662F;&#xFF1A;<strong><em> &#x4E0A;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x662F;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x5F88;&#x4F4E;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x4E0A;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x7247;&#xFF08;&#x521D;&#x59CB;&#x662F; 33ms&#xFF09;&#x4EFB;&#x52A1;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5B8C;&#xFF0C;&#x800C;&#x4E14;&#x7B49;&#x5F85;&#x4E0B;&#x4E00;&#x6B21;requestIdleCallback&#x7684;&#x65F6;&#x5019;&#x65B0;&#x7684;&#x4EFB;&#x52A1;&#x8FDB;&#x6765;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x5F88;&#x77ED;&#xFF0C;&#x90A3;&#x4E48;&#x4F18;&#x5148;&#x7EA7;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x5148;&#x6267;&#x884C;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#xFF0C;&#x6B63;&#x5982;&#x6CE8;&#x91CA;&#x4E2D;&#x6240;&#x793A;&#x8FD9;&#x662F;&#x4E00;&#x6B21;&#x6253;&#x65AD; &#xFF0C;&#x4EFB;&#x52A1;&#x6253;&#x65AD;&#x4E4B;&#x540E;&#xFF0C;&#x4E4B;&#x524D;&#x4EFB;&#x52A1;&#x4F1A;&#x4ECE;stack&#x4E2D;pop&#x51FA;&#x53BB; </em></strong></p>
+<h4 id="resetstack">resetStack</h4>
+<ul>
+<li>&#x5F53;&#x53D1;&#x73B0;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x5927;&#x4E8E;&#x4E0B;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x65F6;&#xFF0C;&#x628A;&#x4E0B;&#x4E2A;&#x4EFB;&#x52A1;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x91CD;&#x7F6E;&#x6267;&#x884C;&#x5F53;&#x524D;&#x4EFB;&#x52A1;</li>
+<li>resetStack &#x5728;&#x91CD;&#x7F6E;&#x4E0B;&#x4E2A;&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;&#x4F1A;&#x5148;&#x8BB0;&#x5F55;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x7B49;&#x5F85;&#x4EE5;&#x540E;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528; unwindInterruptedWork &#x6765;&#x91CD;&#x7F6E;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1; fiber &#x4E0A;&#x7EA7;&#x7684;&#x72B6;&#x6001;</li>
+</ul>
+<p>&#x800C;&#x4E14;resetStack&#x65B9;&#x6CD5;&#x4F1A;&#x91CD;&#x7F6E;&#x4E00;&#x4E0B;&#x53D8;&#x91CF;</p>
+<pre><code>  nextRoot = null;
+  nextRenderExpirationTime = NoWork;
+  nextLatestAbsoluteTimeoutMs = -1;
+  nextRenderDidError = false;
+  nextUnitOfWork = null;
+</code></pre><h2 id="markpendingprioritylevel">markPendingPriorityLevel</h2>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x66F4;&#x65B0;root&#x7684;&#x6700;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x548C;&#x6700;&#x4F4E;&#x4F18;&#x5148;&#x7EA7;&#xFF08;earliestPendingTime&#x548C;lastestPendingTime;&#xFF09;, &#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x4E0B;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x95F4;nextExpirationTimeToWorkOn&#xFF08;&#x5373;root&#x4E2D;&#x5177;&#x6709;&#x6700;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x7684;fiber&#x7684;expirationTime&#xFF09;</p>
+<h2 id="requestwork">requestWork</h2>
+<pre><code>// requestWork is called by the scheduler whenever a root receives an update.
+// It&apos;s up to the renderer to call renderRoot at some point in the future.
+function requestWork(root, expirationTime) {
+  addRootToSchedule(root, expirationTime);
+  if (isRendering) {
+   //&#x9632;&#x6B62;&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#xFF0C;&#x5269;&#x4F59;&#x7684;&#x5DE5;&#x4F5C;&#x5C06;&#x5B89;&#x6392;&#x5728;&#x5F53;&#x524D;&#x6E32;&#x67D3;&#x6279;&#x6B21;&#x6700;&#x540E;&#x8FDB;&#x884C;
+    return;
+  }
+  // &#x6279;&#x91CF;&#x5904;&#x7406;&#x76F8;&#x5173; &#x8C03;&#x7528; setState &#x65F6;&#x5728; enqueueUpdates &#x524D; batchedUpdates &#x4F1A;&#x628A; isBatchingUpdates &#x8BBE;&#x7F6E;&#x6210; true
+  if (isBatchingUpdates) {
+    // Flush work at the end of the batch.
+    if (isUnbatchingUpdates) {
+      // ...unless we&apos;re inside unbatchedUpdates, in which case we should
+      // flush it now.
+      nextFlushedRoot = root;
+      nextFlushedExpirationTime = Sync;
+      performWorkOnRoot(root, Sync, false);
+    }
+    return;
+  }
+
+  if (expirationTime === Sync) {
+    performSyncWork();
+  } else {
+    // &#x5F02;&#x6B65;&#x8C03;&#x5EA6; &#x5229;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x6709;&#x7A7A;&#x95F2;&#x7684;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#x6267;&#x884C;
+    scheduleCallbackWithExpirationTime(root, expirationTime);
+  }
+}
+
+function addRootToSchedule(root: FiberRoot, expirationTime: ExpirationTime) {
+  // root.nextScheduledRoot &#x7528;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6B63;&#x5728;&#x8C03;&#x5EA6;, &#x4E3A; null &#x65F6;&#x4F1A;&#x589E;&#x52A0; nextScheduledRoot
+  // &#x8FD9;&#x4E2A; root &#x8FD8;&#x6CA1;&#x6709;&#x8FDB;&#x5165;&#x8FC7;&#x8C03;&#x5EA6;
+  if (root.nextScheduledRoot === null) {
+    root.expirationTime = expirationTime;
+    // lastScheduledRoot firstScheduledRoot &#x662F;&#x5355;&#x5411;&#x94FE;&#x8868;&#x7ED3;&#x6784;&#xFF0C;&#x8868;&#x793A;&#x591A;&#x4E2A; root &#x66F4;&#x65B0;
+    // &#x8FD9;&#x91CC;&#x53EA;&#x6709;&#x4E00;&#x4E2A; root &#x53EA;&#x4F1A;&#x5728;&#x8FD9;&#x91CC;&#x6267;&#x884C;
+    if (lastScheduledRoot === null) {
+      firstScheduledRoot = lastScheduledRoot = root;
+      root.nextScheduledRoot = root;
+    } else { // &#x6709;&#x4E2A;&#x591A;&#x4E2A;root &#x65F6;&#x8FDB;&#x884C;&#x5355;&#x5411;&#x94FE;&#x8868;&#x7684;&#x63D2;&#x5165;&#x64CD;&#x4F5C;
+      lastScheduledRoot.nextScheduledRoot = root;
+      lastScheduledRoot = root;
+      lastScheduledRoot.nextScheduledRoot = firstScheduledRoot;
+    }
+  } else { 
+    // &#x4F20;&#x5165;&#x7684; root &#x5DF2;&#x7ECF;&#x8FDB;&#x5165;&#x8FC7;&#x8C03;&#x5EA6;, &#x628A; root &#x7684;&#x4F18;&#x5148;&#x7EA7;&#x8BBE;&#x7F6E;&#x6700;&#x9AD8;
+    const remainingExpirationTime = root.expirationTime;
+    // &#x5982;&#x679C; root &#x7684; expirationTime &#x662F;&#x540C;&#x6B65;&#x6216;&#x8005;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A;&#x8BA1;&#x7B97;&#x51FA;&#x7684;&#x6700;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;
+    if (
+      remainingExpirationTime === NoWork ||
+      expirationTime &lt; remainingExpirationTime
+    ) {
+      root.expirationTime = expirationTime; // &#x628A;&#x5F53;&#x524D; root &#x7684;&#x4F18;&#x5148;&#x7EA7;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x9AD8;&#x7684;
+    }
+  }
+}
+</code></pre><ol>
+<li>addRootToSchedule&#x628A; root &#x52A0;&#x5165;&#x5230;&#x8C03;&#x5EA6;&#x961F;&#x5217;,&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;addRootToSchedule&#x7684;&#x65F6;&#x5019;&#xFF0C;nextScheduledRoot&#x662F;null&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x516C;&#x5171;&#x53D8;&#x91CF;firstScheduledRoot&#x548C;lastScheduledRoot&#x4E5F;&#x662F;null&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x628A;&#x4ED6;&#x4EEC;&#x90FD;&#x8D4B;&#x503C;&#x6210;root&#xFF0C;&#x540C;&#x65F6;root.nextScheduledRoot = root&#x3002;&#x7136;&#x540E;&#x7B2C;&#x4E8C;&#x6B21;&#x8FDB;&#x6765;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x524D;&#x540E;root&#x662F;&#x540C;&#x4E00;&#x4E2A;&#xFF0C;&#x90A3;&#x4E48;&#x4E4B;&#x524D;&#x7684;firstScheduledRoot&#x548C;lastScheduledRoot&#x90FD;&#x662F; root&#xFF0C;&#x6240;&#x4EE5;lastScheduledRoot.nextScheduledRoot = root&#x5C31;&#x7B49;&#x4E8E;root.nextScheduledRoot = root</li>
+</ol>
+<p>&#x8FD9;&#x4E48;&#x505A;&#x662F;&#x56E0;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;root&#x4E0D;&#x9700;&#x8981;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#xFF0C;&#x56E0;&#x4E3A;&#x524D;&#x4E00;&#x6B21;&#x8C03;&#x5EA6;&#x5982;&#x679C;&#x4E2D;&#x9014;&#x88AB;&#x6253;&#x65AD;&#xFF0C;&#x4E0B;&#x4E00;&#x6B21;&#x8C03;&#x5EA6;&#x8FDB;&#x5165;&#x8FD8;&#x662F;&#x4ECE;&#x540C;&#x4E00;&#x4E2A;root&#x5F00;&#x59CB;&#xFF0C;&#x5C31;&#x4F1A;&#x628A;&#x65B0;&#x7684;&#x4EFB;&#x52A1;&#x4E00;&#x8D77;&#x6267;&#x884C;&#x4E86;&#x3002;</p>
+<ol>
+<li>&#x540C;&#x65F6;&#x66F4;&#x65B0;root&#x7684;expirationTime&#x5C5E;&#x6027;</li>
+<li>isRendering &#x6B63;&#x5728;rendering&#x5C31;&#x8FD4;&#x56DE;&#xFF0C;&#x5269;&#x4F59;&#x7684;&#x5DE5;&#x4F5C;&#x5C06;&#x5B89;&#x6392;&#x5728;&#x5F53;&#x524D;&#x6E32;&#x67D3;&#x6279;&#x6B21;&#x6700;&#x540E;&#x8FDB;&#x884C;</li>
+<li>isBatchingUpdates&#x548C;isUnbatchingUpdates&#x6D89;&#x53CA;&#x5230;&#x4E8B;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x89E6;&#x53D1;react&#x5408;&#x6210;&#x4E8B;&#x4EF6;&#x65F6;isBatchingUpdates&#x4F1A;&#x7F6E;&#x4E3A;true,&#x6B64;&#x5904;react&#x7684;state&#x66F4;&#x65B0;&#x662F;&#x4F1A;&#x5408;&#x5E76;&#x7684;&#x3002;</li>
+<li>&#x6839;&#x636E;expirationTime&#x8C03;&#x7528;performSyncWork&#x8FD8;&#x662F;scheduleCallbackWithExpirationTime</li>
+<li>scheduleCallbackWithExpirationTime&#x662F;&#x6839;&#x636E;&#x65F6;&#x95F4;&#x7247;&#x6765;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x7684;&#xFF0C;&#x4F1A;&#x6D89;&#x53CA;&#x5230;requestIdleCallback</li>
+</ol>
+<p>&#x5148;&#x770B;&#x540C;&#x6B65;&#x65B9;&#x6CD5; <code>performWork</code></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="scheduleRootUpdate.html" class="navigation navigation-prev " aria-label="Previous page: scheduleRootUpdate">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="performWork.html" class="navigation navigation-next " aria-label="Next page: performWork">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"scheduleWork","level":"1.3.5","depth":2,"next":{"title":"performWork","level":"1.3.6","depth":2,"path":"chapter2/performWork.md","ref":"chapter2/performWork.md","articles":[]},"previous":{"title":"scheduleRootUpdate","level":"1.3.4","depth":2,"path":"chapter2/scheduleRootUpdate.md","ref":"chapter2/scheduleRootUpdate.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/scheduleWork.md","mtime":"2019-07-17T12:19:30.041Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T14:13:23.919Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
