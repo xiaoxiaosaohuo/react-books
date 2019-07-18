@@ -20,4 +20,5 @@
   * [scheduleWork](chapter2/scheduleWork.md)
   * [performWork](chapter2/performWork.md)
   * [renderRoot](chapter2/renderRoot.md)
+  * [updateHostRoot](chapter2/updateHostRoot.md)
   
