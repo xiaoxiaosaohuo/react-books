@@ -220,6 +220,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.9" data-path="fiberWorkflow.html">
+            
+                <a href="fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="createWorkInProgress.html">
+            
+                <a href="createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -381,7 +407,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="expirationtime">expirationTime</h2>
-<p>&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x4E0E;&#x4EFB;&#x52A1;&#x5355;&#x5143;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x76F8;&#x5173;&#xFF0C;&#x6839;&#x636E;expirationTime&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;&#x5206;&#x7247;&#x4EFB;&#x52A1;&#xFF0C;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x51B3;&#x5B9A;&#x4E86;&#x66F4;&#x65B0;&#x7684;&#x6279;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x3002;</p>
+<ul>
+<li><p>&#x4E00;&#x4E2A;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;&#x53EF;&#x80FD;&#x4F1A;&#x5305;&#x542B;&#x591A;&#x4E2A;root&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;root&#xFF0C;&#x624D;&#x80FD;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;root&#xFF0C;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;root&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x63D2;&#x961F;&#x7684;
+fiber.expirationTime&#x5C5E;&#x6027;&#x4EE3;&#x8868;&#x8BE5;fiber&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x6570;&#x503C;&#x8D8A;&#x5927;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x8D8A;&#x9AD8;&#xFF0C;&#x901A;&#x8FC7;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x51CF;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x83B7;&#x5F97;&#xFF0C;&#x540C;&#x6B65;&#x4EFB;&#x52A1;&#x4F18;&#x5148;&#x7EA7;&#x9ED8;&#x8BA4;&#x4E3A;&#x6700;&#x9AD8;</p>
+</li>
+<li><p>react&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x662F;&#x5012;&#x7740;&#x8D70;&#x7684;&#xFF0C;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x521D;&#x59CB;&#x4E3A;&#x4E00;&#x4E2A;&#x6781;&#x5927;&#x503C;&#xFF0C;&#x968F;&#x7740;&#x65F6;&#x95F4;&#x6D41;&#x901D;&#xFF0C;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x8D8A;&#x6765;&#x8D8A;&#x5C0F;,&#x4EFB;&#x52A1;&#xFF08;fiber&#xFF09;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x6839;&#x636E;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x51CF;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x8BA1;&#x7B97;&#xFF0C;&#x5982;&#x5F53;&#x524D;&#x65F6;&#x95F4;10000&#xFF0C;&#x4EFB;&#x52A1;&#x8D85;&#x65F6;&#x65F6;&#x95F4;500&#xFF0C;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x4F18;&#x5148;&#x7EA7;&#x7B97;&#x6CD5;10000-500=9500,&#x65B0;&#x4EFB;&#x52A1;&#x6765;&#x4E34;&#xFF0C;&#x65F6;&#x95F4;&#x6D41;&#x901D;&#xFF0C;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x53D8;&#x4E3A;9800&#xFF0C;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E0D;&#x53D8;&#xFF0C;&#x65B0;&#x4EFB;&#x52A1;&#x4F18;&#x5148;&#x7EA7;&#x7B97;&#x6CD5;9800-500=9300,&#x65B0;&#x4EFB;&#x52A1;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#x4E8E;&#x539F;&#x4EFB;&#x52A1;</p>
+</li>
+<li><p>&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x4E0E;&#x4EFB;&#x52A1;&#x5355;&#x5143;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x76F8;&#x5173;&#xFF0C;&#x6839;&#x636E;expirationTime&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;&#x5206;&#x7247;&#x4EFB;&#x52A1;&#xFF0C;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x51B3;&#x5B9A;&#x4E86;&#x66F4;&#x65B0;&#x7684;&#x6279;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x5F53;&#x65F6;&#x95F4;&#x6765;&#x5230;9500&#x65F6;&#xFF0C;&#x8001;&#x4EFB;&#x52A1;&#x8D85;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x83B7;&#x5F97;&#x6700;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x56E0;&#x4E3A;&#x6240;&#x6709;&#x65B0;&#x4EFB;&#x52A1;&#x9664;&#x540C;&#x6B65;&#x4EFB;&#x52A1;&#x5916;&#x4F18;&#x5148;&#x7EA7;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8D85;&#x8FC7;&#x8001;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x4F4E;&#x4F18;&#x5148;&#x7EA7;&#x88AB;&#x997F;&#x6B7B;</p>
+</li>
+</ul>
 <p><strong><em>expirationTime&#x8D8A;&#x5927;&#x4F18;&#x5148;&#x7EA7;&#x8D8A;&#x9AD8;</em></strong></p>
 <pre><code>// Max 31 bit integer. The max integer size in V8 for 32-bit systems.
 // Math.pow(2, 30) - 1
@@ -627,7 +663,7 @@ function computeInteractiveExpiration(currentTime) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"expirationTime","level":"1.2.7","depth":2,"next":{"title":"部分全局变量","level":"1.2.8","depth":2,"path":"chapter1/ReactGlobal.md","ref":"chapter1/ReactGlobal.md","articles":[]},"previous":{"title":"React中的数据结构","level":"1.2.6","depth":2,"path":"chapter1/ReactDataStructure.md","ref":"chapter1/ReactDataStructure.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/expirationTime.md","mtime":"2019-07-17T02:50:45.803Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T14:13:23.919Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"expirationTime","level":"1.2.7","depth":2,"next":{"title":"部分全局变量","level":"1.2.8","depth":2,"path":"chapter1/ReactGlobal.md","ref":"chapter1/ReactGlobal.md","articles":[]},"previous":{"title":"React中的数据结构","level":"1.2.6","depth":2,"path":"chapter1/ReactDataStructure.md","ref":"chapter1/ReactDataStructure.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/expirationTime.md","mtime":"2019-07-18T03:39:31.111Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-18T03:39:38.497Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

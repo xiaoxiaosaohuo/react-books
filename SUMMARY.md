@@ -10,6 +10,8 @@
   * [React中的数据结构](chapter1/ReactDataStructure.md)
   * [expirationTime](chapter1/expirationTime.md)
   * [部分全局变量](chapter1/ReactGlobal.md)
+  * [Fiber工作流程](chapter1/fiberWorkflow.md)
+  * [createWorkInProgress](chapter1/createWorkInProgress.md)
 * 任务调度
   * [ReactDOM.render](chapter2/ReactDOMrender.md)
   * [ReactRoot](chapter2/ReactRoot.md)

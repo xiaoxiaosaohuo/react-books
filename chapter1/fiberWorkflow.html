@@ -1,0 +1,694 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Fiber工作流程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="createWorkInProgress.html" />
+    
+    
+    <link rel="prev" href="ReactGlobal.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="project.html">
+            
+                <a href="project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ReactAPI.html">
+            
+                <a href="ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ReactElement.html">
+            
+                <a href="ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="ReactBaseClass.html">
+            
+                <a href="ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="ReactLifeCycle.html">
+            
+                <a href="ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="ReactDataStructure.html">
+            
+                <a href="ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="expirationTime.html">
+            
+                <a href="expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="ReactGlobal.html">
+            
+                <a href="ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.9" data-path="fiberWorkflow.html">
+            
+                <a href="fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="createWorkInProgress.html">
+            
+                <a href="createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactDOMrender.html">
+            
+                <a href="../chapter2/ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactRoot.html">
+            
+                <a href="../chapter2/ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/updateContainer.html">
+            
+                <a href="../chapter2/updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter2/scheduleRootUpdate.html">
+            
+                <a href="../chapter2/scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter2/scheduleWork.html">
+            
+                <a href="../chapter2/scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter2/performWork.html">
+            
+                <a href="../chapter2/performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter2/renderRoot.html">
+            
+                <a href="../chapter2/renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Fiber工作流程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="fiber&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;">Fiber&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;</h2>
+<p>&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;</p>
+<ol>
+<li>reconciliation/render  &#x53EF;&#x6682;&#x505C;&#xFF0C;&#x6062;&#x590D;&#x7B49;&#x3002;</li>
+<li>commit &#x4E00;&#x6B21;&#x6027;&#x5B8C;&#x6210;</li>
+</ol>
+<h3 id="reconciliationrender">reconciliation/render</h3>
+<p>render&#x7684;&#x91CD;&#x70B9;&#x662F;&#x786E;&#x5B9A;&#x9700;&#x8981;&#x63D2;&#x5165;&#xFF0C;&#x66F4;&#x65B0;&#x6216;&#x5220;&#x9664;&#x54EA;&#x4E9B;&#x8282;&#x70B9;&#xFF0C;&#x4EE5;&#x53CA;&#x54EA;&#x4E9B;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x8C03;&#x7528;&#x5176;&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5728;reconciliation &#x65F6;&#xFF0C;&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x9010;&#x8282;&#x70B9;&#x6784;&#x9020;workInProgress tree&#x3002;
+&#x4F1A;&#x6839;&#x636E;render&#x751F;&#x6210;&#x7684;react elements&#x751F;&#x6210;&#x5BF9;&#x5E94;&#x7684;fiber nodes tree, &#x6BCF;&#x4E00;&#x4E2A;element &#x5BF9;&#x5E94;&#x4E00;&#x4E2A;fiber node&#xFF0C;fiber&#x6301;&#x6709;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#x548C;DOM&#xFF0C;&#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x9700;&#x8981;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>react element&#x5728;&#x6BCF;&#x6B21;render&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x65B0;&#x5EFA;&#xFF0C;&#x4F46;&#x662F;fiber&#x5E76;&#x4E0D;&#x4F1A;&#xFF0C;&#x5982;&#x679C;current.alertnate&#x5B58;&#x5728;&#x5219;&#x4F1A;&#x91CD;&#x7528;&#x4E4B;&#x524D;&#x7684;fiber&#xFF0C;&#x4EC5;&#x4EC5;&#x628A;&#x76F8;&#x5E94;&#x7684;react element&#x7684;&#x5C5E;&#x6027;&#x66F4;&#x65B0;&#x5230;&#x8FD9;&#x4E2A;fiber&#x4E0A; &#x89C1;<code>createWorkInProgress</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x521B;&#x5EFA;fiber&#x65F6;&#x6839;&#x636E;&#x4E0D;&#x540C;type&#x4F1A;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x540E;&#x90FD;&#x4F1A;&#x8C03;&#x7528;creteFiber&#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;fiber</p>
+<pre><code>createHostRootFiber
+createFiberFromElement
+createFiberFromFragment
+createFiberFromPortal
+createFiberFromText
+...
+
+fiber = createFiber(fiberTag, pendingProps, key, mode)
+</code></pre><p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x7ED3;&#x6784;&#x7684;fiber tree.</p>
+<p>&#x5404;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x901A;&#x8FC7; return&#xFF0C;child&#xFF0C;sibling&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x5173;&#x8054;</p>
+<ul>
+<li>return &#x7236;&#x7EA7;&#x8282;&#x70B9;</li>
+<li>child &#x5B50;&#x8282;&#x70B9;</li>
+<li>sibling &#x5144;&#x5F1F;&#x8282;&#x70B9;</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/15315816/50039685-0b283680-0071-11e9-9d13-681b697719d2.png" alt="fibertree"></p>
+<h4 id="fiber-reconciliation&#x6D41;&#x7A0B;&#x5206;&#x6790;">Fiber Reconciliation&#x6D41;&#x7A0B;&#x5206;&#x6790;</h4>
+<ol>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4E0D;&#x9700;&#x8981;&#x66F4;&#x65B0;&#xFF0C;&#x5219;&#x628A;&#x5B50;&#x8282;&#x70B9;clone&#x8FC7;&#x6765;&#xFF0C;&#x8DF3;&#x5230;&#x6B65;&#x9AA4;5</li>
+<li>&#x8DDF;&#x65B0;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;props,state,context&#x7B49;&#xFF0C;&#x8C03;&#x7528;getDerivedStateFromProps&#x9759;&#x6001;&#x65B9;&#x6CD5;</li>
+<li>&#x8C03;&#x7528;shouldComponentUpdate()&#xFF0C;false&#x7684;&#x8BDD;&#xFF0C;&#x8DF3;&#x5230;&#x6B65;&#x9AA4;5</li>
+<li>&#x8C03;&#x7528;&#x7EC4;&#x4EF6;&#x7684;render&#x65B9;&#x6CD5;&#x83B7;&#x5F97;&#x65B0;&#x7684;children, &#x8FDB;&#x884C;reconcileChildren&#xFF0C;&#x4E3A;&#x5B50;&#x8282;&#x70B9;&#x521B;&#x5EFA;fiber&#xFF08;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4F1A;&#x5C3D;&#x91CF;&#x590D;&#x7528;&#x73B0;&#x6709;fiber&#xFF0C;&#x5B50;&#x8282;&#x70B9;&#x589E;&#x5220;&#x79FB;&#x52A8;&#x53D1;&#x751F;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4E0D;&#x662F;&#x771F;&#x5B9E;&#x7684;dom&#x8282;&#x70B9;&#xFF0C;&#x5E76;&#x6807;&#x8BB0;effectTag&#xFF0C;&#x6536;&#x96C6;effect&#xFF09;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;workInProgress.child&#xFF0C;&#x5219;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#x7ED3;&#x675F;&#xFF0C;&#x8C03;&#x7528;completeWork&#xFF0C;&#x5982;&#x679C;&#x662F;dom&#x8282;&#x70B9;&#x5C31;diffProperties,&#x6807;&#x8BB0;tag&#xFF0C;&#x628A;effect list&#x5F52;&#x5E76;&#x5230;return fiber&#xFF0C;&#x5E76;&#x628A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;sibling&#x4F5C;&#x4E3A;&#x4E0B;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#xFF1B;&#x5426;&#x5219;&#x628A;child&#x4F5C;&#x4E3A;&#x4E0B;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5269;&#x4F59;&#x53EF;&#x7528;&#x65F6;&#x95F4;&#x4E86;&#xFF0C;&#x7B49;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x4E3B;&#x7EBF;&#x7A0B;&#x7A7A;&#x95F2;&#x65F6;&#x624D;&#x5F00;&#x59CB;&#x4E0B;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#xFF1B;&#x5426;&#x5219;&#xFF0C;&#x7ACB;&#x5373;&#x5F00;&#x59CB;&#x505A;</li>
+<li>&#x5F53;&#x8FD4;&#x56DE;&#x5230;root&#x8282;&#x70B9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5DE5;&#x4F5C;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#xFF0C;&#x8FDB;&#x5165;commit&#x9636;&#x6BB5;</li>
+<li>commit&#x9636;&#x6BB5;&#xFF0C;&#x6807;&#x8BB0;isWorking = true;&#x6B64;&#x9636;&#x6BB5;&#x4E0D;&#x53EF;&#x6253;&#x65AD;</li>
+<li>&#x6709;&#x4E09;&#x4E2A;&#x5927;&#x5FAA;&#x73AF;&#x904D;&#x5386;effect list&#x3002;&#x4E3B;&#x8981;&#x662F;&#x8C03;&#x7528;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x5C06;&#x66F4;&#x65B0;flush&#x5230;&#x5C4F;&#x5E55;&#x4E0A;</li>
+</ol>
+<h4 id="&#x5DE5;&#x4F5C;&#x5FAA;&#x73AF;&#x548C;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;">&#x5DE5;&#x4F5C;&#x5FAA;&#x73AF;&#x548C;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;</h4>
+<pre><code>function workLoop(isYieldy) {
+    if (!isYieldy) {
+        // Flush work without yielding
+        while (nextUnitOfWork !== null) {
+            nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+        }
+    } else {
+        // Flush asynchronous work until the deadline runs out of time.
+        while (nextUnitOfWork !== null &amp;&amp; !shouldYield()) {
+            nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+        }
+    }
+}
+
+function performUnitOfWork(workInProgress){
+  var current$$1 = workInProgress.alternate;
+  var next = void 0;
+  //&#x59CB;&#x7EC8;&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x8981;&#x5728;&#x5FAA;&#x73AF;&#x4E2D;&#x5904;&#x7406;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x6307;&#x9488;&#x6216;null&#x3002;
+  next = beginWork(current$$1, workInProgress, nextRenderExpirationTime);
+  if (next === null) {
+    // If this doesn&apos;t spawn new work, complete the current work.
+    next = completeUnitOfWork(workInProgress);
+  }
+  return next;
+} 
+
+function completeUnitOfWork(workInProgress) {
+    while (true) {
+        let returnFiber = workInProgress.return;
+        let siblingFiber = workInProgress.sibling;
+
+        nextUnitOfWork = completeWork(workInProgress);
+
+        if (siblingFiber !== null) {
+            // If there is a sibling, return it
+            // to perform work for this sibling
+            return siblingFiber;
+        } else if (returnFiber !== null) {
+            // If there&apos;s no more work in this returnFiber,
+            // continue the loop to complete the parent.
+            workInProgress = returnFiber;
+            continue;
+        } else {
+            // We&apos;ve reached the root.
+            return null;
+        }
+    }
+}
+</code></pre><p>nextUnitOfWork &#x6307;&#x5411;workInProgress&#x7684;fiber node,&#x968F;&#x7740;&#x904D;&#x5386;&#x7684;&#x8FDB;&#x884C;&#xFF0C;&#x4F7F;&#x7528;&#x8BE5;&#x53D8;&#x91CF;&#x80FD;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x5728;current fiber&#x5904;&#x7406;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;nextUnitOfWork&#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;fiber node&#x6216;null,&#x5F53;&#x8FD4;&#x56DE;null&#x65F6;&#xFF0C;&#x4F1A;&#x9000;&#x51FA;workLoop,&#x51C6;&#x5907;&#x8FDB;&#x5165;commit &#x9636;&#x6BB5;&#x3002;</p>
+<h4 id="side-effects">Side-effects</h4>
+<p>state&#x548C;props&#x7684;&#x6539;&#x53D8;&#x4F1A;&#x4EA7;&#x751F; side-effects&#xFF0C;&#x6BCF;&#x4E2A;fiber node&#x90FD;&#x6709;&#x4E0E;&#x4E4B;&#x5173;&#x8054;&#x7684;effect,&#x7528;effectTag &#x8FDB;&#x884C;&#x6807;&#x8BC6;&#xFF0C;&#x5176;&#x8868;&#x793A;&#x5728;&#x5904;&#x7406;&#x66F4;&#x65B0;&#x65F6;&#x9700;&#x8981;&#x5728;&#x5B9E;&#x4F8B;&#x4E0A;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;</p>
+<p>&#x5BF9;&#x4E8E;host components&#x6765;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x589E;&#x52A0;&#xFF0C;&#x5220;&#x9664;&#xFF0C;&#x66F4;&#x65B0;&#x3002;&#x5BF9;&#x4E8E;class component&#x6765;&#x8BF4;&#xFF0C;&#x8981;&#x66F4;&#x65B0;&#x5176;refs,&#x8C03;&#x7528;componentDidMount&#xFF0C;componentDidUpdate&#x7B49;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;hooks&#x6765;&#x8BF4;&#x5C31;&#x662F;useEffect&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3002;</p>
+<p>React &#x4F7F;&#x7528;&#x5355;&#x94FE;&#x8868;&#x5B58;&#x50A8;effect, &#x901A;&#x8FC7;nextEffect&#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;effect</p>
+<p><img src="https://user-images.githubusercontent.com/15315816/50039691-22672400-0071-11e9-83f0-a1410ba9eb09.png" alt="fibertree1"></p>
+<h3 id="commit&#x9636;&#x6BB5;">Commit&#x9636;&#x6BB5;</h3>
+<p>&#x8FD9;&#x662F;React&#x8C03;&#x7528;&#x751F;&#x547D;&#x5468;&#x671F;&#x5E76;&#x66F4;&#x65B0;DOM&#x7684;&#x5730;&#x65B9;</p>
+<p>&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#xFF0C;&#x6709;&#x4E24;&#x9897;&#x6811;&#xFF0C;current&#x548C;workInProgress</p>
+<ul>
+<li>current&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x4E0A;&#x5448;&#x73B0;&#x7684;&#x72B6;&#x6001;</li>
+<li>workInProgress&#x6216;&#x8005;finishedWork&#x4EE3;&#x8868;&#x9700;&#x8981;&#x5237;&#x65B0;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x72B6;&#x6001;</li>
+</ul>
+<p>&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5982;&#x4E0B;</p>
+<ol>
+<li>&#x8C03;&#x7528;getSnapshotBeforeUpdate&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;</li>
+<li>&#x5728;effectTag=Deletion&#x7684;&#x8282;&#x70B9;&#x4E0A;&#x8C03;&#x7528;componentWillUnmount&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;</li>
+<li>&#x8BBE;&#x7F6E; finishedWork tree &#x4E3A; current</li>
+<li>&#x8C03;&#x7528; componentDidMount&#x751F;&#x547D;&#x5468;&#x671F; &#x5982;&#x679C;&#x8BE5;&#x8282;&#x70B9;&#x6807;&#x8BB0;&#x4E3A; Placement</li>
+<li>&#x8C03;&#x7528; componentDidUpdate&#x751F;&#x547D;&#x5468;&#x671F; &#x5982;&#x679C;&#x8BE5;&#x8282;&#x70B9;&#x6807;&#x8BB0;&#x4E3A; Update</li>
+</ol>
+<p>&#x7B80;&#x5316;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;</p>
+<pre><code>function commitRoot(root, finishedWork) {
+    commitBeforeMutationLifecycles()
+    commitAllHostEffects();
+    root.current = finishedWork;
+    commitAllLifeCycles();
+}
+</code></pre><p>&#x8FD9;&#x4E2A;commit &#x9636;&#x6BB5;&#x6838;&#x5FC3;&#x662F;&#x4E09;&#x4E2A;&#x5927;&#x5FAA;&#x73AF;&#xFF0C;&#x904D;&#x5386;effects list
+<strong>&#x7B2C;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;</strong> commitBeforeMutationLifecycles &#x8C03;&#x7528;&#x7EC4;&#x4EF6;&#x7684;getSnapshotBeforeUpdate </p>
+<pre><code>function commitBeforeMutationLifecycles() {
+  while (nextEffect !== null) {
+
+    var effectTag = nextEffect.effectTag;
+    if (effectTag &amp; Snapshot) {
+      recordEffect();
+      var current$$1 = nextEffect.alternate;
+      commitBeforeMutationLifeCycles(current$$1, nextEffect);
+    }
+
+    nextEffect = nextEffect.nextEffect;
+  }
+}
+</code></pre><p><strong>&#x7B2C;&#x4E8C;&#x4E2A;&#x5FAA;&#x73AF;</strong> commitAllHostEffects &#xFF0C;&#x6839;&#x636E;effectTag&#x5E94;&#x7528;&#x66F4;&#x65B0;&#xFF0C;&#x6709;&#x4E09;&#x79CD;tag,(Placement | Update | Deletion)</p>
+<pre><code>function commitAllHostEffects() {
+  while (nextEffect !== null) {
+
+    var effectTag = nextEffect.effectTag;
+
+    if (effectTag &amp; ContentReset) {
+      commitResetTextContent(nextEffect);
+    }
+
+    if (effectTag &amp; Ref) {
+      var current$$1 = nextEffect.alternate;
+      if (current$$1 !== null) {
+        commitDetachRef(current$$1);
+      }
+    }
+
+    var primaryEffectTag = effectTag &amp; (Placement | Update | Deletion);
+    switch (primaryEffectTag) {
+      case Placement:
+        {
+          commitPlacement(nextEffect);
+          nextEffect.effectTag &amp;= ~Placement;
+          break;
+        }
+      case PlacementAndUpdate:
+        {
+          // Placement
+          commitPlacement(nextEffect);
+          nextEffect.effectTag &amp;= ~Placement;
+
+          // Update
+          var _current = nextEffect.alternate;
+          commitWork(_current, nextEffect);
+          break;
+        }
+      case Update:
+        {
+          var _current2 = nextEffect.alternate;
+          commitWork(_current2, nextEffect);
+          break;
+        }
+      case Deletion:
+        {
+          commitDeletion(nextEffect);
+          break;
+        }
+    }
+    nextEffect = nextEffect.nextEffect;
+  }
+
+}
+</code></pre><p><strong>&#x7B2C;&#x4E09;&#x4E2A;&#x5FAA;&#x73AF;</strong>  commitAllLifeCycles &#x8C03;&#x7528;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x521D;&#x6B21;&#x6302;&#x8F7D;&#x8C03;&#x7528;componentDidMount&#xFF0C;&#x66F4;&#x65B0;&#x9636;&#x6BB5;&#x8C03;&#x7528;componentDidUpdate </p>
+<pre><code>function commitAllLifeCycles(finishedRoot, committedExpirationTime) {
+  while (nextEffect !== null) {
+    var effectTag = nextEffect.effectTag;
+
+    if (effectTag &amp; (Update | Callback)) {
+      var current$$1 = nextEffect.alternate;
+      commitLifeCycles(finishedRoot, current$$1, nextEffect, committedExpirationTime);
+    }
+
+    if (effectTag &amp; Ref) {
+      commitAttachRef(nextEffect);
+    }
+
+    if (effectTag &amp; Passive) {
+      rootWithPendingPassiveEffects = finishedRoot;
+    }
+
+    nextEffect = nextEffect.nextEffect;
+  }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ReactGlobal.html" class="navigation navigation-prev " aria-label="Previous page: 部分全局变量">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="createWorkInProgress.html" class="navigation navigation-next " aria-label="Next page: createWorkInProgress">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Fiber工作流程","level":"1.2.9","depth":2,"next":{"title":"createWorkInProgress","level":"1.2.10","depth":2,"path":"chapter1/createWorkInProgress.md","ref":"chapter1/createWorkInProgress.md","articles":[]},"previous":{"title":"部分全局变量","level":"1.2.8","depth":2,"path":"chapter1/ReactGlobal.md","ref":"chapter1/ReactGlobal.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/fiberWorkflow.md","mtime":"2019-07-18T03:10:05.490Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-18T03:39:38.497Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
