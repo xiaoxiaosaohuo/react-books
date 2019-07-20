@@ -13,6 +13,7 @@
   * [Fiber工作流程](chapter1/fiberWorkflow.md)
   * [createWorkInProgress](chapter1/createWorkInProgress.md)
 * 任务调度
+  * [ReactScheduler](chapter2/ReactScheduler.md)
   * [ReactDOM.render](chapter2/ReactDOMrender.md)
   * [ReactRoot](chapter2/ReactRoot.md)
   * [updateContainer](chapter2/updateContainer.md)
