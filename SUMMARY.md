@@ -22,4 +22,6 @@
   * [performWork](chapter2/performWork.md)
   * [renderRoot](chapter2/renderRoot.md)
   * [updateHostRoot](chapter2/updateHostRoot.md)
+* 其他API
+  * [setState](chapter3/setState.md)
   
