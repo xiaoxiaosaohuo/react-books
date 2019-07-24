@@ -25,3 +25,6 @@
 * 其他API
   * [setState](chapter3/setState.md)
   
+* Hooks
+  * [hooks](hooks/hooks.md)
+  
