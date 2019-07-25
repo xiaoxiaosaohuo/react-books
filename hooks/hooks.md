@@ -454,6 +454,12 @@ function dispatchAction<S, A>(
 }
 ```
 
+当连续三次调用同一个dispatch时,queue的链表关系如下，如
+```
+setCount(1);
+setCount(2);
+setCount(3);
+```
 ![queue](../images/hook-queue.png)
 
 
@@ -480,7 +486,8 @@ function updateHookTypesDev() {
 }
 ```
 ##### 调用updateState
-  
+
+useState底层是useReducer，所以在更新时的流程(即重渲染组件后)是调用updateReducer的。 
 ```
   function updateState(initialState) {
   return updateReducer(basicStateReducer, initialState);
@@ -542,9 +549,9 @@ function updateReducer<S, I, A>(
     return [hook.memoizedState, dispatch];
   }
 
-  // 整个queue中的最新的update
+  // 整个queue中的最后一个update
   const last = queue.last;
-  // The last update that is part of the base state.
+  // 最后一个update是基本状态
   const baseUpdate = hook.baseUpdate;
   const baseState = hook.baseState;
 
@@ -552,9 +559,10 @@ function updateReducer<S, I, A>(
   let first;
   if (baseUpdate !== null) {
     if (last !== null) {
-      //由于queue是一个循环链表，`queue.last.next = queue.first` 一旦第一个update提交了，baseUpdate就不在是空的，此时不用处理了
+      //由于queue是一个循环链表，`queue.last.next = queue.first` 一旦第一个update提交了，baseUpdate就不再是空的，此时设置last.next = null，意味着不用处理以前处理过的update
       last.next = null;
     }
+    //由于是循环链表和结构共享，baseUpdate.next指向的是最新的update
     first = baseUpdate.next;
   } else {
     first = last !== null ? last.next : null;
@@ -635,5 +643,5 @@ function updateReducer<S, I, A>(
 
 - 当第一次调用[count, setCount] = useState(0)时，创建一个queue
 - 每一次调用setCount(x)，就dispach一个内容为x的action（action的表现为：将count设为x)，action存储在queue中。
-- 这些action最终在updateReducer中被调用，更新到memorizedState上，使我们能够获取到最新的state值。
+- 这些action最终在updateReducer中被调用，更新到memoizedState上，使我们能够获取到最新的state值。
 

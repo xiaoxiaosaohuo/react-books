@@ -863,6 +863,10 @@ return children;
     scheduleWork(fiber, expirationTime);
   }
 }
+</code></pre><p>&#x5F53;&#x8FDE;&#x7EED;&#x4E09;&#x6B21;&#x8C03;&#x7528;&#x540C;&#x4E00;&#x4E2A;dispatch&#x65F6;,queue&#x7684;&#x94FE;&#x8868;&#x5173;&#x7CFB;&#x5982;&#x4E0B;&#xFF0C;&#x5982;</p>
+<pre><code>setCount(1);
+setCount(2);
+setCount(3);
 </code></pre><p><img src="../images/hook-queue.png" alt="queue"></p>
 <h2 id="hook-&#x66F4;&#x65B0;">hook &#x66F4;&#x65B0;</h2>
 <p>ReactCurrentDispatcher.current &#x4F1A;&#x6307;&#x5411;HooksDispatcherOnUpdate &#x5BF9;&#x8C61;</p>
@@ -881,6 +885,7 @@ function updateHookTypesDev() {
   }
 }
 </code></pre><h5 id="&#x8C03;&#x7528;updatestate">&#x8C03;&#x7528;updateState</h5>
+<p>useState&#x5E95;&#x5C42;&#x662F;useReducer&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x66F4;&#x65B0;&#x65F6;&#x7684;&#x6D41;&#x7A0B;(&#x5373;&#x91CD;&#x6E32;&#x67D3;&#x7EC4;&#x4EF6;&#x540E;)&#x662F;&#x8C03;&#x7528;updateReducer&#x7684;&#x3002; </p>
 <pre><code>  function updateState(initialState) {
   return updateReducer(basicStateReducer, initialState);
 }
@@ -941,9 +946,9 @@ function updateReducer&lt;S, I, A&gt;(
     return [hook.memoizedState, dispatch];
   }
 
-  // &#x6574;&#x4E2A;queue&#x4E2D;&#x7684;&#x6700;&#x65B0;&#x7684;update
+  // &#x6574;&#x4E2A;queue&#x4E2D;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;update
   const last = queue.last;
-  // The last update that is part of the base state.
+  // &#x6700;&#x540E;&#x4E00;&#x4E2A;update&#x662F;&#x57FA;&#x672C;&#x72B6;&#x6001;
   const baseUpdate = hook.baseUpdate;
   const baseState = hook.baseState;
 
@@ -951,9 +956,10 @@ function updateReducer&lt;S, I, A&gt;(
   let first;
   if (baseUpdate !== null) {
     if (last !== null) {
-      //&#x7531;&#x4E8E;queue&#x662F;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x94FE;&#x8868;&#xFF0C;`queue.last.next = queue.first` &#x4E00;&#x65E6;&#x7B2C;&#x4E00;&#x4E2A;update&#x63D0;&#x4EA4;&#x4E86;&#xFF0C;baseUpdate&#x5C31;&#x4E0D;&#x5728;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x6B64;&#x65F6;&#x4E0D;&#x7528;&#x5904;&#x7406;&#x4E86;
+      //&#x7531;&#x4E8E;queue&#x662F;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x94FE;&#x8868;&#xFF0C;`queue.last.next = queue.first` &#x4E00;&#x65E6;&#x7B2C;&#x4E00;&#x4E2A;update&#x63D0;&#x4EA4;&#x4E86;&#xFF0C;baseUpdate&#x5C31;&#x4E0D;&#x518D;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x6B64;&#x65F6;&#x8BBE;&#x7F6E;last.next = null&#xFF0C;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x7528;&#x5904;&#x7406;&#x4EE5;&#x524D;&#x5904;&#x7406;&#x8FC7;&#x7684;update
       last.next = null;
     }
+    //&#x7531;&#x4E8E;&#x662F;&#x5FAA;&#x73AF;&#x94FE;&#x8868;&#x548C;&#x7ED3;&#x6784;&#x5171;&#x4EAB;&#xFF0C;baseUpdate.next&#x6307;&#x5411;&#x7684;&#x662F;&#x6700;&#x65B0;&#x7684;update
     first = baseUpdate.next;
   } else {
     first = last !== null ? last.next : null;
@@ -1032,7 +1038,7 @@ function updateReducer&lt;S, I, A&gt;(
 <li><p>&#x5F53;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;[count, setCount] = useState(0)&#x65F6;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;queue</p>
 </li>
 <li>&#x6BCF;&#x4E00;&#x6B21;&#x8C03;&#x7528;setCount(x)&#xFF0C;&#x5C31;dispach&#x4E00;&#x4E2A;&#x5185;&#x5BB9;&#x4E3A;x&#x7684;action&#xFF08;action&#x7684;&#x8868;&#x73B0;&#x4E3A;&#xFF1A;&#x5C06;count&#x8BBE;&#x4E3A;x)&#xFF0C;action&#x5B58;&#x50A8;&#x5728;queue&#x4E2D;&#x3002;</li>
-<li>&#x8FD9;&#x4E9B;action&#x6700;&#x7EC8;&#x5728;updateReducer&#x4E2D;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x66F4;&#x65B0;&#x5230;memorizedState&#x4E0A;&#xFF0C;&#x4F7F;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x5230;&#x6700;&#x65B0;&#x7684;state&#x503C;&#x3002;</li>
+<li>&#x8FD9;&#x4E9B;action&#x6700;&#x7EC8;&#x5728;updateReducer&#x4E2D;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x66F4;&#x65B0;&#x5230;memoizedState&#x4E0A;&#xFF0C;&#x4F7F;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x5230;&#x6700;&#x65B0;&#x7684;state&#x503C;&#x3002;</li>
 </ol>
 
                                 
@@ -1069,7 +1075,7 @@ function updateReducer&lt;S, I, A&gt;(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"hooks","level":"1.5.1","depth":2,"previous":{"title":"Hooks","level":"1.5","depth":1,"ref":"","articles":[{"title":"hooks","level":"1.5.1","depth":2,"path":"hooks/hooks.md","ref":"hooks/hooks.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"hooks/hooks.md","mtime":"2019-07-24T13:51:49.030Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-24T14:27:07.324Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"hooks","level":"1.5.1","depth":2,"previous":{"title":"Hooks","level":"1.5","depth":1,"ref":"","articles":[{"title":"hooks","level":"1.5.1","depth":2,"path":"hooks/hooks.md","ref":"hooks/hooks.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"hooks/hooks.md","mtime":"2019-07-25T03:42:59.016Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-25T03:45:11.124Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
