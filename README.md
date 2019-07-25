@@ -15,4 +15,4 @@
 另外React写起来很舒服，基本是原生的JS，不需要记忆过多的API。开发体验和原生JS基本一致。
 
 
-[阅读地址](https://jinxin479.github.io/mybooks/)
+[阅读地址](https://xiaoxiaosaohuo.github.io/mybooks/)
