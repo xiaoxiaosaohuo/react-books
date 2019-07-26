@@ -7,6 +7,7 @@
   * [ReactElement](chapter1/ReactElement.md)
   * [React中基础类](chapter1/ReactBaseClass.md)
   * [React生命周期和反模式](chapter1/ReactLifeCycle.md)
+  * [React 编程模型](chapter1/reactRuntime.md)
   * [React中的数据结构](chapter1/ReactDataStructure.md)
   * [expirationTime](chapter1/expirationTime.md)
   * [部分全局变量](chapter1/ReactGlobal.md)
