@@ -26,5 +26,5 @@
   * [setState](chapter3/setState.md)
   
 * Hooks
-  * [hooks](hooks/hooks.md)
+  * [hooks](hooks/hooksAndStateHook.md)
   

@@ -1,10 +1,10 @@
-## Hooks
+## Hooks 和 State Hook
 
 
 ### hooks类型
-目前React 16.7共有以下几种hooks,但是useEvent还未公开使用
+目前React 16.7共有以下几种hooks,但是useListener还未公开使用
 ```
-export type HookType =
+eexport type HookType =
   | 'useState'
   | 'useReducer'
   | 'useContext'
@@ -15,7 +15,7 @@ export type HookType =
   | 'useMemo'
   | 'useImperativeHandle'
   | 'useDebugValue'
-  | 'useEvent';
+  | 'useListener';
 ```
 
 ### hooks中的基本数据结构
@@ -51,6 +51,7 @@ type UpdateQueue<S, A> = {
 ```
 
 #### 3. Effect
+
 effect是一个循环链表结构
 ```
 type Effect = {
@@ -61,17 +62,23 @@ type Effect = {
   next: Effect,
 };
 ```
+
+- tag —— 一个二进制数字，它控制了 effect 节点的行为。
+- create —— 绘制之后运行的回调函数。
+- destroy —— 它是 create() 返回的回调函数，将会在初始渲染前运行。
+- deps —— 一个集合，该集合中的值将会决定一个 effect 节点是否应该被销毁或者重新创建。
+- next —— 它指向下一个定义在函数组件中的 effect 节点。
+
 ![effect](../images/effect01.png)
 
 #### 4. hook
 
 ```
 export type Hook = {
-  memoizedState: any,//上一次的state
-
-  baseState: any,//当前state
-  baseUpdate: Update<any, any> | null,// update func
-  queue: UpdateQueue<any, any> | null,//用于缓存多次action
+  memoizedState: any,
+  baseState: any, 传给 reducer 的状态对象。
+  baseUpdate: Update<any, any> | null,最近一次创建 baseState 的已发送的 action
+  queue: UpdateQueue<any, any> | null,已发送 action 组成的队列，等待传入 reducer。
 
   next: Hook | null,//下一个hook
 };
@@ -328,7 +335,7 @@ function mountState<S>(
   return [hook.memoizedState, dispatch];
 }
 ```
-
+可以看到dispatch就是dispatchAction绑定了对应的Fiber和queue这两个参数。
 
 ```
 function basicStateReducer<S>(state: S, action: BasicStateAction<S>): S {
@@ -365,6 +372,7 @@ function dispatchAction<S, A>(
       eagerState: null,
       next: null,
     };
+    //renderPhaseUpdates这个Map以每个Hook的queue为key。
     if (renderPhaseUpdates === null) {
       renderPhaseUpdates = new Map();
     }
@@ -635,7 +643,7 @@ function updateReducer<S, I, A>(
 
 #### 总结
 
-单个hooks的更新行为全都挂在Hooks.queue下，需要维护好Hooks.queue
+单个hook的更新行为全都挂在Hooks.queue下，需要维护好Hooks.queue
 
 1. 初始化queue - mountState
 2. 维护queue - dispatchAction

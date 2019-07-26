@@ -17,3 +17,10 @@ function resolveDispatcher() {
 ```
 
 useState(xxx) 等价于 ReactCurrentDispatcher.current.useState(xxx)
+
+
+- 在mount阶段调用mountState 创建更新队列
+- update阶段调用updateState -> updateReducer
+
+
+useState在hooks中介绍过。
