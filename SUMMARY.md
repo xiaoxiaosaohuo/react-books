@@ -26,5 +26,10 @@
   * [setState](chapter3/setState.md)
   
 * Hooks
-  * [hooks](hooks/hooksAndStateHook.md)
+  * [hooksAndStateHook](hooks/hooksAndStateHook.md)
+  * [effectHook](hooks/effectHook.md)
+  * [useState](hooks/useState.md)
+  * [useReducer](hooks/useReducer.md)
+  * [useCallback](hooks/useCallback.md)
+  * [useMemo](hooks/useMemo.md)
   
