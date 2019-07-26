@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>useState · GitBook</title>
+        <title>useReducer · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="useReducer.html" />
+    <link rel="next" href="useCallback.html" />
     
     
-    <link rel="prev" href="effectHook.html" />
+    <link rel="prev" href="useState.html" />
     
 
     </head>
@@ -472,7 +472,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.3" data-path="useState.html">
+        <li class="chapter " data-level="1.5.3" data-path="useState.html">
             
                 <a href="useState.html">
             
@@ -485,7 +485,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="useReducer.html">
+        <li class="chapter active" data-level="1.5.4" data-path="useReducer.html">
             
                 <a href="useReducer.html">
             
@@ -529,6 +529,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+        </li>
+    
 
     
 
@@ -559,7 +572,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >useState</a>
+        <a href=".." >useReducer</a>
     </h1>
 </div>
 
@@ -574,25 +587,79 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="usestate">useState</h2>
-<p>useState&#x8FD9;&#x4E2A;API&#x6302;&#x8F7D;&#x5728;React&#x4E0A;&#x7684;&#xFF0C;&#x5728;React.js&#x4E2D;&#x53EF;&#x770B;&#x5230;useState&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF0C;
-dispatcher&#x901A;&#x8FC7;resolveDispatcher()&#x6765;&#x83B7;&#x53D6;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x540C;&#x6837;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x662F;&#x5C06;ReactCurrentDispatcher.current&#x7684;&#x503C;&#x8D4B;&#x7ED9;&#x4E86;dispatcher&#x3002;ReactCurrentDispatcher&#x5728;&#x524D;&#x9762;&#x63D0;&#x5230;&#x8FC7;&#xFF0C;&#x4F1A;&#x6839;&#x636E;mount&#x9636;&#x6BB5;&#x8FD8;&#x662F;update&#x9636;&#x6BB5;&#x6709;&#x4E0D;&#x540C;&#x7684;dispatcher&#x5B9E;&#x73B0;&#x3002;</p>
-<pre><code>function useState(initialState) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useState(initialState);
-}
-
-function resolveDispatcher() {
-  var dispatcher = ReactCurrentDispatcher.current;
-
-  return dispatcher;
-}
-</code></pre><p>useState(xxx) &#x7B49;&#x4EF7;&#x4E8E; ReactCurrentDispatcher.current.useState(xxx)</p>
-<ul>
-<li>&#x5728;mount&#x9636;&#x6BB5;&#x8C03;&#x7528;mountState &#x521B;&#x5EFA;&#x66F4;&#x65B0;&#x961F;&#x5217;</li>
-<li>update&#x9636;&#x6BB5;&#x8C03;&#x7528;updateState -&gt; updateReducer</li>
+                                <h2 id="usereducer">useReducer</h2>
+<p>useReducer&#x548C;useState&#x529F;&#x80FD;&#x5F88;&#x50CF;&#xFF0C;&#x5F53;&#x6709;&#x590D;&#x6742;&#x7684;&#x72B6;&#x6001;&#x903B;&#x8F91;&#x6D89;&#x53CA;&#x591A;&#x4E2A;&#x5B50;&#x503C;&#x6216;&#x4E0B;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x4F9D;&#x8D56;&#x4E8E;&#x524D;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x65F6;&#x5019;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;useReducer&#x3002;</p>
+<pre><code>const [state, dispatch] = useReducer(reducer, initialArg, init);
+</code></pre><ul>
+<li>reducer reducer&#x51FD;&#x6570;&#xFF0C;&#x5904;&#x7406;&#x72B6;&#x6001;&#x66F4;&#x65B0;</li>
+<li>initialArg &#x521D;&#x59CB;&#x72B6;&#x6001;</li>
+<li>init &#x61D2;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;</li>
 </ul>
-<p>useState&#x5728;hooks&#x4E2D;&#x4ECB;&#x7ECD;&#x8FC7;&#x3002;</p>
+<p>example</p>
+<pre><code>  function init(initialCount) {
+  return {count: initialCount};
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case &apos;increment&apos;:
+      return {count: state.count + 1};
+    case &apos;decrement&apos;:
+      return {count: state.count - 1};
+    case &apos;reset&apos;:
+      return init(action.payload);
+    default:
+      throw new Error();
+  }
+}
+
+function Counter({initialCount}) {
+  const [state, dispatch] = useReducer(reducer, initialCount, init);
+  return (
+    &lt;&gt;
+      Count: {state.count}
+      &lt;button
+        onClick={() =&gt; dispatch({type: &apos;reset&apos;, payload: initialCount})}&gt;
+
+        Reset
+      &lt;/button&gt;
+      &lt;button onClick={() =&gt; dispatch({type: &apos;increment&apos;})}&gt;+&lt;/button&gt;
+      &lt;button onClick={() =&gt; dispatch({type: &apos;decrement&apos;})}&gt;-&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre><h4 id="mount">mount</h4>
+<pre><code>function mountReducer&lt;S, I, A&gt;(
+  reducer: (S, A) =&gt; S,
+  initialArg: I,
+  init?: I =&gt; S,
+): [S, Dispatch&lt;A&gt;] {
+  const hook = mountWorkInProgressHook();
+  let initialState;
+  if (init !== undefined) {
+    initialState = init(initialArg);
+  } else {
+    initialState = ((initialArg: any): S);
+  }
+  hook.memoizedState = hook.baseState = initialState;
+  const queue = (hook.queue = {
+    last: null,
+    dispatch: null,
+    lastRenderedReducer: reducer,
+    lastRenderedState: (initialState: any),
+  });
+  const dispatch: Dispatch&lt;A&gt; = (queue.dispatch = (dispatchAction.bind(
+    null,
+    // Flow doesn&apos;t know this is non-null, but we do.
+    ((currentlyRenderingFiber: any): Fiber),
+    queue,
+  ): any));
+  return [hook.memoizedState, dispatch];
+}
+</code></pre><h4 id="update">update</h4>
+<p>update&#x9636;&#x6BB5;&#x8C03;&#x7528;updateReducer&#xFF0C;&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x8FC7;</p>
+<h4 id="usereducer&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x7528;&#x4F8B;">useReducer&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x7528;&#x4F8B;</h4>
+<p><a href="https://github.com/xiaoxiaosaohuo/Note/issues/57" target="_blank">useReducer&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x7528;&#x4F8B;&#x53C2;&#x8003;</a></p>
 
                                 
                                 </section>
@@ -620,12 +687,12 @@ function resolveDispatcher() {
 
             
                 
-                <a href="effectHook.html" class="navigation navigation-prev " aria-label="Previous page: effectHook">
+                <a href="useState.html" class="navigation navigation-prev " aria-label="Previous page: useState">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="useReducer.html" class="navigation navigation-next " aria-label="Next page: useReducer">
+                <a href="useCallback.html" class="navigation navigation-next " aria-label="Next page: useCallback">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -636,7 +703,7 @@ function resolveDispatcher() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"useState","level":"1.5.3","depth":2,"next":{"title":"useReducer","level":"1.5.4","depth":2,"path":"hooks/useReducer.md","ref":"hooks/useReducer.md","articles":[]},"previous":{"title":"effectHook","level":"1.5.2","depth":2,"path":"hooks/effectHook.md","ref":"hooks/effectHook.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"hooks/useState.md","mtime":"2019-07-26T02:22:54.014Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-26T03:39:48.305Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"useReducer","level":"1.5.4","depth":2,"next":{"title":"useCallback","level":"1.5.5","depth":2,"path":"chapter4/useCallback.md","ref":"chapter4/useCallback.md","articles":[]},"previous":{"title":"useState","level":"1.5.3","depth":2,"path":"chapter4/useState.md","ref":"chapter4/useState.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter4/useReducer.md","mtime":"2019-07-26T07:12:38.997Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-26T12:34:23.478Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -529,6 +529,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+        </li>
+    
 
     
 
@@ -574,7 +587,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h2 id="usecallback">useCallback</h2>
+<pre><code>const memoizedCallback = useCallback(
+  () =&gt; {
+    doSomething(a, b);
+  },
+  [a, b],
+);
+</code></pre><p>useCallback&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7F13;&#x5B58;&#x51FD;&#x6570;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x8D77;&#x5230;&#x65B0;&#x80FD;&#x4F18;&#x5316;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
+<h3 id="mount">mount</h3>
+<pre><code>function mountCallback&lt;T&gt;(callback: T, deps: Array&lt;mixed&gt; | void | null): T {
+  const hook = mountWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  hook.memoizedState = [callback, nextDeps];
+  return callback;
+}
+</code></pre><h3 id="update">update</h3>
+<pre><code>function updateCallback&lt;T&gt;(callback: T, deps: Array&lt;mixed&gt; | void | null): T {
+  const hook = updateWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  const prevState = hook.memoizedState;
+  if (prevState !== null) {
+    if (nextDeps !== null) {
+      const prevDeps: Array&lt;mixed&gt; | null = prevState[1];
+      if (areHookInputsEqual(nextDeps, prevDeps)) {
+          //&#x4F9D;&#x8D56;&#x9879;&#x65E0;&#x53D8;&#x5316;&#x5C31;&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x7684;callback
+        return prevState[0];
+      }
+    }
+  }
+  hook.memoizedState = [callback, nextDeps];
+  return callback;
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -617,7 +662,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"useCallback","level":"1.5.5","depth":2,"next":{"title":"useMemo","level":"1.5.6","depth":2,"path":"hooks/useMemo.md","ref":"hooks/useMemo.md","articles":[]},"previous":{"title":"useReducer","level":"1.5.4","depth":2,"path":"hooks/useReducer.md","ref":"hooks/useReducer.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"hooks/useCallback.md","mtime":"2019-07-26T02:22:54.014Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-26T03:39:48.305Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"useCallback","level":"1.5.5","depth":2,"next":{"title":"useMemo","level":"1.5.6","depth":2,"path":"chapter4/useMemo.md","ref":"chapter4/useMemo.md","articles":[]},"previous":{"title":"useReducer","level":"1.5.4","depth":2,"path":"chapter4/useReducer.md","ref":"chapter4/useReducer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter4/useCallback.md","mtime":"2019-07-26T05:52:16.480Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-26T12:34:23.478Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

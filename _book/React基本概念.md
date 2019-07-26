@@ -1,5 +1,0 @@
-ReactFiberBeginWork (“entering” a component)
-ReactFiberCompleteWork (“leaving” a component)
-ReactFiberCommitWork (flushing changes to DOM)
-ReactFiberScheduler (choosing next component to work on)
-ReactChildFiber (diffing insertions/deletions of children)

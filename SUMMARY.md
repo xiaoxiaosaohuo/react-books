@@ -27,10 +27,11 @@
   * [setState](chapter3/setState.md)
   
 * Hooks
-  * [hooksAndStateHook](hooks/hooksAndStateHook.md)
-  * [effectHook](hooks/effectHook.md)
-  * [useState](hooks/useState.md)
-  * [useReducer](hooks/useReducer.md)
-  * [useCallback](hooks/useCallback.md)
-  * [useMemo](hooks/useMemo.md)
+  * [hooksAndStateHook](chapter4/hooksAndStateHook.md)
+  * [effectHook](chapter4/effectHook.md)
+  * [useState](chapter4/useState.md)
+  * [useReducer](chapter4/useReducer.md)
+  * [useCallback](chapter4/useCallback.md)
+  * [useMemo](chapter4/useMemo.md)
+* redux
   
