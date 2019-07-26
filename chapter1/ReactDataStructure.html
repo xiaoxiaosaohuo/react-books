@@ -433,9 +433,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../hooks/hooks.html">
+        <li class="chapter " data-level="1.5.1" data-path="../hooks/hooksAndStateHook.html">
             
-                <a href="../hooks/hooks.html">
+                <a href="../hooks/hooksAndStateHook.html">
             
                     
                     hooks
@@ -671,16 +671,14 @@ export const ShouldCapture = /*         */ 0b100000000000;
 </ul>
 <p>Hooks&#x51FA;&#x6765;&#x4E4B;&#x540E;&#x65B0;&#x589E;&#x4E86;HookEffectTag&#xFF0C;&#x7528;&#x4E8E;&#x6807;&#x8BB0;ReactHook&#x7684;effect&#x7684;tag&#xFF0C;&#x540E;&#x9762;&#x518D;&#x4F5C;&#x4ECB;&#x7ECD;</p>
 <pre><code>
-export type HookEffectTag = number;
-
-export const NoEffect = /*             */ 0b00000000;
-export const UnmountSnapshot = /*      */ 0b00000010;
-export const UnmountMutation = /*      */ 0b00000100;
-export const MountMutation = /*        */ 0b00001000;
-export const UnmountLayout = /*        */ 0b00010000;
-export const MountLayout = /*          */ 0b00100000;
-export const MountPassive = /*         */ 0b01000000;
-export const UnmountPassive = /*       */ 0b10000000;
+export const NoEffect = /*             */ 0b00000000; 0
+export const UnmountSnapshot = /*      */ 0b00000010; 2
+export const UnmountMutation = /*      */ 0b00000100; 4
+export const MountMutation = /*        */ 0b00001000; 8
+export const UnmountLayout = /*        */ 0b00010000; 16
+export const MountLayout = /*          */ 0b00100000; 32
+export const MountPassive = /*         */ 0b01000000; 64
+export const UnmountPassive = /*       */ 0b10000000; 128
 </code></pre><h2 id="fiberroot">FiberRoot</h2>
 <pre><code>type BaseFiberRootProperties = {|
   // The type of root (legacy, batched, concurrent, etc.)
@@ -862,7 +860,7 @@ var ProfileMode = 4; // &#x5206;&#x6790;&#x6A21;&#x5F0F;&#xFF0C;&#x4E00;&#x822C;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"React中的数据结构","level":"1.2.6","depth":2,"next":{"title":"expirationTime","level":"1.2.7","depth":2,"path":"chapter1/expirationTime.md","ref":"chapter1/expirationTime.md","articles":[]},"previous":{"title":"React生命周期和反模式","level":"1.2.5","depth":2,"path":"chapter1/ReactLifeCycle.md","ref":"chapter1/ReactLifeCycle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactDataStructure.md","mtime":"2019-07-16T13:57:49.392Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-25T06:01:49.615Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React中的数据结构","level":"1.2.6","depth":2,"next":{"title":"expirationTime","level":"1.2.7","depth":2,"path":"chapter1/expirationTime.md","ref":"chapter1/expirationTime.md","articles":[]},"previous":{"title":"React生命周期和反模式","level":"1.2.5","depth":2,"path":"chapter1/ReactLifeCycle.md","ref":"chapter1/ReactLifeCycle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ReactDataStructure.md","mtime":"2019-07-25T13:57:21.210Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-26T02:22:45.670Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
