@@ -1,0 +1,781 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>useLayoutEffect · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="useContext.html" />
+    
+    
+    <link rel="prev" href="useRef.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
+            
+                <a href="../chapter1/project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
+            
+                <a href="../chapter1/ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
+            
+                <a href="../chapter1/ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
+            
+                <a href="../chapter1/ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
+            
+                <a href="../chapter1/ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/reactRuntime.html">
+            
+                <a href="../chapter1/reactRuntime.html">
+            
+                    
+                    React 编程模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../chapter1/ReactDataStructure.html">
+            
+                <a href="../chapter1/ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../chapter1/expirationTime.html">
+            
+                <a href="../chapter1/expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../chapter1/ReactGlobal.html">
+            
+                <a href="../chapter1/ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../chapter1/fiberWorkflow.html">
+            
+                <a href="../chapter1/fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../chapter1/createWorkInProgress.html">
+            
+                <a href="../chapter1/createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactScheduler.html">
+            
+                <a href="../chapter2/ReactScheduler.html">
+            
+                    
+                    ReactScheduler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactDOMrender.html">
+            
+                <a href="../chapter2/ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/ReactRoot.html">
+            
+                <a href="../chapter2/ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter2/updateContainer.html">
+            
+                <a href="../chapter2/updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter2/scheduleRootUpdate.html">
+            
+                <a href="../chapter2/scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter2/scheduleWork.html">
+            
+                <a href="../chapter2/scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter2/performWork.html">
+            
+                <a href="../chapter2/performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter2/renderRoot.html">
+            
+                <a href="../chapter2/renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../chapter2/updateHostRoot.html">
+            
+                <a href="../chapter2/updateHostRoot.html">
+            
+                    
+                    updateHostRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    其他API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chapter3/setState.html">
+            
+                <a href="../chapter3/setState.html">
+            
+                    
+                    setState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../others/Context.html">
+            
+                <a href="../others/Context.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../others/forwardRef.html">
+            
+                <a href="../others/forwardRef.html">
+            
+                    
+                    forwardRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Hooks
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="hooksAndStateHook.html">
+            
+                <a href="hooksAndStateHook.html">
+            
+                    
+                    hooksAndStateHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="effectHook.html">
+            
+                <a href="effectHook.html">
+            
+                    
+                    effectHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="useState.html">
+            
+                <a href="useState.html">
+            
+                    
+                    useState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="useReducer.html">
+            
+                <a href="useReducer.html">
+            
+                    
+                    useReducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="useCallback.html">
+            
+                <a href="useCallback.html">
+            
+                    
+                    useCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="useRef.html">
+            
+                <a href="useRef.html">
+            
+                    
+                    useRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.7" data-path="useLayoutEffect.html">
+            
+                <a href="useLayoutEffect.html">
+            
+                    
+                    useLayoutEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="useContext.html">
+            
+                <a href="useContext.html">
+            
+                    
+                    useContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="customeHooks.html">
+            
+                <a href="customeHooks.html">
+            
+                    
+                    自定义hooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >useLayoutEffect</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="uselayouteffect">useLayoutEffect</h2>
+<p>useLayoutEffect &#x7528;&#x6CD5;&#x4E0E; useEffect &#x7C7B;&#x4F3C;&#x3002;&#x4F46;&#x662F;&#x5B83;&#x662F;&#x5728;&#x6240;&#x6709; DOM &#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x540E;&#x89E6;&#x53D1;&#x3002;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x4E0E;&#x5E03;&#x5C40;&#x76F8;&#x5173;&#x7684;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x83B7;&#x53D6; DOM &#x5143;&#x7D20;&#x5BBD;&#x9AD8;&#xFF0C;&#x7A97;&#x53E3;&#x6EDA;&#x52A8;&#x8DDD;&#x79BB;&#x7B49;&#x7B49;&#x3002;</p>
+<blockquote>
+<p>&#x8FDB;&#x884C;&#x526F;&#x4F5C;&#x7528;&#x64CD;&#x4F5C;&#x65F6;&#x5C3D;&#x91CF;&#x4F18;&#x5148;&#x9009;&#x62E9; useEffect&#xFF0C;&#x4EE5;&#x514D;&#x963B;&#x6B62;&#x89C6;&#x89C9;&#x66F4;&#x65B0;&#x3002;&#x4E0E; DOM &#x65E0;&#x5173;&#x7684;&#x526F;&#x4F5C;&#x7528;&#x64CD;&#x4F5C;&#x8BF7;&#x4F7F;&#x7528; useEffect&#x3002;</p>
+</blockquote>
+<p>mount&#x9636;&#x6BB5;&#x548C;update&#x9636;&#x6BB5;&#x7684;&#x65B9;&#x6CD5;</p>
+<pre><code>function mountLayoutEffect(
+  create: () =&gt; (() =&gt; void) | void,
+  deps: Array&lt;mixed&gt; | void | null,
+): void {
+  return mountEffectImpl(
+    UpdateEffect,
+    UnmountMutation | MountLayout,
+    create,
+    deps,
+  );
+}
+
+
+function updateLayoutEffect(
+  create: () =&gt; (() =&gt; void) | void,
+  deps: Array&lt;mixed&gt; | void | null,
+): void {
+  return updateEffectImpl(
+    UpdateEffect,
+    UnmountMutation | MountLayout,
+    create,
+    deps,
+  );
+}
+</code></pre><pre><code>export default () =&gt; {
+
+    const divRef = useRef(null);
+
+    const [height, setHeight] = useState(100);
+
+    useLayoutEffect(() =&gt; {
+        // DOM &#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x540E;&#x6253;&#x5370;&#x51FA; div &#x7684;&#x9AD8;&#x5EA6;
+        console.log(&apos;useLayoutEffect: &apos;, divRef.current.clientHeight);
+    })
+
+    return &lt;&gt;
+        &lt;div ref={ divRef } style={{ background: &apos;red&apos;, height: height }}&gt;Hello&lt;/div&gt;
+        &lt;button onClick={ () =&gt; setHeight(height + 50) }&gt;&#x6539;&#x53D8; div &#x9AD8;&#x5EA6;&lt;/button&gt;
+    &lt;/&gt;
+
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="useRef.html" class="navigation navigation-prev " aria-label="Previous page: useRef">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="useContext.html" class="navigation navigation-next " aria-label="Next page: useContext">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"useLayoutEffect","level":"1.5.7","depth":2,"next":{"title":"useContext","level":"1.5.8","depth":2,"path":"chapter4/useContext.md","ref":"chapter4/useContext.md","articles":[]},"previous":{"title":"useRef","level":"1.5.6","depth":2,"path":"chapter4/useRef.md","ref":"chapter4/useRef.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter4/useLayoutEffect.md","mtime":"2019-07-26T15:04:09.397Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-27T16:01:21.113Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

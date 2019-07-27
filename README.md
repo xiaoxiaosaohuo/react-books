@@ -14,5 +14,10 @@
 
 另外React写起来很舒服，基本是原生的JS，不需要记忆过多的API。开发体验和原生JS基本一致。
 
+而且苹果的Swift UI,Google的Flutter都充分借鉴了React的设计思想，可见React是一个很优秀的框架。
+
 
 [阅读地址](https://xiaoxiaosaohuo.github.io/mybooks/)
+
+
+原理分析基于 React16.9

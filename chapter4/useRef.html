@@ -1,0 +1,778 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>useRef · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="useLayoutEffect.html" />
+    
+    
+    <link rel="prev" href="useCallback.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
+            
+                <a href="../chapter1/project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
+            
+                <a href="../chapter1/ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
+            
+                <a href="../chapter1/ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
+            
+                <a href="../chapter1/ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
+            
+                <a href="../chapter1/ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/reactRuntime.html">
+            
+                <a href="../chapter1/reactRuntime.html">
+            
+                    
+                    React 编程模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../chapter1/ReactDataStructure.html">
+            
+                <a href="../chapter1/ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../chapter1/expirationTime.html">
+            
+                <a href="../chapter1/expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../chapter1/ReactGlobal.html">
+            
+                <a href="../chapter1/ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../chapter1/fiberWorkflow.html">
+            
+                <a href="../chapter1/fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../chapter1/createWorkInProgress.html">
+            
+                <a href="../chapter1/createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactScheduler.html">
+            
+                <a href="../chapter2/ReactScheduler.html">
+            
+                    
+                    ReactScheduler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactDOMrender.html">
+            
+                <a href="../chapter2/ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/ReactRoot.html">
+            
+                <a href="../chapter2/ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter2/updateContainer.html">
+            
+                <a href="../chapter2/updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter2/scheduleRootUpdate.html">
+            
+                <a href="../chapter2/scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter2/scheduleWork.html">
+            
+                <a href="../chapter2/scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter2/performWork.html">
+            
+                <a href="../chapter2/performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter2/renderRoot.html">
+            
+                <a href="../chapter2/renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../chapter2/updateHostRoot.html">
+            
+                <a href="../chapter2/updateHostRoot.html">
+            
+                    
+                    updateHostRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    其他API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chapter3/setState.html">
+            
+                <a href="../chapter3/setState.html">
+            
+                    
+                    setState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../others/Context.html">
+            
+                <a href="../others/Context.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../others/forwardRef.html">
+            
+                <a href="../others/forwardRef.html">
+            
+                    
+                    forwardRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Hooks
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="hooksAndStateHook.html">
+            
+                <a href="hooksAndStateHook.html">
+            
+                    
+                    hooksAndStateHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="effectHook.html">
+            
+                <a href="effectHook.html">
+            
+                    
+                    effectHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="useState.html">
+            
+                <a href="useState.html">
+            
+                    
+                    useState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="useReducer.html">
+            
+                <a href="useReducer.html">
+            
+                    
+                    useReducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="useCallback.html">
+            
+                <a href="useCallback.html">
+            
+                    
+                    useCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.6" data-path="useRef.html">
+            
+                <a href="useRef.html">
+            
+                    
+                    useRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="useLayoutEffect.html">
+            
+                <a href="useLayoutEffect.html">
+            
+                    
+                    useLayoutEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="useContext.html">
+            
+                <a href="useContext.html">
+            
+                    
+                    useContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="customeHooks.html">
+            
+                <a href="customeHooks.html">
+            
+                    
+                    自定义hooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >useRef</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="useref">useRef</h2>
+<pre><code>const refContainer = useRef(initialValue);
+</code></pre><h4 id="mount">mount</h4>
+<p>mountRef &#x5728;&#x7EC4;&#x4EF6;&#x6302;&#x8F7D;&#x65F6;&#x83B7;&#x53D6;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684; hook&#xFF0C;&#x5E76;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x521D;&#x59CB;&#x503C;&#x5B58;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684; current &#x5C5E;&#x6027;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x88AB;&#x5B58;&#x5165;&#x4E86; hook &#x7684; memoizedState &#x5C5E;&#x6027;&#x4E2D;&#x3002;&#x5E76;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A; ref &#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code>function mountRef&lt;T&gt;(initialValue: T): {current: T} {
+  const hook = mountWorkInProgressHook();
+  const ref = {current: initialValue};
+  if (__DEV__) {
+    Object.seal(ref);
+  }
+  hook.memoizedState = ref;
+  return ref;
+}
+</code></pre><h4 id="update">update</h4>
+<p>&#x83B7;&#x53D6;&#x4E86;&#x5F53;&#x524D;&#x8FD9;&#x4E2A; hook&#xFF0C;&#x5E76;&#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x8FD4;&#x56DE;&#x4E86;&#x5F53;&#x524D; hook &#x7684;&#x7F13;&#x5B58;&#x503C;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4F7F;&#x7528; useRef &#x8FD4;&#x56DE;&#x7684; ref &#x5BF9;&#x8C61;&#x5728;&#x7EC4;&#x4EF6;&#x7684;&#x6574;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x5185;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;</p>
+<pre><code>function updateRef&lt;T&gt;(initialValue: T): {current: T} {
+  const hook = updateWorkInProgressHook();
+  return hook.memoizedState;
+}
+</code></pre><blockquote>
+<p>&#x5F53; ref &#x5BF9;&#x8C61;&#x5185;&#x5BB9;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;useRef &#x5E76;&#x4E0D;&#x4F1A;&#x901A;&#x77E5;&#x4F60;&#x3002;&#x53D8;&#x66F4; .current &#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x5F15;&#x53D1;&#x7EC4;&#x4EF6;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x3002;</p>
+</blockquote>
+<p>useRef() Hooks &#x4E0D;&#x4EC5;&#x9002;&#x7528;&#x4E8E; DOM &#x5F15;&#x7528;&#x3002; &#x201C;ref&#x201D; &#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x5BB9;&#x5668;&#xFF0C;&#x5176; current &#x5C5E;&#x6027;&#x662F;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x4EFB;&#x4F55;&#x503C;&#xFF08;&#x53EF;&#x4EE5;&#x662F;&#x5143;&#x7D20;&#x3001;&#x5BF9;&#x8C61;&#x3001;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x3001;&#x751A;&#x81F3;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x7C7B;&#x4E0A;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;useRef&#x5728;useEffect&#x4E2D;&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x7684;&#x503C;</p>
+<pre><code>function Example() {
+  const [count, setCount] = useState(0);
+  const latestCount = useRef(count);
+
+  useEffect(() =&gt; {
+    // Set the mutable latest value
+    latestCount.current = count;
+    setTimeout(() =&gt; {
+      // Read the mutable latest value
+      console.log(`You clicked ${latestCount.current} times`);
+    }, 3000);
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="useCallback.html" class="navigation navigation-prev " aria-label="Previous page: useCallback">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="useLayoutEffect.html" class="navigation navigation-next " aria-label="Next page: useLayoutEffect">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"useRef","level":"1.5.6","depth":2,"next":{"title":"useLayoutEffect","level":"1.5.7","depth":2,"path":"chapter4/useLayoutEffect.md","ref":"chapter4/useLayoutEffect.md","articles":[]},"previous":{"title":"useCallback","level":"1.5.5","depth":2,"path":"chapter4/useCallback.md","ref":"chapter4/useCallback.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter4/useRef.md","mtime":"2019-07-26T15:00:53.723Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-27T16:01:21.113Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
