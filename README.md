@@ -5,7 +5,7 @@
 React有很多优秀的设计思想值得学习，比如苹果的Swift UI,Google的Flutter都充分借鉴了React的设计思想。
 
 
-[阅读地址](https://xiaoxiaosaohuo.github.io/mybooks/)
+[阅读地址](https://xiaoxiaosaohuo.github.io/react-books/)
 
 
 原理分析基于 React16.9
