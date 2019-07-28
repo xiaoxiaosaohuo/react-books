@@ -32,6 +32,7 @@
   * [setState](chapter3/setState.md)
   * [Context](others/Context.md)
   * [forwardRef](others/forwardRef.md)
+  * [React错误处理](others/errorHandle.md)
 * Hooks
   * [hooksAndStateHook](chapter4/hooksAndStateHook.md)
   * [effectHook](chapter4/effectHook.md)
