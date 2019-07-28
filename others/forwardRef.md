@@ -29,7 +29,7 @@ class App extends Component{
 
 - 计算元素宽高尺寸（如JS布局方案）
 
-0- 重新定位DOM元素（如tooltip）
+- 重新定位DOM元素（如tooltip）
 
 ```
 

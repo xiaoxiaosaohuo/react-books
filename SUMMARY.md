@@ -23,6 +23,11 @@
   * [performWork](chapter2/performWork.md)
   * [renderRoot](chapter2/renderRoot.md)
   * [updateHostRoot](chapter2/updateHostRoot.md)
+* 事件
+  * [事件系统](others/events.md)
+  * [合成事件](others/SyntheticEvent.md)
+  * [事件绑定](others/eventBind.md)
+  * [事件分发和回收](others/eventFire.md)
 * 其他API
   * [setState](chapter3/setState.md)
   * [Context](others/Context.md)

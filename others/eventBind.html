@@ -1,0 +1,951 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>事件绑定 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="eventFire.html" />
+    
+    
+    <link rel="prev" href="SyntheticEvent.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
+            
+                <a href="../chapter1/project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
+            
+                <a href="../chapter1/ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
+            
+                <a href="../chapter1/ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
+            
+                <a href="../chapter1/ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
+            
+                <a href="../chapter1/ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/reactRuntime.html">
+            
+                <a href="../chapter1/reactRuntime.html">
+            
+                    
+                    React 编程模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../chapter1/ReactDataStructure.html">
+            
+                <a href="../chapter1/ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../chapter1/expirationTime.html">
+            
+                <a href="../chapter1/expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../chapter1/ReactGlobal.html">
+            
+                <a href="../chapter1/ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../chapter1/fiberWorkflow.html">
+            
+                <a href="../chapter1/fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../chapter1/createWorkInProgress.html">
+            
+                <a href="../chapter1/createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactScheduler.html">
+            
+                <a href="../chapter2/ReactScheduler.html">
+            
+                    
+                    ReactScheduler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactDOMrender.html">
+            
+                <a href="../chapter2/ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/ReactRoot.html">
+            
+                <a href="../chapter2/ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter2/updateContainer.html">
+            
+                <a href="../chapter2/updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter2/scheduleRootUpdate.html">
+            
+                <a href="../chapter2/scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter2/scheduleWork.html">
+            
+                <a href="../chapter2/scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter2/performWork.html">
+            
+                <a href="../chapter2/performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter2/renderRoot.html">
+            
+                <a href="../chapter2/renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../chapter2/updateHostRoot.html">
+            
+                <a href="../chapter2/updateHostRoot.html">
+            
+                    
+                    updateHostRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    事件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="events.html">
+            
+                <a href="events.html">
+            
+                    
+                    事件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="SyntheticEvent.html">
+            
+                <a href="SyntheticEvent.html">
+            
+                    
+                    合成事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="eventBind.html">
+            
+                <a href="eventBind.html">
+            
+                    
+                    事件绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="eventFire.html">
+            
+                <a href="eventFire.html">
+            
+                    
+                    事件分发和回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    其他API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter3/setState.html">
+            
+                <a href="../chapter3/setState.html">
+            
+                    
+                    setState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="Context.html">
+            
+                <a href="Context.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="forwardRef.html">
+            
+                <a href="forwardRef.html">
+            
+                    
+                    forwardRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Hooks
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter4/hooksAndStateHook.html">
+            
+                <a href="../chapter4/hooksAndStateHook.html">
+            
+                    
+                    hooksAndStateHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter4/effectHook.html">
+            
+                <a href="../chapter4/effectHook.html">
+            
+                    
+                    effectHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../chapter4/useState.html">
+            
+                <a href="../chapter4/useState.html">
+            
+                    
+                    useState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../chapter4/useReducer.html">
+            
+                <a href="../chapter4/useReducer.html">
+            
+                    
+                    useReducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../chapter4/useCallback.html">
+            
+                <a href="../chapter4/useCallback.html">
+            
+                    
+                    useCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../chapter4/useRef.html">
+            
+                <a href="../chapter4/useRef.html">
+            
+                    
+                    useRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../chapter4/useLayoutEffect.html">
+            
+                <a href="../chapter4/useLayoutEffect.html">
+            
+                    
+                    useLayoutEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../chapter4/useContext.html">
+            
+                <a href="../chapter4/useContext.html">
+            
+                    
+                    useContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../chapter4/customeHooks.html">
+            
+                <a href="../chapter4/customeHooks.html">
+            
+                    
+                    自定义hooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >事件绑定</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;">&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;</h2>
+<p>&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x4E3B;&#x8981;&#x662F;&#x5728;DOM&#x521D;&#x59CB;&#x5316;&#x548C;&#x66F4;&#x65B0;&#x9636;&#x6BB5;.</p>
+<ol>
+<li>&#x5728;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8C03;&#x7528;setInitialProperties&#x65B9;&#x6CD5;</li>
+<li>&#x63A5;&#x7740;&#x6267;&#x884C;setInitialDOMProperties</li>
+<li>setInitialDOMProperties&#x5BF9;props&#x7684;key&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x4E0D;&#x540C;&#x7684;props&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#xFF0C;&#x5982;style&#x3001;class&#x3001;autoFocus&#xFF0C;innerHTML&#x7B49;,&#x5982;&#x679C;<code>registrationNameModules.hasOwnProperty(propKey)</code>&#x4E3A;&#x771F;&#xFF0C;&#x5C31;&#x8868;&#x660E;&#x662F;&#x4E2A;&#x6CE8;&#x518C;&#x8FC7;&#x5F97;&#x4E8B;&#x4EF6;&#xFF0C;&#x8C03;&#x7528;<code>ensureListeningTo</code>&#x5F00;&#x59CB;&#x7ED1;&#x5B9A;</li>
+</ol>
+<h4 id="ensurelisteningto">ensureListeningTo</h4>
+<pre><code>
+if (registrationNameModules.hasOwnProperty(propKey)) {
+      if (nextProp != null) {
+        if (true &amp;&amp; typeof nextProp !== &apos;function&apos;) {
+          warnForInvalidEventListener(propKey, nextProp);
+        }
+        ensureListeningTo(rootContainerElement, propKey);
+}
+
+function ensureListeningTo(rootContainerElement, registrationName) {
+  var isDocumentOrFragment = rootContainerElement.nodeType === DOCUMENT_NODE || rootContainerElement.nodeType === DOCUMENT_FRAGMENT_NODE;
+  var doc = isDocumentOrFragment ? rootContainerElement : rootContainerElement.ownerDocument;
+  listenTo(registrationName, doc);
+}
+</code></pre><p><code>rootContainerElement</code>&#x662F; React &#x5E94;&#x7528;&#x7684;&#x6302;&#x8F7D;&#x70B9;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x9996;&#x5148;&#x5224;&#x65AD;rootContainerElement&#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A; document&#x6216;&#x8005; Fragment&#xFF0C;&#x4E8C;&#x8005;&#x90FD;&#x4E0D;&#x662F;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x8BBE;&#x7F6E;doc&#x4E3A;rootContainerElement.ownerDocument&#xFF0C; &#x4E5F;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x9876;&#x5C42;&#x7684; document &#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E8B;&#x4EF6;&#x59D4;&#x6258;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x91CC;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4E8B;&#x4EF6;&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x88AB;&#x59D4;&#x6258;&#x5230; document &#x6216;&#x8005; fragment&#x4E0A;&#x53BB;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x662F; document&#x3002;</p>
+<h4 id="listento">listenTo</h4>
+<pre><code>export function listenTo(
+  registrationName: string,
+  mountAt: Document | Element | Node,
+): void {
+    //&#x83B7;&#x53D6;&#x76D1;&#x542C;&#x7684;&#x8282;&#x70B9;
+  const listeningSet = getListeningSetForElement(mountAt);
+  //&#x83B7;&#x53D6;&#x4E8B;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;
+  const dependencies = registrationNameDependencies[registrationName];
+
+  for (let i = 0; i &lt; dependencies.length; i++) {
+    const dependency = dependencies[i];
+    if (!listeningSet.has(dependency)) {
+      switch (dependency) {
+        case TOP_SCROLL:
+          trapCapturedEvent(TOP_SCROLL, mountAt);
+          break;
+        case TOP_FOCUS:
+        case TOP_BLUR:
+          trapCapturedEvent(TOP_FOCUS, mountAt);
+          trapCapturedEvent(TOP_BLUR, mountAt);
+          // We set the flag for a single dependency later in this function,
+          // but this ensures we mark both as attached rather than just one.
+          listeningSet.add(TOP_BLUR);
+          listeningSet.add(TOP_FOCUS);
+          break;
+        case TOP_CANCEL:
+        case TOP_CLOSE:
+          if (isEventSupported(getRawEventName(dependency))) {
+            trapCapturedEvent(dependency, mountAt);
+          }
+          break;
+        case TOP_INVALID:
+        case TOP_SUBMIT:
+        case TOP_RESET:
+          // We listen to them on the target DOM elements.
+          // Some of them bubble so we don&apos;t want them to fire twice.
+          break;
+        default:
+          const isMediaEvent = mediaEventTypes.indexOf(dependency) !== -1;
+          if (!isMediaEvent) {
+            trapBubbledEvent(dependency, mountAt);
+          }
+          break;
+      }
+      listeningSet.add(dependency);
+    }
+  }
+}
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9664;&#x4E86;&#x4E00;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x4E8B;&#x4EF6;&#x8C03;&#x7528;trapCapturedEvent&#x5916;&#xFF0C;&#x591A;&#x6570;&#x4E8B;&#x4EF6;&#x8C03;&#x7528;trapBubbledEvent,&#x5206;&#x522B;&#x5BF9;&#x5E94;&#x6355;&#x83B7;&#x548C;&#x5192;&#x6CE1;&#x9636;&#x6BB5;&#x3002;</p>
+<h4 id="trapcapturedevent&#x548C;trapbubbledevent">trapCapturedEvent&#x548C;trapBubbledEvent</h4>
+<p>&#x90FD;&#x8C03;&#x7528;&#x4E86;<code>trapEventForPluginEventSystem</code>&#x53EA;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#xFF0C;&#x4E00;&#x4E2A;&#x4E3A;true,&#x4E00;&#x4E2A;&#x4E3A;false &#x8868;&#x793A;&#x662F;&#x5426;&#x6355;&#x83B7;&#x3002;</p>
+<blockquote>
+<p>&#x7531;&#x4E8E;&#x4E8B;&#x4EF6;&#x59D4;&#x6258;&#x5230;&#x4E86;document&#x4E0A;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x5408;&#x6210;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x90FD;&#x662F;&#x5728;&#x5192;&#x6CE1;&#x9636;&#x6BB5;&#x89E6;&#x53D1;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x8BBA;&#x662F;React&#x7684;&#x5192;&#x6CE1;&#x8FD8;&#x662F;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#xFF0C;&#x90FD;&#x662F;&#x665A;&#x4E8E;&#x539F;&#x751F;&#x5192;&#x6CE1;&#x548C;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#x7684;&#x54CD;&#x5E94;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x539F;&#x751F;&#x4E8B;&#x4EF6;&#x8C03;&#x7528;&#x4E86;e.stopPropagation()&#xFF0C;&#x90A3;&#x4E48;React&#x4E8B;&#x4EF6;&#x5C06;&#x65E0;&#x6CD5;&#x54CD;&#x5E94;</p>
+</blockquote>
+<pre><code>export function trapBubbledEvent(
+  topLevelType: DOMTopLevelEventType,
+  element: Document | Element | Node,
+): void {
+  trapEventForPluginEventSystem(element, topLevelType, false);
+}
+
+export function trapCapturedEvent(
+  topLevelType: DOMTopLevelEventType,
+  element: Document | Element | Node,
+): void {
+  trapEventForPluginEventSystem(element, topLevelType, true);
+}
+</code></pre><h4 id="trapeventforplugineventsystem">trapEventForPluginEventSystem</h4>
+<p>&#x9996;&#x5148;&#x5224;&#x65AD;&#x4E8B;&#x4EF6;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x4E0D;&#x540C;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>export const DiscreteEvent: EventPriority = 0;
+export const UserBlockingEvent: EventPriority = 1;
+export const ContinuousEvent: EventPriority = 2;
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;listener&#x5E76;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;listener&#x53EA;&#x662F;&#x8BB0;&#x4F4F;&#x4E86;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x7684;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>addEventBubbleListener&#x548C;addEventCaptureListener</p>
+<pre><code>function trapEventForPluginEventSystem(
+  element: Document | Element | Node,
+  topLevelType: DOMTopLevelEventType,
+  capture: boolean,
+): void {
+  let listener;
+  switch (getEventPriority(topLevelType)) {
+    case DiscreteEvent:
+      listener = dispatchDiscreteEvent.bind(
+        null,
+        topLevelType,
+        PLUGIN_EVENT_SYSTEM,
+      );
+      break;
+    case UserBlockingEvent:
+      listener = dispatchUserBlockingUpdate.bind(
+        null,
+        topLevelType,
+        PLUGIN_EVENT_SYSTEM,
+      );
+      break;
+    case ContinuousEvent:
+    default:
+      listener = dispatchEvent.bind(null, topLevelType, PLUGIN_EVENT_SYSTEM);
+      break;
+  }
+
+  const rawEventName = getRawEventName(topLevelType);
+  if (capture) {
+    addEventCaptureListener(element, rawEventName, listener);
+  } else {
+    addEventBubbleListener(element, rawEventName, listener);
+  }
+}
+
+function addEventBubbleListener(element, eventType, listener) {
+  element.addEventListener(eventType, listener, false);
+}
+function addEventCaptureListener(element, eventType, listener) {
+  element.addEventListener(eventType, listener, true);
+}
+</code></pre><p>&#x5230;&#x8FD9;&#x91CC;&#x5C31;&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x5728;container&#x5BF9;&#x8C61;&#x4E0A;&#x7ED1;&#x5B9A;&#x5230;&#x4E86;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x4EE5;<code>click</code>&#x4E8B;&#x4EF6;&#x4E3A;&#x4F8B;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;<code>dispatchDiscreteEvent</code> &#xFF0C;&#x6700;&#x7EC8;&#x8FD8;&#x662F;<code>dispatchEvent</code>&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x5728;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x5C0F;&#x8282;&#x8BB2;&#x8FF0;&#x3002;</p>
+<pre><code>function dispatchDiscreteEvent(topLevelType, eventSystemFlags, nativeEvent) {
+  flushDiscreteUpdatesIfNeeded(nativeEvent.timeStamp);
+  discreteUpdates(dispatchEvent, topLevelType, eventSystemFlags, nativeEvent);
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SyntheticEvent.html" class="navigation navigation-prev " aria-label="Previous page: 合成事件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="eventFire.html" class="navigation navigation-next " aria-label="Next page: 事件分发和回收">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"事件绑定","level":"1.4.3","depth":2,"next":{"title":"事件分发和回收","level":"1.4.4","depth":2,"path":"others/eventFire.md","ref":"others/eventFire.md","articles":[]},"previous":{"title":"合成事件","level":"1.4.2","depth":2,"path":"others/SyntheticEvent.md","ref":"others/SyntheticEvent.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/eventBind.md","mtime":"2019-07-28T09:22:15.679Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-28T11:05:06.279Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
