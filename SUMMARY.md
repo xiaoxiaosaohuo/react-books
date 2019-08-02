@@ -39,6 +39,7 @@
   * [useState](chapter4/useState.md)
   * [useReducer](chapter4/useReducer.md)
   * [useCallback](chapter4/useCallback.md)
+  * [useMemo](chapter4/useMemo.md)
   * [useRef](chapter4/useRef.md)
   * [useLayoutEffect](chapter4/useLayoutEffect.md)
   * [useContext](chapter4/useContext.md)
