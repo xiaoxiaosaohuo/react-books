@@ -84,11 +84,11 @@ completeUnitOfWork 主要是处理effect,包括标记effect tag,向上收敛effe
 
 ## beginWork
 
-####  beginWork有三个和兴功能
+####  beginWork有三个核心功能
 
 
 - 验证当前 fiber 树是否需要更新，用于性能优化
-- 更新传入的节点类型进行对应的更新
+- 根据传入的节点类型进行对应的更新
 - 更新后调和子节点
 
 用于性能优化的判断

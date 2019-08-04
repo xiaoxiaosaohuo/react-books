@@ -23,6 +23,13 @@
   * [performWork](chapter2/performWork.md)
   * [renderRoot](chapter2/renderRoot.md)
   * [updateHostRoot](chapter2/updateHostRoot.md)
+  * [updateHostText](chapter2/updateHostText.md)
+  * [updateHostComponent](chapter2/updateHostComponent.md)
+  * [updateClassComponent](chapter2/updateClassComponent.md)
+* reconcilation
+  * [reconcilation](reconcilation/reconcilation.md)
+  * [reconcileSingleElement](reconcilation/reconcileSingleElement.md)
+  * [reconcileChildrenArray](reconcilation/reconcileChildrenArray.md)
 * 事件
   * [事件系统](others/events.md)
   * [合成事件](others/SyntheticEvent.md)
