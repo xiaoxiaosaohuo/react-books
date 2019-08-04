@@ -1,0 +1,1190 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>React错误处理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="forwardRef.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
+            
+                <a href="../chapter1/project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
+            
+                <a href="../chapter1/ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
+            
+                <a href="../chapter1/ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
+            
+                <a href="../chapter1/ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
+            
+                <a href="../chapter1/ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/reactRuntime.html">
+            
+                <a href="../chapter1/reactRuntime.html">
+            
+                    
+                    React 编程模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../chapter1/ReactDataStructure.html">
+            
+                <a href="../chapter1/ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../chapter1/expirationTime.html">
+            
+                <a href="../chapter1/expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../chapter1/ReactGlobal.html">
+            
+                <a href="../chapter1/ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../chapter1/fiberWorkflow.html">
+            
+                <a href="../chapter1/fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../chapter1/createWorkInProgress.html">
+            
+                <a href="../chapter1/createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactScheduler.html">
+            
+                <a href="../chapter2/ReactScheduler.html">
+            
+                    
+                    ReactScheduler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactDOMrender.html">
+            
+                <a href="../chapter2/ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/ReactRoot.html">
+            
+                <a href="../chapter2/ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter2/updateContainer.html">
+            
+                <a href="../chapter2/updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter2/scheduleRootUpdate.html">
+            
+                <a href="../chapter2/scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter2/scheduleWork.html">
+            
+                <a href="../chapter2/scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter2/performWork.html">
+            
+                <a href="../chapter2/performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter2/renderRoot.html">
+            
+                <a href="../chapter2/renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../chapter2/updateHostRoot.html">
+            
+                <a href="../chapter2/updateHostRoot.html">
+            
+                    
+                    updateHostRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../chapter2/updateHostText.html">
+            
+                <a href="../chapter2/updateHostText.html">
+            
+                    
+                    updateHostText
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../chapter2/updateHostComponent.html">
+            
+                <a href="../chapter2/updateHostComponent.html">
+            
+                    
+                    updateHostComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../chapter2/updateClassComponent.html">
+            
+                <a href="../chapter2/updateClassComponent.html">
+            
+                    
+                    updateClassComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    reconcilation
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../reconcilation/reconcilation.html">
+            
+                <a href="../reconcilation/reconcilation.html">
+            
+                    
+                    reconcilation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../reconcilation/reconcileSingleElement.html">
+            
+                <a href="../reconcilation/reconcileSingleElement.html">
+            
+                    
+                    reconcileSingleElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../reconcilation/reconcileChildrenArray.html">
+            
+                <a href="../reconcilation/reconcileChildrenArray.html">
+            
+                    
+                    reconcileChildrenArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    事件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="events.html">
+            
+                <a href="events.html">
+            
+                    
+                    事件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="SyntheticEvent.html">
+            
+                <a href="SyntheticEvent.html">
+            
+                    
+                    合成事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="eventBind.html">
+            
+                <a href="eventBind.html">
+            
+                    
+                    事件绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="eventFire.html">
+            
+                <a href="eventFire.html">
+            
+                    
+                    事件分发和回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    其他API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter3/setState.html">
+            
+                <a href="../chapter3/setState.html">
+            
+                    
+                    setState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Context.html">
+            
+                <a href="Context.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="forwardRef.html">
+            
+                <a href="forwardRef.html">
+            
+                    
+                    forwardRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.4" data-path="errorHandle.html">
+            
+                <a href="errorHandle.html">
+            
+                    
+                    React错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Hooks
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter4/hooksAndStateHook.html">
+            
+                <a href="../chapter4/hooksAndStateHook.html">
+            
+                    
+                    hooksAndStateHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter4/effectHook.html">
+            
+                <a href="../chapter4/effectHook.html">
+            
+                    
+                    effectHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../chapter4/useState.html">
+            
+                <a href="../chapter4/useState.html">
+            
+                    
+                    useState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../chapter4/useReducer.html">
+            
+                <a href="../chapter4/useReducer.html">
+            
+                    
+                    useReducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../chapter4/useCallback.html">
+            
+                <a href="../chapter4/useCallback.html">
+            
+                    
+                    useCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../chapter4/useMemo.html">
+            
+                <a href="../chapter4/useMemo.html">
+            
+                    
+                    useMemo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../chapter4/useRef.html">
+            
+                <a href="../chapter4/useRef.html">
+            
+                    
+                    useRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../chapter4/useLayoutEffect.html">
+            
+                <a href="../chapter4/useLayoutEffect.html">
+            
+                    
+                    useLayoutEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../chapter4/useContext.html">
+            
+                <a href="../chapter4/useContext.html">
+            
+                    
+                    useContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../chapter4/customeHooks.html">
+            
+                <a href="../chapter4/customeHooks.html">
+            
+                    
+                    自定义hooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >React错误处理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="react&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;">React&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;</h2>
+<p>React&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;UI&#x5E93;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x9519;&#x8BEF;&#x641C;&#x96C6;&#x548C;&#x5904;&#x7406;&#x673A;&#x5236;&#xFF0C;&#x5728;React&#x4E2D;<code>ReactErrorUtils</code>&#x662F;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x76F8;&#x5173;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x3002;</p>
+<h4 id="&#x7528;&#x4E8E;&#x5426;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x72B6;&#x6001;&#x548C;&#x6355;&#x83B7;&#x5230;&#x7684;&#x9519;&#x8BEF;">&#x7528;&#x4E8E;&#x5426;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x72B6;&#x6001;&#x548C;&#x6355;&#x83B7;&#x5230;&#x7684;&#x9519;&#x8BEF;</h4>
+<pre><code>// Used by Fiber to simulate a try-catch.
+let hasError: boolean = false;
+let caughtError: mixed = null;
+</code></pre><h4 id="&#x8BB0;&#x5F55;&#x662F;&#x5426;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x548C;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;">&#x8BB0;&#x5F55;&#x662F;&#x5426;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x548C;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;</h4>
+<pre><code>// Used by event system to capture/rethrow the first error.
+let hasRethrowError: boolean = false;
+let rethrowError: mixed = null;
+</code></pre><h4 id="reporter&#x5BF9;&#x8C61;&#x4E0A;">reporter&#x5BF9;&#x8C61;&#x4E0A;</h4>
+<p>&#x8BE5;&#x5BF9;&#x8C61;&#x7684;onError&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x6CD5;&#x4F53;&#x4E2D;&#x8BB0;&#x5F55;&#x9519;&#x8BEF;&#x7684;&#x72B6;&#x6001;&#x548C;&#x6355;&#x83B7;&#x5230;&#x7684;&#x9519;&#x8BEF;</p>
+<pre><code>const reporter = {
+  onError(error: mixed) {
+    hasError = true;
+    caughtError = error;
+  },
+};
+</code></pre><p>&#x5728;React&#x6E90;&#x7801;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x89C1;&#x5230;<code>invokeGuardedCallback</code>&#x8FD9;&#x79CD;&#x51FD;&#x6570;&#xFF0C;&#x4E00;&#x5F00;&#x59CB;&#x6CA1;&#x600E;&#x4E48;&#x770B;&#x61C2;&#xFF0C;&#x540E;&#x6765;&#x624D;&#x77E5;&#x9053;&#x662F;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h4 id="invokeguardedcallback">invokeGuardedCallback</h4>
+<p>&#x4ECE;&#x5176;&#x540D;&#x5B57;&#x4E0A;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x662F;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x88AB;&#x4FDD;&#x62A4;&#x7684;callback,&#x610F;&#x601D;&#x662F;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x540C;&#x65F6;&#x9632;&#x6B62;&#x5176;&#x4E2D;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x53C2;&#x6570;&#xFF1A;</p>
+<ol>
+<li>name &#x7528;&#x4E8E;&#x65E5;&#x5FD7;&#x6216;&#x8005;&#x8C03;&#x8BD5;</li>
+<li>&#x8981;&#x88AB;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;</li>
+<li>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;context</li>
+<li>&#x5176;&#x4ED6;&#x53C2;&#x6570;</li>
+</ol>
+<pre><code>export function invokeGuardedCallback&lt;A, B, C, D, E, F, Context&gt;(
+  name: string | null,
+  func: (a: A, b: B, c: C, d: D, e: E, f: F) =&gt; mixed,
+  context: Context,
+  a: A,
+  b: B,
+  c: C,
+  d: D,
+  e: E,
+  f: F,
+): void {
+  hasError = false;
+  caughtError = null;
+  //&#x901A;&#x8FC7;apply&#x5C06;this&#x6307;&#x5411;reporter&#xFF0C;&#x5F53;invokeGuardedCallbackImpl&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x65F6;&#x5019;&#xFF0C; &#x8C03;&#x7528;reporter&#x7684;onError &#x65B9;&#x6CD5;&#x5C06;&#x9519;&#x8BEF;&#x5B58;&#x50A8;&#x5230;reporter&#x7684;&#x6700;&#x5916;&#x5C42;&#x7684;hasError&#x548C;caughtError &#x53D8;&#x91CF;&#x4E0A;&#x3002;
+
+  invokeGuardedCallbackImpl.apply(reporter, arguments);
+}
+</code></pre><h4 id="invokeguardedcallbackandcatchfirsterror">invokeGuardedCallbackAndCatchFirstError</h4>
+<p>&#x770B;&#x8D77;&#x6765;&#x548C;invokeGuardedCallback&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x662F;&#x5BF9;invokeGuardedCallback&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x5F53;&#x6267;&#x884C;&#x5B8C;invokeGuardedCallback&#x4E4B;&#x540E;&#xFF0C;&#x901A;&#x8FC7;hasError&#x5224;&#x65AD;&#x662F;&#x5426;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x8C03;&#x7528;clearCaughtError&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x6E05;&#x7A7A;hasError&#x3001;caughtError&#x3002;&#x7136;&#x540E;&#x5C06;&#x8FD4;&#x56DE;&#x7684;&#x9519;&#x8BEF;&#x5B58;&#x50A8;&#x5230;rethrowError&#xFF0C;&#x5E76;&#x6539;&#x53D8;hasRethrowError&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<pre><code>export function invokeGuardedCallbackAndCatchFirstError&lt;
+  A,
+  B,
+  C,
+  D,
+  E,
+  F,
+  Context,
+&gt;(
+  name: string | null,
+  func: (a: A, b: B, c: C, d: D, e: E, f: F) =&gt; void,
+  context: Context,
+  a: A,
+  b: B,
+  c: C,
+  d: D,
+  e: E,
+  f: F,
+): void {
+  invokeGuardedCallback.apply(this, arguments);
+  if (hasError) {
+    const error = clearCaughtError();
+    if (!hasRethrowError) {
+      hasRethrowError = true;
+      rethrowError = error;
+    }
+  }
+}
+
+export function rethrowCaughtError() {
+  if (hasRethrowError) {
+    const error = rethrowError;
+    hasRethrowError = false;
+    rethrowError = null;
+    throw error;
+  }
+}
+
+export function hasCaughtError() {
+  return hasError;
+}
+
+export function clearCaughtError() {
+  if (hasError) {
+    const error = caughtError;
+    hasError = false;
+    caughtError = null;
+    return error;
+  } else {
+    invariant(
+      false,
+      &apos;clearCaughtError was called but no error was captured. This error &apos; +
+        &apos;is likely caused by a bug in React. Please file an issue.&apos;,
+    );
+  }
+}
+</code></pre><h4 id="invokeguardedcallbackimpl">invokeGuardedCallbackImpl</h4>
+<p>invokeGuardedCallbackImpl&#x5728;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;</p>
+<h5 id="&#x751F;&#x4EA7;&#x73AF;&#x5883;">&#x751F;&#x4EA7;&#x73AF;&#x5883;</h5>
+<pre><code>let invokeGuardedCallbackImpl = function&lt;A, B, C, D, E, F, Context&gt;(
+  name: string | null,
+  func: (a: A, b: B, c: C, d: D, e: E, f: F) =&gt; mixed,
+  context: Context,
+  a: A,
+  b: B,
+  c: C,
+  d: D,
+  e: E,
+  f: F,
+) {
+  const funcArgs = Array.prototype.slice.call(arguments, 3);
+  try {
+    func.apply(context, funcArgs);
+  } catch (error) {
+      //this&#x6307;&#x5411;reporter
+    this.onError(error);
+  }
+};
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4F7F;&#x7528;<code>try...catch</code>&#x6355;&#x83B7;&#x9519;&#x8BEF;</p>
+<h5 id="&#x5F00;&#x53D1;&#x73AF;&#x5883;">&#x5F00;&#x53D1;&#x73AF;&#x5883;</h5>
+<p>&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x914D;&#x5408;&#x6D4F;&#x89C8;&#x5668;&#x7684;DevTools&#xFF0C;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x6D4F;&#x89C8;&#x5668; DevTool &#x7684;pause on any exception&#x529F;&#x80FD;&#x5BFC;&#x81F4; React &#x6E32;&#x67D3;&#x56E0;&#x4E3A;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#x88AB;&#x4E2D;&#x65AD;&#xFF0C;&#x800C;&#x5BFC;&#x81F4;&#x6E32;&#x67D3;&#x4E0D;&#x51FA;&#x5185;&#x5BB9;&#xFF0C;&#x56E0;&#x4E3A; React &#x73B0;&#x5728;&#x662F;&#x53EF;&#x4EE5;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x5E76;&#x4E14;&#x5728;&#x9519;&#x8BEF;&#x7684;&#x65F6;&#x5019;&#x6E32;&#x67D3;&#x5BF9;&#x5E94;&#x7684; UI &#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x8BA9;&#x88AB;try catch&#x6355;&#x83B7;&#x7684;&#x9519;&#x8BEF;&#x4E5F;&#x505C;&#x5728;&#x9519;&#x8BEF;&#x51FA;&#x73B0;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5BF9; React &#x5F00;&#x53D1;&#x7684;&#x4F53;&#x9A8C;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x3002;</p>
+<p>&#x6240;&#x4EE5;React&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x5229;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;&#x6A21;&#x62DF;&#x4E86;try ... catch&#x529F;&#x80FD;</p>
+<p>&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;fake node &#xFF0C;&#x7136;&#x540E;&#x540C;&#x6B65;&#x7684;dispatch&#x4E00;&#x4E2A;fake event,&#x5728;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7684;hanlder&#x4E2D;&#x8C03;&#x7528;&#x4F20;&#x5165;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x9519;&#x8BEF;&#x5C31;&#x4F1A;&#x88AB;&#x5168;&#x5C40;&#x7684;&#x4E8B;&#x4EF6;handler&#x6355;&#x83B7;&#x3002;</p>
+<pre><code>if (__DEV__) {
+  if (
+    typeof window !== &apos;undefined&apos; &amp;&amp;
+    typeof window.dispatchEvent === &apos;function&apos; &amp;&amp;
+    typeof document !== &apos;undefined&apos; &amp;&amp;
+    typeof document.createEvent === &apos;function&apos;
+  ) {
+    const fakeNode = document.createElement(&apos;react&apos;);
+
+    const invokeGuardedCallbackDev = function&lt;A, B, C, D, E, F, Context&gt;(
+      name: string | null,
+      func: (a: A, b: B, c: C, d: D, e: E, f: F) =&gt; mixed,
+      context: Context,
+      a: A,
+      b: B,
+      c: C,
+      d: D,
+      e: E,
+      f: F,
+    ) {
+      //&#x521B;&#x5EFA;&#x4E00;&#x4E2A;fake event
+      const evt = document.createEvent(&apos;Event&apos;);
+
+      This strategy works even if the browser is flaky and
+      fails to call our global error handler, because it doesn&apos;t rely on
+      the error event at all.
+      // &#x8BB0;&#x5F55;&#x4F20;&#x5165;&#x7684;&#x9700;&#x8981;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x662F;&#x5426;&#x6709;&#x9519;&#x8BEF;,&#x521D;&#x59CB;&#x8BBE;&#x4E3A;true,&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5B8C;&#x4E4B;&#x540E;&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x5982;&#x679C;&#x51FD;&#x6570;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;
+
+      //&#x8FD9;&#x4E2D;&#x7B56;&#x7565;&#x662F;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x65E0;&#x6CD5;&#x8C03;&#x7528;&#x6211;&#x4EEC;&#x7684;&#x5168;&#x5C40;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F9D;&#x7136;&#x80FD;&#x6355;&#x83B7;&#x5230;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x4F9D;&#x8D56;&#x4E0E;error event.
+      let didError = true;
+
+      let windowEvent = window.event;
+
+
+      const windowEventDescriptor = Object.getOwnPropertyDescriptor(
+        window,
+        &apos;event&apos;,
+      );
+        //&#x7ED9; fake event&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;handler&#xFF0C;&#x7528;`dispatchEvent`&#x540C;&#x6B65;&#x7684;dispatch &#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;&#x5728;event handler &#x4E2D;&#x8C03;&#x7528;&#x4F20;&#x5165;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;
+
+        // &#x83B7;&#x53D6;&#x9700;&#x8981;&#x4F20;&#x9012;&#x7ED9;&#x56DE;&#x8C03;&#x7684;&#x53C2;&#x6570;
+      const funcArgs = Array.prototype.slice.call(arguments, 3);
+      function callCallback() {
+          //&#x4E8B;&#x4EF6;handler&#x8C03;&#x7528;&#x65F6;&#x5C31;remove fakeNode&#x7684;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x4EE5;&#x4FDD;&#x8BC1;&#x5D4C;&#x5957;&#x7684;`invokeGuardedCallback`&#x8C03;&#x7528;&#x4E0D;&#x4F1A;&#x51B2;&#x7A81;&#x3002;&#x5426;&#x5219;&#x4F1A;&#x8C03;&#x7528;stack&#x4E2D;&#x9876;&#x5C42;&#x7684;event handler 
+        fakeNode.removeEventListener(evtType, callCallback, false);
+        if (
+          typeof window.event !== &apos;undefined&apos; &amp;&amp;
+          window.hasOwnProperty(&apos;event&apos;)
+        ) {
+          window.event = windowEvent;
+        }
+        //&#x8C03;&#x7528;&#x4F20;&#x5165;&#x7684;&#x56DE;&#x8C03;
+        func.apply(context, funcArgs);
+        //&#x5C06;didError&#x7F6E;&#x4E3A;false
+        didError = false;
+      }
+
+    //&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x9519;&#x8BEF;&#x4E8B;&#x4EF6;handler&#xFF0C;&#x7528;&#x6765;&#x6355;&#x83B7;&#x9519;&#x8BEF;
+
+
+      let didSetError = false;
+      let isCrossOriginError = false;
+
+      function handleWindowError(event) {
+        error = event.error;
+        didSetError = true;
+        if (error === null &amp;&amp; event.colno === 0 &amp;&amp; event.lineno === 0) {
+            // &#x5F53;&#x52A0;&#x8F7D;&#x81EA;&#x4E0D;&#x540C;&#x57DF;&#x7684;&#x811A;&#x672C;&#x4E2D;&#x53D1;&#x751F;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x4E3A;&#x907F;&#x514D;&#x4FE1;&#x606F;&#x6CC4;&#x9732;&#xFF0C;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x7684;&#x7EC6;&#x8282;&#x5C06;&#x4E0D;&#x4F1A;&#x62A5;&#x544A;&#xFF0C;&#x800C;&#x4EE3;&#x4E4B;&#x7B80;&#x5355;&#x7684;&quot;Script error.&quot;
+            //  event&#xFF1A;
+            // message&#xFF1A;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF08;&#x5B57;&#x7B26;&#x4E32;&#xFF09;&#x3002;&#x53EF;&#x7528;&#x4E8E;HTML onerror=&quot;&quot;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;event&#x3002;
+            // source&#xFF1A;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x811A;&#x672C;URL&#xFF08;&#x5B57;&#x7B26;&#x4E32;&#xFF09;
+            // lineno&#xFF1A;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x884C;&#x53F7;&#xFF08;&#x6570;&#x5B57;&#xFF09;
+            // colno&#xFF1A;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x5217;&#x53F7;&#xFF08;&#x6570;&#x5B57;&#xFF09;
+            // error&#xFF1A;Error&#x5BF9;&#x8C61;&#xFF08;&#x5BF9;&#x8C61;&#xFF09;
+          isCrossOriginError = true;
+        }
+        //&#x6709;&#x7684;error handler&#x88AB;&#x9ED8;&#x8BA4;&#x963B;&#x6B62;&#x4E86;&#xFF0C;&#x5148;&#x5C06;&#x9519;&#x8BEF;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;
+        if (event.defaultPrevented) {
+
+          if (error != null &amp;&amp; typeof error === &apos;object&apos;) {
+            try {
+              error._suppressLogging = true;
+            } catch (inner) {
+              // Ignore.
+            }
+          }
+        }
+      }
+
+      // &#x521B;&#x5EFA;&#x4E00;&#x4E2A; fake event type.
+      const evtType = `react-${name ? name : &apos;invokeguardedcallback&apos;}`;
+
+      // &#x7ED1;&#x5B9A;event handlers
+      window.addEventListener(&apos;error&apos;, handleWindowError);
+      fakeNode.addEventListener(evtType, callCallback, false);
+
+      //dispatch &#x4E8B;&#x4EF6;
+      //initEvent&#x7684;&#x7B2C;&#x4E00;&#x4E2A;false&#x8868;&#x793A;&#x963B;&#x6B62;&#x8BE5;&#x4E8B;&#x4EF6;&#x5411;&#x4E0A;&#x5192;&#x6CE1;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;false&#x8868;&#x793A;&#x8BE5;&#x4E8B;&#x4EF6;&#x9ED8;&#x8BA4;&#x52A8;&#x4F5C;&#x4E0D;&#x53EF;&#x53D6;&#x6D88;
+      evt.initEvent(evtType, false, false);
+      fakeNode.dispatchEvent(evt);
+
+    //&#x8FD8;&#x539F;window.event
+      if (windowEventDescriptor) {
+        Object.defineProperty(window, &apos;event&apos;, windowEventDescriptor);
+      } 
+    //&#x4F20;&#x5165;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#x540E;&#xFF0C;didError&#x4E0D;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;false
+      if (didError) {
+        if (!didSetError) {
+            //&#x4F20;&#x5165;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x662F;handleWindowError&#x6CA1;&#x6709;&#x88AB;&#x89E6;&#x53D1;&#x3002;
+
+          error = new Error(
+            &apos;An error was thrown inside one of your components, but React &apos; +
+              &quot;doesn&apos;t know what it was. This is likely due to browser &quot; +
+              &apos;flakiness. React does its best to preserve the &quot;Pause on &apos; +
+              &apos;exceptions&quot; behavior of the DevTools, which requires some &apos; +
+              &quot;DEV-mode only tricks. It&apos;s possible that these don&apos;t work in &quot; +
+              &apos;your browser. Try triggering the error in production mode, &apos; +
+              &apos;or switching to a modern browser. If you suspect that this is &apos; +
+              &apos;actually an issue with React, please file an issue.&apos;,
+          );
+        } else if (isCrossOriginError) {
+          error = new Error(
+            &quot;A cross-origin error was thrown. React doesn&apos;t have access to &quot; +
+              &apos;the actual error object in development. &apos; +
+              &apos;See https://fb.me/react-crossorigin-error for more information.&apos;,
+          );
+        }
+        //&#x8C03;&#x7528;reporter&#x8BB0;&#x5F55;&#x9519;&#x8BEF;
+        this.onError(error);
+      }
+
+      // &#x79FB;&#x9664; event listeners
+      window.removeEventListener(&apos;error&apos;, handleWindowError);
+    };
+
+    invokeGuardedCallbackImpl = invokeGuardedCallbackDev;
+  }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="forwardRef.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: forwardRef">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"React错误处理","level":"1.6.4","depth":2,"next":{"title":"Hooks","level":"1.7","depth":1,"ref":"","articles":[{"title":"hooksAndStateHook","level":"1.7.1","depth":2,"path":"chapter4/hooksAndStateHook.md","ref":"chapter4/hooksAndStateHook.md","articles":[]},{"title":"effectHook","level":"1.7.2","depth":2,"path":"chapter4/effectHook.md","ref":"chapter4/effectHook.md","articles":[]},{"title":"useState","level":"1.7.3","depth":2,"path":"chapter4/useState.md","ref":"chapter4/useState.md","articles":[]},{"title":"useReducer","level":"1.7.4","depth":2,"path":"chapter4/useReducer.md","ref":"chapter4/useReducer.md","articles":[]},{"title":"useCallback","level":"1.7.5","depth":2,"path":"chapter4/useCallback.md","ref":"chapter4/useCallback.md","articles":[]},{"title":"useMemo","level":"1.7.6","depth":2,"path":"chapter4/useMemo.md","ref":"chapter4/useMemo.md","articles":[]},{"title":"useRef","level":"1.7.7","depth":2,"path":"chapter4/useRef.md","ref":"chapter4/useRef.md","articles":[]},{"title":"useLayoutEffect","level":"1.7.8","depth":2,"path":"chapter4/useLayoutEffect.md","ref":"chapter4/useLayoutEffect.md","articles":[]},{"title":"useContext","level":"1.7.9","depth":2,"path":"chapter4/useContext.md","ref":"chapter4/useContext.md","articles":[]},{"title":"自定义hooks","level":"1.7.10","depth":2,"path":"chapter4/customeHooks.md","ref":"chapter4/customeHooks.md","articles":[]}]},"previous":{"title":"forwardRef","level":"1.6.3","depth":2,"path":"others/forwardRef.md","ref":"others/forwardRef.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/errorHandle.md","mtime":"2019-07-28T15:44:28.729Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T08:32:36.960Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

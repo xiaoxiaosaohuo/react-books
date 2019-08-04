@@ -1,0 +1,961 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>createWorkInProgress · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="fiberWorkflow.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="project.html">
+            
+                <a href="project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ReactAPI.html">
+            
+                <a href="ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ReactElement.html">
+            
+                <a href="ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="ReactBaseClass.html">
+            
+                <a href="ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="ReactLifeCycle.html">
+            
+                <a href="ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="reactRuntime.html">
+            
+                <a href="reactRuntime.html">
+            
+                    
+                    React 编程模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="ReactDataStructure.html">
+            
+                <a href="ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="expirationTime.html">
+            
+                <a href="expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="ReactGlobal.html">
+            
+                <a href="ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="fiberWorkflow.html">
+            
+                <a href="fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.11" data-path="createWorkInProgress.html">
+            
+                <a href="createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactScheduler.html">
+            
+                <a href="../chapter2/ReactScheduler.html">
+            
+                    
+                    ReactScheduler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactDOMrender.html">
+            
+                <a href="../chapter2/ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/ReactRoot.html">
+            
+                <a href="../chapter2/ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter2/updateContainer.html">
+            
+                <a href="../chapter2/updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter2/scheduleRootUpdate.html">
+            
+                <a href="../chapter2/scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter2/scheduleWork.html">
+            
+                <a href="../chapter2/scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter2/performWork.html">
+            
+                <a href="../chapter2/performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter2/renderRoot.html">
+            
+                <a href="../chapter2/renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../chapter2/updateHostRoot.html">
+            
+                <a href="../chapter2/updateHostRoot.html">
+            
+                    
+                    updateHostRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../chapter2/updateHostText.html">
+            
+                <a href="../chapter2/updateHostText.html">
+            
+                    
+                    updateHostText
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../chapter2/updateHostComponent.html">
+            
+                <a href="../chapter2/updateHostComponent.html">
+            
+                    
+                    updateHostComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../chapter2/updateClassComponent.html">
+            
+                <a href="../chapter2/updateClassComponent.html">
+            
+                    
+                    updateClassComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    reconcilation
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../reconcilation/reconcilation.html">
+            
+                <a href="../reconcilation/reconcilation.html">
+            
+                    
+                    reconcilation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../reconcilation/reconcileSingleElement.html">
+            
+                <a href="../reconcilation/reconcileSingleElement.html">
+            
+                    
+                    reconcileSingleElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../reconcilation/reconcileChildrenArray.html">
+            
+                <a href="../reconcilation/reconcileChildrenArray.html">
+            
+                    
+                    reconcileChildrenArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    事件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../others/events.html">
+            
+                <a href="../others/events.html">
+            
+                    
+                    事件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../others/SyntheticEvent.html">
+            
+                <a href="../others/SyntheticEvent.html">
+            
+                    
+                    合成事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../others/eventBind.html">
+            
+                <a href="../others/eventBind.html">
+            
+                    
+                    事件绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../others/eventFire.html">
+            
+                <a href="../others/eventFire.html">
+            
+                    
+                    事件分发和回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    其他API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter3/setState.html">
+            
+                <a href="../chapter3/setState.html">
+            
+                    
+                    setState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../others/Context.html">
+            
+                <a href="../others/Context.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../others/forwardRef.html">
+            
+                <a href="../others/forwardRef.html">
+            
+                    
+                    forwardRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../others/errorHandle.html">
+            
+                <a href="../others/errorHandle.html">
+            
+                    
+                    React错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Hooks
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter4/hooksAndStateHook.html">
+            
+                <a href="../chapter4/hooksAndStateHook.html">
+            
+                    
+                    hooksAndStateHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter4/effectHook.html">
+            
+                <a href="../chapter4/effectHook.html">
+            
+                    
+                    effectHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../chapter4/useState.html">
+            
+                <a href="../chapter4/useState.html">
+            
+                    
+                    useState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../chapter4/useReducer.html">
+            
+                <a href="../chapter4/useReducer.html">
+            
+                    
+                    useReducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../chapter4/useCallback.html">
+            
+                <a href="../chapter4/useCallback.html">
+            
+                    
+                    useCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../chapter4/useMemo.html">
+            
+                <a href="../chapter4/useMemo.html">
+            
+                    
+                    useMemo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../chapter4/useRef.html">
+            
+                <a href="../chapter4/useRef.html">
+            
+                    
+                    useRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../chapter4/useLayoutEffect.html">
+            
+                <a href="../chapter4/useLayoutEffect.html">
+            
+                    
+                    useLayoutEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../chapter4/useContext.html">
+            
+                <a href="../chapter4/useContext.html">
+            
+                    
+                    useContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../chapter4/customeHooks.html">
+            
+                <a href="../chapter4/customeHooks.html">
+            
+                    
+                    自定义hooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >createWorkInProgress</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="workinprogress-&#x548C;alternate-&#x53CC;&#x7F13;&#x51B2;&#x6C60;&#x6280;&#x672F;">workInProgress &#x548C;alternate &#x53CC;&#x7F13;&#x51B2;&#x6C60;&#x6280;&#x672F;</h2>
+<p>&#x5728;&#x7B2C;&#x4E00;&#x6B21;render&#x4E4B;&#x540E;&#xFF0C;React&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;fiber tree&#x4EE3;&#x8868;&#x7740;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x68F5;&#x6811;&#x5C31;&#x662F;current&#xFF0C;&#x5F53;&#x5F00;&#x59CB;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;workInProgress tree&#xFF0C;&#x4EE3;&#x8868;&#x672A;&#x6765;&#x4F1A;&#x5E94;&#x7528;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x90FD;&#x5728;workInProgress tree&#x4E0A;&#x8FDB;&#x884C;&#xFF0C;React&#x904D;&#x5386;current tree,&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x5B58;&#x5728;&#x7684;fiber node &#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;workInProgress tree&#xFF0C;&#x5176;&#x6570;&#x636E;&#x6765;&#x81EA;render&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;react element&#x3002;&#x4E00;&#x65E6;&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x5B8C;&#x6210;&#x4E86;&#x4E14;workInProgress tree&#x88AB;render&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;workInProgress tree&#x5C31;&#x662F;current tree&#x4E86;</p>
+<pre><code> function createWorkInProgress(current, pendingProps, expirationTime) {
+  var workInProgress = current.alternate;
+  if (workInProgress === null) {
+
+   workInProgress = createFiber(current.tag, pendingProps, current.key, current.mode);
+    workInProgress.elementType = current.elementType;
+    workInProgress.type = current.type;
+    workInProgress.stateNode = current.stateNode;
+   workInProgress.alternate = current;
+    current.alternate = workInProgress;
+}else{
+//&#x66F4;&#x65B0;&#x5C5E;&#x6027;
+ workInProgress.pendingProps = pendingProps;
+workInProgress.child = current.child;
+  workInProgress.memoizedProps = current.memoizedProps;
+  workInProgress.memoizedState = current.memoizedState;
+  workInProgress.updateQueue = current.updateQueue;
+workInProgress.sibling = current.sibling;
+  workInProgress.index = current.index;
+  workInProgress.ref = current.ref;
+}
+return workInProgress;
+</code></pre><p>&#x5F53;&#x9996;&#x6B21;&#x6E32;&#x67D3;&#x65F6;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;root&#x8282;&#x70B9;&#xFF0C;root.current&#x5C31;&#x662F;&#x5F53;&#x524D;&#x7684;rootFirber node(&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x6807;&#x8BB0;&#x4E3A;root1) ,&#x4F1A;&#x4ECE;root&#x8282;&#x70B9;&#x5F00;&#x59CB;&#x4ECE;&#x65E0;&#x5230;&#x6709;&#x521B;&#x5EFA;&#x4E00;&#x9897;workInProgress&#x6811;&#x3002;</p>
+<p>workInProgress&#x6811;&#x4E2D;&#x53EA;&#x6709;root&#x8282;&#x70B9;&#x7684;alternate&#x662F;&#x5B58;&#x5728;&#x7684;&#xFF0C;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x7531;&#x4E8E;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x4E0D;&#x5B58;&#x5728;&#xFF08;root&#x672C;&#x6765;&#x5DF2;&#x7ECF;&#x6E32;&#x67D3;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684;fiber node &#x5E76;&#x4E14;&#x8D4B;&#x503C;&#x7ED9;workInProgress.child,&#x6700;&#x7EC8;&#x5F62;&#x6210;&#x4E00;&#x9897;tree&#xFF0C;&#x9664;&#x4E86;root.current&#x5B58;&#x5728;alternate&#xFF0C;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x90FD;&#x4E0D;&#x5B58;&#x5728;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x539F;&#x56E0;&#x662F;&#x5728;&#x8C03;&#x548C;children&#x65F6;&#xFF0C;&#x9996;&#x6B21;&#x6E32;&#x67D3;current&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x7684;fiber&#xFF1B;</p>
+<p><img src="https://user-images.githubusercontent.com/15315816/50039932-0b770080-0076-11e9-8b37-ad520b8eef29.png" alt="workInProgress1"></p>
+<p>&#x5F53;&#x6E32;&#x67D3;&#x5B8C;&#x6BD5;&#xFF0C;&#x5C06;root.current&#x6307;&#x5411;workInProgress&#x3002;&#x6B64;&#x65F6;root&#x4E3A;root2</p>
+<pre><code>root.current=workInProgress
+</code></pre><p>&#x518D;&#x6B21;&#x6E32;&#x67D3;&#x65F6;&#xFF0C;root.current&#x76F8;&#x5F53;&#x4E8E;&#x4E0A;&#x4E00;&#x6B21;&#x7684;workInProgress&#xFF0C;&#x6240;&#x4EE5;root.current.alternate&#x6307;&#x5411;root1&#xFF1B;
+&#x5176;&#x4ED6;&#x7684;&#x8282;&#x70B9;&#x4F1A;&#x5728;current&#x6811;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;workInProgress&#x6811;</p>
+<pre><code>workInProgress.alternate = current;
+ current.alternate = workInProgress;
+</code></pre><p>&#x5F53;&#x518D;&#x6B21;&#x6E32;&#x67D3;&#x5B8C;&#x6BD5; &#x5C06;root.current&#x6307;&#x5411;workInProgress&#x3002;&#x6B64;&#x65F6;root&#x4E3A;root3&#xFF1B;</p>
+<p>&#x5F88;&#x660E;&#x663E; root3.current.alternate &#x6307;&#x5411;&#x7684;&#x662F;root2.</p>
+<p>&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x80FD;&#x6301;&#x6709;&#x5F53;&#x524D;&#x6E32;&#x67D3;&#x7684;&#x72B6;&#x6001;&#x548C;&#x4E0A;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5373;&#x6700;&#x591A;&#x540C;&#x65F6;&#x5B58;&#x5728;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5F53;&#x524D;&#x7248;&#x672C;&#x548C;&#x4E0A;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x800C;&#x4E14;alertnate&#x6307;&#x5411;&#x7684;node&#x662F;&#x61D2;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x5728;&#x4EE5;&#x540E;&#x7684;&#x66F4;&#x65B0;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x8282;&#x70B9;&#x53EA;&#x662F;&#x66F4;&#x65B0;&#x5C5E;&#x6027;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x91CD;&#x7528;fiber &#x5BF9;&#x8C61;&#x800C;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x521B;&#x5EFA;&#xFF0C;&#x6709;&#x5229;&#x4E8E;&#x8282;&#x7701;&#x7A7A;&#x95F4;&#x3002;</p>
+<p><img src="https://user-images.githubusercontent.com/15315816/50039688-15e2cb80-0071-11e9-8661-5c0ed0878d50.png" alt="workInProgress1"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="fiberWorkflow.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Fiber工作流程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"createWorkInProgress","level":"1.2.11","depth":2,"next":{"title":"任务调度","level":"1.3","depth":1,"ref":"","articles":[{"title":"ReactScheduler","level":"1.3.1","depth":2,"path":"chapter2/ReactScheduler.md","ref":"chapter2/ReactScheduler.md","articles":[]},{"title":"ReactDOM.render","level":"1.3.2","depth":2,"path":"chapter2/ReactDOMrender.md","ref":"chapter2/ReactDOMrender.md","articles":[]},{"title":"ReactRoot","level":"1.3.3","depth":2,"path":"chapter2/ReactRoot.md","ref":"chapter2/ReactRoot.md","articles":[]},{"title":"updateContainer","level":"1.3.4","depth":2,"path":"chapter2/updateContainer.md","ref":"chapter2/updateContainer.md","articles":[]},{"title":"scheduleRootUpdate","level":"1.3.5","depth":2,"path":"chapter2/scheduleRootUpdate.md","ref":"chapter2/scheduleRootUpdate.md","articles":[]},{"title":"scheduleWork","level":"1.3.6","depth":2,"path":"chapter2/scheduleWork.md","ref":"chapter2/scheduleWork.md","articles":[]},{"title":"performWork","level":"1.3.7","depth":2,"path":"chapter2/performWork.md","ref":"chapter2/performWork.md","articles":[]},{"title":"renderRoot","level":"1.3.8","depth":2,"path":"chapter2/renderRoot.md","ref":"chapter2/renderRoot.md","articles":[]},{"title":"updateHostRoot","level":"1.3.9","depth":2,"path":"chapter2/updateHostRoot.md","ref":"chapter2/updateHostRoot.md","articles":[]},{"title":"updateHostText","level":"1.3.10","depth":2,"path":"chapter2/updateHostText.md","ref":"chapter2/updateHostText.md","articles":[]},{"title":"updateHostComponent","level":"1.3.11","depth":2,"path":"chapter2/updateHostComponent.md","ref":"chapter2/updateHostComponent.md","articles":[]},{"title":"updateClassComponent","level":"1.3.12","depth":2,"path":"chapter2/updateClassComponent.md","ref":"chapter2/updateClassComponent.md","articles":[]}]},"previous":{"title":"Fiber工作流程","level":"1.2.10","depth":2,"path":"chapter1/fiberWorkflow.md","ref":"chapter1/fiberWorkflow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/createWorkInProgress.md","mtime":"2019-07-27T16:28:22.406Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T08:32:36.960Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
