@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-28 00:28:22
+ * @LastEditTime: 2019-08-10 16:06:44
+ * @LastEditors: Please set LastEditors
+ -->
 # React源码分析
 
 * [前言](README.md)
@@ -52,4 +59,6 @@
   * [useContext](chapter4/useContext.md)
   * [自定义hooks](chapter4/customeHooks.md)
 * redux
+  * [redux](redux/redux.md)
+  * [reselect](redux/reselect.md)
   
