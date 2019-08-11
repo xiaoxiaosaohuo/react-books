@@ -893,7 +893,7 @@
  * @Description: In User Settings Edit
  * @Author: jinxin
  * @Date: 2019-08-11 12:35:17
- * @LastEditTime: 2019-08-12 01:07:15
+ * @LastEditTime: 2019-08-12 01:13:32
  * @LastEditors: Please set LastEditors
  -->
 <h2 id="react-redux&#x539F;&#x7406;">React-Redux&#x539F;&#x7406;</h2>
@@ -1739,9 +1739,6 @@ export default function connectAdvanced(
       //&#x5982;&#x679C;React&#x68C0;&#x67E5;&#x5230;&#x7EC4;&#x4EF6;&#x65E0;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;bails out&#xFF0C;&#x4E0D;&#x4F1A;&#x5BF9;&#x5B50;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x91CD;&#x590D;&#x6E32;&#x67D3;&#x3002;
       const renderedChild = React.useMemo(() =&gt; {
         if (shouldHandleStateChanges) {
-          // If this component is subscribed to store updates, we need to pass its own
-          // subscription instance down to our descendants. That means rendering the same
-          // Context instance, and putting a different value into the context.
           //&#x5982;&#x679C;&#x8BE5;&#x7EC4;&#x4EF6;&#x8BA2;&#x9605;&#x4E86;store&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x9700;&#x8981;&#x5C06;subscription&#x5B9E;&#x4F8B;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x540E;&#x4EE3;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x5C06;&#x6E32;&#x67D3;&#x540C;&#x4E00;&#x4E2A;Context &#x5B9E;&#x4F8B;,&#x4F46;&#x662F;&#x5176;value&#x4E0D;&#x540C;
           return (
             &lt;ContextToUse.Provider value={overriddenContextValue}&gt;
@@ -1816,7 +1813,7 @@ export default function connectAdvanced(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"react-redux","level":"1.8.3","depth":2,"previous":{"title":"reselect","level":"1.8.2","depth":2,"path":"redux/reselect.md","ref":"redux/reselect.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redux/react-redux.md","mtime":"2019-08-11T17:07:15.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T17:11:50.663Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"react-redux","level":"1.8.3","depth":2,"previous":{"title":"reselect","level":"1.8.2","depth":2,"path":"redux/reselect.md","ref":"redux/reselect.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redux/react-redux.md","mtime":"2019-08-11T17:13:32.791Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T17:13:37.283Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

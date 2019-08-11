@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: jinxin
  * @Date: 2019-08-11 12:35:17
- * @LastEditTime: 2019-08-12 01:07:15
+ * @LastEditTime: 2019-08-12 01:13:32
  * @LastEditors: Please set LastEditors
  -->
 ## React-Redux原理
@@ -902,9 +902,6 @@ export default function connectAdvanced(
       //如果React检查到组件无变化，就会bails out，不会对子组件进行重复渲染。
       const renderedChild = React.useMemo(() => {
         if (shouldHandleStateChanges) {
-          // If this component is subscribed to store updates, we need to pass its own
-          // subscription instance down to our descendants. That means rendering the same
-          // Context instance, and putting a different value into the context.
           //如果该组件订阅了store的更新，需要将subscription实例传递给其后代，意味着将渲染同一个Context 实例,但是其value不同
           return (
             <ContextToUse.Provider value={overriddenContextValue}>
