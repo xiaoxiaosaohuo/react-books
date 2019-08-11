@@ -1,0 +1,1855 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>react-redux · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="reselect.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
+            
+                <a href="../chapter1/project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
+            
+                <a href="../chapter1/ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
+            
+                <a href="../chapter1/ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
+            
+                <a href="../chapter1/ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
+            
+                <a href="../chapter1/ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/reactRuntime.html">
+            
+                <a href="../chapter1/reactRuntime.html">
+            
+                    
+                    React 编程模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../chapter1/ReactDataStructure.html">
+            
+                <a href="../chapter1/ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../chapter1/expirationTime.html">
+            
+                <a href="../chapter1/expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../chapter1/ReactGlobal.html">
+            
+                <a href="../chapter1/ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../chapter1/fiberWorkflow.html">
+            
+                <a href="../chapter1/fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../chapter1/createWorkInProgress.html">
+            
+                <a href="../chapter1/createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/ReactScheduler.html">
+            
+                <a href="../chapter2/ReactScheduler.html">
+            
+                    
+                    ReactScheduler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/ReactDOMrender.html">
+            
+                <a href="../chapter2/ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/ReactRoot.html">
+            
+                <a href="../chapter2/ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter2/updateContainer.html">
+            
+                <a href="../chapter2/updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter2/scheduleRootUpdate.html">
+            
+                <a href="../chapter2/scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter2/scheduleWork.html">
+            
+                <a href="../chapter2/scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter2/performWork.html">
+            
+                <a href="../chapter2/performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter2/renderRoot.html">
+            
+                <a href="../chapter2/renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../chapter2/updateHostRoot.html">
+            
+                <a href="../chapter2/updateHostRoot.html">
+            
+                    
+                    updateHostRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../chapter2/updateHostText.html">
+            
+                <a href="../chapter2/updateHostText.html">
+            
+                    
+                    updateHostText
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../chapter2/updateHostComponent.html">
+            
+                <a href="../chapter2/updateHostComponent.html">
+            
+                    
+                    updateHostComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../chapter2/updateClassComponent.html">
+            
+                <a href="../chapter2/updateClassComponent.html">
+            
+                    
+                    updateClassComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    reconcilation
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../reconcilation/reconcilation.html">
+            
+                <a href="../reconcilation/reconcilation.html">
+            
+                    
+                    reconcilation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../reconcilation/reconcileSingleElement.html">
+            
+                <a href="../reconcilation/reconcileSingleElement.html">
+            
+                    
+                    reconcileSingleElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../reconcilation/reconcileChildrenArray.html">
+            
+                <a href="../reconcilation/reconcileChildrenArray.html">
+            
+                    
+                    reconcileChildrenArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    事件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../others/events.html">
+            
+                <a href="../others/events.html">
+            
+                    
+                    事件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../others/SyntheticEvent.html">
+            
+                <a href="../others/SyntheticEvent.html">
+            
+                    
+                    合成事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../others/eventBind.html">
+            
+                <a href="../others/eventBind.html">
+            
+                    
+                    事件绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../others/eventFire.html">
+            
+                <a href="../others/eventFire.html">
+            
+                    
+                    事件分发和回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    其他API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter3/setState.html">
+            
+                <a href="../chapter3/setState.html">
+            
+                    
+                    setState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../others/Context.html">
+            
+                <a href="../others/Context.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../others/forwardRef.html">
+            
+                <a href="../others/forwardRef.html">
+            
+                    
+                    forwardRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../others/errorHandle.html">
+            
+                <a href="../others/errorHandle.html">
+            
+                    
+                    React错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Hooks
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter4/hooksAndStateHook.html">
+            
+                <a href="../chapter4/hooksAndStateHook.html">
+            
+                    
+                    hooksAndStateHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter4/effectHook.html">
+            
+                <a href="../chapter4/effectHook.html">
+            
+                    
+                    effectHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../chapter4/useState.html">
+            
+                <a href="../chapter4/useState.html">
+            
+                    
+                    useState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../chapter4/useReducer.html">
+            
+                <a href="../chapter4/useReducer.html">
+            
+                    
+                    useReducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../chapter4/useCallback.html">
+            
+                <a href="../chapter4/useCallback.html">
+            
+                    
+                    useCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../chapter4/useMemo.html">
+            
+                <a href="../chapter4/useMemo.html">
+            
+                    
+                    useMemo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../chapter4/useRef.html">
+            
+                <a href="../chapter4/useRef.html">
+            
+                    
+                    useRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../chapter4/useLayoutEffect.html">
+            
+                <a href="../chapter4/useLayoutEffect.html">
+            
+                    
+                    useLayoutEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../chapter4/useContext.html">
+            
+                <a href="../chapter4/useContext.html">
+            
+                    
+                    useContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../chapter4/customeHooks.html">
+            
+                <a href="../chapter4/customeHooks.html">
+            
+                    
+                    自定义hooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="redux.html">
+            
+                <a href="redux.html">
+            
+                    
+                    redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="reselect.html">
+            
+                <a href="reselect.html">
+            
+                    
+                    reselect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.3" data-path="react-redux.html">
+            
+                <a href="react-redux.html">
+            
+                    
+                    react-redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >react-redux</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description: In User Settings Edit
+ * @Author: jinxin
+ * @Date: 2019-08-11 12:35:17
+ * @LastEditTime: 2019-08-12 01:07:15
+ * @LastEditors: Please set LastEditors
+ -->
+<h2 id="react-redux&#x539F;&#x7406;">React-Redux&#x539F;&#x7406;</h2>
+<p>React&#x662F;&#x4E00;&#x4E2A;UI&#x5E93;&#xFF0C;Redux&#x662F;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x5E93;&#xFF0C;React-Redux&#x7684;&#x89D2;&#x8272;&#x5C31;&#x662F;&#x8FDE;&#x63A5;UI&#x548C;store&#x7684;&#x4E2D;&#x95F4;&#x5C42;&#xFF0C;&#x662F;MVVM&#x4E2D;&#x7684;VM&#x3002;</p>
+<h2 id="ui&#x66F4;&#x65B0;&#x903B;&#x8F91;&#x6D41;&#x7A0B;">UI&#x66F4;&#x65B0;&#x903B;&#x8F91;&#x6D41;&#x7A0B;</h2>
+<p>&#x76F4;&#x63A5;&#x4F7F;&#x7528;Redux&#x66F4;&#x65B0;UI&#x901A;&#x5E38;&#x9700;&#x8981;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Redux store</li>
+<li>&#x8BA2;&#x9605;&#x66F4;&#x65B0;</li>
+<li>&#x5728;&#x8BA2;&#x9605;&#x56DE;&#x8C03;&#x4E2D;&#xFF0C;<ul>
+<li>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;store state</li>
+<li>&#x62BD;&#x53D6;UI&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x7528;&#x6570;&#x636E;&#x66F4;&#x65B0;UI</li>
+</ul>
+</li>
+<li>&#x7528;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x6E32;&#x67D3;UI</li>
+<li>&#x901A;&#x8FC7;dispatch Redux actions&#x6765;&#x54CD;&#x5E94;UI&#x64CD;&#x4F5C;</li>
+</ol>
+<pre><code>// 1) Create a store
+const store = createStore(counter)
+
+// 2) Subscribe to store updates
+store.subscribe(render);
+
+const valueEl = document.getElementById(&apos;value&apos;);
+
+// 3. When the subscription callback runs:
+function render() {
+    // 3.1) Get the current store state
+    const state = store.getState();
+
+    // 3.2) Extract the data you want
+    const newValue = state.toString();
+
+    // 3.3) Update the UI with the new value
+    valueEl.innerHTML = newValue;
+}
+
+// 4) Display the UI with the initial store state
+render();
+
+// 5) Dispatch actions based on UI inputs
+document.getElementById(&quot;increment&quot;)
+    .addEventListener(&apos;click&apos;, () =&gt; {
+        store.dispatch({type : &quot;INCREMENT&quot;});
+    })
+</code></pre><p>&#x4EFB;&#x4F55;&#x6574;&#x5408;Redux&#x7684;UI&#x5C42;&#x90FD;&#x9700;&#x8981;&#x8FD9;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;&#x3002;</p>
+<p>&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x5904;&#x7406;&#x8BA2;&#x9605;&#x903B;&#x8F91;&#xFF0C;&#x68C0;&#x67E5;&#x6570;&#x636E;&#x662F;&#x5426;&#x66F4;&#x65B0;&#xFF0C;&#x89E6;&#x53D1;&#x91CD;&#x65B0;render&#x7B49;&#x903B;&#x8F91;&#x662F;&#x53EF;&#x4EE5;&#x590D;&#x7528;&#x7684;&#x3002;&#x8FD9;&#x5C31;&#x662F;React-Redux&#x7684;&#x4F5C;&#x7528;</p>
+<p>&#x5728;React-Redux&#x4E2D;&#x8D1F;&#x8D23;&#x8FD9;&#x4E9B;&#x903B;&#x8F91;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x53EB;connect&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5316;&#x7248;&#x6216;&#x8005;&#x6F14;&#x793A;&#x7248;&#x7684;connect,&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x52A9;&#x4E8E;&#x76F4;&#x89C2;&#x7684;&#x7406;&#x89E3;connect&#x3002;</p>
+<p>&#x5B83;&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x662F;&#x6CE8;&#x5165;redux&#x76F8;&#x5173;&#x7684;&#x5C5E;&#x6027;&#x5230;&#x7EC4;&#x4EF6;&#x4E2D;&#x3002;</p>
+<pre><code>function connect(mapStateToProps, mapDispatchToProps) {
+  return function (WrappedComponent) {
+    // &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;
+    return class extends React.Component {
+      render() {
+        return (
+          //&#x6E32;&#x67D3;&#x4F20;&#x5165;&#x7684;&#x7EC4;&#x4EF6;
+          &lt;WrappedComponent
+            {...this.props}
+            {/* &#x4ECE;redux store&#x4E2D;&#x8BA1;&#x7B97;&#x7684;&#x65B0;&#x5C5E;&#x6027;*/}
+            {...mapStateToProps(store.getState(), this.props)}
+            {...mapDispatchToProps(store.dispatch, this.props)}
+          /&gt;
+        )
+      }
+
+      componentDidMount() {
+        // &#x8BA2;&#x9605;
+        this.unsubscribe = store.subscribe(this.handleChange.bind(this))
+      }
+
+      componentWillUnmount() {
+        // &#x53D6;&#x6D88;&#x8BA2;&#x9605;
+        this.unsubscribe()
+      }
+
+      handleChange() {
+        // &#x66F4;&#x65B0;
+        this.forceUpdate()
+      }
+    }
+  }
+}
+</code></pre><p>connect API &#x7684;&#x5173;&#x952E;&#x51E0;&#x70B9;</p>
+<ul>
+<li>connect&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x5305;&#x88F9;&#x5668;</li>
+<li>&#x88AB;&#x5305;&#x88F9;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x5305;&#x88F9;&#x5668;&#x7EC4;&#x4EF6;&#x5C5E;&#x6027;&#x548C;redux&#x4E2D;&#x76F8;&#x5173;&#x5C5E;&#x6027;&#x7684;&#x5408;&#x5E76;&#x9879;</li>
+<li>&#x6BCF;&#x4E00;&#x4E2A;&#x5305;&#x88F9;&#x5668;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;Redux store&#x7684;&#x72EC;&#x7ACB;&#x7684;&#x4E00;&#x4E2A;&#x8BA2;&#x9605;&#x8005;</li>
+<li>&#x5305;&#x88F9;&#x5668;&#x7EC4;&#x4EF6;&#x62BD;&#x79BB;&#x4E86;&#x8BA2;&#x9605;&#xFF0C;&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#xFF0C;&#x66F4;&#x65B0;UI&#xFF0C;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x7B49;&#x903B;&#x8F91;</li>
+<li>&#x4F5C;&#x4E3A;&#x4F7F;&#x7528;&#x8005;&#x53EA;&#x8981;&#x8981;&#x58F0;&#x660E;&#x4ECE;store&#x4ECE;&#x83B7;&#x53D6;&#x4EC0;&#x4E48;&#x6570;&#x636E;&#xFF0C;&#x548C;&#x4FEE;&#x6539;store&#x7684;&#x903B;&#x8F91;&#x5373;&#x53EF;</li>
+</ul>
+<h2 id="react-redux-&#x6E90;&#x7801;&#x5206;&#x6790;">React-Redux &#x6E90;&#x7801;&#x5206;&#x6790;</h2>
+<p>React-Redux&#x539F;&#x7406;&#x867D;&#x7136;&#x542C;&#x8D77;&#x6765;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;React-Redux&#x7684;&#x6E90;&#x7801;&#x5176;&#x5B9E;&#x6709;&#x70B9;&#x590D;&#x6742;&#x3002;</p>
+<h4 id="&#x5DE5;&#x5177;&#x65B9;&#x6CD5;---subscribtion">&#x5DE5;&#x5177;&#x65B9;&#x6CD5;---Subscribtion</h4>
+<pre><code>import { getBatch } from &apos;./batch&apos;
+
+
+const CLEARED = null
+const nullListeners = { notify() {} }
+
+function createListenerCollection() {
+  const batch = getBatch()
+  // the current/next pattern is copied from redux&apos;s createStore code.
+  // TODO: refactor+expose that code to be reusable here?
+  let current = []
+  let next = []
+
+  return {
+    clear() {
+      next = CLEARED
+      current = CLEARED
+    },
+
+    notify() {
+      const listeners = (current = next)
+      batch(() =&gt; {
+        for (let i = 0; i &lt; listeners.length; i++) {
+          listeners[i]()
+        }
+      })
+    },
+
+    get() {
+      return next
+    },
+
+    subscribe(listener) {
+      let isSubscribed = true
+      if (next === current) next = current.slice()
+      next.push(listener)
+
+      return function unsubscribe() {
+        if (!isSubscribed || current === CLEARED) return
+        isSubscribed = false
+
+        if (next === current) next = current.slice()
+        next.splice(next.indexOf(listener), 1)
+      }
+    }
+  }
+}
+
+export default class Subscription {
+  constructor(store, parentSub) {
+    this.store = store
+    this.parentSub = parentSub
+    this.unsubscribe = null
+    this.listeners = nullListeners
+
+    this.handleChangeWrapper = this.handleChangeWrapper.bind(this)
+  }
+
+  addNestedSub(listener) {
+    this.trySubscribe()
+    return this.listeners.subscribe(listener)
+  }
+
+  notifyNestedSubs() {
+    this.listeners.notify()
+  }
+
+  handleChangeWrapper() {
+    if (this.onStateChange) {
+      this.onStateChange()
+    }
+  }
+
+  isSubscribed() {
+    return Boolean(this.unsubscribe)
+  }
+
+  trySubscribe() {
+    if (!this.unsubscribe) {
+      this.unsubscribe = this.parentSub
+        ? this.parentSub.addNestedSub(this.handleChangeWrapper)
+        : this.store.subscribe(this.handleChangeWrapper)
+
+      this.listeners = createListenerCollection()
+    }
+  }
+
+  tryUnsubscribe() {
+    if (this.unsubscribe) {
+      this.unsubscribe()
+      this.unsubscribe = null
+      this.listeners.clear()
+      this.listeners = nullListeners
+    }
+  }
+}
+</code></pre><p>// encapsulates the subscription logic for connecting a component to the redux store, as
+// well as nesting subscriptions of descendant components, so that we can ensure the
+// ancestor components re-render before descendants</p>
+<ul>
+<li><p>createListenerCollection &#x5B9E;&#x73B0;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;&#xFF0C;&#x5171;&#x66B4;&#x9732;4&#x4E2A;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>clear &#x6E05;&#x7A7A;&#x76D1;&#x542C;&#x5668;</li>
+<li>notify &#x901A;&#x77E5;</li>
+<li>get &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x76D1;&#x542C;&#x5668;&#x96C6;&#x5408;&#x7684;getter</li>
+<li>subscribe &#x8BA2;&#x9605;&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;</li>
+</ul>
+</li>
+<li><p>Subscription&#x7C7B;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x8BA2;&#x9605;&#x903B;&#x8F91;</p>
+<ul>
+<li>&#x5C01;&#x88C5;&#x4E86;&#x8FDE;&#x63A5;&#x7EC4;&#x4EF6;&#x5230;redux store&#x7684;&#x8BA2;&#x9605;&#x903B;&#x8F91;</li>
+<li>&#x786E;&#x4FDD;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x7684;&#x8BA2;&#x9605;&#x903B;&#x8F91;&#xFF0C;&#x5728;connect&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x4F1A;&#x5C06;store&#x7684;&#x5B9E;&#x4F8B;&#x548C;subscription&#x5B9E;&#x4F8B;&#x653E;&#x8FDB;context&#x4E2D;&#xFF0C;&#x5982;&#x679C;subscription&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8BA2;&#x9605;store,&#x5426;&#x5219;&#x8BA2;&#x9605;subscription&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x6BCF;&#x4E2A;&#x8FDE;&#x63A5;&#x7684;&#x7EC4;&#x4EF6;&#x90FD;&#x6709;&#x6548;&#x5730;&#x8BA2;&#x9605;&#x5176;&#x6700;&#x8FD1;&#x7684;&#x8FDE;&#x63A5;&#x7956;&#x5148;</li>
+</ul>
+</li>
+</ul>
+<h3 id="provider">Provider</h3>
+<pre><code>
+import { ReactReduxContext } from &apos;./Context&apos;
+import Subscription from &apos;../utils/Subscription&apos;
+
+class Provider extends React.Component {
+  constructor(props) {
+    super(props)
+    const { store } = props
+
+    this.notifySubscribers = this.notifySubscribers.bind(this)
+    const subscription = new Subscription(store)
+    subscription.onStateChange = this.notifySubscribers
+
+    this.state = {
+      store,
+      subscription
+    }
+
+    this.previousState = store.getState()
+  }
+
+  componentDidMount() {
+    this.state.subscription.trySubscribe()
+
+    if (this.previousState !== this.props.store.getState()) {
+      this.state.subscription.notifyNestedSubs()
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) this.unsubscribe()
+
+    this.state.subscription.tryUnsubscribe()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.store !== prevProps.store) {
+      this.state.subscription.tryUnsubscribe()
+      const subscription = new Subscription(this.props.store)
+      subscription.onStateChange = this.notifySubscribers
+      this.setState({ store: this.props.store, subscription })
+    }
+  }
+
+  notifySubscribers() {
+    this.state.subscription.notifyNestedSubs()
+  }
+
+  render() {
+    const Context = this.props.context || ReactReduxContext
+
+    return (
+      &lt;Context.Provider value={this.state}&gt;
+        {this.props.children}
+      &lt;/Context.Provider&gt;
+    )
+  }
+}
+
+
+
+export default Provider
+</code></pre><ul>
+<li><p>Provider &#x4EE3;&#x7801;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x6CE8;&#x610F;value&#x662F;store&#x548C;subscription</p>
+</li>
+<li><p>onStateChange &#x65B9;&#x6CD5;&#x6700;&#x7EC8;&#x4F1A;&#x8C03;&#x7528;subscription&#x7684;notifyNestedSubs&#x65B9;&#x6CD5;</p>
+</li>
+</ul>
+<h3 id="connect-&#x65B9;&#x6CD5;">connect &#x65B9;&#x6CD5;</h3>
+<pre><code>
+function match(arg, factories, name) {
+  for (let i = factories.length - 1; i &gt;= 0; i--) {
+    const result = factories[i](arg)
+    if (result) return result
+  }
+
+  return (dispatch, options) =&gt; {
+    throw new Error(
+      `Invalid value of type ${typeof arg} for ${name} argument when connecting component ${
+        options.wrappedComponentName
+      }.`
+    )
+  }
+}
+
+export function createConnect({
+  connectHOC = connectAdvanced,
+  mapStateToPropsFactories = defaultMapStateToPropsFactories,
+  mapDispatchToPropsFactories = defaultMapDispatchToPropsFactories,
+  mergePropsFactories = defaultMergePropsFactories,
+  selectorFactory = defaultSelectorFactory
+} = {}) {
+  return function connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps,
+    {
+      pure = true,
+      areStatesEqual = strictEqual,
+      areOwnPropsEqual = shallowEqual,
+      areStatePropsEqual = shallowEqual,
+      areMergedPropsEqual = shallowEqual,
+      ...extraOptions
+    } = {}
+  ) {
+    const initMapStateToProps = match(
+      mapStateToProps,
+      mapStateToPropsFactories,
+      &apos;mapStateToProps&apos;
+    )
+    const initMapDispatchToProps = match(
+      mapDispatchToProps,
+      mapDispatchToPropsFactories,
+      &apos;mapDispatchToProps&apos;
+    )
+    const initMergeProps = match(mergeProps, mergePropsFactories, &apos;mergeProps&apos;)
+
+    return connectHOC(selectorFactory, {
+      // used in error messages
+      methodName: &apos;connect&apos;,
+
+      // used to compute Connect&apos;s displayName from the wrapped component&apos;s displayName.
+      getDisplayName: name =&gt; `Connect(${name})`,
+
+      // if mapStateToProps is falsy, the Connect component doesn&apos;t subscribe to store state changes
+      shouldHandleStateChanges: Boolean(mapStateToProps),
+
+      // &#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#x5C06;&#x4F20;&#x9012;&#x7ED9; selectorFactory
+      initMapStateToProps,
+      initMapDispatchToProps,
+      initMergeProps,
+      pure,
+      areStatesEqual,
+      areOwnPropsEqual,
+      areStatePropsEqual,
+      areMergedPropsEqual,
+
+      // any extra options args can override defaults of connect or connectAdvanced
+      ...extraOptions
+    })
+  }
+}
+
+export default createConnect()
+</code></pre><p>connect &#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x662F;connectAdvanced&#x65B9;&#x6CD5;&#x7684;&#x95E8;&#x9762;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x63A5;&#x53D7;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;
+<code>mapStateToProps</code>, <code>mapDispatchToProps</code>,<code>mergeProps</code>&#x53C2;&#x6570;&#xFF0C;&#x5BF9;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x505A;&#x4E00;&#x4E9B;&#x5904;&#x7406;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x4E86;connectAdvanced&#xFF0C;&#x771F;&#x6B63;&#x7684;&#x8BA2;&#x9605;&#xFF0C;&#x66F4;&#x65B0;&#x7B49;&#x903B;&#x8F91;&#x662F;&#x5728;connectAdvanced&#x4E2D;&#x5B8C;&#x6210;&#x7684;&#x3002;</p>
+<h5 id="mapstatetopropsfactories&#xFF0C;&#x4EE5;initmapstatetoprops&#x4E3A;&#x4F8B;">mapStateToPropsFactories&#xFF0C;&#x4EE5;initMapStateToProps&#x4E3A;&#x4F8B;</h5>
+<pre><code>const initMapStateToProps = match(
+    mapStateToProps,
+    mapStateToPropsFactories,
+    &apos;mapStateToProps&apos;
+)
+
+import { wrapMapToPropsConstant, wrapMapToPropsFunc } from &apos;./wrapMapToProps&apos;
+
+export function whenMapStateToPropsIsFunction(mapStateToProps) {
+  return typeof mapStateToProps === &apos;function&apos;
+    ? wrapMapToPropsFunc(mapStateToProps, &apos;mapStateToProps&apos;)
+    : undefined
+}
+
+export function whenMapStateToPropsIsMissing(mapStateToProps) {
+  return !mapStateToProps ? wrapMapToPropsConstant(() =&gt; ({})) : undefined
+}
+
+export default [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]
+</code></pre><p>mapStateToPropsFactories &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E00;&#x9879;&#x90FD;&#x5BF9;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x5F52;&#x4E00;&#x5316;&#x5904;&#x7406;&#xFF0C;&#x6BD4;&#x5982;<code>whenMapStateToPropsIsMissing</code>&#x68C0;&#x67E5;&#x4F20;&#x5165;&#x7684;<code>mapStateToProps</code>&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5B58;&#x5728;&#x5C31;&#x8FD4;&#x56DE;undefiend ,&#x63A5;&#x4E0B;&#x6765;&#x4EA4;&#x7ED9;<code>whenMapStateToPropsIsFunction</code>&#x5904;&#x7406;&#xFF0C;&#x7528;<code>wrapMapToPropsFunc</code>&#x5BF9;<code>mapStateToProps</code>&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002;</p>
+<h4 id="wrapmaptopropsfunc">wrapMapToPropsFunc</h4>
+<pre><code>export function wrapMapToPropsFunc(mapToProps, methodName) {
+  return function initProxySelector(dispatch, { displayName }) {
+    const proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+      return proxy.dependsOnOwnProps
+        ? proxy.mapToProps(stateOrDispatch, ownProps)
+        : proxy.mapToProps(stateOrDispatch)
+    }
+
+    // allow detectFactoryAndVerify to get ownProps
+    proxy.dependsOnOwnProps = true
+
+    proxy.mapToProps = function detectFactoryAndVerify(
+      stateOrDispatch,
+      ownProps
+    ) {
+      proxy.mapToProps = mapToProps
+      proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps)
+      let props = proxy(stateOrDispatch, ownProps)
+
+      if (typeof props === &apos;function&apos;) {
+        proxy.mapToProps = props
+        proxy.dependsOnOwnProps = getDependsOnOwnProps(props)
+        props = proxy(stateOrDispatch, ownProps)
+      }
+
+      if (process.env.NODE_ENV !== &apos;production&apos;)
+        verifyPlainObject(props, displayName, methodName)
+
+      return props
+    }
+
+    return proxy
+  }
+}
+</code></pre><p>wrapMapToPropsFunc &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x9009;&#x62E9;&#x5668;<code>initProxySelector</code> ,&#x901A;&#x8FC7;&#x95ED;&#x5305;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4FDD;&#x5B58;&#x4E86;mapStateToProps&#x65B9;&#x6CD5;&#x3002;</p>
+<p><code>initProxySelector</code> &#x63A5;&#x53D7;<code>dispatch</code>&#x540E;&#x8FD4;&#x56DE; proxy&#x3002;</p>
+<p><strong><em> proxy&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x662F;&#x4FA6;&#x6D4B;mapToProps&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x662F;&#x5426;&#x4F9D;&#x8D56;props(&#x7236;&#x7EA7;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x4E0B;&#x6765;&#x7684;props) </em></strong></p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;proxy&#xFF0C;proxy.mapToProps&#x662F;<code>detectFactoryAndVerify</code>,&#x4F1A;&#x8C03;&#x7528;getDependsOnOwnProps&#x6765;&#x5224;&#x65AD;mapToProps&#x662F;&#x5426;&#x4F9D;&#x8D56;props&#xFF0C;&#x91CD;&#x7F6E;dependsOnOwnProps,mapToProps&#x3002;</li>
+<li>&#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528;proxy&#xFF0C;proxy.mapToProps&#x662F;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684;mapToProps&#xFF0C;&#x5224;&#x65AD;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x51FD;&#x6570;&#x8FD8;&#x662F;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x3002;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;props&#x3002;</li>
+</ul>
+<h4 id="selectorfactory">selectorFactory</h4>
+<p>selectorFactory&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5206;&#x4E3A;pure&#x548C;impure&#x4E24;&#x5927;&#x7C7B;
+&#x5982;&#x679C;&#x662F;pure&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x7F13;&#x5B58;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x5982;&#x679C;&#x5C5E;&#x6027;&#x6BD4;&#x8F83;&#x65E0;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E0A;&#x6B21;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x65E0;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x662F;&#x8C03;&#x7528;&#x7684;pure&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>import verifySubselectors from &apos;./verifySubselectors&apos;
+
+export function impureFinalPropsSelectorFactory(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps,
+  dispatch
+) {
+  return function impureFinalPropsSelector(state, ownProps) {
+    return mergeProps(
+      mapStateToProps(state, ownProps),
+      mapDispatchToProps(dispatch, ownProps),
+      ownProps
+    )
+  }
+}
+
+export function pureFinalPropsSelectorFactory(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps,
+  dispatch,
+  { areStatesEqual, areOwnPropsEqual, areStatePropsEqual }
+) {
+  //&#x6807;&#x8BB0;&#x662F;&#x5426;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;
+  let hasRunAtLeastOnce = false
+  let state
+  let ownProps
+  let stateProps
+  let dispatchProps
+  let mergedProps
+
+  function handleFirstCall(firstState, firstOwnProps) {
+    state = firstState
+    ownProps = firstOwnProps
+    stateProps = mapStateToProps(state, ownProps)
+    dispatchProps = mapDispatchToProps(dispatch, ownProps)
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps)
+    hasRunAtLeastOnce = true
+    return mergedProps
+  }
+
+  function handleNewPropsAndNewState() {
+    stateProps = mapStateToProps(state, ownProps)
+
+    if (mapDispatchToProps.dependsOnOwnProps)
+      dispatchProps = mapDispatchToProps(dispatch, ownProps)
+
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps)
+    return mergedProps
+  }
+
+  function handleNewProps() {
+    if (mapStateToProps.dependsOnOwnProps)
+      stateProps = mapStateToProps(state, ownProps)
+
+    if (mapDispatchToProps.dependsOnOwnProps)
+      dispatchProps = mapDispatchToProps(dispatch, ownProps)
+
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps)
+    return mergedProps
+  }
+
+  function handleNewState() {
+    const nextStateProps = mapStateToProps(state, ownProps)
+    const statePropsChanged = !areStatePropsEqual(nextStateProps, stateProps)
+    stateProps = nextStateProps
+  //mapStateToProps &#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x65E0;&#x53D8;&#x5316;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E0A;&#x6B21;&#x7684;
+    if (statePropsChanged)
+      mergedProps = mergeProps(stateProps, dispatchProps, ownProps)
+
+    return mergedProps
+  }
+
+  function handleSubsequentCalls(nextState, nextOwnProps) {
+    const propsChanged = !areOwnPropsEqual(nextOwnProps, ownProps)
+    const stateChanged = !areStatesEqual(nextState, state)
+    state = nextState
+    ownProps = nextOwnProps
+
+    if (propsChanged &amp;&amp; stateChanged) return handleNewPropsAndNewState()
+    if (propsChanged) return handleNewProps()
+    if (stateChanged) return handleNewState()
+    return mergedProps
+  }
+
+  return function pureFinalPropsSelector(nextState, nextOwnProps) {
+    return hasRunAtLeastOnce
+      ? handleSubsequentCalls(nextState, nextOwnProps)
+      : handleFirstCall(nextState, nextOwnProps)
+  }
+}
+
+
+export default function finalPropsSelectorFactory(
+  dispatch,
+  { initMapStateToProps, initMapDispatchToProps, initMergeProps, ...options }
+) {
+  const mapStateToProps = initMapStateToProps(dispatch, options)
+  const mapDispatchToProps = initMapDispatchToProps(dispatch, options)
+  const mergeProps = initMergeProps(dispatch, options)
+
+  if (process.env.NODE_ENV !== &apos;production&apos;) {
+    verifySubselectors(
+      mapStateToProps,
+      mapDispatchToProps,
+      mergeProps,
+      options.displayName
+    )
+  }
+
+  const selectorFactory = options.pure
+    ? pureFinalPropsSelectorFactory
+    : impureFinalPropsSelectorFactory
+
+  return selectorFactory(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps,
+    dispatch,
+    options
+  )
+}
+</code></pre><ul>
+<li><code>finalPropsSelectorFactory</code> &#x8C03;&#x7528;<code>initMapStateToProps</code>&#x7B49;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;<code>mapStateToProps</code>&#x548C; <code>mapDispatchToProps</code> &#x7684;proxy&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x540E;&#x7EED;&#x4FA6;&#x6D4B;&#x662F;&#x5426;&#x4F9D;&#x8D56;props</li>
+<li>&#x6839;&#x636E;pure&#x7684;&#x503C;&#x51B3;&#x5B9A;&#x8C03;&#x7528; <code>pureFinalPropsSelectorFactory</code>&#x8FD8;&#x662F; <code>impureFinalPropsSelectorFactory</code> &#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x4E4B;&#x4E00;&#x5C31;&#x662F;selectorFactory</li>
+<li>selectorFactory&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x6700;&#x7EC8;&#x7684;FinalPropsSelector&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x5176;&#x7B7E;&#x540D;&#x662F;<code>&#xFF08;nextState, nextOwnProps)=&gt;nextFinalProps</code> &#x3002;</li>
+</ul>
+<p>&#x4ECE;&#x4EE5;&#x4E0A;&#x5206;&#x6790;&#x6765;&#x770B; connect&#x628A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;connectAdvanced&#xFF0C;&#x7136;&#x540E;&#x7ECF;&#x8FC7;selectorFactory&#x5904;&#x7406;&#x8FD4;&#x56DE;&#x6700;&#x7EC8;&#x7684;selector&#x3002;&#x5176;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<p><code>(dispatch, options) =&gt; (nextState, nextOwnProps) =&gt; nextFinalProps</code></p>
+<p>nextFinalProps &#x5C31;&#x662F;&#x6700;&#x7EC8;&#x8BA1;&#x7B97;&#x7ED9;&#x7EC4;&#x4EF6;&#x4F7F;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<p>selectorFactory &#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x4ECE;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x53C2;&#x6570;&#x4E2D;&#x8FD4;&#x56DE;&#x6700;&#x7EC8;&#x7684;selector&#x3002;</p>
+<pre><code>  mapStateToProps,
+  mapStateToPropsFactories, 
+  mapDispatchToProps, 
+  mapDispatchToPropsFactories,
+  mergeProps,
+  mergePropsFactories, 
+  pure
+</code></pre><p>&#x8FD9;&#x4E2A;selector&#x7528;&#x4E8E;&#x4ECE; state&#xFF0C;props,dispatch&#x4E2D;&#x8BA1;&#x7B97;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x7684;&#x65B0;props&#x3002;</p>
+<h2 id="connectadvanced">connectAdvanced</h2>
+<pre><code>import hoistStatics from &apos;hoist-non-react-statics&apos;
+import invariant from &apos;invariant&apos;
+
+import { isValidElementType, isContextConsumer } from &apos;react-is&apos;
+import Subscription from &apos;../utils/Subscription&apos;
+
+import { ReactReduxContext } from &apos;./Context&apos;
+
+// Define some constant arrays just to avoid re-creating these
+const EMPTY_ARRAY = []
+const NO_SUBSCRIPTION_ARRAY = [null, null]
+
+const stringifyComponent = Comp =&gt; {
+  try {
+    return JSON.stringify(Comp)
+  } catch (err) {
+    return String(Comp)
+  }
+}
+
+//&#x8BE5;reducer&#x7528;&#x4E8E;&#x5728;store&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#x53BB;&#x66F4;&#x65B0;&#x7EC4;&#x4EF6;
+function storeStateUpdatesReducer(state, action) {
+  const [, updateCount] = state
+  return [action.payload, updateCount + 1]
+}
+
+const initStateUpdates = () =&gt; [null, 0]
+
+
+//&#x5728;server&#x4E2D;&#x4F7F;&#x7528;React.useEffect
+//&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;useLayoutEffect &#xFF0C;useLayoutEffec&#x662F;&#x540C;&#x6B65;&#x7684;&#x4E14;&#x5728;commit dom&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8C03;&#x7528;&#xFF0C;&#x65B9;&#x4FBF;&#x53CA;&#x65F6;&#x7684;&#x901A;&#x8FC7;ref&#x4FDD;&#x5B58;&#x6700;&#x65B0;&#x7684;props.
+
+const useIsomorphicLayoutEffect =
+  typeof window !== &apos;undefined&apos; &amp;&amp;
+  typeof window.document !== &apos;undefined&apos; &amp;&amp;
+  typeof window.document.createElement !== &apos;undefined&apos;
+    ? React.useLayoutEffect
+    : React.useEffect
+
+export default function connectAdvanced(
+  selectorFactory,
+  {
+    //&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;HOC&#x7684;displayName
+    getDisplayName = name =&gt; `ConnectAdvanced(${name})`,
+
+    methodName = &apos;connectAdvanced&apos;,
+
+    // &#x7EDF;&#x8BA1;&#x6E32;&#x67D3;&#x6B21;&#x6570;
+    renderCountProp = undefined,
+
+    //&#x5224;&#x5B9A;HOC&#x662F;&#x5426;&#x8BA2;&#x9605;store&#x7684;&#x53D8;&#x5316;
+    shouldHandleStateChanges = true,
+
+    storeKey = &apos;store&apos;,
+
+    withRef = false,
+
+    forwardRef = false,
+
+    context = ReactReduxContext,
+
+    ...connectOptions
+  } = {}
+) {
+
+  const Context = context
+
+  return function wrapWithConnect(WrappedComponent) {
+
+    const wrappedComponentName =
+      WrappedComponent.displayName || WrappedComponent.name || &apos;Component&apos;
+
+    const displayName = getDisplayName(wrappedComponentName)
+
+    const selectorFactoryOptions = {
+      ...connectOptions,
+      getDisplayName,
+      methodName,
+      renderCountProp,
+      shouldHandleStateChanges,
+      storeKey,
+      displayName,
+      wrappedComponentName,
+      WrappedComponent
+    }
+
+    const { pure } = connectOptions
+
+   //&#x4ECE;selectorFactory &#x8FD4;&#x56DE;&#x7684;finalSelector
+    function createChildSelector(store) {
+
+      return selectorFactory(store.dispatch, selectorFactoryOptions)
+    }
+
+    // pure &#x7684;&#x8BDD;&#x5C31;&#x4F7F;&#x7528;React.useMemo&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x76F4;&#x8C03;&#x7528;
+    const usePureOnlyMemo = pure ? React.useMemo : callback =&gt; callback()
+
+    function ConnectFunction(props) {
+
+      const [propsContext, forwardedRef, wrapperProps] = React.useMemo(() =&gt; {
+        //&#x6311;&#x51FA;forwardedRef&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x5BF9;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x7F13;&#x5B58;
+        const { forwardedRef, ...wrapperProps } = props
+        return [props.context, forwardedRef, wrapperProps]
+      }, [props])
+
+    // &#x68C0;&#x67E5;&#x662F;&#x4F7F;&#x7528;&#x7528;&#x6237;&#x4F20;&#x5165;&#x7684;context&#x8FD8;&#x662F; ReactReduxContext&#xFF0C;&#x5E76;&#x7F13;&#x5B58;&#x68C0;&#x67E5;&#x7684;&#x7ED3;&#x679C;
+      const ContextToUse = React.useMemo(() =&gt; {
+        return propsContext &amp;&amp;
+          propsContext.Consumer &amp;&amp;
+          isContextConsumer(&lt;propsContext.Consumer /&gt;)
+          ? propsContext
+          : Context
+      }, [propsContext, Context])
+
+      // &#x83B7;&#x53D6; store &#x548C; &#x7956;&#x5148;subscription
+      const contextValue = React.useContext(ContextToUse)
+
+      // &#x68C0;&#x67E5;store&#x6765;&#x6E90;
+      const didStoreComeFromProps = Boolean(props.store)
+      const didStoreComeFromContext =
+        Boolean(contextValue) &amp;&amp; Boolean(contextValue.store)
+
+      const store = props.store || contextValue.store
+
+      const childPropsSelector = React.useMemo(() =&gt; {
+        //store&#x53D1;&#x751F;&#x53D8;&#x5316;&#x5C31;&#x91CD;&#x65B0;&#x521B;&#x5EFA;selector
+        return createChildSelector(store)
+      }, [store])
+
+      const [subscription, notifyNestedSubs] = React.useMemo(() =&gt; {
+        if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY
+        //Subscription&#x6765;&#x6E90;&#x9700;&#x8981;&#x5339;&#x914D;store&#x7684;&#x6765;&#x6E90;&#xFF0C;&#x6BD4;&#x5982;props,context
+        //&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;props connect&#x5230;store&#x65F6;&#x4E0D;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x6765;&#x81EA;context&#x7684;subscription&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002;
+
+        // &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;parentSub
+        const subscription = new Subscription(
+          store,
+          didStoreComeFromProps ? null : contextValue.subscription
+        )
+
+        const notifyNestedSubs = subscription.notifyNestedSubs.bind(
+          subscription
+        )
+
+        return [subscription, notifyNestedSubs]
+      }, [store, didStoreComeFromProps, contextValue])
+
+      // &#x51B3;&#x5B9A;&#x5C06;&#x54EA;&#x4E2A;{store, subscription}&#x7EC4;&#x5408;&#x4F20;&#x9012;&#x5230;&#x5D4C;&#x5957;&#x7684;context&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x7F13;&#x5B58;&#x4E4B;
+      const overriddenContextValue = React.useMemo(() =&gt; {
+        if (didStoreComeFromProps) {
+          //&#x8BE5;&#x7EC4;&#x4EF6;&#x76F4;&#x63A5;&#x8BA2;&#x9605;&#x6765;&#x81EA;props&#x7684;store
+          // &#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x60F3;&#x540E;&#x4EE3;&#x7EC4;&#x4EF6;&#x4ECE;&#x8FD9;&#x4E2A;store&#x4E2D;&#x8BFB;&#x53D6;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x4F20;&#x9012;&#x6700;&#x8FD1;&#x7684;&#x7956;&#x5148;&#x7684;contextValue
+          return contextValue
+        }
+
+        // &#x5C06;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;subscription&#x5B9E;&#x4F8B;&#x653E;&#x8FDB;context&#xFF0C;&#x90A3;&#x4E48;&#x88AB;connected&#x7684;&#x540E;&#x4EE3;&#x5C31;&#x4E0D;&#x4F1A;&#x66F4;&#x65B0;&#x77E5;&#x9053;&#x8BE5;&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x5B8C;&#x6BD5;&#xFF0C;&#x5B8C;&#x7F8E;&#x7B26;&#x5408;React&#x7684;top-down&#x6570;&#x636E;&#x6D41;&#x8BBE;&#x8BA1;&#x3002;
+        return {
+          ...contextValue,
+          subscription
+        }
+      }, [didStoreComeFromProps, contextValue, subscription])
+
+      // &#x5F53;Redux&#x7684;store&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F3A;&#x5236;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;
+      const [
+        [previousStateUpdateResult],
+        forceComponentUpdateDispatch
+      ] = React.useReducer(storeStateUpdatesReducer, EMPTY_ARRAY, initStateUpdates)
+
+      // &#x5904;&#x7406;&#x9519;&#x8BEF;
+      if (previousStateUpdateResult &amp;&amp; previousStateUpdateResult.error) {
+        throw previousStateUpdateResult.error
+      }
+
+      // &#x8BBE;&#x7F6E;refs
+      const lastChildProps = React.useRef()
+      const lastWrapperProps = React.useRef(wrapperProps)
+      const childPropsFromStoreUpdate = React.useRef()
+      const renderIsScheduled = React.useRef(false)
+
+      const actualChildProps = usePureOnlyMemo(() =&gt; {
+        if (
+          childPropsFromStoreUpdate.current &amp;&amp;
+          wrapperProps === lastWrapperProps.current
+        ) {
+          return childPropsFromStoreUpdate.current
+        }
+      //&#x8BA1;&#x7B97;&#x65B0;&#x7684;props
+        return childPropsSelector(store.getState(), wrapperProps)
+      }, [store, previousStateUpdateResult, wrapperProps])
+
+      useIsomorphicLayoutEffect(() =&gt; {
+        // &#x540C;&#x6B65;&#x66F4;&#x65B0;refs
+        lastWrapperProps.current = wrapperProps
+        lastChildProps.current = actualChildProps
+        renderIsScheduled.current = false
+
+        if (childPropsFromStoreUpdate.current) {
+          childPropsFromStoreUpdate.current = null
+          notifyNestedSubs()
+        }
+      })
+
+      useIsomorphicLayoutEffect(() =&gt; {
+        // &#x6CA1;&#x6709;&#x8BA2;&#x9605;store&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;
+        if (!shouldHandleStateChanges) return
+
+        // &#x68C0;&#x67E5;&#x662F;&#x5426;&#x5378;&#x8F7D;
+        let didUnsubscribe = false
+        let lastThrownError = null
+        //&#x5F53;store subscription &#x66F4;&#x65B0;&#x4F20;&#x64AD;&#x5230;&#x8BE5;&#x7EC4;&#x4EF6;&#x5C31;&#x4F1A;&#x8FD0;&#x884C;checkForUpdates
+        const checkForUpdates = () =&gt; {
+          if (didUnsubscribe) {
+            return
+          }
+
+          const latestStoreState = store.getState()
+
+          let newChildProps, error
+          try {
+            //&#x8BA1;&#x7B97;&#x65B0;props
+            newChildProps = childPropsSelector(
+              latestStoreState,
+              lastWrapperProps.current
+            )
+          } catch (e) {
+            error = e
+            lastThrownError = e
+          }
+
+          if (!error) {
+            lastThrownError = null
+          }
+
+          if (newChildProps === lastChildProps.current) {
+            if (!renderIsScheduled.current) {
+              notifyNestedSubs()
+            }
+          } else {
+            // &#x4FDD;&#x5B58; &#x65B0;props&#x5230;refs 
+            lastChildProps.current = newChildProps
+            childPropsFromStoreUpdate.current = newChildProps
+            renderIsScheduled.current = true
+            //&#x5F3A;&#x5236;&#x6E32;&#x67D3;
+            forceComponentUpdateDispatch({
+              type: &apos;STORE_UPDATED&apos;,
+              payload: {
+                latestStoreState,
+                error
+              }
+            })
+          }
+        }
+        //&#x8BA2;&#x9605;&#x6700;&#x8FD1;&#x7684;&#x88AB;connected &#x7684;&#x7956;&#x5148;
+        subscription.onStateChange = checkForUpdates;
+        //&#x4E0A;&#x9762;&#x5B9E;&#x4F8B;&#x5316;subscription&#x7684;&#x65F6;&#x5019;&#x4F20;&#x9012;&#x4E86;parentSub,&#x8FD9;&#x91CC;trySubscribe&#x4F1A;&#x8C03;&#x7528;parentSub&#x7684;addNestedSub&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x5728;&#x7236;&#x7EA7;&#x7684;listener&#x4E2D;&#x6DFB;&#x52A0;&#x4E86;checkForUpdates&#x4F5C;&#x4E3A;&#x76D1;&#x542C;&#x5668;
+        subscription.trySubscribe()
+
+        // &#x7B2C;&#x4E00;render&#x4E4B;&#x540E;&#x4E3B;&#x52A8;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x3002;
+        checkForUpdates()
+
+        const unsubscribeWrapper = () =&gt; {
+          didUnsubscribe = true
+          subscription.tryUnsubscribe()
+
+          if (lastThrownError) {
+            throw lastThrownError
+          }
+        }
+
+        return unsubscribeWrapper
+      }, [store, subscription, childPropsSelector])
+
+      // &#x6E32;&#x67D3;&#x88AB;&#x5305;&#x88F9;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x5E76;&#x7F13;&#x5B58;
+      const renderedWrappedComponent = React.useMemo(
+        () =&gt; &lt;WrappedComponent {...actualChildProps} ref={forwardedRef} /&gt;,
+        [forwardedRef, WrappedComponent, actualChildProps]
+      )
+
+
+      //&#x5982;&#x679C;React&#x68C0;&#x67E5;&#x5230;&#x7EC4;&#x4EF6;&#x65E0;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;bails out&#xFF0C;&#x4E0D;&#x4F1A;&#x5BF9;&#x5B50;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x91CD;&#x590D;&#x6E32;&#x67D3;&#x3002;
+      const renderedChild = React.useMemo(() =&gt; {
+        if (shouldHandleStateChanges) {
+          // If this component is subscribed to store updates, we need to pass its own
+          // subscription instance down to our descendants. That means rendering the same
+          // Context instance, and putting a different value into the context.
+          //&#x5982;&#x679C;&#x8BE5;&#x7EC4;&#x4EF6;&#x8BA2;&#x9605;&#x4E86;store&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x9700;&#x8981;&#x5C06;subscription&#x5B9E;&#x4F8B;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x540E;&#x4EE3;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x5C06;&#x6E32;&#x67D3;&#x540C;&#x4E00;&#x4E2A;Context &#x5B9E;&#x4F8B;,&#x4F46;&#x662F;&#x5176;value&#x4E0D;&#x540C;
+          return (
+            &lt;ContextToUse.Provider value={overriddenContextValue}&gt;
+              {renderedWrappedComponent}
+            &lt;/ContextToUse.Provider&gt;
+          )
+        }
+
+        return renderedWrappedComponent
+      }, [ContextToUse, renderedWrappedComponent, overriddenContextValue])
+
+      return renderedChild
+    }
+
+    const Connect = pure ? React.memo(ConnectFunction) : ConnectFunction
+
+    Connect.WrappedComponent = WrappedComponent
+    Connect.displayName = displayName
+
+    if (forwardRef) {
+      const forwarded = React.forwardRef(function forwardConnectRef(
+        props,
+        ref
+      ) {
+        return &lt;Connect {...props} forwardedRef={ref} /&gt;
+      })
+
+      forwarded.displayName = displayName
+      forwarded.WrappedComponent = WrappedComponent
+      return hoistStatics(forwarded, WrappedComponent)
+    }
+
+    return hoistStatics(Connect, WrappedComponent)
+  }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="reselect.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: reselect">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"react-redux","level":"1.8.3","depth":2,"previous":{"title":"reselect","level":"1.8.2","depth":2,"path":"redux/reselect.md","ref":"redux/reselect.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redux/react-redux.md","mtime":"2019-08-11T17:07:15.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-11T17:11:50.663Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

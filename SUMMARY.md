@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-28 00:28:22
- * @LastEditTime: 2019-08-10 16:06:44
+ * @LastEditTime: 2019-08-11 13:56:50
  * @LastEditors: Please set LastEditors
  -->
 # React源码分析
@@ -61,4 +61,5 @@
 * redux
   * [redux](redux/redux.md)
   * [reselect](redux/reselect.md)
+  * [react-redux](redux/react-redux.md)
   
