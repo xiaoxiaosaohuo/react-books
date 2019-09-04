@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-28 00:28:22
- * @LastEditTime: 2019-08-14 01:42:21
+ * @LastEditTime: 2019-09-04 17:17:42
  * @LastEditors: Please set LastEditors
  -->
 # React源码分析
@@ -33,6 +33,7 @@
   * [updateHostText](chapter2/updateHostText.md)
   * [updateHostComponent](chapter2/updateHostComponent.md)
   * [updateClassComponent](chapter2/updateClassComponent.md)
+  * [updateFunctionalComponent](chapter2/updateFunctionalComponent.md)
 * reconcilation
   * [reconcilation](reconcilation/reconcilation.md)
   * [reconcileSingleElement](reconcilation/reconcileSingleElement.md)
