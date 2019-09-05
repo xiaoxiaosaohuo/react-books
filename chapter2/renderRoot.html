@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="updateHostRoot.html" />
+    <link rel="next" href="completeUnitOfWork.html" />
     
     
     <link rel="prev" href="performWork.html" />
@@ -382,7 +382,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="updateHostRoot.html">
+        <li class="chapter " data-level="1.3.9" data-path="completeUnitOfWork.html">
+            
+                <a href="completeUnitOfWork.html">
+            
+                    
+                    completeUnitOfWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="commitRoot.html">
+            
+                <a href="commitRoot.html">
+            
+                    
+                    commitRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="updateHostRoot.html">
             
                 <a href="updateHostRoot.html">
             
@@ -395,7 +421,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.10" data-path="updateHostText.html">
+        <li class="chapter " data-level="1.3.12" data-path="updateHostText.html">
             
                 <a href="updateHostText.html">
             
@@ -408,7 +434,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.11" data-path="updateHostComponent.html">
+        <li class="chapter " data-level="1.3.13" data-path="updateHostComponent.html">
             
                 <a href="updateHostComponent.html">
             
@@ -421,7 +447,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.12" data-path="updateClassComponent.html">
+        <li class="chapter " data-level="1.3.14" data-path="updateClassComponent.html">
             
                 <a href="updateClassComponent.html">
             
@@ -434,7 +460,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.13" data-path="updateFunctionalComponent.html">
+        <li class="chapter " data-level="1.3.15" data-path="updateFunctionalComponent.html">
             
                 <a href="updateFunctionalComponent.html">
             
@@ -917,7 +943,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="renderroot">renderRoot</h2>
+                                <!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-28 00:28:22
+ * @LastEditTime: 2019-09-05 14:55:01
+ * @LastEditors: Please set LastEditors
+ -->
+<h2 id="renderroot">renderRoot</h2>
 <p>renderRoot&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x4E00;&#x4E2A;&#x4ECE;&#x65B0;&#x5F00;&#x59CB;&#x7684;root&#xFF0C; &#x662F;&#x7684;&#x8BDD;&#x4F1A;&#x91CD;&#x7F6E;&#x5404;&#x4E2A;&#x5C5E;&#x6027;</p>
 <p>&#x9996;&#x5148;&#x662F;resetStack()&#x51FD;&#x6570;&#xFF0C; &#x5BF9;&#x539F;&#x6709;&#x7684;&#x8FDB;&#x884C;&#x4E2D;&#x7684;root&#x4EFB;&#x52A1;&#x4E2D;&#x65AD;&#xFF0C; &#x8FDB;&#x884C;&#x5B58;&#x50A8;&#xFF0C;
 &#x7D27;&#x63A5;&#x7740;&#x5C06;nextRoot&#x548C;nextRendeExpirationTime&#x91CD;&#x7F6E;&#xFF0C; &#x540C;&#x65F6;&#x521B;&#x5EFA;&#x7B2C;&#x4E00;&#x4E2A;nextUnitOfWork, &#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;
@@ -1038,85 +1071,8 @@ switch (workInProgress.tag) {
 }
 </code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;beginWork&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x5728;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x5DE5;&#x4F5C;&#xFF0C;&#x5DE5;&#x4F5C;&#x5185;&#x5BB9;&#x5305;&#x62EC;&#x5B9E;&#x4F8B;&#x5316;class&#xFF0C;&#x66F4;&#x65B0;state,props&#xFF0C;&#x7B49;&#x7B49;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x7EC4;&#x4EF6;&#x7684;&#x5B50;&#x8282;&#x70B9;<code>workInProgress.child</code>&#x6765;&#x8FDB;&#x884C;&#x540E;&#x7EED;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
 <p>&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x540E;&#x9762;&#x4F1A;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x3002;</p>
-<h2 id="completeunitofwork">completeUnitOfWork</h2>
-<p>&#x6BCF;&#x4E2A;FiberNode&#x90FD;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A;effectList&#x94FE;&#x8868;&#xFF0C;&#x4E00;&#x4E2A;fiber&#x7684;effect list&#x53EA;&#x5305;&#x62EC;&#x4ED6;children&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x4ED6;&#x672C;&#x8EAB;&#xFF0C;&#x4FDD;&#x5B58;&#x7740;reconciliation&#x9636;&#x6BB5;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6BCF;&#x4E2A;effectList&#x5305;&#x62EC;nextEffect&#x3001;firstEffect&#x3001;lastEffect&#x4E09;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x5206;&#x522B;&#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x5F85;&#x5904;&#x7406;&#x7684;effect fiber&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x548C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5F85;&#x5904;&#x7406;&#x7684;effect fiber&#x3002;react&#x8C03;&#x7528;completeUnitOfWork&#x6CBF;workInProgress&#x8FDB;&#x884C;effect list&#x7684;&#x6536;&#x96C6;</p>
-<pre><code>function completeUnitOfWork(workInProgress) {
-  while (true) {
-    // &#x8BB0;&#x5F55;&#x5F53;&#x524D;workInProgress&#x7684;&#x72B6;&#x6001;
-    var current$$1 = workInProgress.alternate;
-    {
-      setCurrentFiber(workInProgress);
-    }
-    var returnFiber = workInProgress.return;
-    var siblingFiber = workInProgress.sibling;
+<p>&#x5F53;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x662F;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x65F6;&#x5019;&#xFF0C;workInProgress.child=null ,&#x4F1A;&#x8FDB;&#x5165; <code>completeUnitOfWork</code></p>
 
-    if ((workInProgress.effectTag &amp; Incomplete) === NoEffect) {
-      // &#x5982;&#x679C;&#x5F53;&#x524D;fiber work&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;
-      // &#x8BB0;&#x5F55;&#x6211;&#x4EEC;&#x5C06;&#x8981;&#x5B8C;&#x6210;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x4EE5;&#x4FBF;&#x5F53;&#x540E;&#x9762;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x65F6;&#x627E;&#x5230;&#x8BE5;&#x8FB9;&#x754C;
-      nextUnitOfWork = workInProgress;
-
-
-      // &#x6839;&#x636E;workInProgress.tag&#x521B;&#x5EFA;&#x3001;&#x66F4;&#x65B0;&#x6216;&#x5220;&#x9664;dom
-      nextUnitOfWork = completeWork(current$$1, workInProgress, nextRenderExpirationTime);
-
-      // &#x6682;&#x505C;work
-      stopWorkTimer(workInProgress);
-      resetChildExpirationTime(workInProgress, nextRenderExpirationTime);
-      {
-        resetCurrentFiber();
-      }
-
-      if (nextUnitOfWork !== null) {
-        // &#x5B8C;&#x6210;&#x5F53;&#x524D;fiber&#x65F6;&#xFF0C;&#x4EA7;&#x751F;&#x4E86;&#x65B0;&#x5F53;work&#xFF08;completeWork&#x8FD4;&#x56DE;&#x503C;&#xFF09;
-        return nextUnitOfWork;
-      }
-
-      if (returnFiber !== null &amp;&amp; (returnFiber.effectTag &amp; Incomplete) === NoEffect) {
-        // &#x5C06;&#x5B50;&#x6811;&#x5F53;&#x6240;&#x6709;effects&#x548C;&#x8BE5;fiber&#x52A0;&#x5165;&#x7236;&#x8282;&#x70B9;&#x7684;effect list&#xFF0C;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x5B8C;&#x6210;&#x987A;&#x5E8F;&#x51B3;&#x5B9A;&#x4E86;effect&#x7684;&#x987A;&#x5E8F;
-        if (returnFiber.firstEffect === null) {
-          returnFiber.firstEffect = workInProgress.firstEffect;
-        }
-        if (workInProgress.lastEffect !== null) {
-          if (returnFiber.lastEffect !== null) {
-            returnFiber.lastEffect.nextEffect = workInProgress.firstEffect;
-          }
-          returnFiber.lastEffect = workInProgress.lastEffect;
-        }
-
-        // &#x5982;&#x679C;&#x8BE5;&#x8282;&#x70B9;&#x6709;effects&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x52A0;&#x5728;&#x5B50;&#x8282;&#x70B9;effects&#x4E4B;&#x540E;&#xFF0C;
-        var effectTag = workInProgress.effectTag;
-        // &#x521B;&#x5EFA;effect list&#x65F6;&#x8DF3;&#x8FC7; NoWork and PerformedWork&#x8282;&#x70B9;.
-
-        if (effectTag &gt; PerformedWork) {
-          if (returnFiber.lastEffect !== null) {
-            returnFiber.lastEffect.nextEffect = workInProgress;
-          } else {
-            returnFiber.firstEffect = workInProgress;
-          }
-          returnFiber.lastEffect = workInProgress;
-        }
-      }
-
-
-      if (siblingFiber !== null) {
-        // &#x5982;&#x679C;&#x5176;&#x5144;&#x5F1F;&#x8282;&#x70B9;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x7EE7;&#x7EED;&#x904D;&#x5386;siblingFiber
-        return siblingFiber;
-      } else if (returnFiber !== null) {
-        // &#x5982;&#x679C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#x8981;&#x505A;.
-        workInProgress = returnFiber;
-        continue;
-      } else {
-        // &#x5426;&#x5219;&#x8BA4;&#x4E3A;&#x6211;&#x4EEC;&#x904D;&#x5386;&#x5230;&#x4E86;root&#x8282;&#x70B9;
-        return null;
-      }
-    } else {
-      // &#x5F53;&#x524D;fiber work&#x672A;&#x5B8C;&#x6210;
-    }
-  }
-
-  return null;
-}
-</code></pre>
                                 
                                 </section>
                             
@@ -1148,7 +1104,7 @@ switch (workInProgress.tag) {
                 </a>
                 
                 
-                <a href="updateHostRoot.html" class="navigation navigation-next " aria-label="Next page: updateHostRoot">
+                <a href="completeUnitOfWork.html" class="navigation navigation-next " aria-label="Next page: completeUnitOfWork">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1159,7 +1115,7 @@ switch (workInProgress.tag) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"renderRoot","level":"1.3.8","depth":2,"next":{"title":"updateHostRoot","level":"1.3.9","depth":2,"path":"chapter2/updateHostRoot.md","ref":"chapter2/updateHostRoot.md","articles":[]},"previous":{"title":"performWork","level":"1.3.7","depth":2,"path":"chapter2/performWork.md","ref":"chapter2/performWork.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/renderRoot.md","mtime":"2019-08-04T04:20:57.586Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-04T09:20:29.329Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"renderRoot","level":"1.3.8","depth":2,"next":{"title":"completeUnitOfWork","level":"1.3.9","depth":2,"path":"chapter2/completeUnitOfWork.md","ref":"chapter2/completeUnitOfWork.md","articles":[]},"previous":{"title":"performWork","level":"1.3.7","depth":2,"path":"chapter2/performWork.md","ref":"chapter2/performWork.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/renderRoot.md","mtime":"2019-09-05T06:55:01.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T15:05:01.183Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

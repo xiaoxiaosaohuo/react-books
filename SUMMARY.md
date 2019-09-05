@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-28 00:28:22
- * @LastEditTime: 2019-09-04 17:17:42
+ * @LastEditTime: 2019-09-05 15:56:56
  * @LastEditors: Please set LastEditors
  -->
 # React源码分析
@@ -29,6 +29,8 @@
   * [scheduleWork](chapter2/scheduleWork.md)
   * [performWork](chapter2/performWork.md)
   * [renderRoot](chapter2/renderRoot.md)
+  * [completeUnitOfWork](chapter2/completeUnitOfWork.md)
+  * [commitRoot](chapter2/commitRoot.md)
   * [updateHostRoot](chapter2/updateHostRoot.md)
   * [updateHostText](chapter2/updateHostText.md)
   * [updateHostComponent](chapter2/updateHostComponent.md)

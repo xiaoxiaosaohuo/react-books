@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-28 00:28:22
+ * @LastEditTime: 2019-09-05 14:55:01
+ * @LastEditors: Please set LastEditors
+ -->
 ## renderRoot
 
 renderRoot会先判断是否是一个从新开始的root， 是的话会重置各个属性
@@ -163,87 +170,6 @@ switch (workInProgress.tag) {
 
 这些方法后面会详细介绍。
 
+当当前节点是叶子节点的时候，workInProgress.child=null ,会进入 `completeUnitOfWork`
 
-## completeUnitOfWork
-
-每个FiberNode都维护着一个effectList链表，一个fiber的effect list只包括他children的更新，不包括他本身，保存着reconciliation阶段的结果，每个effectList包括nextEffect、firstEffect、lastEffect三个指针，分别指向下一个待处理的effect fiber，第一个和最后一个待处理的effect fiber。react调用completeUnitOfWork沿workInProgress进行effect list的收集
-
-```
-function completeUnitOfWork(workInProgress) {
-  while (true) {
-    // 记录当前workInProgress的状态
-    var current$$1 = workInProgress.alternate;
-    {
-      setCurrentFiber(workInProgress);
-    }
-    var returnFiber = workInProgress.return;
-    var siblingFiber = workInProgress.sibling;
-
-    if ((workInProgress.effectTag & Incomplete) === NoEffect) {
-      // 如果当前fiber work已经完成
-      // 记录我们将要完成的任务，以便当后面操作失败时找到该边界
-      nextUnitOfWork = workInProgress;
-      
-      
-      // 根据workInProgress.tag创建、更新或删除dom
-      nextUnitOfWork = completeWork(current$$1, workInProgress, nextRenderExpirationTime);
-     
-      // 暂停work
-      stopWorkTimer(workInProgress);
-      resetChildExpirationTime(workInProgress, nextRenderExpirationTime);
-      {
-        resetCurrentFiber();
-      }
-
-      if (nextUnitOfWork !== null) {
-        // 完成当前fiber时，产生了新当work（completeWork返回值）
-        return nextUnitOfWork;
-      }
-
-      if (returnFiber !== null && (returnFiber.effectTag & Incomplete) === NoEffect) {
-        // 将子树当所有effects和该fiber加入父节点的effect list，子节点的完成顺序决定了effect的顺序
-        if (returnFiber.firstEffect === null) {
-          returnFiber.firstEffect = workInProgress.firstEffect;
-        }
-        if (workInProgress.lastEffect !== null) {
-          if (returnFiber.lastEffect !== null) {
-            returnFiber.lastEffect.nextEffect = workInProgress.firstEffect;
-          }
-          returnFiber.lastEffect = workInProgress.lastEffect;
-        }
-
-        // 如果该节点有effects，则将其加在子节点effects之后，
-        var effectTag = workInProgress.effectTag;
-        // 创建effect list时跳过 NoWork and PerformedWork节点.
-        
-        if (effectTag > PerformedWork) {
-          if (returnFiber.lastEffect !== null) {
-            returnFiber.lastEffect.nextEffect = workInProgress;
-          } else {
-            returnFiber.firstEffect = workInProgress;
-          }
-          returnFiber.lastEffect = workInProgress;
-        }
-      }
-      
-
-      if (siblingFiber !== null) {
-        // 如果其兄弟节点不为空，则继续遍历siblingFiber
-        return siblingFiber;
-      } else if (returnFiber !== null) {
-        // 如果没有其他任务要做.
-        workInProgress = returnFiber;
-        continue;
-      } else {
-        // 否则认为我们遍历到了root节点
-        return null;
-      }
-    } else {
-      // 当前fiber work未完成
-    }
-  }
-
-  return null;
-}
-```
 

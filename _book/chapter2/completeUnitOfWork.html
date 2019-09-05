@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>updateHostRoot · GitBook</title>
+        <title>completeUnitOfWork · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="updateHostText.html" />
+    <link rel="next" href="commitRoot.html" />
     
     
-    <link rel="prev" href="commitRoot.html" />
+    <link rel="prev" href="renderRoot.html" />
     
 
     </head>
@@ -382,7 +382,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="completeUnitOfWork.html">
+        <li class="chapter active" data-level="1.3.9" data-path="completeUnitOfWork.html">
             
                 <a href="completeUnitOfWork.html">
             
@@ -408,7 +408,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.11" data-path="updateHostRoot.html">
+        <li class="chapter " data-level="1.3.11" data-path="updateHostRoot.html">
             
                 <a href="updateHostRoot.html">
             
@@ -928,7 +928,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >updateHostRoot</a>
+        <a href=".." >completeUnitOfWork</a>
     </h1>
 </div>
 
@@ -943,42 +943,391 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="updatehostroot">updateHostRoot</h2>
-<p>&#x5728;scheduleRootUpdate&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4E3A;root&#x521B;&#x5EFA;update&#xFF0C;&#x5305;&#x62EC;&#x7684;&#x6700;&#x4E3B;&#x8981;&#x4FE1;&#x606F;&#x662F;payload&#x4E2D;&#x7684;element,&#x5728;updateHostRoot&#x65B9;&#x6CD5;&#x4E2D;&#x4F1A;&#x5BF9;update&#x8FDB;&#x884C;&#x5904;&#x7406;</p>
-<pre><code>function updateHostRoot(current$$1, workInProgress, renderExpirationTime) {
+                                <!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-05 14:28:26
+ * @LastEditTime: 2019-09-05 15:48:27
+ * @LastEditors: Please set LastEditors
+ -->
+<h2 id="completeunitofwork">completeUnitOfWork</h2>
+<p>&#x6BCF;&#x4E2A;FiberNode&#x90FD;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A;effectList&#x94FE;&#x8868;&#xFF0C;&#x4E00;&#x4E2A;fiber&#x7684;effect list&#x53EA;&#x5305;&#x62EC;&#x4ED6;children&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x4ED6;&#x672C;&#x8EAB;&#xFF0C;&#x4FDD;&#x5B58;&#x7740;reconciliation&#x9636;&#x6BB5;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6BCF;&#x4E2A;effectList&#x5305;&#x62EC;nextEffect&#x3001;firstEffect&#x3001;lastEffect&#x4E09;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x5206;&#x522B;&#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x5F85;&#x5904;&#x7406;&#x7684;effect fiber&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x548C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5F85;&#x5904;&#x7406;&#x7684;effect fiber&#x3002;react&#x8C03;&#x7528;completeUnitOfWork&#x6CBF;workInProgress&#x8FDB;&#x884C;effect list&#x7684;&#x6536;&#x96C6;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x4F1A;&#x5728;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;</li>
+<li>&#x5982;&#x679C;&#x6709;sibling,&#x79FB;&#x52A8;&#x5230;next sibling&#x8FDB;&#x884C;&#x5DE5;&#x4F5C;</li>
+<li>&#x6CA1;&#x6709;sibling,&#x8FD4;&#x56DE;&#x5230;parent fiber</li>
+</ol>
+<pre><code>function completeUnitOfWork(workInProgress) {
+  while (true) {
+    // &#x8BB0;&#x5F55;&#x5F53;&#x524D;workInProgress&#x7684;&#x72B6;&#x6001;
+    var current$$1 = workInProgress.alternate;
+    {
+      setCurrentFiber(workInProgress);
+    }
+    // &#x7236;&#x7EA7;&#x548C;&#x5144;&#x5F1F;fiber
+    var returnFiber = workInProgress.return;
+    var siblingFiber = workInProgress.sibling;
 
-  pushHostRootContext(workInProgress);
-  var updateQueue = workInProgress.updateQueue;
-  var nextProps = workInProgress.pendingProps;
-  var prevState = workInProgress.memoizedState;
-  var prevChildren = prevState !== null ? prevState.element : null;
+    if ((workInProgress.effectTag &amp; Incomplete) === NoEffect) {
+      // &#x5982;&#x679C;&#x5F53;&#x524D;fiber work&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;
+      // &#x8BB0;&#x5F55;&#x6211;&#x4EEC;&#x5C06;&#x8981;&#x5B8C;&#x6210;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x4EE5;&#x4FBF;&#x5F53;&#x540E;&#x9762;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x65F6;&#x627E;&#x5230;&#x8BE5;&#x8FB9;&#x754C;
+      nextUnitOfWork = workInProgress;
 
-  processUpdateQueue(workInProgress, updateQueue, nextProps, null, renderExpirationTime);
-  var nextState = workInProgress.memoizedState;
 
-  var nextChildren = nextState.element;
-  if (nextChildren === prevChildren) {
-    // &#x524D;&#x540E;&#x65E0;&#x53D8;&#x5316;&#x76F4;&#x63A5;&#x8C03;&#x7528;bailoutOnAlreadyFinishedWork
-    resetHydrationState();
-    return bailoutOnAlreadyFinishedWork(current$$1, workInProgress, renderExpirationTime);
+      // completeWork &#x6839;&#x636E;workInProgress.tag&#x521B;&#x5EFA;&#x3001;&#x66F4;&#x65B0;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x7B49;
+      // nextUnitOfWork &#x7528;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x4E0B;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;
+      nextUnitOfWork = completeWork(current$$1, workInProgress, nextRenderExpirationTime);
+
+      // &#x6682;&#x505C;work
+      stopWorkTimer(workInProgress);
+      //&#x91CD;&#x7F6E;childExpirationTime
+      resetChildExpirationTime(workInProgress, nextRenderExpirationTime);
+      {
+        resetCurrentFiber();
+      }
+
+      if (nextUnitOfWork !== null) {
+        // &#x5B8C;&#x6210;&#x5F53;&#x524D;fiber&#x65F6;&#xFF0C;&#x4EA7;&#x751F;&#x4E86;&#x65B0;&#x5F53;work&#xFF08;completeWork&#x8FD4;&#x56DE;&#x503C;&#xFF09;
+        return nextUnitOfWork;
+      }
+        //&#x5982;&#x679C;&#x6709;&#x8282;&#x70B9;&#x5728;complete&#x7684;&#x65F6;&#x5019;&#x5931;&#x8D25;&#x4E86;&#x5C31;&#x4E0D;&#x8FDB;&#x884C;effect&#x6536;&#x96C6;
+      if (returnFiber !== null &amp;&amp; (returnFiber.effectTag &amp; Incomplete) === NoEffect) {
+        // &#x5C06;&#x5B50;&#x6811;&#x5F53;&#x6240;&#x6709;effects&#x548C;&#x8BE5;fiber&#x52A0;&#x5165;&#x7236;&#x8282;&#x70B9;&#x7684;effect list&#xFF0C;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x5B8C;&#x6210;&#x987A;&#x5E8F;&#x51B3;&#x5B9A;&#x4E86;effect&#x7684;&#x987A;&#x5E8F;
+        if (returnFiber.firstEffect === null) {
+          returnFiber.firstEffect = workInProgress.firstEffect;
+        }
+        if (workInProgress.lastEffect !== null) {
+          if (returnFiber.lastEffect !== null) {
+            returnFiber.lastEffect.nextEffect = workInProgress.firstEffect;
+          }
+          returnFiber.lastEffect = workInProgress.lastEffect;
+        }
+
+        // &#x5982;&#x679C;&#x8BE5;&#x8282;&#x70B9;&#x6709;effects&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x52A0;&#x5728;&#x5B50;&#x8282;&#x70B9;effects&#x4E4B;&#x540E;&#xFF0C;
+        var effectTag = workInProgress.effectTag;
+        // &#x521B;&#x5EFA;effect list&#x65F6;&#x8DF3;&#x8FC7; NoWork and PerformedWork&#x8282;&#x70B9;.
+
+        if (effectTag &gt; PerformedWork) {
+          if (returnFiber.lastEffect !== null) {
+            returnFiber.lastEffect.nextEffect = workInProgress;
+          } else {
+            returnFiber.firstEffect = workInProgress;
+          }
+          returnFiber.lastEffect = workInProgress;
+        }
+      }
+
+
+      if (siblingFiber !== null) {
+        // &#x5982;&#x679C;&#x5176;&#x5144;&#x5F1F;&#x8282;&#x70B9;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x7EE7;&#x7EED;&#x904D;&#x5386;siblingFiber
+        return siblingFiber;
+      } else if (returnFiber !== null) {
+        // &#x5982;&#x679C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#x8981;&#x505A;.
+        workInProgress = returnFiber;
+        continue;
+      } else {
+        // &#x5426;&#x5219;&#x8BA4;&#x4E3A;&#x6211;&#x4EEC;&#x904D;&#x5386;&#x5230;&#x4E86;root&#x8282;&#x70B9;
+        return null;
+      }
+    } else {
+      // &#x5F53;&#x524D;fiber work&#x672A;&#x5B8C;&#x6210;
+    }
   }
-  var root = workInProgress.stateNode;
-  //&#x8FD9;&#x4E2A;&#x662F;hydrate&#x76F8;&#x5173;&#x7684;
-  if ((current$$1 === null || current$$1.child === null) &amp;&amp; root.hydrate &amp;&amp; enterHydrationState(workInProgress)) {
 
-    workInProgress.child = mountChildFibers(workInProgress, null, nextChildren, renderExpirationTime);
-  } else {
-    // Otherwise reset hydration state in case we aborted and resumed another
-    // root.
-    reconcileChildren(current$$1, workInProgress, nextChildren, renderExpirationTime);
-    resetHydrationState();
-  }
-  return workInProgress.child;
+  return null;
 }
-</code></pre><p><code>ensureWorkInProgressQueueIsAClone</code> &#x786E;&#x4FDD;workInProgress&#x7684;UpdateQueue&#x662F;current&#x7684;&#x4E00;&#x4E2A;&#x62F7;&#x8D1D;&#xFF0C;&#x4E0D;&#x5728;current&#x4E0A;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;</p>
-<p><code>processUpdateQueue</code> &#x5904;&#x7406;UpdateQueue&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x65B0;&#x7684;state&#xFF0C;&#x66F4;&#x65B0;UpdateQueue&#x7684;baseState&#xFF0C;memoizedState&#x3002;</p>
-<p><code>reconcileChildren</code> &#x8C03;&#x548C;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x8FD4;&#x56DE; workInProgress.child;</p>
+</code></pre><h3 id="completework">completeWork</h3>
+<ul>
+<li>&#x521D;&#x59CB;&#x5316;&#x65F6;&#x4F1A;&#x521B;&#x5EFA;dom</li>
+<li>&#x66F4;&#x65B0;&#x9636;&#x6BB5;diffProperties</li>
+</ul>
+<pre><code>function completeWork(current, workInProgress, renderExpirationTime) {
+  var newProps = workInProgress.pendingProps;
 
+  switch (workInProgress.tag) {
+    case IndeterminateComponent:
+      break;
+    case LazyComponent:
+      break;
+    case SimpleMemoComponent:
+    case FunctionComponent:
+      break;
+    case ClassComponent:
+      {
+        var Component = workInProgress.type;
+        if (isContextProvider(Component)) {
+          popContext(workInProgress);
+        }
+        break;
+      }
+    case HostRoot:
+      {
+        popHostContainer(workInProgress);
+        popTopLevelContextObject(workInProgress);
+        var fiberRoot = workInProgress.stateNode;
+        if (fiberRoot.pendingContext) {
+          fiberRoot.context = fiberRoot.pendingContext;
+          fiberRoot.pendingContext = null;
+        }
+        if (current === null || current.child === null) {
+          // If we hydrated, pop so that we can delete any remaining children
+          // that weren&apos;t hydrated.
+          popHydrationState(workInProgress);
+          // This resets the hacky state to fix isMounted before committing.
+          // TODO: Delete this when we delete isMounted and findDOMNode.
+          workInProgress.effectTag &amp;= ~Placement;
+        }
+        updateHostContainer(workInProgress);
+        break;
+      }
+    case HostComponent:
+      {
+        popHostContext(workInProgress);
+        var rootContainerInstance = getRootHostContainer();
+        var type = workInProgress.type;
+        if (current !== null &amp;&amp; workInProgress.stateNode != null) {
+          updateHostComponent$1(current, workInProgress, type, newProps, rootContainerInstance);
+
+          if (current.ref !== workInProgress.ref) {
+            markRef$1(workInProgress);
+          }
+        } else {
+          if (!newProps) {
+            (function () {
+              if (!(workInProgress.stateNode !== null)) {
+                {
+                  throw ReactError(&apos;We must have new props for new mounts. This error is likely caused by a bug in React. Please file an issue.&apos;);
+                }
+              }
+            })();
+            // This can happen when we abort work.
+            break;
+          }
+
+          var currentHostContext = getHostContext();
+          // TODO: Move createInstance to beginWork and keep it on a context
+          // &quot;stack&quot; as the parent. Then append children as we go in beginWork
+          // or completeWork depending on we want to add then top-&gt;down or
+          // bottom-&gt;up. Top-&gt;down is faster in IE11.
+          var wasHydrated = popHydrationState(workInProgress);
+          if (wasHydrated) {
+            // TODO: Move this and createInstance step into the beginPhase
+            // to consolidate.
+            if (prepareToHydrateHostInstance(workInProgress, rootContainerInstance, currentHostContext)) {
+              // If changes to the hydrated node needs to be applied at the
+              // commit-phase we mark this as such.
+              markUpdate(workInProgress);
+            }
+          } else {
+            var instance = createInstance(type, newProps, rootContainerInstance, currentHostContext, workInProgress);
+
+            appendAllChildren(instance, workInProgress, false, false);
+
+            // Certain renderers require commit-time effects for initial mount.
+            // (eg DOM renderer supports auto-focus for certain elements).
+            // Make sure such renderers get scheduled for later work.
+            if (finalizeInitialChildren(instance, type, newProps, rootContainerInstance, currentHostContext)) {
+              markUpdate(workInProgress);
+            }
+            workInProgress.stateNode = instance;
+          }
+
+          if (workInProgress.ref !== null) {
+            // If there is a ref on a host node we need to schedule a callback
+            markRef$1(workInProgress);
+          }
+        }
+        break;
+      }
+    case HostText:
+      {
+        var newText = newProps;
+        if (current &amp;&amp; workInProgress.stateNode != null) {
+          var oldText = current.memoizedProps;
+          // If we have an alternate, that means this is an update and we need
+          // to schedule a side-effect to do the updates.
+          updateHostText$1(current, workInProgress, oldText, newText);
+        } else {
+          if (typeof newText !== &apos;string&apos;) {
+            (function () {
+              if (!(workInProgress.stateNode !== null)) {
+                {
+                  throw ReactError(&apos;We must have new props for new mounts. This error is likely caused by a bug in React. Please file an issue.&apos;);
+                }
+              }
+            })();
+            // This can happen when we abort work.
+          }
+          var _rootContainerInstance = getRootHostContainer();
+          var _currentHostContext = getHostContext();
+          var _wasHydrated = popHydrationState(workInProgress);
+          if (_wasHydrated) {
+            if (prepareToHydrateHostTextInstance(workInProgress)) {
+              markUpdate(workInProgress);
+            }
+          } else {
+            workInProgress.stateNode = createTextInstance(newText, _rootContainerInstance, _currentHostContext, workInProgress);
+          }
+        }
+        break;
+      }
+    case ForwardRef:
+      break;
+    case SuspenseComponent:
+      {
+        var nextState = workInProgress.memoizedState;
+        if ((workInProgress.effectTag &amp; DidCapture) !== NoEffect) {
+          // Something suspended. Re-render with the fallback children.
+          workInProgress.expirationTime = renderExpirationTime;
+          // Do not reset the effect list.
+          return workInProgress;
+        }
+
+        var nextDidTimeout = nextState !== null;
+        var prevDidTimeout = current !== null &amp;&amp; current.memoizedState !== null;
+
+        if (current === null) {
+          // In cases where we didn&apos;t find a suitable hydration boundary we never
+          // downgraded this to a DehydratedSuspenseComponent, but we still need to
+          // pop the hydration state since we might be inside the insertion tree.
+          popHydrationState(workInProgress);
+        } else if (!nextDidTimeout &amp;&amp; prevDidTimeout) {
+          // We just switched from the fallback to the normal children. Delete
+          // the fallback.
+          // TODO: Would it be better to store the fallback fragment on
+          var currentFallbackChild = current.child.sibling;
+          if (currentFallbackChild !== null) {
+            // Deletions go at the beginning of the return fiber&apos;s effect list
+            var first = workInProgress.firstEffect;
+            if (first !== null) {
+              workInProgress.firstEffect = currentFallbackChild;
+              currentFallbackChild.nextEffect = first;
+            } else {
+              workInProgress.firstEffect = workInProgress.lastEffect = currentFallbackChild;
+              currentFallbackChild.nextEffect = null;
+            }
+            currentFallbackChild.effectTag = Deletion;
+          }
+        }
+
+        if (supportsPersistence) {
+          if (nextDidTimeout) {
+            // If this boundary just timed out, schedule an effect to attach a
+            // retry listener to the proimse. This flag is also used to hide the
+            // primary children.
+            workInProgress.effectTag |= Update;
+          }
+        }
+        if (supportsMutation) {
+          if (nextDidTimeout || prevDidTimeout) {
+            // If this boundary just timed out, schedule an effect to attach a
+            // retry listener to the proimse. This flag is also used to hide the
+            // primary children. In mutation mode, we also need the flag to
+            // *unhide* children that were previously hidden, so check if the
+            // is currently timed out, too.
+            workInProgress.effectTag |= Update;
+          }
+        }
+        break;
+      }
+    case Fragment:
+      break;
+    case Mode:
+      break;
+    case Profiler:
+      break;
+    case HostPortal:
+      popHostContainer(workInProgress);
+      updateHostContainer(workInProgress);
+      break;
+    case ContextProvider:
+      // Pop provider fiber
+      popProvider(workInProgress);
+      break;
+    case ContextConsumer:
+      break;
+    case MemoComponent:
+      break;
+    case IncompleteClassComponent:
+      {
+        // Same as class component case. I put it down here so that the tags are
+        // sequential to ensure this switch is compiled to a jump table.
+        var _Component = workInProgress.type;
+        if (isContextProvider(_Component)) {
+          popContext(workInProgress);
+        }
+        break;
+      }
+    case DehydratedSuspenseComponent:
+      {
+        if (enableSuspenseServerRenderer) {
+          if (current === null) {
+            var _wasHydrated2 = popHydrationState(workInProgress);
+            (function () {
+              if (!_wasHydrated2) {
+                {
+                  throw ReactError(&apos;A dehydrated suspense component was completed without a hydrated node. This is probably a bug in React.&apos;);
+                }
+              }
+            })();
+            skipPastDehydratedSuspenseInstance(workInProgress);
+          } else if ((workInProgress.effectTag &amp; DidCapture) === NoEffect) {
+            // This boundary did not suspend so it&apos;s now hydrated.
+            // To handle any future suspense cases, we&apos;re going to now upgrade it
+            // to a Suspense component. We detach it from the existing current fiber.
+            current.alternate = null;
+            workInProgress.alternate = null;
+            workInProgress.tag = SuspenseComponent;
+            workInProgress.memoizedState = null;
+            workInProgress.stateNode = null;
+          }
+        }
+        break;
+      }
+    case EventComponent:
+      {
+        if (enableEventAPI) {
+          popHostContext(workInProgress);
+          var _rootContainerInstance2 = getRootHostContainer();
+          var responder = workInProgress.type.responder;
+          // Update the props on the event component state node
+          workInProgress.stateNode.props = newProps;
+          handleEventComponent(responder, _rootContainerInstance2, workInProgress);
+        }
+        break;
+      }
+    case EventTarget:
+      {
+        if (enableEventAPI) {
+          popHostContext(workInProgress);
+          var _type = workInProgress.type.type;
+          var node = workInProgress.return;
+          var parentHostInstance = null;
+          // Traverse up the fiber tree till we find a host component fiber
+          while (node !== null) {
+            if (node.tag === HostComponent) {
+              parentHostInstance = node.stateNode;
+              break;
+            }
+            node = node.return;
+          }
+
+        }
+        break;
+      }
+    default:
+      (function () {
+        {
+          {
+            throw ReactError(&apos;Unknown unit of work tag. This error is likely caused by a bug in React. Please file an issue.&apos;);
+          }
+        }
+      })();
+  }
+
+  return null;
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -1005,12 +1354,12 @@
 
             
                 
-                <a href="commitRoot.html" class="navigation navigation-prev " aria-label="Previous page: commitRoot">
+                <a href="renderRoot.html" class="navigation navigation-prev " aria-label="Previous page: renderRoot">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="updateHostText.html" class="navigation navigation-next " aria-label="Next page: updateHostText">
+                <a href="commitRoot.html" class="navigation navigation-next " aria-label="Next page: commitRoot">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1021,7 +1370,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"updateHostRoot","level":"1.3.11","depth":2,"next":{"title":"updateHostText","level":"1.3.12","depth":2,"path":"chapter2/updateHostText.md","ref":"chapter2/updateHostText.md","articles":[]},"previous":{"title":"commitRoot","level":"1.3.10","depth":2,"path":"chapter2/commitRoot.md","ref":"chapter2/commitRoot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/updateHostRoot.md","mtime":"2019-07-27T16:28:22.421Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T15:05:01.183Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"completeUnitOfWork","level":"1.3.9","depth":2,"next":{"title":"commitRoot","level":"1.3.10","depth":2,"path":"chapter2/commitRoot.md","ref":"chapter2/commitRoot.md","articles":[]},"previous":{"title":"renderRoot","level":"1.3.8","depth":2,"path":"chapter2/renderRoot.md","ref":"chapter2/renderRoot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/completeUnitOfWork.md","mtime":"2019-09-05T07:48:27.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T15:05:01.183Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

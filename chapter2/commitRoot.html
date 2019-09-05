@@ -1,0 +1,1744 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>commitRoot · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="updateHostRoot.html" />
+    
+    
+    <link rel="prev" href="completeUnitOfWork.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    React基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/project.html">
+            
+                <a href="../chapter1/project.html">
+            
+                    
+                    项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/ReactAPI.html">
+            
+                <a href="../chapter1/ReactAPI.html">
+            
+                    
+                    ReactAPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/ReactElement.html">
+            
+                <a href="../chapter1/ReactElement.html">
+            
+                    
+                    ReactElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/ReactBaseClass.html">
+            
+                <a href="../chapter1/ReactBaseClass.html">
+            
+                    
+                    React中基础类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/ReactLifeCycle.html">
+            
+                <a href="../chapter1/ReactLifeCycle.html">
+            
+                    
+                    React生命周期和反模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../chapter1/reactRuntime.html">
+            
+                <a href="../chapter1/reactRuntime.html">
+            
+                    
+                    React 编程模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../chapter1/ReactDataStructure.html">
+            
+                <a href="../chapter1/ReactDataStructure.html">
+            
+                    
+                    React中的数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../chapter1/expirationTime.html">
+            
+                <a href="../chapter1/expirationTime.html">
+            
+                    
+                    expirationTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../chapter1/ReactGlobal.html">
+            
+                <a href="../chapter1/ReactGlobal.html">
+            
+                    
+                    部分全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../chapter1/fiberWorkflow.html">
+            
+                <a href="../chapter1/fiberWorkflow.html">
+            
+                    
+                    Fiber工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../chapter1/createWorkInProgress.html">
+            
+                <a href="../chapter1/createWorkInProgress.html">
+            
+                    
+                    createWorkInProgress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    任务调度
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="ReactScheduler.html">
+            
+                <a href="ReactScheduler.html">
+            
+                    
+                    ReactScheduler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ReactDOMrender.html">
+            
+                <a href="ReactDOMrender.html">
+            
+                    
+                    ReactDOM.render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="ReactRoot.html">
+            
+                <a href="ReactRoot.html">
+            
+                    
+                    ReactRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="updateContainer.html">
+            
+                <a href="updateContainer.html">
+            
+                    
+                    updateContainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="scheduleRootUpdate.html">
+            
+                <a href="scheduleRootUpdate.html">
+            
+                    
+                    scheduleRootUpdate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="scheduleWork.html">
+            
+                <a href="scheduleWork.html">
+            
+                    
+                    scheduleWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="performWork.html">
+            
+                <a href="performWork.html">
+            
+                    
+                    performWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="renderRoot.html">
+            
+                <a href="renderRoot.html">
+            
+                    
+                    renderRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="completeUnitOfWork.html">
+            
+                <a href="completeUnitOfWork.html">
+            
+                    
+                    completeUnitOfWork
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.10" data-path="commitRoot.html">
+            
+                <a href="commitRoot.html">
+            
+                    
+                    commitRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="updateHostRoot.html">
+            
+                <a href="updateHostRoot.html">
+            
+                    
+                    updateHostRoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="updateHostText.html">
+            
+                <a href="updateHostText.html">
+            
+                    
+                    updateHostText
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="updateHostComponent.html">
+            
+                <a href="updateHostComponent.html">
+            
+                    
+                    updateHostComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="updateClassComponent.html">
+            
+                <a href="updateClassComponent.html">
+            
+                    
+                    updateClassComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="updateFunctionalComponent.html">
+            
+                <a href="updateFunctionalComponent.html">
+            
+                    
+                    updateFunctionalComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    reconcilation
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../reconcilation/reconcilation.html">
+            
+                <a href="../reconcilation/reconcilation.html">
+            
+                    
+                    reconcilation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../reconcilation/reconcileSingleElement.html">
+            
+                <a href="../reconcilation/reconcileSingleElement.html">
+            
+                    
+                    reconcileSingleElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../reconcilation/reconcileChildrenArray.html">
+            
+                <a href="../reconcilation/reconcileChildrenArray.html">
+            
+                    
+                    reconcileChildrenArray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    事件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../others/events.html">
+            
+                <a href="../others/events.html">
+            
+                    
+                    事件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../others/SyntheticEvent.html">
+            
+                <a href="../others/SyntheticEvent.html">
+            
+                    
+                    合成事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../others/eventBind.html">
+            
+                <a href="../others/eventBind.html">
+            
+                    
+                    事件绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../others/eventFire.html">
+            
+                <a href="../others/eventFire.html">
+            
+                    
+                    事件分发和回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    其他API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter3/setState.html">
+            
+                <a href="../chapter3/setState.html">
+            
+                    
+                    setState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../others/Context.html">
+            
+                <a href="../others/Context.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../others/forwardRef.html">
+            
+                <a href="../others/forwardRef.html">
+            
+                    
+                    forwardRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../others/errorHandle.html">
+            
+                <a href="../others/errorHandle.html">
+            
+                    
+                    React错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Hooks
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter4/hooksAndStateHook.html">
+            
+                <a href="../chapter4/hooksAndStateHook.html">
+            
+                    
+                    hooksAndStateHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter4/effectHook.html">
+            
+                <a href="../chapter4/effectHook.html">
+            
+                    
+                    effectHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../chapter4/useState.html">
+            
+                <a href="../chapter4/useState.html">
+            
+                    
+                    useState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../chapter4/useReducer.html">
+            
+                <a href="../chapter4/useReducer.html">
+            
+                    
+                    useReducer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../chapter4/useCallback.html">
+            
+                <a href="../chapter4/useCallback.html">
+            
+                    
+                    useCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../chapter4/useMemo.html">
+            
+                <a href="../chapter4/useMemo.html">
+            
+                    
+                    useMemo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../chapter4/useRef.html">
+            
+                <a href="../chapter4/useRef.html">
+            
+                    
+                    useRef
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../chapter4/useLayoutEffect.html">
+            
+                <a href="../chapter4/useLayoutEffect.html">
+            
+                    
+                    useLayoutEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../chapter4/useContext.html">
+            
+                <a href="../chapter4/useContext.html">
+            
+                    
+                    useContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../chapter4/customeHooks.html">
+            
+                <a href="../chapter4/customeHooks.html">
+            
+                    
+                    自定义hooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    redux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../redux/redux.html">
+            
+                <a href="../redux/redux.html">
+            
+                    
+                    redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../redux/reselect.html">
+            
+                <a href="../redux/reselect.html">
+            
+                    
+                    reselect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../redux/react-redux.html">
+            
+                <a href="../redux/react-redux.html">
+            
+                    
+                    react-redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../rematch/rematch.html">
+            
+                <a href="../rematch/rematch.html">
+            
+                    
+                    rematch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >commitRoot</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-05 15:42:12
+ * @LastEditTime: 2019-09-05 23:04:46
+ * @LastEditors: Please set LastEditors
+ -->
+<h2 id="commitroot">commitRoot</h2>
+<p>commitRoot &#x662F;&#x8FDB;&#x5165;commit&#x9636;&#x6BB5;&#x7684;&#x6838;&#x5FC3;&#x65B9;&#x6CD5;</p>
+<h3 id="&#x51C6;&#x5907;&#x9636;&#x6BB5;">&#x51C6;&#x5907;&#x9636;&#x6BB5;</h3>
+<h5 id="&#x7531;&#x4E8E;&#x8FDB;&#x5165;commit&#x9636;&#x6BB5;&#x4E0D;&#x80FD;&#x88AB;&#x6253;&#x65AD;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x6807;&#x5FD7;&#x4F4D;">&#x7531;&#x4E8E;&#x8FDB;&#x5165;commit&#x9636;&#x6BB5;&#x4E0D;&#x80FD;&#x88AB;&#x6253;&#x65AD;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x6807;&#x5FD7;&#x4F4D;</h5>
+<pre><code>isWorking = true;
+isCommitting$1 = true;
+</code></pre><h5 id="effect-list-&#x53EA;&#x5305;&#x62EC;&#x4ED6;&#x7684;children&#x4E0D;&#x5305;&#x62EC;self&#x6240;&#x4EE5;&#x5982;&#x679C;root-fiber-&#x6709;effect&#x9700;&#x8981;&#x5C06;&#x5176;&#x52A0;&#x5165;&#x5230;effect-list&#x7684;&#x672B;&#x5C3E;&#xFF0C;">effect list &#x53EA;&#x5305;&#x62EC;&#x4ED6;&#x7684;children,&#x4E0D;&#x5305;&#x62EC;self,&#x6240;&#x4EE5;&#x5982;&#x679C;root fiber &#x6709;effect,&#x9700;&#x8981;&#x5C06;&#x5176;&#x52A0;&#x5165;&#x5230;effect list&#x7684;&#x672B;&#x5C3E;&#xFF0C;</h5>
+<pre><code>var firstEffect = void 0;
+  if (finishedWork.effectTag &gt; PerformedWork) {
+    if (finishedWork.lastEffect !== null) {
+      finishedWork.lastEffect.nextEffect = finishedWork;
+      firstEffect = finishedWork.firstEffect;
+    } else {
+      firstEffect = finishedWork;
+    }
+  } else {
+    // There is no effect on the root.
+    firstEffect = finishedWork.firstEffect;
+  }
+
+   nextEffect = firstEffect;
+</code></pre><h3 id="&#x4E09;&#x4E2A;&#x5927;&#x5FAA;&#x73AF;">&#x4E09;&#x4E2A;&#x5927;&#x5FAA;&#x73AF;</h3>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;effect&#x7684;&#x63D0;&#x4EA4;&#x5DE5;&#x4F5C;&#x3002;&#x4E3B;&#x8981;&#x662F;&#x4E09;&#x4E2A;&#x5927;&#x5FAA;&#x73AF;
+&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x90FD;&#x4F1A;&#x5728;<code>invokeGuardedCallback</code>&#x4E2D;&#x8FD0;&#x884C;&#x76EE;&#x6807;&#x51FD;&#x6570;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x6355;&#x83B7;&#x9519;&#x8BEF;</p>
+<h4 id="&#x7B2C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;">&#x7B2C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;</h4>
+<p>&#x4E3B;&#x8981;&#x662F;&#x8C03;&#x7528;<code>getSnapshotBeforeUpdate</code> &#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5C06;&#x4F5C;&#x4E3A; <code>componentDidUpdate</code>&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570; <code>snapshot</code></p>
+<pre><code>while (nextEffect !== null) {
+    var didError = false;
+    var error = void 0;
+    {
+      invokeGuardedCallback(null, commitBeforeMutationLifecycles, null);
+      if (hasCaughtError()) {
+        didError = true;
+        error = clearCaughtError();
+      }
+    }
+    if (didError) {
+      (function () {
+        if (!(nextEffect !== null)) {
+          {
+            throw ReactError(&apos;Should have next effect. This error is likely caused by a bug in React. Please file an issue.&apos;);
+          }
+        }
+      })();
+      captureCommitPhaseError$1(nextEffect, error);
+      // Clean-up
+      if (nextEffect !== null) {
+        nextEffect = nextEffect.nextEffect;
+      }
+    }
+  }
+
+  function commitBeforeMutationLifecycles() {
+    while (nextEffect !== null) {
+        {
+        setCurrentFiber(nextEffect);
+        }
+
+        var effectTag = nextEffect.effectTag;
+        if (effectTag &amp; Snapshot) {
+        recordEffect();
+        var current$$1 = nextEffect.alternate;
+        commitBeforeMutationLifeCycles(current$$1, nextEffect);
+        }
+
+        nextEffect = nextEffect.nextEffect;
+    }
+
+    {
+        resetCurrentFiber();
+    }
+}
+</code></pre><p>commitBeforeMutationLifecycles &#x6839;&#x636E; nextEffect.effectTag &#x662F;&#x5426;&#x6709; Snapshot &#x628A; <code>nextEffect.alternate</code> fiber &#x5BF9;&#x8C61;&#x548C; <code>nextEffect</code> &#x4F20;&#x5165;commitBeforeMutationLifeCycles &#x6267;&#x884C;&#x3002;</p>
+<p>commitBeforeMutationLifeCycles &#x53EA;&#x5BF9;ClassComponent&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x8C03;&#x7528;getSnapshotBeforeUpdate&#x65B9;&#x6CD5;&#x83B7;&#x53D6;snapshot</p>
+<pre><code>function commitBeforeMutationLifeCycles(current$$1, finishedWork) {
+  switch (finishedWork.tag) {
+    case FunctionComponent:
+    case ForwardRef:
+    case SimpleMemoComponent:
+      {
+        commitHookEffectList(UnmountSnapshot, NoEffect$1, finishedWork);
+        return;
+      }
+    case ClassComponent:
+      {
+        if (finishedWork.effectTag &amp; Snapshot) {
+          if (current$$1 !== null) {
+            var prevProps = current$$1.memoizedProps;
+            var prevState = current$$1.memoizedState;
+            startPhaseTimer(finishedWork, &apos;getSnapshotBeforeUpdate&apos;);
+            var instance = finishedWork.stateNode;
+            var snapshot = instance.getSnapshotBeforeUpdate(finishedWork.elementType === finishedWork.type ? prevProps : resolveDefaultProps(finishedWork.type, prevProps), prevState);
+            instance.__reactInternalSnapshotBeforeUpdate = snapshot;
+            stopPhaseTimer();
+          }
+        }
+        return;
+      }
+    case HostRoot:
+    case HostComponent:
+    case HostText:
+    case HostPortal:
+    case IncompleteClassComponent:
+      // Nothing to do for these component types
+      return;
+    default:
+      {
+        (function () {
+          {
+            {
+              throw ReactError(&apos;This unit of work tag should not have side-effects. This error is likely caused by a bug in React. Please file an issue.&apos;);
+            }
+          }
+        })();
+      }
+  }
+}
+</code></pre><h4 id="&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;">&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;</h4>
+<p>&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;&#x4F1A;&#x8C03;&#x7528; <code>commitAllHostEffects</code> &#x65B9;&#x6CD5;</p>
+<p>&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;</p>
+<ul>
+<li>&#x91CD;&#x7F6E;&#x6587;&#x672C;&#x8282;&#x70B9;</li>
+<li>&#x64CD;&#x4F5C; ref</li>
+<li>&#x6267;&#x884C; &#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;&#x7684; effect &#x64CD;&#x4F5C;</li>
+<li>&#x5BF9;dom &#x8FDB;&#x884C;&#x64CD;&#x4F5C;</li>
+</ul>
+<pre><code>function commitAllHostEffects() {
+  while (nextEffect !== null) {
+    {
+      setCurrentFiber(nextEffect);
+    }
+    recordEffect();
+
+    var effectTag = nextEffect.effectTag;
+    //&#x91CD;&#x7F6E;&#x6587;&#x672C;&#x8282;&#x70B9;
+    if (effectTag &amp; ContentReset) {
+      commitResetTextContent(nextEffect);
+    }
+    //Ref&#x6709;&#x53D8;&#x5316;&#x5C31;detach Ref 
+    if (effectTag &amp; Ref) {
+      var current$$1 = nextEffect.alternate;
+      if (current$$1 !== null) {
+        commitDetachRef(current$$1);
+      }
+    }
+
+    // &#x63D2;&#x5165;&#xFF0C;&#x66F4;&#x65B0;&#xFF0C;&#x5220;&#x9664; 
+    var primaryEffectTag = effectTag &amp; (Placement | Update | Deletion);
+    switch (primaryEffectTag) {
+        //&#x63D2;&#x5165;
+      case Placement:
+        {
+          commitPlacement(nextEffect);
+            //&#x53D6;&#x53CD;&#x6E05;&#x9664;placement&#x6807;&#x5FD7;
+          nextEffect.effectTag &amp;= ~Placement;
+          break;
+        }
+        //&#x63D2;&#x5165;&#x4E14;&#x66F4;&#x65B0;
+      case PlacementAndUpdate:
+        {
+          // Placement
+          commitPlacement(nextEffect);
+           //&#x53D6;&#x53CD;&#x6E05;&#x9664;placement&#x6807;&#x5FD7;
+          nextEffect.effectTag &amp;= ~Placement;
+
+          // Update
+          var _current = nextEffect.alternate;
+          commitWork(_current, nextEffect);
+          break;
+        }
+         //&#x66F4;&#x65B0;
+      case Update:
+        {
+          var _current2 = nextEffect.alternate;
+          commitWork(_current2, nextEffect);
+          break;
+        }
+         //&#x5220;&#x9664;
+      case Deletion:
+        {
+          commitDeletion(nextEffect);
+          break;
+        }
+    }
+    &#x6267;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;effect
+    nextEffect = nextEffect.nextEffect;
+  }
+
+  {
+    resetCurrentFiber();
+  }
+}
+</code></pre><h5 id="commitplacement-----&#x63D2;&#x5165;&#x8282;&#x70B9;">commitPlacement --- &#x63D2;&#x5165;&#x8282;&#x70B9;</h5>
+<ul>
+<li>&#x6839;&#x636E;&#x5F53;&#x524D;&#x7684;finishedWork&#x627E;&#x5230;tag &#x5C5E;&#x4E8E; HostComponent || HostRoot || HostPortal&#x7684;parentFiber</li>
+<li>&#x83B7;&#x53D6;parentFiber&#x7684;dom&#x5B9E;&#x4F8B;&#xFF0C;&#x8BBE;&#x7F6E;parent &#x548C;isContainer&#x53D8;&#x91CF;</li>
+<li>&#x7531;&#x4E8E;&#x91C7;&#x7528;insertBefore&#x65B9;&#x6CD5;&#x63D2;&#x5165;dom,&#x9700;&#x8981;&#x901A;&#x8FC7;getHostSibling &#x627E;&#x5230;before</li>
+<li>&#x6DF1;&#x5EA6;&#x904D;&#x5386;&#x904D;&#x5386;finishedWork &#xFF0C;&#x6709; before &#x8FDB;&#x884C; insertBefore&#xFF0C;&#x6CA1;&#x6709; before &#x8FDB;&#x884C; append&#xFF0C;&#x5982;&#x679C;node tag &#x4E0D;&#x662F;HostComponent || HostRoot || HostPortal &#xFF0C;&#x8BF4;&#x660E;&#x5176;&#x5B9E;class&#x7EC4;&#x4EF6;&#xFF0C;&#x5C31;&#x5BF9;&#x5176;child&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+<pre><code>function commitPlacement(finishedWork) {
+  if (!supportsMutation) {
+    return;
+  }
+
+  // &#x901A;&#x8FC7; getHostParentFiber &#x627E;&#x5230; finishedWork &#x7684;&#x7236;&#x8282;&#x70B9; parentFiber&#xFF0C;&#x9012;&#x5F52;&#x7684;&#x5411;parent&#x63D2;&#x5165;&#x6240;&#x6709;&#x7684;node.
+  var parentFiber = getHostParentFiber(finishedWork);
+
+  // &#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x9700;&#x8981;&#x540C;&#x65F6;&#x66F4;&#x65B0;
+  var parent = void 0;
+  var isContainer = void 0;
+
+    // &#x83B7;&#x53D6;parent dom &#x8282;&#x70B9;&#xFF0C;&#x8BBE;&#x7F6E;isContainer 
+  switch (parentFiber.tag) {
+    case HostComponent:
+      parent = parentFiber.stateNode;
+      isContainer = false;
+      break;
+    case HostRoot:
+      parent = parentFiber.stateNode.containerInfo;
+      isContainer = true;
+      break;
+    case HostPortal:
+      parent = parentFiber.stateNode.containerInfo;
+      isContainer = true;
+      break;
+    default:
+      (function () {
+        {
+          {
+            throw ReactError(&apos;Invalid host parent fiber. This error is likely caused by a bug in React. Please file an issue.&apos;);
+          }
+        }
+      })();
+  }
+
+  if (parentFiber.effectTag &amp; ContentReset) {
+    //&#x505A;&#x4EFB;&#x4F55;&#x63D2;&#x5165;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#x91CD;&#x7F6E;parent&#x7684;&#x6587;&#x672C;&#x5185;&#x5BB9;
+    resetTextContent(parent);
+    // &#x6E05;&#x7A7A;ContentReset &#x6807;&#x5FD7;
+    parentFiber.effectTag &amp;= ~ContentReset;
+  }
+
+  var before = getHostSibling(finishedWork);
+
+  var node = finishedWork;
+  while (true) {
+    if (node.tag === HostComponent || node.tag === HostText) {
+      if (before) {
+        if (isContainer) {
+          insertInContainerBefore(parent, node.stateNode, before);
+        } else {
+          insertBefore(parent, node.stateNode, before);
+        }
+      } else {
+        if (isContainer) {
+          appendChildToContainer(parent, node.stateNode);
+        } else {
+          appendChild(parent, node.stateNode);
+        }
+      }
+    } else if (node.tag === HostPortal) {
+      // If the insertion itself is a portal, then we don&apos;t want to traverse
+      // down its children. Instead, we&apos;ll get insertions from each child in
+      // the portal directly.
+    } else if (node.child !== null) {
+        // class &#x7EC4;&#x4EF6;
+      node.child.return = node;
+      node = node.child;
+      continue;
+    }
+    // &#x5F53;node &#x53C8;&#x6267;&#x884C;&#x5230;finishedWork&#x65F6;&#x8FD4;&#x56DE;
+    if (node === finishedWork) {
+      return;
+    }
+    while (node.sibling === null) {
+        // &#x5144;&#x5F1F;&#x8282;&#x70B9;&#x548C;&#x7236;&#x8282;&#x70B9;&#x90FD;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x8FD4;&#x56DE;
+      if (node.return === null || node.return === finishedWork) {
+        return;
+      }
+      // &#x5144;&#x5F1F;&#x8282;&#x70B9;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x4ECE;&#x7236;&#x8282;&#x70B9;&#x5F00;&#x59CB;
+      node = node.return;
+    }
+    node.sibling.return = node.return;
+    node = node.sibling;
+  }
+}
+</code></pre><p>getHostSibling &#x67E5;&#x627E;&#x662F;&#x539F;&#x751F;&#x7C7B;&#x578B;&#x7684;&#x5144;&#x5F1F;&#x8282;&#x70B9;&#x3002;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;fiber&#x4E0D;&#x5B58;&#x5728;sibling &#xFF0C;&#x5224;&#x65AD;&#x5176;&#x7236;&#x8282;&#x70B9;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6216;&#x8005;&#x7236;&#x8282;&#x70B9;&#x662F;&#x5426;&#x662F;host node&#xFF0C;&#x547D;&#x4E2D;&#x5219;&#x8FD4;&#x56DE;null&#xFF0C;&#x5426;&#x5219;&#x7EE7;&#x7EED;&#x5411;&#x4E0A;&#x904D;&#x5386;</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;fiber&#x5B58;&#x5728;sibling,</li>
+</ul>
+<pre><code>function getHostSibling(fiber) {
+
+
+  var node = fiber;
+  siblings: while (true) {
+    // &#x5F53;&#x524D;fiber &#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;sibling
+    while (node.sibling === null) {
+      if (node.return === null || isHostParent(node.return)) {
+        return null;
+      }
+      node = node.return;
+    }
+    // &#x4ECE;&#x5144;&#x5F1F;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#x627E;
+    node.sibling.return = node.return;
+    node = node.sibling;
+
+    //&#x5982;&#x679C;&#x4E0D;&#x662F;&#x539F;&#x751F;dom &#x8282;&#x70B9;&#xFF0C;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x904D;&#x5386;
+    while (node.tag !== HostComponent &amp;&amp; node.tag !== HostText &amp;&amp; node.tag !== DehydratedSuspenseComponent) {
+      if (node.effectTag &amp; Placement) {
+        continue siblings;
+      }
+      if (node.child === null || node.tag === HostPortal) {
+        continue siblings;
+      } else {
+        node.child.return = node;
+        node = node.child;
+      }
+    }
+    // &#x662F;&#x539F;&#x751F;&#x8282;&#x70B9;&#x4E14;&#x4E0D;&#x662F;&#x65B0;&#x589E;&#x7684;&#xFF0C;&#x8FD4;&#x56DE;&#x5176;stateNode
+    if (!(node.effectTag &amp; Placement)) {
+      // Found it!
+      return node.stateNode;
+    }
+  }
+}
+</code></pre><p><img src="../images/placement.jpg" alt="&#x7ED3;&#x6784;"></p>
+<h5 id="commitwork---&#x66F4;&#x65B0;&#x8282;&#x70B9;">commitWork---&#x66F4;&#x65B0;&#x8282;&#x70B9;</h5>
+<p>commitWork &#x53EA;&#x4F1A;&#x66F4;&#x65B0;  HostComponent(dom &#x8282;&#x70B9;) &#xFF0C; HostText(&#x6587;&#x672C;&#x8282;&#x70B9;) &#x548C; &#x51FD;&#x6570;&#x7EC4;&#x4EF6;</p>
+<ul>
+<li>&#x66F4;&#x65B0; HostComponent&#x65F6; &#x4F1A;&#x4ECE;&#x5F53;&#x524D;&#x4EFB;&#x52A1; finishWork &#x4E2D;&#x53D6;&#x51FA; updateQueue &#x3001;newProps&#x3001;oldProps&#x3001;&#x548C; dom &#x5185;&#x5BB9;&#x4F20;&#x5165; commitUpdate &#x4E2D;&#x4ECE;&#x800C;&#x66F4;&#x65B0;&#x5230; dom &#x4E0A;</li>
+<li>&#x66F4;&#x65B0;HostText &#x4F1A;&#x8C03;&#x7528; commitTextUpdate &#x66F4;&#x65B0;&#x6587;&#x672C;&#x5185;&#x5BB9;</li>
+<li>&#x66F4;&#x65B0;&#x51FD;&#x6570;&#x7EC4;&#x4EF6; &#x4F1A;&#x8C03;&#x7528; commitHookEffectList&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x548C;hook&#x6709;&#x5173;&#x7CFB;&#x3002;</li>
+</ul>
+<pre><code>
+function commitUpdate(domElement, updatePayload, type, oldProps, newProps, internalInstanceHandle) {
+  //&#x66F4;&#x65B0;fiber&#x7684;internalEventHandlersKey &#x5C5E;&#x6027;
+  updateFiberProps(domElement, newProps);
+  // &#x5E94;&#x7528;diff&#x5230;dom&#x8282;&#x70B9;
+  updateProperties(domElement, updatePayload, type, oldProps, newProps);
+}
+
+function commitTextUpdate(textInstance, oldText, newText) {
+  textInstance.nodeValue = newText;
+}
+
+// &#x5904;&#x7406;hook&#x7684; effect
+
+function commitHookEffectList(unmountTag, mountTag, finishedWork) {
+  var updateQueue = finishedWork.updateQueue;
+  var lastEffect = updateQueue !== null ? updateQueue.lastEffect : null;
+  if (lastEffect !== null) {
+    var firstEffect = lastEffect.next;
+    var effect = firstEffect;
+    do {
+      if ((effect.tag &amp; unmountTag) !== NoEffect$1) {
+        // Unmount
+        var destroy = effect.destroy;
+        effect.destroy = undefined;
+        if (destroy !== undefined) {
+          destroy();
+        }
+      }
+      if ((effect.tag &amp; mountTag) !== NoEffect$1) {
+        // Mount
+        var create = effect.create;
+        effect.destroy = create();
+      }
+      effect = effect.next;
+    } while (effect !== firstEffect);
+  }
+}
+</code></pre><h5 id="commitdeletion----&#x5220;&#x9664;&#x8282;&#x70B9;">commitDeletion--- &#x5220;&#x9664;&#x8282;&#x70B9;</h5>
+<pre><code>function commitDeletion(current$$1) {
+  if (supportsMutation) {
+      // &#x9012;&#x5F52;&#x5730;&#x4ECE;parent&#x5220;&#x9664;&#x6709;&#x6240;&#x7684;&#x8282;&#x70B9;&#xFF0C;Detach refs&#xFF0C;&#x8C03;&#x7528;componentWillUnmount
+    unmountHostComponents(current$$1);
+  } else {
+
+   // Detach refs&#xFF0C;&#x8C03;&#x7528;componentWillUnmount
+    commitNestedUnmounts(current$$1);
+  }
+  // detachFiber
+  detachFiber(current$$1);
+}
+</code></pre><h5 id="unmounthostcomponents">unmountHostComponents</h5>
+<pre><code>function unmountHostComponents(current$$1) {
+
+  var node = current$$1;
+
+  var currentParentIsValid = false;
+
+  // &#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x9700;&#x8981;&#x540C;&#x4E8B;&#x8BBE;&#x7F6E;
+  var currentParent = void 0;
+  var currentParentIsContainer = void 0;
+
+
+
+  while (true) {
+    if (!currentParentIsValid) {
+      var parent = node.return;
+      //&#x627E;&#x5230;&#x8981;&#x8FDB;&#x884C;&#x5220;&#x9664;&#x7684;parent node
+      findParent: while (true) {
+        (function () {
+          if (!(parent !== null)) {
+            {
+              throw ReactError(&apos;Expected to find a host parent. This error is likely caused by a bug in React. Please file an issue.&apos;);
+            }
+          }
+        })();
+        // &#x5224;&#x65AD;tag &#x662F;&#x4E0D;&#x662F; HostComponent || HostRoot ||HostPortal
+        switch (parent.tag) {
+          case HostComponent:
+            currentParent = parent.stateNode;
+            currentParentIsContainer = false;
+            break findParent;
+          case HostRoot:
+            currentParent = parent.stateNode.containerInfo;
+            currentParentIsContainer = true;
+            break findParent;
+          case HostPortal:
+            currentParent = parent.stateNode.containerInfo;
+            currentParentIsContainer = true;
+            break findParent;
+        }
+        // &#x4E0D;&#x662F;&#x4E0A;&#x9762;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x5C31;&#x7EE7;&#x7EED;&#x5F80;&#x4E0A;&#x904D;&#x5386;
+        parent = parent.return;
+      }
+      // &#x6807;&#x8BB0;currentParentIsValid&#x4E3A;true
+      currentParentIsValid = true;
+    }
+    // &#x5224;&#x65AD;node &#x7684;tag &#x662F;&#x4E0D;&#x662F; HostComponent &#x6216;&#x8005;HostText
+    if (node.tag === HostComponent || node.tag === HostText) {
+      commitNestedUnmounts(node);
+      //&#x5728;&#x6240;&#x6709;&#x7684;children&#x5378;&#x8F7D;&#x5B8C;&#x6BD5;&#x53EA;&#x6709;&#xFF0C;&#x4ECE;tree&#x4E0A;&#x8FDB;&#x884C;&#x5B89;&#x5168;&#x7684;&#x79FB;&#x9664;
+      if (currentParentIsContainer) {
+        removeChildFromContainer(currentParent, node.stateNode);
+      } else {
+        removeChild(currentParent, node.stateNode);
+      }
+      // Don&apos;t visit children because we already visited them.
+    } else if (enableSuspenseServerRenderer &amp;&amp; node.tag === DehydratedSuspenseComponent) {
+      // Delete the dehydrated suspense boundary and all of its content.
+      if (currentParentIsContainer) {
+        clearSuspenseBoundaryFromContainer(currentParent, node.stateNode);
+      } else {
+        clearSuspenseBoundary(currentParent, node.stateNode);
+      }
+    } else if (node.tag === HostPortal) {
+      if (node.child !== null) {
+          // &#x5BF9;&#x4E8E;portal &#xFF0C;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x904D;&#x5386;&#xFF0C;&#x5176;&#x5B50;&#x8282;&#x70B9;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x590D;&#x5408;&#x5F0F;&#x7EC4;&#x4EF6;
+          //&#x4F46;&#x662F;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x79FB;&#x9664;&#x8282;&#x70B9;&#x7684;parent&#x4E3A;portal&#x7684;containerInfo
+        currentParent = node.stateNode.containerInfo;
+        currentParentIsContainer = true;
+        node.child.return = node;
+        node = node.child;
+        continue;
+      }
+    } else {
+    //&#x4E0D;&#x662F;host component &#x4E5F;&#x4E0D;&#x662F;portal 
+      commitUnmount(node);
+
+      if (node.child !== null) {
+        node.child.return = node;
+        node = node.child;
+        continue;
+      }
+    }
+
+    // child &#x5DF2;&#x7ECF;&#x904D;&#x5386;&#x5B8C;&#x6BD5;
+    if (node === current$$1) {
+      return;
+    }
+    // child&#x6CA1;&#x6709;&#x4E86;sibling &#xFF0C;&#x5411;&#x4E0A;&#x904D;&#x5386;&#xFF0C;&#x76F4;&#x5230; return &#x4E3A;null&#x6216;&#x8005;&#x904D;&#x5386;&#x5230;current$$1
+    while (node.sibling === null) {
+      if (node.return === null || node.return === current$$1) {
+        return;
+      }
+      node = node.return;
+      if (node.tag === HostPortal) {
+        currentParentIsValid = false;
+      }
+    }
+    node.sibling.return = node.return;
+    node = node.sibling;
+  }
+}
+</code></pre><h4 id="commitnestedunmounts">commitNestedUnmounts</h4>
+<p>commitNestedUnmounts &#x904D;&#x5386;node&#x8FDB;&#x884C; commitUnmount&#xFF0C;
+commitUnmount &#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x5378;&#x8F7D; ref&#xFF0C; &#x6267;&#x884C; <code>componentWillUnmount</code> &#x751F;&#x547D;&#x5468;&#x671F;</p>
+<pre><code>function commitNestedUnmounts(root) {
+
+  var node = root;
+  while (true) {
+    commitUnmount(node);
+    if (node.child !== null &amp;&amp; (
+    !supportsMutation || node.tag !== HostPortal)) {
+      node.child.return = node;
+      node = node.child;
+      continue;
+    }
+    // &#x63A5;&#x4E0B;&#x6765;&#x5411;&#x4E0A;&#x904D;&#x5386;
+    if (node === root) {
+      return;
+    }
+    while (node.sibling === null) {
+      if (node.return === null || node.return === root) {
+        return;
+      }
+      node = node.return;
+    }
+    node.sibling.return = node.return;
+    node = node.sibling;
+  }
+}
+</code></pre><h4 id="&#x7B2C;&#x4E09;&#x6B21;&#x5FAA;&#x73AF;">&#x7B2C;&#x4E09;&#x6B21;&#x5FAA;&#x73AF;</h4>
+<p>&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x4E3B;&#x8981;&#x662F;&#x6267;&#x884C;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;</p>
+<ul>
+<li>&#x6267;&#x884C;componentDidMount</li>
+<li>&#x6267;&#x884C; componentDidUpdate</li>
+<li>&#x6267;&#x884C; setState &#x7684; callback &#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+</ul>
+<p>commitLifeCycles</p>
+<pre><code>function commitAllLifeCycles(finishedRoot, committedExpirationTime) {
+  {
+    ReactStrictModeWarnings.flushPendingUnsafeLifecycleWarnings();
+    ReactStrictModeWarnings.flushLegacyContextWarning();
+
+    if (warnAboutDeprecatedLifecycles) {
+      ReactStrictModeWarnings.flushPendingDeprecationWarnings();
+    }
+  }
+  while (nextEffect !== null) {
+    {
+      setCurrentFiber(nextEffect);
+    }
+    var effectTag = nextEffect.effectTag;
+
+    if (effectTag &amp; (Update | Callback)) {
+      recordEffect();
+      var current$$1 = nextEffect.alternate;
+      commitLifeCycles(finishedRoot, current$$1, nextEffect, committedExpirationTime);
+    }
+
+    if (effectTag &amp; Ref) {
+      recordEffect();
+      commitAttachRef(nextEffect);
+    }
+
+    if (effectTag &amp; Passive) {
+      rootWithPendingPassiveEffects = finishedRoot;
+    }
+
+    nextEffect = nextEffect.nextEffect;
+  }
+  {
+    resetCurrentFiber();
+  }
+}
+</code></pre><p>commitLifeCycles &#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;tab&#x8FDB;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x5904;&#x7406;&#x3002;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x662F; FunctionComponent||ForwardRef||SimpleMemoComponent&#x4F1A;&#x518D;&#x6B21;&#x8C03;&#x7528;commitHookEffectList&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5176;&#x53C2;&#x6570;&#x5728;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x3002;&#x672C;&#x6B21;&#x5FAA;&#x73AF;&#x4F1A;&#x4F20;&#x5165; UnmountLayout, MountLayout&#x3002;</li>
+<li>&#x5982;&#x679C;&#x662F;ClassComponent &#xFF0C;&#x4F1A;&#x5224;&#x65AD;&#x662F;&#x9996;&#x6B21;&#x6E32;&#x67D3;&#x8FD8;&#x662F;&#x66F4;&#x65B0;&#x6E32;&#x67D3;&#x51B3;&#x5B9A;&#x662F;&#x8C03;&#x7528;componentDidMount&#x8FD8;&#x662F;componentDidUpdate</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;fiber&#x7684;updateQueue &#x5B58;&#x5728;&#x4F1A;&#x8C03;&#x7528;commitUpdateQueue</li>
+<li>&#x5982;&#x679C;&#x662F;HostRoot&#xFF0C;&#x8C03;&#x7528;commitUpdateQueue</li>
+<li>&#x5982;&#x679C;&#x662F;HostComponent &#xFF0C;&#x8C03;&#x7528;commitMount</li>
+</ul>
+<pre><code>function commitLifeCycles(finishedRoot, current$$1, finishedWork, committedExpirationTime) {
+  switch (finishedWork.tag) {
+    case FunctionComponent:
+    case ForwardRef:
+    case SimpleMemoComponent:
+      {
+        commitHookEffectList(UnmountLayout, MountLayout, finishedWork);
+        break;
+      }
+    case ClassComponent:
+      {
+        var instance = finishedWork.stateNode;
+        if (finishedWork.effectTag &amp; Update) {
+          if (current$$1 === null) {
+            startPhaseTimer(finishedWork, &apos;componentDidMount&apos;);
+            instance.componentDidMount();
+            stopPhaseTimer();
+          } else {
+            var prevProps = finishedWork.elementType === finishedWork.type ? current$$1.memoizedProps : resolveDefaultProps(finishedWork.type, current$$1.memoizedProps);
+            var prevState = current$$1.memoizedState;
+            startPhaseTimer(finishedWork, &apos;componentDidUpdate&apos;);
+            instance.componentDidUpdate(prevProps, prevState, instance.__reactInternalSnapshotBeforeUpdate);
+            stopPhaseTimer();
+          }
+        }
+        var updateQueue = finishedWork.updateQueue;
+        if (updateQueue !== null) {
+
+          commitUpdateQueue(finishedWork, updateQueue, instance, committedExpirationTime);
+        }
+        return;
+      }
+    case HostRoot:
+      {
+        var _updateQueue = finishedWork.updateQueue;
+        if (_updateQueue !== null) {
+          var _instance = null;
+          if (finishedWork.child !== null) {
+            switch (finishedWork.child.tag) {
+              case HostComponent:
+                _instance = getPublicInstance(finishedWork.child.stateNode);
+                break;
+              case ClassComponent:
+                _instance = finishedWork.child.stateNode;
+                break;
+            }
+          }
+          commitUpdateQueue(finishedWork, _updateQueue, _instance, committedExpirationTime);
+        }
+        return;
+      }
+    case HostComponent:
+      {
+        var _instance2 = finishedWork.stateNode;
+
+        if (current$$1 === null &amp;&amp; finishedWork.effectTag &amp; Update) {
+          var type = finishedWork.type;
+          var props = finishedWork.memoizedProps;
+          commitMount(_instance2, type, props, finishedWork);
+        }
+
+        return;
+      }
+    case HostText:
+      {
+        // We have no life-cycles associated with text.
+        return;
+      }
+    case HostPortal:
+      {
+        // We have no life-cycles associated with portals.
+        return;
+      }
+    case Profiler:
+      {
+        if (enableProfilerTimer) {
+          var onRender = finishedWork.memoizedProps.onRender;
+
+          if (enableSchedulerTracing) {
+            onRender(finishedWork.memoizedProps.id, current$$1 === null ? &apos;mount&apos; : &apos;update&apos;, finishedWork.actualDuration, finishedWork.treeBaseDuration, finishedWork.actualStartTime, getCommitTime(), finishedRoot.memoizedInteractions);
+          } else {
+            onRender(finishedWork.memoizedProps.id, current$$1 === null ? &apos;mount&apos; : &apos;update&apos;, finishedWork.actualDuration, finishedWork.treeBaseDuration, finishedWork.actualStartTime, getCommitTime());
+          }
+        }
+        return;
+      }
+    case SuspenseComponent:
+    case IncompleteClassComponent:
+      break;
+    default:
+      {
+        (function () {
+          {
+            {
+              throw ReactError(&apos;This unit of work tag should not have side-effects. This error is likely caused by a bug in React. Please file an issue.&apos;);
+            }
+          }
+        })();
+      }
+  }
+}
+</code></pre><h6 id="commitupdatequeue">commitUpdateQueue</h6>
+<p>&#x4F1A;&#x627E;&#x5230;&#x6B64;&#x6B21;&#x66F4;&#x65B0; setState &#x7684;&#x56DE;&#x8C03;&#x8FDB;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x66F4;&#x65B0;&#x4E2D;&#x6709;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E5F;&#x4F1A;&#x5728;&#x8FD9;&#x4E2A;&#x65F6;&#x673A;&#x6267;&#x884C;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x5C06;&#x9519;&#x8BEF;&#x5728;componentDidCatch&#x8FDB;&#x884C;&#x6355;&#x83B7;&#xFF0C;</p>
+<pre><code>function commitUpdateQueue(finishedWork, finishedQueue, instance, renderExpirationTime) {
+
+  // &#x5982;&#x679C;&#x6709;&#x6355;&#x83B7;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x5176;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x5176;&#x4FDD;&#x5B58;&#x5728;queue&#x4E2D;&#x4EE5;&#x4FBF;&#x5904;&#x7406;&#x5B8C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#x540E;&#x8FDB;&#x884C;&#x5904;&#x7406;
+  if (finishedQueue.firstCapturedUpdate !== null) {
+    // Join the captured update list to the end of the normal list.
+    if (finishedQueue.lastUpdate !== null) {
+      finishedQueue.lastUpdate.next = finishedQueue.firstCapturedUpdate;
+      finishedQueue.lastUpdate = finishedQueue.lastCapturedUpdate;
+    }
+    // Clear the list of captured updates.
+    finishedQueue.firstCapturedUpdate = finishedQueue.lastCapturedUpdate = null;
+  }
+
+  // Commit the effects
+  commitUpdateEffects(finishedQueue.firstEffect, instance);
+  finishedQueue.firstEffect = finishedQueue.lastEffect = null;
+
+  commitUpdateEffects(finishedQueue.firstCapturedEffect, instance);
+  finishedQueue.firstCapturedEffect = finishedQueue.lastCapturedEffect = null;
+}
+
+// &#x53D6;&#x51FA;effect&#x7684;callback&#xFF0C;&#x5BF9;&#x4E8E;hostRoot&#x8282;&#x70B9;&#x6765;&#x8BF4;callback&#x662F; ReactWork.prototype._onCommit &#x53EF;&#x53C2;&#x8003;`scheduleRootUpdate`&#x65B9;&#x6CD5;
+//callback &#x4E00;&#x822C;&#x662F;setState&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;
+function commitUpdateEffects(effect, instance) {
+  while (effect !== null) {
+    var _callback3 = effect.callback;
+    if (_callback3 !== null) {
+      effect.callback = null;
+      callCallback(_callback3, instance);
+    }
+    effect = effect.nextEffect;
+  }
+}
+</code></pre><h3 id="&#x6536;&#x5C3E;&#x5DE5;&#x4F5C;">&#x6536;&#x5C3E;&#x5DE5;&#x4F5C;</h3>
+<p>&#x91CD;&#x7F6E;&#x53D8;&#x91CF;&#x548C;&#x5176;&#x4ED6;&#x5DE5;&#x4F5C;</p>
+<pre><code>  isCommitting$1 = false;
+  isWorking = false;
+  stopCommitLifeCyclesTimer();
+  stopCommitTimer();
+
+  root.expirationTime = expirationTime;
+  root.finishedWork = null;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="completeUnitOfWork.html" class="navigation navigation-prev " aria-label="Previous page: completeUnitOfWork">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="updateHostRoot.html" class="navigation navigation-next " aria-label="Next page: updateHostRoot">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"commitRoot","level":"1.3.10","depth":2,"next":{"title":"updateHostRoot","level":"1.3.11","depth":2,"path":"chapter2/updateHostRoot.md","ref":"chapter2/updateHostRoot.md","articles":[]},"previous":{"title":"completeUnitOfWork","level":"1.3.9","depth":2,"path":"chapter2/completeUnitOfWork.md","ref":"chapter2/completeUnitOfWork.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/commitRoot.md","mtime":"2019-09-05T15:04:47.033Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T15:05:01.183Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
