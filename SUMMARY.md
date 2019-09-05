@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-28 00:28:22
- * @LastEditTime: 2019-09-05 15:56:56
+ * @LastEditTime: 2019-09-05 23:20:31
  * @LastEditors: Please set LastEditors
  -->
 # React源码分析
@@ -50,6 +50,8 @@
   * [Context](others/Context.md)
   * [forwardRef](others/forwardRef.md)
   * [React错误处理](others/errorHandle.md)
+  * [ReactLazy](others/reactLazy.md)
+  * [throwException](others/throwException.md)
 * Hooks
   * [hooksAndStateHook](chapter4/hooksAndStateHook.md)
   * [effectHook](chapter4/effectHook.md)
@@ -66,4 +68,6 @@
   * [reselect](redux/reselect.md)
   * [react-redux](redux/react-redux.md)
   * [rematch](rematch/rematch.md)
+* create-react-app
+  * [create-react-app](createReactApp/create-react-app.md)
   
