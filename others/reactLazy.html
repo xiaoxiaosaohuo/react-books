@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="throwException.html" />
     
-    
-    <link rel="prev" href="errorHandle.html" />
+    <link rel="prev" href="render和commit阶段的异常处理.html" />
     
 
     </head>
@@ -673,12 +671,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.5" data-path="reactLazy.html">
+        <li class="chapter " data-level="1.6.5" data-path="render和commit阶段的异常处理.html">
             
-                <a href="reactLazy.html">
+                <a href="render和commit阶段的异常处理.html">
             
                     
-                    ReactLazy
+                    render和commit阶段的异常处理
             
                 </a>
             
@@ -686,12 +684,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="throwException.html">
+        <li class="chapter active" data-level="1.6.6" data-path="reactLazy.html">
             
-                <a href="throwException.html">
+                <a href="reactLazy.html">
             
                     
-                    throwException
+                    ReactLazy
             
                 </a>
             
@@ -1005,11 +1003,37 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 23:07:52
- * @LastEditTime: 2019-09-05 23:11:25
+ * @LastEditTime: 2019-09-08 18:53:34
  * @LastEditors: Please set LastEditors
  -->
 <h2 id="reactlazy">reactLazy</h2>
-<p>&#x61D2;&#x52A0;&#x8F7D;&#x7EC4;&#x4EF6;</p>
+<p>&#x61D2;&#x52A0;&#x8F7D;&#x7EC4;&#x4EF6;&#x7528;&#x6CD5;&#x793A;&#x4F8B;</p>
+<p>fallback &#x4F1A;&#x5728;OtherComponent&#x7EC4;&#x4EF6;&#x4E3A;&#x5B8C;&#x6210;load&#x4E4B;&#x524D;&#x6E32;&#x67D3;&#x4E00;&#x4E2A;&#x5360;&#x4F4D;&#x7684;UI&#xFF0C;&#x6BD4;&#x5982;loading&#x3002;</p>
+<pre><code>const OtherComponent = React.lazy(() =&gt; import(&apos;./OtherComponent&apos;));
+
+const MyLazy = () =&gt; {
+  return (
+        &lt;React.Suspense fallback={&lt;h1&gt;Still Loading&#x2026;&lt;/h1&gt;}&gt;
+            &lt;OtherComponent /&gt;
+        &lt;/React.Suspense&gt;
+  );
+}
+
+export default MyLazy;
+</code></pre><pre><code>
+function lazy(ctor) {
+  var lazyType = {
+    $$typeof: REACT_LAZY_TYPE,
+    _ctor: ctor,
+    // React uses these fields to store the result.
+    _status: -1,
+    _result: null
+  };
+
+  return lazyType;
+}
+</code></pre><h4 id="updatesuspensecomponent">updateSuspenseComponent</h4>
+<p>&#x5F85;&#x66F4;...</p>
 
                                 
                                 </section>
@@ -1037,14 +1061,10 @@
 
             
                 
-                <a href="errorHandle.html" class="navigation navigation-prev " aria-label="Previous page: React错误处理">
+                <a href="render和commit阶段的异常处理.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: render和commit阶段的异常处理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="throwException.html" class="navigation navigation-next " aria-label="Next page: throwException">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1053,7 +1073,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ReactLazy","level":"1.6.5","depth":2,"next":{"title":"throwException","level":"1.6.6","depth":2,"path":"others/throwException.md","ref":"others/throwException.md","articles":[]},"previous":{"title":"React错误处理","level":"1.6.4","depth":2,"path":"others/errorHandle.md","ref":"others/errorHandle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/reactLazy.md","mtime":"2019-09-05T15:11:26.137Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T15:20:37.441Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ReactLazy","level":"1.6.6","depth":2,"next":{"title":"Hooks","level":"1.7","depth":1,"ref":"","articles":[{"title":"hooksAndStateHook","level":"1.7.1","depth":2,"path":"chapter4/hooksAndStateHook.md","ref":"chapter4/hooksAndStateHook.md","articles":[]},{"title":"effectHook","level":"1.7.2","depth":2,"path":"chapter4/effectHook.md","ref":"chapter4/effectHook.md","articles":[]},{"title":"useState","level":"1.7.3","depth":2,"path":"chapter4/useState.md","ref":"chapter4/useState.md","articles":[]},{"title":"useReducer","level":"1.7.4","depth":2,"path":"chapter4/useReducer.md","ref":"chapter4/useReducer.md","articles":[]},{"title":"useCallback","level":"1.7.5","depth":2,"path":"chapter4/useCallback.md","ref":"chapter4/useCallback.md","articles":[]},{"title":"useMemo","level":"1.7.6","depth":2,"path":"chapter4/useMemo.md","ref":"chapter4/useMemo.md","articles":[]},{"title":"useRef","level":"1.7.7","depth":2,"path":"chapter4/useRef.md","ref":"chapter4/useRef.md","articles":[]},{"title":"useLayoutEffect","level":"1.7.8","depth":2,"path":"chapter4/useLayoutEffect.md","ref":"chapter4/useLayoutEffect.md","articles":[]},{"title":"useContext","level":"1.7.9","depth":2,"path":"chapter4/useContext.md","ref":"chapter4/useContext.md","articles":[]},{"title":"自定义hooks","level":"1.7.10","depth":2,"path":"chapter4/customeHooks.md","ref":"chapter4/customeHooks.md","articles":[]}]},"previous":{"title":"render和commit阶段的异常处理","level":"1.6.5","depth":2,"path":"others/render和commit阶段的异常处理.md","ref":"others/render和commit阶段的异常处理.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/reactLazy.md","mtime":"2019-09-08T10:53:35.049Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-08T10:55:42.695Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

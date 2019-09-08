@@ -673,12 +673,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="../others/reactLazy.html">
+        <li class="chapter " data-level="1.6.5" data-path="../others/render和commit阶段的异常处理.html">
             
-                <a href="../others/reactLazy.html">
+                <a href="../others/render和commit阶段的异常处理.html">
             
                     
-                    ReactLazy
+                    render和commit阶段的异常处理
             
                 </a>
             
@@ -686,12 +686,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="../others/throwException.html">
+        <li class="chapter " data-level="1.6.6" data-path="../others/reactLazy.html">
             
-                <a href="../others/throwException.html">
+                <a href="../others/reactLazy.html">
             
                     
-                    throwException
+                    ReactLazy
             
                 </a>
             
@@ -1005,7 +1005,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 15:42:12
- * @LastEditTime: 2019-09-05 23:04:46
+ * @LastEditTime: 2019-09-08 18:09:53
  * @LastEditors: Please set LastEditors
  -->
 <h2 id="commitroot">commitRoot</h2>
@@ -1528,7 +1528,7 @@ commitUnmount &#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x5378;&#x8F7D; ref&#xFF0C; &#x62
 <ul>
 <li>&#x6267;&#x884C;componentDidMount</li>
 <li>&#x6267;&#x884C; componentDidUpdate</li>
-<li>&#x6267;&#x884C; setState &#x7684; callback &#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li>&#x6267;&#x884C; setState &#x7684; callback &#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x51C6;&#x786E;&#x70B9;&#x8BF4;&#x5E94;&#x8BE5;&#x662F;update &#x7684;callback</li>
 </ul>
 <p>commitLifeCycles</p>
 <pre><code>function commitAllLifeCycles(finishedRoot, committedExpirationTime) {
@@ -1677,7 +1677,7 @@ commitUnmount &#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x5378;&#x8F7D; ref&#xFF0C; &#x62
   }
 }
 </code></pre><h6 id="commitupdatequeue">commitUpdateQueue</h6>
-<p>&#x4F1A;&#x627E;&#x5230;&#x6B64;&#x6B21;&#x66F4;&#x65B0; setState &#x7684;&#x56DE;&#x8C03;&#x8FDB;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x66F4;&#x65B0;&#x4E2D;&#x6709;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E5F;&#x4F1A;&#x5728;&#x8FD9;&#x4E2A;&#x65F6;&#x673A;&#x6267;&#x884C;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x5C06;&#x9519;&#x8BEF;&#x5728;componentDidCatch&#x8FDB;&#x884C;&#x6355;&#x83B7;&#xFF0C;</p>
+<p>&#x4F1A;&#x627E;&#x5230;&#x6B64;&#x6B21;&#x66F4;&#x65B0; setState &#x7684;&#x56DE;&#x8C03;&#x8FDB;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x66F4;&#x65B0;&#x4E2D;&#x6709;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E5F;&#x4F1A;&#x5728;&#x8FD9;&#x4E2A;&#x65F6;&#x673A;&#x6267;&#x884C;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x5C06;&#x9519;&#x8BEF;&#x5728;componentDidCatch&#x8FDB;&#x884C;&#x6355;&#x83B7;. </p>
 <pre><code>function commitUpdateQueue(finishedWork, finishedQueue, instance, renderExpirationTime) {
 
   // &#x5982;&#x679C;&#x6709;&#x6355;&#x83B7;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x5176;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x5176;&#x4FDD;&#x5B58;&#x5728;queue&#x4E2D;&#x4EE5;&#x4FBF;&#x5904;&#x7406;&#x5B8C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#x540E;&#x8FDB;&#x884C;&#x5904;&#x7406;
@@ -1694,7 +1694,7 @@ commitUnmount &#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x5378;&#x8F7D; ref&#xFF0C; &#x62
   // Commit the effects
   commitUpdateEffects(finishedQueue.firstEffect, instance);
   finishedQueue.firstEffect = finishedQueue.lastEffect = null;
-
+  // &#x5F02;&#x5E38;&#x5904;&#x7406;update&#x961F;&#x5217;
   commitUpdateEffects(finishedQueue.firstCapturedEffect, instance);
   finishedQueue.firstCapturedEffect = finishedQueue.lastCapturedEffect = null;
 }
@@ -1763,7 +1763,7 @@ function commitUpdateEffects(effect, instance) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"commitRoot","level":"1.3.10","depth":2,"next":{"title":"updateHostRoot","level":"1.3.11","depth":2,"path":"chapter2/updateHostRoot.md","ref":"chapter2/updateHostRoot.md","articles":[]},"previous":{"title":"completeUnitOfWork","level":"1.3.9","depth":2,"path":"chapter2/completeUnitOfWork.md","ref":"chapter2/completeUnitOfWork.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/commitRoot.md","mtime":"2019-09-05T15:04:47.033Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T15:20:37.441Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"commitRoot","level":"1.3.10","depth":2,"next":{"title":"updateHostRoot","level":"1.3.11","depth":2,"path":"chapter2/updateHostRoot.md","ref":"chapter2/updateHostRoot.md","articles":[]},"previous":{"title":"completeUnitOfWork","level":"1.3.9","depth":2,"path":"chapter2/completeUnitOfWork.md","ref":"chapter2/completeUnitOfWork.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/commitRoot.md","mtime":"2019-09-08T10:09:53.760Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-08T10:55:42.695Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

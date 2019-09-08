@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-28 22:25:22
+ * @LastEditTime: 2019-09-08 16:38:13
+ * @LastEditors: Please set LastEditors
+ -->
 ## React中的错误处理
 
 React作为一个UI库有自己的错误搜集和处理机制，在React中`ReactErrorUtils`是处理错误相关的一个文件。
@@ -40,7 +47,7 @@ const reporter = {
 3. 函数调用的context
 4. 其他参数
 
-
+invokeGuardedCallback 方法主要引用于render阶段捕获commit阶段的三大循环（见commitRoot小节)和事件等错误
 
 ```
 export function invokeGuardedCallback<A, B, C, D, E, F, Context>(

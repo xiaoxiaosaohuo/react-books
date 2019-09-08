@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 14:28:26
- * @LastEditTime: 2019-09-05 15:48:27
+ * @LastEditTime: 2019-09-08 16:22:52
  * @LastEditors: Please set LastEditors
  -->
 ## completeUnitOfWork
@@ -90,6 +90,7 @@ function completeUnitOfWork(workInProgress) {
       }
     } else {
       // 当前fiber work未完成
+      // 见 throwException 小节
     }
   }
 

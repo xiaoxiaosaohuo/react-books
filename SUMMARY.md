@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-28 00:28:22
- * @LastEditTime: 2019-09-05 23:20:31
+ * @LastEditTime: 2019-09-08 18:28:46
  * @LastEditors: Please set LastEditors
  -->
 # React源码分析
@@ -50,8 +50,9 @@
   * [Context](others/Context.md)
   * [forwardRef](others/forwardRef.md)
   * [React错误处理](others/errorHandle.md)
+  * [render和commit阶段的异常处理](others/render和commit阶段的异常处理.md)
   * [ReactLazy](others/reactLazy.md)
-  * [throwException](others/throwException.md)
+ 
 * Hooks
   * [hooksAndStateHook](chapter4/hooksAndStateHook.md)
   * [effectHook](chapter4/effectHook.md)

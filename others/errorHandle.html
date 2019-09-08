@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="reactLazy.html" />
+    <link rel="next" href="render和commit阶段的异常处理.html" />
     
     
     <link rel="prev" href="forwardRef.html" />
@@ -673,12 +673,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="reactLazy.html">
+        <li class="chapter " data-level="1.6.5" data-path="render和commit阶段的异常处理.html">
             
-                <a href="reactLazy.html">
+                <a href="render和commit阶段的异常处理.html">
             
                     
-                    ReactLazy
+                    render和commit阶段的异常处理
             
                 </a>
             
@@ -686,12 +686,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="throwException.html">
+        <li class="chapter " data-level="1.6.6" data-path="reactLazy.html">
             
-                <a href="throwException.html">
+                <a href="reactLazy.html">
             
                     
-                    throwException
+                    ReactLazy
             
                 </a>
             
@@ -1001,7 +1001,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="react&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;">React&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;</h2>
+                                <!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-28 22:25:22
+ * @LastEditTime: 2019-09-08 16:38:13
+ * @LastEditors: Please set LastEditors
+ -->
+<h2 id="react&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;">React&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;</h2>
 <p>React&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;UI&#x5E93;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x9519;&#x8BEF;&#x641C;&#x96C6;&#x548C;&#x5904;&#x7406;&#x673A;&#x5236;&#xFF0C;&#x5728;React&#x4E2D;<code>ReactErrorUtils</code>&#x662F;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x76F8;&#x5173;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x3002;</p>
 <h4 id="&#x7528;&#x4E8E;&#x5426;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x72B6;&#x6001;&#x548C;&#x6355;&#x83B7;&#x5230;&#x7684;&#x9519;&#x8BEF;">&#x7528;&#x4E8E;&#x5426;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x72B6;&#x6001;&#x548C;&#x6355;&#x83B7;&#x5230;&#x7684;&#x9519;&#x8BEF;</h4>
 <pre><code>// Used by Fiber to simulate a try-catch.
@@ -1029,6 +1036,7 @@ let rethrowError: mixed = null;
 <li>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;context</li>
 <li>&#x5176;&#x4ED6;&#x53C2;&#x6570;</li>
 </ol>
+<p>invokeGuardedCallback &#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x5F15;&#x7528;&#x4E8E;render&#x9636;&#x6BB5;&#x6355;&#x83B7;commit&#x9636;&#x6BB5;&#x7684;&#x4E09;&#x5927;&#x5FAA;&#x73AF;&#xFF08;&#x89C1;commitRoot&#x5C0F;&#x8282;)&#x548C;&#x4E8B;&#x4EF6;&#x7B49;&#x9519;&#x8BEF;</p>
 <pre><code>export function invokeGuardedCallback&lt;A, B, C, D, E, F, Context&gt;(
   name: string | null,
   func: (a: A, b: B, c: C, d: D, e: E, f: F) =&gt; mixed,
@@ -1301,7 +1309,7 @@ export function clearCaughtError() {
                 </a>
                 
                 
-                <a href="reactLazy.html" class="navigation navigation-next " aria-label="Next page: ReactLazy">
+                <a href="render和commit阶段的异常处理.html" class="navigation navigation-next " aria-label="Next page: render和commit阶段的异常处理">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1312,7 +1320,7 @@ export function clearCaughtError() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"React错误处理","level":"1.6.4","depth":2,"next":{"title":"ReactLazy","level":"1.6.5","depth":2,"path":"others/reactLazy.md","ref":"others/reactLazy.md","articles":[]},"previous":{"title":"forwardRef","level":"1.6.3","depth":2,"path":"others/forwardRef.md","ref":"others/forwardRef.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/errorHandle.md","mtime":"2019-07-28T15:44:28.729Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-05T15:20:37.441Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React错误处理","level":"1.6.4","depth":2,"next":{"title":"render和commit阶段的异常处理","level":"1.6.5","depth":2,"path":"others/render和commit阶段的异常处理.md","ref":"others/render和commit阶段的异常处理.md","articles":[]},"previous":{"title":"forwardRef","level":"1.6.3","depth":2,"path":"others/forwardRef.md","ref":"others/forwardRef.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/errorHandle.md","mtime":"2019-09-08T08:38:13.640Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-08T10:55:42.695Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

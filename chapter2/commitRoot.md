@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 15:42:12
- * @LastEditTime: 2019-09-05 23:04:46
+ * @LastEditTime: 2019-09-08 18:09:53
  * @LastEditors: Please set LastEditors
  -->
 ## commitRoot
@@ -596,7 +596,8 @@ function commitNestedUnmounts(root) {
 
 - 执行componentDidMount
 - 执行 componentDidUpdate
-- 执行 setState 的 callback 回调函数
+- 执行 setState 的 callback 回调函数，准确点说应该是update 的callback
+
 
 commitLifeCycles
 
@@ -753,7 +754,9 @@ function commitLifeCycles(finishedRoot, current$$1, finishedWork, committedExpir
 ```
 ###### commitUpdateQueue
 
-会找到此次更新 setState 的回调进行执行，当更新中有捕获错误的回调函数也会在这个时机执行，目的是将错误在componentDidCatch进行捕获，
+会找到此次更新 setState 的回调进行执行，当更新中有捕获错误的回调函数也会在这个时机执行，目的是将错误在componentDidCatch进行捕获. 
+
+
 ```
 function commitUpdateQueue(finishedWork, finishedQueue, instance, renderExpirationTime) {
   
@@ -771,7 +774,7 @@ function commitUpdateQueue(finishedWork, finishedQueue, instance, renderExpirati
   // Commit the effects
   commitUpdateEffects(finishedQueue.firstEffect, instance);
   finishedQueue.firstEffect = finishedQueue.lastEffect = null;
-
+  // 异常处理update队列
   commitUpdateEffects(finishedQueue.firstCapturedEffect, instance);
   finishedQueue.firstCapturedEffect = finishedQueue.lastCapturedEffect = null;
 }

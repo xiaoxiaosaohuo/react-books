@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Context · GitBook</title>
+        <title>render和commit阶段的异常处理 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="forwardRef.html" />
+    <link rel="next" href="reactLazy.html" />
     
     
-    <link rel="prev" href="../chapter3/setState.html" />
+    <link rel="prev" href="errorHandle.html" />
     
 
     </head>
@@ -634,7 +634,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.2" data-path="Context.html">
+        <li class="chapter " data-level="1.6.2" data-path="Context.html">
             
                 <a href="Context.html">
             
@@ -673,7 +673,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="render和commit阶段的异常处理.html">
+        <li class="chapter active" data-level="1.6.5" data-path="render和commit阶段的异常处理.html">
             
                 <a href="render和commit阶段的异常处理.html">
             
@@ -986,7 +986,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Context</a>
+        <a href=".." >render和commit阶段的异常处理</a>
     </h1>
 </div>
 
@@ -1001,376 +1001,423 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="context-api">Context API</h2>
-<p>React 16 &#x63D0;&#x4F9B;&#x6709;&#x56DB;&#x4E2A;context&#x76F8;&#x5173;&#x7684;API</p>
+                                <!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-05 23:10:56
+ * @LastEditTime: 2019-09-08 18:30:33
+ * @LastEditors: Please set LastEditors
+ -->
+<h2 id="render&#x548C;commit&#x9636;&#x6BB5;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;">render&#x548C;commit&#x9636;&#x6BB5;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;</h2>
+<p><strong><em> &#x8FD9;&#x91CC;&#x7684;render&#x548C;commit&#x662F;&#x503C;React Fiber&#x67B6;&#x6784;&#x7684;&#x4E24;&#x4E2A;&#x5DE5;&#x4F5C;&#x9636;&#x6BB5;&#x3002;</em></strong></p>
+<p>&#x5728;<code>ReactFiberThrow.js</code>&#x4E2D;&#x6709;&#x51E0;&#x4E2A;&#x5904;&#x7406;fiber&#x5F02;&#x5E38;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x5C06;&#x4ECB;&#x7ECD;&#x3002;</p>
+<!-- throwException 方法主要是处理render阶段(第二阶段是commit)的错误和异常。 -->
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5728;render&#x9636;&#x6BB5;&#x6709;&#x4E2A;workLoop&#x5927;&#x5FAA;&#x73AF;&#xFF0C;&#x5176;&#x7B80;&#x5316;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x3002;
+&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F53;workLoop&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x5C06;&#x5728;&#x8FD9;&#x91CC;&#x88AB;catch&#x5230;</p>
+<pre><code>do {
+    try {
+      workLoop(isYieldy);
+    } catch (thrownValue) {
+        //&#x9519;&#x8BEF;&#x6355;&#x83B7;&#x903B;&#x8F91;
+    }
+}while(true)
+</code></pre><p>&#x5728;catch&#x4E2D;&#x6709;&#x4E24;&#x70B9;&#x91CD;&#x8981;&#x7684;&#x903B;&#x8F91;</p>
+<pre><code>// &#x7B2C;&#x4E00;&#x70B9;
+if (true &amp;&amp; replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+    if (mayReplay) {
+    var failedUnitOfWork = nextUnitOfWork;
+    replayUnitOfWork(failedUnitOfWork, thrownValue, isYieldy);
+    }
+}
+
+// &#x7B2C;&#x4E8C;&#x70B9;
+var sourceFiber = nextUnitOfWork;
+var returnFiber = sourceFiber.return;
+if (returnFiber === null) {
+    didFatal = true;
+    onUncaughtError$1(thrownValue);
+} else {
+    throwException(root, returnFiber, sourceFiber, thrownValue, nextRenderExpirationTime);
+    nextUnitOfWork = completeUnitOfWork(sourceFiber);
+    continue;
+}
+</code></pre><h4 id="&#x7B2C;&#x4E00;&#x70B9;">&#x7B2C;&#x4E00;&#x70B9;</h4>
+<p>replayUnitOfWork &#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x5176;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x662F;&#x91CD;&#x65B0;&#x8FD0;&#x884C;&#x5DE5;&#x4F5C;</p>
+<p>&#x53C2;&#x6570;&#xFF1A;</p>
+<p>-failedUnitOfWork &#x8868;&#x793A;&#x5F53;&#x524D;&#x6709;&#x5F02;&#x5E38;&#x7684;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#x3001;</p>
 <ul>
-<li>createContext</li>
-<li>Provider</li>
-<li>contextType</li>
-<li>Consumer</li>
+<li>thrownValue &#x5F02;&#x5E38;&#x4FE1;&#x606F;</li>
+<li>isYieldy </li>
 </ul>
-<p>&#x4F8B;&#x5B50;</p>
-<pre><code>
-const calculateChangedBits = (currentValue, nextValue) =&gt;
-currentValue.name !== nextValue.name ? 0b10 : 0b00;
+<p>replayUnitOfWork &#x7684;&#x6838;&#x5FC3;&#x4F5C;&#x7528;&#x662F;&#x91CD;&#x65B0;&#x8FD0;&#x884C;&#x4E00;&#x904D;&#x521A;&#x624D;&#x7684;workLoop&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528; <code>performUnitOfWork(nextUnitOfWork)</code>,&#x5176;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x641C;&#x96C6;&#x8BE6;&#x7EC6;&#x7684;&#x9519;&#x8BEF;&#x5806;&#x6808;&#x4FE1;&#x606F;&#x3002;&#x8FD9;&#x4E00;&#x6B65;&#x4E5F;&#x662F;&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>invokeGuardedCallback</code> &#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<pre><code> invokeGuardedCallback(null, workLoop, null, isYieldy);
+</code></pre><h4 id="&#x7B2C;&#x4E8C;&#x70B9;">&#x7B2C;&#x4E8C;&#x70B9;</h4>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x79CD;&#x5F02;&#x5E38;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x6839;&#x8282;&#x70B9;&#x7684;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x7684;</p>
+<ul>
+<li>RootError&#xFF0C;&#x6700;&#x540E;&#x662F;&#x8C03;&#x7528; onUncaughtError &#x51FD;&#x6570;&#x5904;&#x7406;</li>
+<li>ClassError&#xFF0C;&#x6700;&#x540E;&#x662F;&#x8C03;&#x7528; throwException&#x51FD;&#x6570;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x548C;completeUnitOfWork&#x5B8C;&#x6210;&#x5269;&#x4F59;&#x5DE5;&#x4F5C;</li>
+</ul>
+<h4 id="throwexception">throwException</h4>
+<pre><code>function throwException(root, returnFiber, sourceFiber, value, renderExpirationTime) {
+  // &#x5F53;&#x524D;fiber &#x6807;&#x8BB0;&#x4E3A; Incomplete
 
-const UserContext = React.createContext(null,calculateChangedBits);
+  sourceFiber.effectTag |= Incomplete;
+ // &#x5220;&#x9664;&#x5F53;&#x524D;fiber&#x7684; effect list
+  sourceFiber.firstEffect = sourceFiber.lastEffect = null;
+    // throw value&#x662F;&#x4E00;&#x4E2A;promise &#xFF0C;&#x8FD9;&#x662F;suspend&#x7EC4;&#x4EF6;&#x7684;&#x9519;&#x8BEF;
+  if (value !== null &amp;&amp; typeof value === &apos;object&apos; &amp;&amp; typeof value.then === &apos;function&apos;) {
+    var thenable = value;
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+    // Find the earliest timeout threshold of all the placeholders in the
+    // ancestor path. We could avoid this traversal by storing the thresholds on
+    // the stack, but we choose not to because we only hit this path if we&apos;re
+    // IO-bound (i.e. if something suspends). Whereas the stack is used even in
+    // the non-IO- bound case.
+    // &#x5411;&#x4E0A;&#x904D;&#x5386;&#xFF0C;&#x5728;&#x7956;&#x5148;&#x4E2D;&#x627E;&#x5230;&#x6700;&#x65E9;&#x8FC7;&#x671F;&#x7684;
+    var _workInProgress = returnFiber;
+    var earliestTimeoutMs = -1;
+    var startTimeMs = -1;
+    do {
+      if (_workInProgress.tag === SuspenseComponent) {
+        var current$$1 = _workInProgress.alternate;
+        if (current$$1 !== null) {
+          var currentState = current$$1.memoizedState;
+          if (currentState !== null) {
+            var timedOutAt = currentState.timedOutAt;
+            startTimeMs = expirationTimeToMs(timedOutAt);
+            break;
+          }
+        }
+        var defaultSuspenseTimeout = 150;
+        if (earliestTimeoutMs === -1 || defaultSuspenseTimeout &lt; earliestTimeoutMs) {
+          earliestTimeoutMs = defaultSuspenseTimeout;
+        }
+      }
+      _workInProgress = _workInProgress.return;
+    } while (_workInProgress !== null);
 
-    this.state = {
-      name: &quot;beforeUpdate&quot;
+    // &#x8C03;&#x5EA6;&#x6700;&#x8FD1;&#x7684;Suspense&#x7EC4;&#x4EF6;&#xFF0C;&#x91CD;&#x65B0;&#x6E32;&#x67D3; timed out &#x89C6;&#x56FE;
+    _workInProgress = returnFiber;
+    do {
+      if (_workInProgress.tag === SuspenseComponent &amp;&amp; shouldCaptureSuspense(_workInProgress)) {
+        var thenables = _workInProgress.updateQueue;
+        if (thenables === null) {
+          var updateQueue = new Set();
+          updateQueue.add(thenable);
+          _workInProgress.updateQueue = updateQueue;
+        } else {
+          thenables.add(thenable);
+        }
+
+        if ((_workInProgress.mode &amp; ConcurrentMode) === NoEffect) {
+          _workInProgress.effectTag |= DidCapture;
+
+          sourceFiber.effectTag &amp;= ~(LifecycleEffectMask | Incomplete);
+
+          if (sourceFiber.tag === ClassComponent) {
+            var currentSourceFiber = sourceFiber.alternate;
+            if (currentSourceFiber === null) {
+              sourceFiber.tag = IncompleteClassComponent;
+            } else {
+              var update = createUpdate(Sync);
+              update.tag = ForceUpdate;
+              enqueueUpdate(sourceFiber, update);
+            }
+          }
+
+          sourceFiber.expirationTime = Sync;
+
+          return;
+        }
+
+
+        attachPingListener(root, renderExpirationTime, thenable);
+
+        var absoluteTimeoutMs = void 0;
+        if (earliestTimeoutMs === -1) {
+          absoluteTimeoutMs = maxSigned31BitInt;
+        } else {
+          if (startTimeMs === -1) {
+            startTimeMs = inferStartTimeFromExpirationTime$$1(root, renderExpirationTime);
+          }
+          absoluteTimeoutMs = startTimeMs + earliestTimeoutMs;
+        }
+
+        renderDidSuspend$$1(root, absoluteTimeoutMs, renderExpirationTime);
+
+        _workInProgress.effectTag |= ShouldCapture;
+        _workInProgress.expirationTime = renderExpirationTime;
+        return;
+      } else if (enableSuspenseServerRenderer &amp;&amp; _workInProgress.tag === DehydratedSuspenseComponent) {
+        attachPingListener(root, renderExpirationTime, thenable);
+
+        var retryCache = _workInProgress.memoizedState;
+        if (retryCache === null) {
+          retryCache = _workInProgress.memoizedState = new PossiblyWeakSet$1();
+          var _current = _workInProgress.alternate;
+          (function () {
+            if (!_current) {
+              {
+                throw ReactError(&apos;A dehydrated suspense boundary must commit before trying to render. This is probably a bug in React.&apos;);
+              }
+            }
+          })();
+          _current.memoizedState = retryCache;
+        }
+        if (!retryCache.has(thenable)) {
+          retryCache.add(thenable);
+          var retry = resolveRetryThenable$$1.bind(null, _workInProgress, thenable);
+          if (enableSchedulerTracing) {
+            retry = unstable_wrap(retry);
+          }
+          thenable.then(retry, retry);
+        }
+        _workInProgress.effectTag |= ShouldCapture;
+        _workInProgress.expirationTime = renderExpirationTime;
+        return;
+      }
+      _workInProgress = _workInProgress.return;
+    } while (_workInProgress !== null);
+    value = new Error((getComponentName(sourceFiber.type) || &apos;A React component&apos;) + &apos; suspended while rendering, but no fallback UI was specified.\n&apos; + &apos;\n&apos; + &apos;Add a &lt;Suspense fallback=...&gt; component higher in the tree to &apos; + &apos;provide a loading indicator or placeholder to display.&apos; + getStackByFiberInDevAndProd(sourceFiber));
+  }
+
+  renderDidError$$1();
+  value = createCapturedValue(value, sourceFiber);
+  var workInProgress = returnFiber;
+  do {
+    switch (workInProgress.tag) {
+      case HostRoot:
+        {
+          var _errorInfo = value;
+          workInProgress.effectTag |= ShouldCapture;
+          workInProgress.expirationTime = renderExpirationTime;
+          var _update = createRootErrorUpdate(workInProgress, _errorInfo, renderExpirationTime);
+          enqueueCapturedUpdate(workInProgress, _update);
+          return;
+        }
+      case ClassComponent:
+        // Capture and retry
+        var errorInfo = value;
+        var ctor = workInProgress.type;
+        var instance = workInProgress.stateNode;
+        if ((workInProgress.effectTag &amp; DidCapture) === NoEffect &amp;&amp; (typeof ctor.getDerivedStateFromError === &apos;function&apos; || instance !== null &amp;&amp; typeof instance.componentDidCatch === &apos;function&apos; &amp;&amp; !isAlreadyFailedLegacyErrorBoundary$$1(instance))) {
+          workInProgress.effectTag |= ShouldCapture;
+          workInProgress.expirationTime = renderExpirationTime;
+          // Schedule the error boundary to re-render using updated state
+          var _update2 = createClassErrorUpdate(workInProgress, errorInfo, renderExpirationTime);
+          enqueueCapturedUpdate(workInProgress, _update2);
+          return;
+        }
+        break;
+      default:
+        break;
+    }
+    workInProgress = workInProgress.return;
+  } while (workInProgress !== null);
+}
+</code></pre><p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x91CD;&#x70B9;&#x662F;&#x540E;&#x534A;&#x90E8;&#x5206;&#xFF0C;&#x4F1A;&#x904D;&#x5386;&#x5F53;&#x524D;&#x5F02;&#x5E38;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;&#x7236;&#x8282;&#x70B9;&#xFF0C;&#x5224;&#x65AD;&#x5404;&#x8282;&#x70B9;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;HostRoot || ClassComponent &#x8FD9;&#x4E24;&#x79CD;&#x7C7B;&#x578B;</p>
+<blockquote>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F; &#x5F02;&#x5E38;&#x8FB9;&#x754C;&#x7EC4;&#x4EF6;&#x81EA;&#x8EAB;&#x7684;&#x5F02;&#x5E38;&#x4E0D;&#x4F1A;&#x6355;&#x83B7;&#x5E76;&#x5904;&#x7406;,&#x6240;&#x4EE5;&#x8981;&#x5411;&#x4E0A;&#x904D;&#x5386;</p>
+</blockquote>
+<ul>
+<li>HostRoot ,&#x76F4;&#x63A5;&#x8C03;&#x7528;<code>createRootErrorUpdate</code>&#x521B;&#x5EFA;update&#xFF0C;&#x5E76;&#x5C06;&#x6B64;update&#x653E;&#x5165;&#x6B64;&#x8282;&#x70B9;&#x7684;&#x5F02;&#x5E38;&#x66F4;&#x65B0;&#x961F;&#x5217;&#x4E2D;</li>
+<li>ClassComponent,&#x4F1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x5F02;&#x5E38;&#x8FB9;&#x754C;&#x7EC4;&#x4EF6;&#xFF0C;&#x5373;&#x662F;&#x5426;&#x5B58;&#x5728;componentDidCatch&#xFF0C;&#x6216;&#x8005;getDerivedStateFromError &#x65B9;&#x6CD5;&#x3002;&#x82E5;&#x5F53;&#x524D;classCompoennt&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x8FB9;&#x754C;&#x7EC4;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x8C03;&#x7528;<code>createClassErrorUpdate</code> &#x521B;&#x5EFA;update,&#x5C06;update&#x653E;&#x5165;&#x5F02;&#x5E38;&#x66F4;&#x65B0;&#x961F;&#x5217;&#x4E2D;</li>
+</ul>
+<h4 id="createrooterrorupdate&#xFF0C;createclasserrorupdate">createRootErrorUpdate&#xFF0C;createClassErrorUpdate</h4>
+<pre><code>function createRootErrorUpdate(fiber, errorInfo, expirationTime) {
+  var update = createUpdate(expirationTime);
+  // &#x901A;&#x8FC7;&#x8FD4;&#x56DE;null&#x5378;&#x8F7D;root
+  update.tag = CaptureUpdate;
+  update.payload = { element: null };
+  var error = errorInfo.value;
+  // callback &#x5C06;&#x5728;commitUpdateQueue&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;
+  update.callback = function () {
+    onUncaughtError$$1(error);
+    logError(fiber, errorInfo);
+  };
+  return update;
+}
+
+function createClassErrorUpdate(fiber, errorInfo, expirationTime) {
+  var update = createUpdate(expirationTime);
+  // &#x6807;&#x8BB0;update&#x7684;tag
+  update.tag = CaptureUpdate;
+  // &#x8C03;&#x7528;getDerivedStateFromError
+  var getDerivedStateFromError = fiber.type.getDerivedStateFromError;
+  if (typeof getDerivedStateFromError === &apos;function&apos;) {
+    var error = errorInfo.value;
+    update.payload = function () {
+        // getDerivedStateFromError &#x7528;&#x4E8E;&#x6E32;&#x67D3;&#x9519;&#x8BEF;&#x7684;UI&#x89C6;&#x56FE;
+      return getDerivedStateFromError(error);
     };
   }
-  setName = () =&gt; {
-    this.setState(state =&gt; ({
-      name: state.name === &quot;beforeUpdate&quot; ? &quot;afterUpdate&quot; : &quot;beforeUpdate&quot;
-    }));
-  };
-  render() {
-    return (
-        &lt;UserContext.Provider value={{ name: this.state.name ,setName:this.setName}}&gt;
-         &lt;Indirection&gt;
-          &lt;User /&gt;
-        &lt;/Indirection&gt;
-        &lt;/UserContext.Provider&gt;
-    );
-  }
-}
 
-function User() {
-  return (
-    &lt;UserContext.Consumer unstable_observedBits={0b10}&gt;
-      {({name,setName}) =&gt; (
-        &lt;button
-        onClick={setName}
-          &gt;
-          {name}
-        &lt;/button&gt;
-      )}
-    &lt;/UserContext.Consumer&gt;
-  );
-}
-class Indirection extends React.Component {
-  shouldComponentUpdate() {
-    return false;
-  }
-  render() {
-    return this.props.children;
-  }
-}
-
-
-export default App;
-</code></pre><h4 id="reactcreatecontext">React.createContext()</h4>
-<p>&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x503C;/&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; ReactContext,&#x4F1A;&#x751F;&#x6210; Provider &#x4E0E; Consumer&#xFF0C;&#x5B83;&#x4EEC;&#x662F; fiber &#x4E2D;&#x5177;&#x6709;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#xFF08;$$typeof&#xFF09;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x540C;&#x65F6;&#x662F;&#x5185;&#x5B58;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x8FD9;&#x5BF9;&#x540E;&#x7EED; Consumer &#x63A5;&#x6536; Provider &#x7684;&#x503C;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9E;&#x73B0;&#x8DE8;&#x5C42;&#x7EA7;&#x66F4;&#x65B0;&#x90FD;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x3002;</p>
-<pre><code>// &#x521B;&#x5EFA; React context &#x8D4B;&#x9ED8;&#x8BA4;&#x503C;
-const {Consumer,Provider} = React.createContext({
-  theme: themes.dark,
-  toggleTheme: () =&gt; {},
-});
-</code></pre><pre><code>export function createContext&lt;T&gt;(
-  defaultValue: T,
-  calculateChangedBits: ?(a: T, b: T) =&gt; number,
-): ReactContext&lt;T&gt; {
-  if (calculateChangedBits === undefined) {
-    calculateChangedBits = null;
-  }
-
-  const context: ReactContext&lt;T&gt; = {
-    $$typeof: REACT_CONTEXT_TYPE,
-    //&#x7528;&#x4E8E;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;&#x66F4;&#x65B0;&#x63A7;&#x5236;
-    _calculateChangedBits: calculateChangedBits,
-     //&#x8FD9;&#x91CC;&#x4E24;&#x4E2A;currentValue&#x662F;&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x591A;&#x4E2A;renderer&#x7684;
-    _currentValue: defaultValue,
-    _currentValue2: defaultValue,
-    _threadCount: 0,
-    // &#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x5F15;&#x7528;
-    Provider: (null: any),
-    Consumer: (null: any),
-  };
-
-  context.Provider = {
-    $$typeof: REACT_PROVIDER_TYPE,
-    _context: context,
-  };
-
-  let hasWarnedAboutUsingNestedContextConsumers = false;
-  let hasWarnedAboutUsingConsumerProvider = false;
-  context.Consumer = context;
-
-  return context;
-}
-</code></pre><p>Consumer&#x548C;Provider&#x5B58;&#x5728;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x68C0;&#x6D4B;&#x8FD9;&#x4E8C;&#x8005;&#x662F;&#x5426;&#x5339;&#x914D;</p>
-<h3 id="reactcontextprovider">ReactContext.Provider</h3>
-<p>Provider&#x662F;context&#x7684;&#x63D0;&#x4F9B;&#x8005;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED9;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x4F20;&#x4E00;&#x4E2A;value&#x503C;&#x6765;&#x8986;&#x76D6;createContext&#x4F20;&#x5165;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5F53;value&#x503C;&#x53D8;&#x5316;&#x65F6;&#x5C31;&#x4F1A;&#x901A;&#x77E5;&#x5230;&#x5B50;&#x7EA7;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x3002;</p>
-<p>&#x5F53; provider &#x7684; value &#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x4F1A;&#x628A;&#x5F53;&#x524D; provider &#x7684; value &#x8D4B;&#x503C;&#x7ED9; ReactContext._currentValue&#xFF0C;&#x540E;&#x9762;&#x6211;&#x4EEC;&#x7684; consum &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;_currentValue&#x53BB;&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x7684;&#x503C;</p>
-<p>Provider &#x6240;&#x5BF9;&#x5E94;&#x7684; fiber &#x8282;&#x70B9;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;updateContextProvider&#x65B9;&#x6CD5;</p>
-<pre><code>
-function updateContextProvider(
-  current: Fiber | null,
-  workInProgress: Fiber,
-  renderExpirationTime: ExpirationTime,
-) {
-  const providerType: ReactProviderType&lt;any&gt; = workInProgress.type;
-  const context: ReactContext&lt;any&gt; = providerType._context;
-
-  const newProps = workInProgress.pendingProps;
-  const oldProps = workInProgress.memoizedProps;
-
-  const newValue = newProps.value;
-
-    //&#x5C06;&#x65B0;&#x7684;value&#x8D4B;&#x503C;currentValue
-  pushProvider(workInProgress, newValue);
-
-  if (oldProps !== null) {
-    const oldValue = oldProps.value;
-    //&#x8FD0;&#x884C;&#x4F20;&#x5165;&#x7684;calculateChangedBits&#x65B9;&#x6CD5;&#xFF0C;&#x5224;&#x65AD;&#x6709;&#x65E0;&#x6539;&#x53D8;
-    const changedBits = calculateChangedBits(context, newValue, oldValue);
-    if (changedBits === 0) {
-      // No change. Bailout early if children are the same.
-      if (
-        oldProps.children === newProps.children &amp;&amp;
-        !hasLegacyContextChanged()
-      ) {
-        return bailoutOnAlreadyFinishedWork(
-          current,
-          workInProgress,
-          renderExpirationTime,
-        );
+  var inst = fiber.stateNode;
+  if (inst !== null &amp;&amp; typeof inst.componentDidCatch === &apos;function&apos;) {
+    update.callback = function callback() {
+      if (typeof getDerivedStateFromError !== &apos;function&apos;) {
+        markLegacyErrorBoundaryAsFailed$$1(this);
       }
-    } else {
-        //context &#x7684; value&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#x5C31;&#x641C;&#x7D22;&#x5339;&#x914D;&#x7684;consumer&#xFF0C;&#x627E;&#x5230;&#x540E;&#x5B89;&#x6392;&#x8C03;&#x5EA6;&#x66F4;&#x65B0;
-        //&#x4FEE;&#x6539;&#x5176;expirationTime&#xFF0C;&#x5E76;&#x5411;&#x4E0A;&#x904D;&#x5386;&#xFF0C;&#x4FEE;&#x6539;&#x7956;&#x5148;&#x7684;childExpirationTime
-      propagateContextChange(
-        workInProgress,
-        context,
-        changedBits,
-        renderExpirationTime,
-      );
-    }
-  }
-
-  const newChildren = newProps.children;
-  reconcileChildren(current, workInProgress, newChildren, renderExpirationTime);
-  return workInProgress.child;
-}
-
-export function pushProvider&lt;T&gt;(providerFiber: Fiber, nextValue: T): void {
-  const context: ReactContext&lt;T&gt; = providerFiber.type._context;
-
-  if (isPrimaryRenderer) {
-    push(valueCursor, context._currentValue, providerFiber);
-
-    context._currentValue = nextValue;
-
-  } else {
-    push(valueCursor, context._currentValue2, providerFiber);
-    context._currentValue2 = nextValue;
-  }
-}
-</code></pre><p>propagateContextChange&#x51FD;&#x6570;&#x5F88;&#x91CD;&#x8981;</p>
-<p>&#x5047;&#x5982;Provider &#x4E0E; Consumer &#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4F7F;&#x7528;&#x4E86;shouldComponentUpdate&#x4E14;&#x8FD4;&#x56DE;false,propagateContextChange &#x51FD;&#x6570;&#x80FD;&#x4FDD;&#x8BC1;Consumer&#x80FD;&#x63A5;&#x6536;&#x5230;&#x66F4;&#x65B0;&#x540E;&#x7684;value&#x3002;</p>
-<p>&#x5728;propagateContextChange&#x4E2D;&#xFF0C;&#x4EE5;&#x5F53;&#x524D;fiber&#x4E3A;&#x51FA;&#x53D1;&#x70B9;&#x5728;&#x5B50;&#x6811;&#x4E2D;&#x904D;&#x5386;&#x5BFB;&#x627E;&#x5339;&#x914D;&#x7684;Consumer&#x8282;&#x70B9;&#xFF0C;
-&#x4E00;&#x65E6;&#x627E;&#x5230;&#x540E;&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x56DE;&#x6EAF;&#xFF0C;&#x4FEE;&#x6539;&#x7956;&#x5148;&#x8282;&#x70B9;&#x7684;childExpirationTime&#xFF0C;&#x4FDD;&#x8BC1;&#x76F8;&#x5173;&#x7684;&#x5B50;&#x6811;&#x80FD;&#x91CD;&#x65B0;render&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;shouldComponentUpdate&#x800C;&#x5931;&#x6548;&#x3002;</p>
-<pre><code>export function propagateContextChange(
-  workInProgress: Fiber,
-  context: ReactContext&lt;mixed&gt;,
-  changedBits: number,
-  renderExpirationTime: ExpirationTime,
-): void {
-  let fiber = workInProgress.child;
-  if (fiber !== null) {
-    // Set the return pointer of the child to the work-in-progress fiber.
-    fiber.return = workInProgress;
-  }
-  while (fiber !== null) {
-    let nextFiber;
-
-    // Visit this fiber.
-    //&#x5728;readContext&#x65B9;&#x6CD5;&#x4E2D;&#x4F1A;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;fiber&#x7684;dependencies&#x5C5E;&#x6027;
-    const list = fiber.dependencies;
-    if (list !== null) {
-      nextFiber = fiber.child;
-
-      let dependency = list.firstContext;
-      while (dependency !== null) {
-        // Check if the context matches.
-        //context&#x6709;&#x53D8;&#x5316;&#x5C31;&#x8C03;&#x5EA6;&#x66F4;&#x65B0;
-        if (
-          dependency.context === context &amp;&amp;
-          (dependency.observedBits &amp; changedBits) !== 0
-        ) {
-          // Match! Schedule an update on this fiber.
-
-          if (fiber.tag === ClassComponent) {
-            // Schedule a force update on the work-in-progress.
-            const update = createUpdate(renderExpirationTime, null);
-            update.tag = ForceUpdate;
-
-            enqueueUpdate(fiber, update);
-          }
-
-          if (fiber.expirationTime &lt; renderExpirationTime) {
-            fiber.expirationTime = renderExpirationTime;
-          }
-          let alternate = fiber.alternate;
-          if (
-            alternate !== null &amp;&amp;
-            alternate.expirationTime &lt; renderExpirationTime
-          ) {
-            alternate.expirationTime = renderExpirationTime;
-          }
-
-          scheduleWorkOnParentPath(fiber.return, renderExpirationTime);
-
-          // Mark the expiration time on the list, too.
-          if (list.expirationTime &lt; renderExpirationTime) {
-            list.expirationTime = renderExpirationTime;
-          }
-
-          // Since we already found a match, we can stop traversing the
-          // dependency list.
-          break;
-        }
-        dependency = dependency.next;
-      }
-    } else if (fiber.tag === ContextProvider) {
-      // Don&apos;t scan deeper if this is a matching provider
-      nextFiber = fiber.type === workInProgress.type ? null : fiber.child;
-    } else if (
-      enableSuspenseServerRenderer &amp;&amp;
-      fiber.tag === DehydratedSuspenseComponent
-    ) {
-      // If a dehydrated suspense component is in this subtree, we don&apos;t know
-      // if it will have any context consumers in it. The best we can do is
-      // mark it as having updates on its children.
-      if (fiber.expirationTime &lt; renderExpirationTime) {
-        fiber.expirationTime = renderExpirationTime;
-      }
-      let alternate = fiber.alternate;
-      if (
-        alternate !== null &amp;&amp;
-        alternate.expirationTime &lt; renderExpirationTime
-      ) {
-        alternate.expirationTime = renderExpirationTime;
-      }
-      // This is intentionally passing this fiber as the parent
-      // because we want to schedule this fiber as having work
-      // on its children. We&apos;ll use the childExpirationTime on
-      // this fiber to indicate that a context has changed.
-      scheduleWorkOnParentPath(fiber, renderExpirationTime);
-      nextFiber = fiber.sibling;
-    } else {
-      // Traverse down.
-      nextFiber = fiber.child;
-    }
-
-    if (nextFiber !== null) {
-      // Set the return pointer of the child to the work-in-progress fiber.
-      nextFiber.return = fiber;
-    } else {
-      // No child. Traverse to next sibling.
-      nextFiber = fiber;
-      while (nextFiber !== null) {
-        if (nextFiber === workInProgress) {
-          // We&apos;re back to the root of this subtree. Exit.
-          nextFiber = null;
-          break;
-        }
-        let sibling = nextFiber.sibling;
-        if (sibling !== null) {
-          // Set the return pointer of the sibling to the work-in-progress fiber.
-          sibling.return = nextFiber.return;
-          nextFiber = sibling;
-          break;
-        }
-        // No more siblings. Traverse up.
-        nextFiber = nextFiber.return;
-      }
-    }
-    fiber = nextFiber;
-  }
-}
-</code></pre><h3 id="reactcontextconsumer">ReactContext.Consumer</h3>
-<p>ReactContext.Consumer&#x5728;&#x6536;&#x5230;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x53BB;&#x8BFB;&#x53D6;context&#x7684;currentValue &#x4F5C;&#x4E3A;&#x6700;&#x65B0;&#x7684; contextValue&#xFF0C;&#x4F20;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x540C;&#x65F6;Consumer&#x9700;&#x8981;&#x5EFA;&#x7ACB;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4FEE;&#x6539;fiber&#x7684;dependencies&#x5C5E;&#x6027;</p>
-<pre><code>function updateContextConsumer(
-  current: Fiber | null,
-  workInProgress: Fiber,
-  renderExpirationTime: ExpirationTime,
-) {
-  let context: ReactContext&lt;any&gt; = workInProgress.type;
-
-  const newProps = workInProgress.pendingProps;
-  const render = newProps.children;
-
-
-  prepareToReadContext(workInProgress, renderExpirationTime);
-  //&#x8BFB;&#x53D6;&#x65B0;&#x7684;value
-  const newValue = readContext(context, newProps.unstable_observedBits);
-  let newChildren;
-//&#x5C06;&#x65B0;&#x7684;value&#x4F20;&#x7ED9;children
-  newChildren = render(newValue);
-
-  reconcileChildren(current, workInProgress, newChildren, renderExpirationTime);
-  return workInProgress.child;
-}
-
-
-export function readContext&lt;T&gt;(
-  context: ReactContext&lt;T&gt;,
-  observedBits: void | number | boolean,
-): T {
-
-  if (lastContextWithAllBitsObserved === context) {
-    // Nothing to do. We already observe everything in this context.
-  } else if (observedBits === false || observedBits === 0) {
-    // Do not observe any updates.
-  } else {
-    let resolvedObservedBits; // Avoid deopting on observable arguments or heterogeneous types.
-    if (
-      typeof observedBits !== &apos;number&apos; ||
-      observedBits === MAX_SIGNED_31_BIT_INT
-    ) {
-      // Observe all updates.
-      lastContextWithAllBitsObserved = ((context: any): ReactContext&lt;mixed&gt;);
-      resolvedObservedBits = MAX_SIGNED_31_BIT_INT;
-    } else {
-      resolvedObservedBits = observedBits;
-    }
-
-    let contextItem = {
-      context: ((context: any): ReactContext&lt;mixed&gt;),
-      observedBits: resolvedObservedBits,
-      next: null,
+      var error = errorInfo.value;
+      var stack = errorInfo.stack;
+      logError(fiber, errorInfo);
+      this.componentDidCatch(error, {
+        componentStack: stack !== null ? stack : &apos;&apos;
+      });
     };
+  }
+  return update;
+}
 
-    if (lastContextDependency === null) {
+//  &#x8BBE;&#x7F6E;hasUnhandledError &#x53D8;&#x91CF; &#x548C;unhandledError&#x53D8;&#x91CF;&#xFF0C;&#x6253;&#x5370;&#x9519;&#x8BEF;&#x3002;
+function onUncaughtError$1(error) {
+  (function () {
+    if (!(nextFlushedRoot !== null)) {
+      {
+        throw ReactError(&apos;Should be working on a root. This error is likely caused by a bug in React. Please file an issue.&apos;);
+      }
+    }
+  })();
+  nextFlushedRoot.expirationTime = NoWork;
+  if (!hasUnhandledError) {
+    hasUnhandledError = true;
+    unhandledError = error;
+  }
+}
+</code></pre><h4 id="unwindwork">unwindWork</h4>
+<p>&#x5728;completeUnitOfWork&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x662F;<code>Incomplete</code> &#x5C31;&#x4F1A;&#x8C03;&#x7528; <code>unwindWork</code> &#x65B9;&#x6CD5;&#x5C06;&#x5F53;&#x524D;fiber&#x5F39;&#x51FA;fiber stack</p>
+<p>&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x90FD;&#x662F;null</p>
+<pre><code>function unwindWork(workInProgress, renderExpirationTime) {
+  switch (workInProgress.tag) {
+    case ClassComponent:
+      {
+        var Component = workInProgress.type;
+        if (isContextProvider(Component)) {
+          popContext(workInProgress);
+        }
+        var effectTag = workInProgress.effectTag;
+        if (effectTag &amp; ShouldCapture) {
+          workInProgress.effectTag = effectTag &amp; ~ShouldCapture | DidCapture;
+          return workInProgress;
+        }
+        return null;
+      }
+    case HostRoot:
+      {
+        popHostContainer(workInProgress);
+        popTopLevelContextObject(workInProgress);
+        var _effectTag = workInProgress.effectTag;
+        (function () {
+          if (!((_effectTag &amp; DidCapture) === NoEffect)) {
+            {
+              throw ReactError(&apos;The root failed to unmount after an error. This is likely a bug in React. Please file an issue.&apos;);
+            }
+          }
+        })();
+        workInProgress.effectTag = _effectTag &amp; ~ShouldCapture | DidCapture;
+        return workInProgress;
+      }
+    case HostComponent:
+      {
+        // TODO: popHydrationState
+        popHostContext(workInProgress);
+        return null;
+      }
+    case SuspenseComponent:
+      {
+        var _effectTag2 = workInProgress.effectTag;
+        if (_effectTag2 &amp; ShouldCapture) {
+          workInProgress.effectTag = _effectTag2 &amp; ~ShouldCapture | DidCapture;
+          // Captured a suspense effect. Re-render the boundary.
+          return workInProgress;
+        }
+        return null;
+      }
+    case DehydratedSuspenseComponent:
+      {
+        if (enableSuspenseServerRenderer) {
+          // TODO: popHydrationState
+          var _effectTag3 = workInProgress.effectTag;
+          if (_effectTag3 &amp; ShouldCapture) {
+            workInProgress.effectTag = _effectTag3 &amp; ~ShouldCapture | DidCapture;
+            // Captured a suspense effect. Re-render the boundary.
+            return workInProgress;
+          }
+        }
+        return null;
+      }
+    case HostPortal:
+      popHostContainer(workInProgress);
+      return null;
+    case ContextProvider:
+      popProvider(workInProgress);
+      return null;
+    case EventComponent:
+    case EventTarget:
+      if (enableEventAPI) {
+        popHostContext(workInProgress);
+      }
+      return null;
+    default:
+      return null;
+  }
+}
+</code></pre><h4 id="commit-&#x9636;&#x6BB5;&#x7684;&#x9519;&#x8BEF;">commit &#x9636;&#x6BB5;&#x7684;&#x9519;&#x8BEF;</h4>
+<p>commit&#x9636;&#x6BB5;&#x7684;&#x9519;&#x8BEF;&#x4E3B;&#x8981;&#x662F;&#x96C6;&#x4E2D;&#x5728;&#x4E09;&#x4E2A;&#x5927;&#x5FAA;&#x73AF;&#x5F53;&#x4E2D;&#xFF0C;&#x4E5F;&#x662F;&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>invokeGuardedCallback</code> &#x6765;&#x6355;&#x83B7;&#x7684;&#x3002;</p>
+<h4 id="finishrendering">finishRendering</h4>
+<p>&#x5728;performWork&#x7684;&#x6700;&#x540E;&#x9636;&#x6BB5;&#x4F1A;&#x8C03;&#x7528; </p>
+<pre><code>
+function performWork(minExpirationTime) {
+  findHighestPriorityRoot();
 
-      // This is the first dependency for this component. Create a new list.
-      lastContextDependency = contextItem;
-      currentlyRenderingFiber.dependencies = {
-        expirationTime: NoWork,
-        firstContext: contextItem,
-        listeners: null,
-        responders: null,
-      };
-    } else {
-      // Append a new context item.
-      lastContextDependency = lastContextDependency.next = contextItem;
+  while (nextFlushedRoot !== null &amp;&amp; nextFlushedExpirationTime !== NoWork &amp;&amp; minExpirationTime &lt;= nextFlushedExpirationTime) {
+    performWorkOnRoot(nextFlushedRoot, nextFlushedExpirationTime, false);
+    findHighestPriorityRoot();
+  }
+
+  if (nextFlushedExpirationTime !== NoWork) {
+    scheduleCallbackWithExpirationTime(nextFlushedRoot, nextFlushedExpirationTime);
+  }
+
+  // &#x6E05;&#x7406;&#x5DE5;&#x4F5C;
+  finishRendering();
+}
+
+
+function finishRendering() {
+  nestedUpdateCount = 0;
+  lastCommittedRootDuringThisBatch = null;
+
+  {
+    if (rootWithPendingPassiveEffects === null) {
+      nestedPassiveEffectCountDEV = 0;
     }
   }
-  return isPrimaryRenderer ? context._currentValue : context._currentValue2;
-}
-</code></pre><h3 id="changedbitsobservedbits-&#x7C92;&#x5EA6;&#x63A7;&#x5236;">changedBits/observedBits &#x7C92;&#x5EA6;&#x63A7;&#x5236;</h3>
-<p>Context &#x5DF2;&#x7ECF;&#x5185;&#x7F6E;&#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x624B;&#x52A8;&#x63A7;&#x5236;&#x66F4;&#x65B0;&#x7C92;&#x5EA6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;React.createContext &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F; defaultValue&#xFF0C;&#x5B83;&#x8FD8;&#x62E5;&#x6709;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570; calculateChangedBits&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53D7; newValue &#x4E0E; oldValue &#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4F5C;&#x4E3A; changedBits&#xFF0C;&#x5728; Provider &#x4E2D;&#xFF0C;&#x5F53; changedBits = 0&#xFF0C;&#x5C06;&#x4E0D;&#x518D;&#x89E6;&#x53D1;&#x66F4;&#x65B0;&#x3002;&#x800C;&#x5728; Consumer &#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4E0D;&#x7A33;&#x5B9A;&#x7684; props&#xFF0C;unstable_observedBits&#xFF0C;&#x82E5; Provider &#x7684;changedBits &amp; observedBits = 0&#xFF0C;&#x4E5F;&#x5C06;&#x4E0D;&#x89E6;&#x53D1;&#x66F4;&#x65B0;&#x3002;</p>
-<ul>
-<li>changedBits &#x662F;&#x521B;&#x5EFA;context&#x7684;&#x65F6;&#x5019;&#x4F20;&#x5165;&#x7684;calculateChangedBits&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;</li>
-<li>observedBits&#x662F;consumer &#x7684;&#x5C5E;&#x6027;unstable_observedBits&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x9700;&#x8981;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x5B57;</li>
-</ul>
 
+  if (completedBatches !== null) {
+    var batches = completedBatches;
+    completedBatches = null;
+    for (var i = 0; i &lt; batches.length; i++) {
+      var batch = batches[i];
+      try {
+        batch._onComplete();
+      } catch (error) {
+        if (!hasUnhandledError) {
+          hasUnhandledError = true;
+          unhandledError = error;
+        }
+      }
+    }
+  }
+    // &#x6709;&#x9519;&#x8BEF;&#x5C31;throw,&#x91CD;&#x7F6E;&#x9519;&#x8BEF;&#x53D8;&#x91CF;
+  if (hasUnhandledError) {
+    var error = unhandledError;
+    unhandledError = null;
+    hasUnhandledError = false;
+    throw error;
+  }
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -1397,12 +1444,12 @@ export function readContext&lt;T&gt;(
 
             
                 
-                <a href="../chapter3/setState.html" class="navigation navigation-prev " aria-label="Previous page: setState">
+                <a href="errorHandle.html" class="navigation navigation-prev " aria-label="Previous page: React错误处理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="forwardRef.html" class="navigation navigation-next " aria-label="Next page: forwardRef">
+                <a href="reactLazy.html" class="navigation navigation-next " aria-label="Next page: ReactLazy">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1413,7 +1460,7 @@ export function readContext&lt;T&gt;(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Context","level":"1.6.2","depth":2,"next":{"title":"forwardRef","level":"1.6.3","depth":2,"path":"others/forwardRef.md","ref":"others/forwardRef.md","articles":[]},"previous":{"title":"setState","level":"1.6.1","depth":2,"path":"chapter3/setState.md","ref":"chapter3/setState.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/Context.md","mtime":"2019-07-27T16:28:22.471Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-08T10:55:42.695Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"render和commit阶段的异常处理","level":"1.6.5","depth":2,"next":{"title":"ReactLazy","level":"1.6.6","depth":2,"path":"others/reactLazy.md","ref":"others/reactLazy.md","articles":[]},"previous":{"title":"React错误处理","level":"1.6.4","depth":2,"path":"others/errorHandle.md","ref":"others/errorHandle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"others/render和commit阶段的异常处理.md","mtime":"2019-09-08T10:30:33.769Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-08T10:55:42.695Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
